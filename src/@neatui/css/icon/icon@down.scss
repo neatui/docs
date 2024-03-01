@@ -1,0 +1,9 @@
+// 下载
+%icon-down {
+  background:
+    linear-gradient(45deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 23.5% 65% / 35% 50%,
+    linear-gradient(-45deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 76.5% 65% / 35% 50%;
+}
+[ui-icon~='down'] {
+  @extend %icon-down;
+}

@@ -1,0 +1,334 @@
+// 交互
+.ux-none {
+  &,
+  * {
+    cursor: pointer;
+  }
+}
+
+.ux-disable {
+  cursor: not-allowed;
+}
+
+// 移入效果
+.ux-hover {
+  &,
+  * {
+    cursor: pointer;
+  }
+  &:hover {
+    @include theme {
+      box-shadow: inset 0 0 0 100em co(weak);
+    }
+  }
+}
+
+// 移入阴影
+.ux-shadow:hover {
+  @include theme {
+    box-shadow: 0 0.1em 0.5em co(deep);
+  }
+}
+
+// 点击效果
+.ux-click,
+.hover-underline,
+[ui-hover~=':underline'] {
+  &,
+  * {
+    cursor: pointer;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// 点击缩小
+.ux-scale {
+  transition: all 0.1s;
+  transform: scale(1);
+  &,
+  * {
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// 移入显示
+.parent-hover\:show {
+  opacity: 0;
+  pointer-events: none;
+}
+*:hover > .parent-hover\:show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// 链接图标
+[ui-link],
+.ux-link {
+  transition: color 0.35s;
+  cursor: pointer;
+  &::before {
+    position: relative;
+    top: -0.1em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    opacity: 0.3;
+    transition:
+      opacity 0.35s,
+      transform 0.35s;
+    color: currentColor;
+    vertical-align: middle;
+    background:
+      linear-gradient(-45deg, transparent 38%, currentColor 40%, currentColor 60%, transparent 62%) no-repeat 50% 50% / 30% 30%,
+      linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 19% 51% / 20% 20%,
+      linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 48% 81% / 20% 20%,
+      linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 51% 19% / 20% 20%,
+      linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 81% 48% / 20% 20%,
+      radial-gradient(circle at 75% 25%, transparent 37%, currentColor 39%, currentColor 60%, transparent 62%) no-repeat 15% 85% / 35% 35%,
+      radial-gradient(circle at 25% 75%, transparent 37%, currentColor 39%, currentColor 60%, transparent 62%) no-repeat 85% 15% / 35% 35%;
+  }
+
+  &:hover {
+    transition: color 0.35s;
+    @include theme {
+      color: co(link);
+    }
+  }
+}
+
+@font-face {
+  font-family: 'ui-base-icon';
+  src: url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAASkAAsAAAAAB0AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADsAAABUIIslek9TLzIAAAFEAAAARAAAAGA9M0nuY21hcAAAAYgAAABLAAABcOhGuQRnbHlmAAAB1AAAANwAAADwUnOKr2hlYWQAAAKwAAAALQAAADYhh3QoaGhlYQAAAuAAAAAcAAAAJAfeA4NobXR4AAAC/AAAAAgAAAAICAAAAGxvY2EAAAMEAAAABgAAAAYAeAAAbWF4cAAAAwwAAAAgAAAAIAERAGFuYW1lAAADLAAAAVcAAAKvNpuk+XBvc3QAAASEAAAAIAAAADHSt5V4eJxjYGRgYOBiMGCwY2BycfMJYeDLSSzJY5BiYGGAAJA8MpsxJzM9kYEDxgPKsYBpDiBmg4gCACY7BUgAeJxjYGFhYJzAwMrAwNTJdIaBgaEfQjO+ZjBi5ACKMrAyM2AFAWmuKQwHnss9l2Nu+N/AwMB8hwFIMjCiKGICAGmHDJ54nGNgYGBlYGBgBmIdIGZhYGAMYWBkAAE/oCgjWJyZgQsszsKgBFbDAhJ/Lvf/P4wE8lnAJAMjG8Mo4AGTMlAeOKwgmIERAHS8CeUAeJxjYGUAAuZcprcM/AziDFYMHgwhDAyqikpqpoImZsaKRmKigiJsjOyC4ormguqMykp6jEAJO0aQjCyjCJuykpoto7oiUN4YImAOpEXYtBmV1EzMrBlNERxjZpl/tUr6+kqMzYoGBv9iOFkYOzg5/75VEVUVF1UTY2xX0hfjExTm/FfJyakiICLyeAcvHy/nXm4BHq69vHx8vDu4BQS4RaDaFUFGMd7l/FfLycnYzPnvOsiEZhFVCQNFTV5xYUFNFpZ/FZxCvKx8goYCYgKCogJTgZhPkh8Ae/Mp4XicY2BkYGAA4i3nE0zj+W2+MnCzMIDAfZMZ8sg0CwPTWyDFwcAE4gEABesIWgAAAHicY2BkYGBu+N/AEMPCAAJAkpEBFTABAEcIAmsEAAAABAAAAAAAAAAAeAAAAAEAAAACAFUABQAAAAAAAgAAAAoACgAAAP8AAAAAAAB4nH2Py0rDQBiFz/SKLbhQcNXFiFAESXpZCHZbaZdCwe5cpOmkTUkyZTIt9A18Bx/Bp/BB9AV8CY/pKLSLJszPd85/mX8AXOALAvvvkmfPAudUey6hjmvHZfq3jivke8dVNPHouEb/yXEDd3hx3OTEV04QlTOqNt4cC7Tw4bjE3k/HZfrfjitoibrjKq7EjeMa/QfHDUzFs+Mm2uJ9aFRg1VzOdjIOdRbpzKbhJvZmQa68X2eiFpskMIfmoZoqk8c6kz2/e5gYq0yZv/H5dtG3NpKR0akc8R6VJFqujV6p0PpLa9eDTidyvh/qFEMYKASwjHNIzLBjjBFCI0NURIuUekPXYz5Azlrvv2ZCtWA2YcacrDyVm1IZenGhJHrw0T3ZMabKiq7j7XNsuVGfruULJI9hR0oaufcobpuQJdZFbkUnpO9jWXStMUCHf3RU7xd3pz+BB34eAHicY2BigAAuBuyAiZGJkZmBPVE3Ob+g0pCBAQARqgKX')
+    format('woff');
+}
+// 复制图标
+[ui-copy],
+.ux-copy {
+  transition: color 0.35s;
+  cursor: pointer;
+  &::before {
+    font-family: 'ui-base-icon' !important;
+    content: '\e71e';
+    font-style: normal;
+    color: currentColor;
+    margin-left: 0.1em;
+    opacity: 0.3;
+  }
+
+  &:hover {
+    transition: color 0.35s;
+    @include theme {
+      color: co(link);
+    }
+
+    &::before {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  // 复制成功
+  &[data-copy-status='1'] {
+    &::before {
+      content: '✓';
+    }
+  }
+}
+
+// 排序图标
+[ui-sort],
+.ux-sort {
+  position: relative;
+  cursor: pointer;
+  padding-right: 0.75em;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -0.65em;
+    border: 0.35em solid transparent;
+    box-sizing: content-box;
+  }
+  &::before {
+    border-bottom-color: currentColor;
+    opacity: 0.3;
+  }
+  &::after {
+    border-top-color: currentColor;
+    transform: translateY(120%);
+    opacity: 0.6;
+  }
+
+  &[ui-sort~='0'] {
+    &::before {
+      opacity: 0.3;
+    }
+    &::after {
+      opacity: 0.6;
+    }
+  }
+  &[ui-sort~='1'] {
+    &::before {
+      opacity: 0.6;
+    }
+    &::after {
+      opacity: 0.3;
+    }
+  }
+}
+
+// 箭头图标
+[ux-arrow],
+.ux-arrow {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  transition: all 0.3s;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    background:
+      linear-gradient(45deg, transparent 51%, currentColor 52%, currentColor 72%, transparent 73%) no-repeat 23.5% 65%/35% 50%,
+      linear-gradient(-45deg, transparent 51%, currentColor 52%, currentColor 72%, transparent 73%) no-repeat 76.5% 65%/35% 50%;
+  }
+
+  &[ux-arrow~='t'],
+  &.ux-arrow-t {
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+
+  &[ux-arrow~='r'],
+  &.ux-arrow-r {
+    &::before {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &[ux-arrow~='l'],
+  &.ux-arrow-l {
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+// 下拉框
+.ux-downmenu-hover {
+  position: relative;
+  &:hover {
+    .downmenu {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+
+      &.downmenu-c {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+  }
+
+  .downmenu {
+    position: absolute;
+    top: 130%;
+    @include theme {
+      background: co(fore);
+      box-shadow: 0 1px 0.3em 1px co(deep);
+    }
+    padding: 1.5rem;
+    right: 0.15rem;
+    min-width: 10.5rem;
+    border-radius: 0.25rem;
+    transform: translate3d(0, 1rem, 0);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s;
+
+    &.downmenu-top {
+      top: auto;
+      bottom: 130%;
+
+      &::before {
+        bottom: auto;
+        top: 100%;
+      }
+    }
+
+    &[ux-view='1'] {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      left: 0;
+      height: 1em;
+      bottom: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      box-sizing: content-box;
+      width: 0.5em;
+      height: 0.5em;
+      @include theme {
+        background: co(fore);
+      }
+      top: -0.25em;
+      left: 50%;
+      margin-left: -0.25em;
+      transform: rotate(45deg);
+      box-shadow: -1px -1px 0.15em 0 rgba(0, 0, 0, 0.07);
+      z-index: -1;
+    }
+
+    &.downmenu-l {
+      &::after {
+        left: 1em;
+      }
+    }
+
+    &.downmenu-r {
+      &::after {
+        left: auto;
+        right: 1em;
+      }
+    }
+
+    &.downmenu-c {
+      left: 50%;
+      right: auto;
+      transform: translate3d(-50%, -1rem, 0);
+    }
+
+    &.downmenu-top {
+      &::after {
+        top: auto;
+        bottom: -0.25em;
+        box-shadow: 1px 1px 0.15em 0 rgba(0, 0, 0, 0.07);
+      }
+    }
+  }
+}

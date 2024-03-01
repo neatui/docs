@@ -1,0 +1,165 @@
+*,
+:after,
+:before {
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+}
+
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+button,
+input,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Microsoft YaHei, PingFang SC, sans-serif;
+  line-height: 1.75;
+
+  &.sharp {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+input,
+button,
+textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+}
+
+// input:-webkit-autofill {
+//   box-shadow: 0 0 0 1000px white inset;
+// }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 1s 500000s, color 1s 500000s;
+}
+html input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option,
+label,
+fieldset,
+legend {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: normal;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+table {
+  border-spacing: 0;
+  font-size: inherit;
+
+  // 固定尺寸
+  &.fix {
+    table-layout: fixed;
+  }
+}
+th {
+  text-align: inherit;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+sup {
+  position: relative;
+  vertical-align: text-top;
+  font-size: 0.5em;
+  line-height: 1;
+  font-weight: bold;
+}
+
+// 移动端
+@media screen and (max-width: 1024px) {
+  * {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}

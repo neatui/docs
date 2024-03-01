@@ -1,0 +1,7 @@
+[ui-user~='@a'] {
+  & > * {
+    width: 2rem;
+    height: 2rem;
+    background-color: #f0f0f0;
+  }
+}

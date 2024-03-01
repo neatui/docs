@@ -1,0 +1,139 @@
+$cos: 'main', 'well', 'warn', 'risk', 'info';
+[ui-chats~='@a'] {
+  // 基础
+  & > * {
+    position: relative;
+    display: flex;
+    max-width: 80%;
+    margin-bottom: 1em;
+  }
+
+  // 用户
+  // [ui-chat-user] {
+
+  // }
+
+  // 主体
+  [ui-chat-body] {
+    position: relative;
+    padding: 0.75em 1rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+    line-height: 1.6em;
+
+    @include theme {
+      color: co(read);
+      background: co(weak);
+      box-shadow: 0 1px 2px co(deep);
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      width: 0;
+      height: 0;
+      right: 100%;
+      margin-right: -1px;
+      top: 0.8em;
+      border-style: solid;
+      border-width: 0.3em 0.6em 0.6em;
+
+      @include theme {
+        border-color: transparent co(weak) transparent transparent;
+      }
+    }
+  }
+
+  &[ui-chats~='bg:fore'] {
+    [ui-chat-body] {
+      @include theme {
+        color: co(read);
+        background: co(fore);
+      }
+
+      &::before {
+        @include theme {
+          border-color: transparent co(fore) transparent transparent;
+        }
+      }
+    }
+  }
+
+  &[ui-chats~='bg:main'] {
+    [ui-chat-body] {
+      @include theme {
+        color: co(fore);
+        background: co(main);
+      }
+
+      &::before {
+        @include theme {
+          border-color: transparent co(main) transparent transparent;
+        }
+      }
+    }
+  }
+
+  &[ui-chats~='bg:read'] {
+    [ui-chat-body] {
+      @include theme {
+        color: co(fore);
+        background: co(read);
+      }
+
+      &::before {
+        @include theme {
+          border-color: transparent co(read) transparent transparent;
+        }
+      }
+    }
+  }
+
+  &[ui-chats~='bg:well'] {
+    [ui-chat-body] {
+      @include theme {
+        color: co(fore);
+        background: co(well);
+      }
+
+      &::before {
+        @include theme {
+          border-color: transparent co(well) transparent transparent;
+        }
+      }
+    }
+  }
+
+  &[ui-chats~='bg:warn'] {
+    [ui-chat-body] {
+      @include theme {
+        color: co(fore);
+        background: co(warn);
+      }
+
+      &::before {
+        @include theme {
+          border-color: transparent co(warn) transparent transparent;
+        }
+      }
+    }
+  }
+
+  &[ui-chats~='bg:risk'] {
+    [ui-chat-body] {
+      @include theme {
+        color: co(fore);
+        background: co(risk);
+      }
+
+      &::before {
+        @include theme {
+          border-color: transparent co(risk) transparent transparent;
+        }
+      }
+    }
+  }
+}

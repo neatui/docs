@@ -1,0 +1,15 @@
+{
+  "name": "@neatui/card",
+  "version": "1.0.52",
+  "description": "",
+  "main": "mcui@card.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "card"
+  ],
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {}
+}

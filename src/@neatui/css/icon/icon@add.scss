@@ -1,0 +1,9 @@
+// 加号
+%icon-add {
+  background:
+    linear-gradient(0deg, transparent 43%, currentColor 44%, currentColor 57%, transparent 58%) no-repeat center / 70% 70%,
+    linear-gradient(90deg, transparent 43%, currentColor 44%, currentColor 57%, transparent 58%) no-repeat center / 70% 70%;
+}
+[ui-icon~='add'] {
+  @extend %icon-add;
+}

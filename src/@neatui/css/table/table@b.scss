@@ -1,0 +1,78 @@
+// 主题
+@import './base.scss';
+
+[ui-table~='@b'] {
+  // 固定头部
+  thead > tr,
+  thead > tr th,
+  .table-head-fixed {
+    @include theme {
+      background: co(fore);
+    }
+  }
+  // 表格主体
+  tbody {
+    tr {
+      &:nth-child(even) {
+        &,
+        th,
+        td {
+          @include theme {
+            background-color: co(fore);
+          }
+        }
+      }
+      &:nth-child(odd) {
+        &,
+        th,
+        td {
+          @include theme {
+            background-color: mix(co(weak), co(fore), 75%);
+          }
+        }
+      }
+    }
+  }
+  // 移入效果
+  &[ui-table~='ux:hover'] {
+    tbody {
+      tr {
+        &:nth-child(even) {
+          &:hover {
+            @include theme {
+              box-shadow:
+                0 0 0 2px co(fore),
+                0 0 0 3px co(line);
+              z-index: 1;
+              position: relative;
+            }
+          }
+        }
+        &:nth-child(odd) {
+          &:hover {
+            @include theme {
+              box-shadow:
+                0 0 0 2px co(weak),
+                0 0 0 3px co(line);
+              z-index: 1;
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 滚动固定补白
+  // &[ui-table~='ui:sticky'] {
+  //   th,
+  //   td {
+  //     &:first-child {
+  //       box-shadow: -3em 0 0 0 co(fore);
+  //     }
+  //     &:last-child {
+  //       box-shadow: 3em 0 0 0 co(fore);
+  //     }
+  //   }
+  // }
+}

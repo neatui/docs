@@ -1,0 +1,318 @@
+<template>
+  <slot>
+    <div class="n-sl-sub" :ui-row="rows">
+      <template v-for="(col, idx) in state.form" :key="idx">
+        <div v-if="!col.clear" :ui-flex="`${vertical ? 'col xm' : 'row xt'}`" :id="col._fid" :ui-col="col.media" v-bind="{ ...(col.attrs || {}) }">
+          <h5 v-if="vertical" class="o-ls" :style="`${col.rules?.some((validator:any) => validator.required)?'text-indent: -1em':''}`">
+            <b class="co-risk pr" style="left: 0.1em" v-if="col.rules?.some((validator:any) => validator.required)">﹡</b>{{ col.label }}:
+          </h5>
+          <p v-else class="ar nr-sm flex-fixed o-ls" :class="`${clh({ ...(col.model[1] || {}) })}`" :style="`width:${state._lw + 'em'}; max-width:50%;`">
+            <b class="co-risk" v-if="col.rules?.some((validator:any) => validator.required)">﹡</b>{{ col.label }}:
+          </p>
+          <Select
+            v-if="col.model[0] === 'Select'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            v-model="col.data[col.field]"
+            :rules="col?.rules"
+            v-bind="{ ...(col.model[1] || {}) }"
+          ></Select>
+          <SelectList
+            v-else-if="col.model[0] === 'SelectList'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            v-model="col.data[col.field]"
+            :rules="col?.rules"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <SelectTags
+            v-else-if="col.model[0] === 'SelectTags'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            v-model="col.data[col.field]"
+            :rules="col?.rules"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <SelectPicker
+            v-else-if="col.model[0] === 'SelectPicker'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            v-model="col.data[col.field]"
+            :rules="col?.rules"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <SearchSelect
+            v-else-if="col.model[0] === 'SearchSelect'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <MoreSelect
+            v-else-if="col.model[0] === 'MoreSelect'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <MoreSelectList
+            v-else-if="col.model[0] === 'MoreSelectList'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <MoreSelectTags
+            v-else-if="col.model[0] === 'MoreSelectTags'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <MoreSelectPicker
+            v-else-if="col.model[0] === 'MoreSelectPicker'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <SearchMoreSelect
+            v-else-if="col.model[0] === 'SearchMoreSelect'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <PageSelect
+            v-else-if="col.model[0] === 'PageSelect'"
+            class="full-w"
+            :interacted="interacted"
+            :options="col.enums"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <DatePicker
+            v-else-if="col.model[0] === 'DatePicker'"
+            class="full-w"
+            :interacted="interacted"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <ImgUpload v-else-if="col.model[0] === 'ImgUpload'" :interacted="interacted" :rules="col.rules" v-model="col.data[col.field]" v-bind="{ ...(col.model[1] || {}) }" />
+          <TextArea
+            v-else-if="col.model[0] === 'TextArea'"
+            :interacted="interacted"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            v-bind="{ ...(col.model[1] || {}) }"
+          ></TextArea>
+          <Switch v-else-if="col.model[0] === 'Switch'" :interacted="interacted" :rules="col.rules" v-model="col.data[col.field]" v-bind="{ ...(col.model[1] || {}) }" />
+          <Tree v-else-if="col.model[0] === 'Tree'" :interacted="interacted" :rules="col.rules" v-model="col.data[col.field]" v-bind="{ ...(col.model[1] || {}) }" />
+          <Cascader
+            v-else-if="col.model[0] === 'Cascader'"
+            class="full-w"
+            :interacted="interacted"
+            :rules="col.rules"
+            v-model="col.data[col.field]"
+            :options="col.enums"
+            v-bind="{ ...(col.model[1] || {}) }"
+          />
+          <Input v-else class="full-w" :interacted="interacted" :rules="col.rules" v-model="col.data[col.field]" v-bind="{ ...(col.model[1] || {}) }" />
+        </div>
+      </template>
+    </div>
+  </slot>
+</template>
+<script setup lang="ts">
+  import { watch, ref, reactive, onUnmounted, computed } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
+  import { isString, isObject, isFunction, deepcopy, isArray } from '@fekit/utils';
+  import {
+    Input,
+    Switch,
+    TextArea,
+    Select,
+    SelectList,
+    SelectTags,
+    SelectPicker,
+    SearchSelect,
+    PageSelect,
+    MoreSelect,
+    MoreSelectList,
+    MoreSelectTags,
+    MoreSelectPicker,
+    DatePicker,
+    SearchMoreSelect,
+    ImgUpload,
+    Cascader
+  } from '../../form';
+  import { Tree } from '../../display';
+
+  const route: any = useRoute();
+
+  // 计算Label行高
+  const clh = ({ sz = '' }: any = {}) => {
+    const lhs: any = { xs: 'lh-sm', s: 'lh-mm', m: 'lh-ls', l: 'lh-ll', xl: 'lh-xl' };
+    return lhs[sz] || 'lh-ls';
+  };
+
+  // 计算Label宽度
+  function clw(label: any = '') {
+    let emWidth = 0;
+    if (isString(label)) {
+      for (let i = 0; i < label.length; i++) {
+        const char = label[i];
+        if (/^[\u4e00-\u9fa5]+$/.test(char)) {
+          emWidth += 1;
+        } else {
+          emWidth += 0.5;
+        }
+      }
+    }
+    return emWidth;
+  }
+
+  interface FormParam {
+    label: string | (() => string);
+    field: string | (() => string);
+    paths: string | (() => string);
+    model?: string | Array<any> | (() => string | Array<any>);
+    enums?: Array<any> | (() => string | Array<any>);
+    rules?: Array<any> | (() => string | Array<any>);
+    event?: Array<any> | (() => string | Array<any>);
+    attrs?: Array<any> | (() => string | Array<any>);
+    value?: any | (() => any);
+    clear?: boolean | (() => boolean);
+  }
+
+  /**
+   * 入参说明
+   * form        表单结构
+   * data        表单数据
+   * rows        栅格系统
+   * idx         如果表单是数组的话这里传入下标
+   * vertical    是否垂直排列
+   * interacted  用户是否交互
+   */
+
+  // 类型
+  interface Props {
+    form: Array<FormParam>;
+    data: object;
+    rows?: string;
+    idx?: string | number;
+    vertical?: boolean;
+    interacted?: boolean;
+  }
+  // 入参
+  const props: any = withDefaults(defineProps<Props>(), {
+    form: () => [],
+    data: () => ({}),
+    rows: 'mob-24 pad-12 dpc-8',
+    idx: '',
+    vertical: false,
+    interacted: false
+  });
+
+  const state: any = reactive({
+    funs: [],
+    form: [],
+    _lw: 6
+  });
+
+  // 更新表单结构
+  watch(
+    [() => props.form, () => props.data, () => props.idx],
+    () => {
+      state.form = props.form.map((item: any) => {
+        // 计算宽度
+        const _w = clw(item.label) + 2;
+        if (_w > state._lw) {
+          state._lw = _w;
+        }
+
+        // 函数处理
+        if (isObject(item)) {
+          for (const key in item) {
+            const val = item[key] || {};
+            // 处理函数
+            if (isFunction(val)) {
+              item[key] = val(props.data, props.form, route);
+              //   console.log(250, key, val);
+              //   state.funs.push({ item, key, fun: val });
+            }
+            // 对象处理
+            // if (isObject(val) && isFunction(val.setup)) {
+            //   state.funs.push({ item, key, val: val.value, fun: val.setup });
+            // }
+          }
+        }
+
+        // 添加ID
+        item._fid = `form-${props.idx !== '' ? props.idx + '-' : ''}field-${item.field}`;
+
+        // 模型处理
+        if (item.model) {
+          if (isString(item.model)) {
+            item.model = [item.model, { verify: false }];
+          }
+        } else {
+          item.model = ['Input', { verify: false }];
+        }
+        if (item.model[1] && !Object.prototype.hasOwnProperty.call(item.model[1], 'verify')) {
+          item.model[1].verify = false;
+        }
+
+        // 数据路径
+        item.data = props.data;
+        (item.paths?.split('.') || [])?.forEach((i: any) => {
+          if (item.data[i]) {
+            item.data = item.data[i];
+          }
+        });
+
+        // 函数处理
+        return item;
+      });
+    },
+    { deep: true, immediate: true }
+  );
+
+  watch(
+    () => state.funs,
+    () => {
+      // 监听列表
+      // state.funs.map(({ item = {}, key = '', val = '', fun = () => {} }: any = {}) => {
+      //   console.log(280, item);
+      //   const v = fun(props.data, item, route);
+      //   if (v instanceof Promise) {
+      //     item[key] = val;
+      //     v.then((res: any) => {
+      //       item[key] = res;
+      //     });
+      //   } else {
+      //     item[key] = v;
+      //   }
+      // });
+    },
+    { deep: true, immediate: true }
+  );
+</script>

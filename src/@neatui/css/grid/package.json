@@ -1,0 +1,16 @@
+{
+  "name": "@neatui/grid",
+  "version": "1.0.1",
+  "description": "",
+  "main": "mcui@grid.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "mcui",
+    "ui"
+  ]
+}

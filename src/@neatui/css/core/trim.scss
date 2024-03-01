@@ -1,0 +1,443 @@
+@mixin trim($media: '') {
+  $size: (no, xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl);
+
+  // 栅格
+  $col_base: 0;
+  $col_unit: em;
+  @each $sz in $size {
+    @if ($sz == xs) {
+      $col_base: 1;
+      $col_unit: px;
+    } @else {
+      $col_unit: em;
+    }
+
+    // 栅格系统配套
+    [ui-row] {
+      // 左右内边距
+      &.#{$media}n-#{$sz}-sub,
+      &.#{$media}nx-#{$sz}-sub,
+      &.#{$media}nl-#{$sz}-sub {
+        margin-left: -$col_base + $col_unit;
+      }
+      &.#{$media}n-#{$sz}-sub,
+      &.#{$media}nx-#{$sz}-sub,
+      &.#{$media}nr-#{$sz}-sub {
+        margin-right: -$col_base + $col_unit;
+      }
+    }
+
+    @if ($sz == xs) {
+      $col_base: 0;
+    }
+    @if ($col_base < 1) {
+      $col_base: $col_base + 0.25;
+    } @else if($col_base >= 3) {
+      $col_base: $col_base + 1;
+    } @else {
+      $col_base: $col_base + 0.5;
+    }
+  }
+
+  // 圆角
+  $br_base: 0;
+  @each $sz in $size {
+    // 四角
+    .#{$media}r-#{$sz} {
+      border-radius: #{$br_base}em;
+    }
+    // 上面
+    .#{$media}r-t-#{$sz} {
+      border-radius: #{$br_base}em #{$br_base}em 0 0;
+    }
+    // 下面
+    .#{$media}r-b-#{$sz} {
+      border-radius: 0 0 #{$br_base}em #{$br_base}em;
+    }
+    // 左上
+    .#{$media}r-lt-#{$sz} {
+      border-top-left-radius: #{$br_base}em;
+    }
+    // 右上
+    .#{$media}r-rt-#{$sz} {
+      border-top-right-radius: #{$br_base}em;
+    }
+    // 左下
+    .#{$media}r-lb-#{$sz} {
+      border-bottom-left-radius: #{$br_base}em;
+    }
+    // 右下
+    .#{$media}r-rb-#{$sz} {
+      border-bottom-right-radius: #{$br_base}em;
+    }
+
+    @if ($br_base <1) {
+      $br_base: $br_base + 0.1;
+    } @else {
+      $br_base: $br_base + 0.2;
+    }
+  }
+
+  // 边距
+  $base: 0;
+  $unit: em;
+  @each $sz in $size {
+    @if ($sz == xs) {
+      $base: 1;
+      $unit: px;
+    } @else {
+      $unit: em;
+    }
+
+    // 偏移量
+    .#{$media}o {
+      &l-#{$sz} {
+        left: $base + $unit;
+      }
+
+      &r-#{$sz} {
+        right: $base + $unit;
+      }
+
+      &t-#{$sz} {
+        top: $base + $unit;
+      }
+
+      &b-#{$sz} {
+        bottom: $base + $unit;
+      }
+    }
+
+    // 内边距
+    .#{$media}n {
+      &l,
+      &x,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-left: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-left: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &r,
+      &x,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-right: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-right: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &t,
+      &y,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-top: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-top: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &b,
+      &y,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-bottom: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-bottom: $base + $unit;
+            }
+          }
+        }
+      }
+    }
+
+    // 外边距
+    .#{$media}m {
+      &l,
+      &x,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-left: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-left: $base + $unit;
+            }
+          }
+
+          // 子集
+          &-sub > *,
+          &-sun > * > * {
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      &r,
+      &x,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-right: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-right: $base + $unit;
+            }
+          }
+
+          // 子集
+          &-sub > *,
+          &-sun > * > * {
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      &t,
+      &y,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-top: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-top: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &b,
+      &y,
+      & {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-bottom: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-bottom: $base + $unit;
+            }
+          }
+        }
+      }
+    }
+
+    @if ($sz == xs) {
+      $base: 0;
+    }
+    @if ($base < 1) {
+      $base: $base + 0.25;
+    } @else if($base >= 3) {
+      $base: $base + 1;
+    } @else {
+      $base: $base + 0.5;
+    }
+  }
+
+  // 宽度
+  $w_base: 0;
+  @each $sz in $size {
+    .#{$media}w-#{$sz} {
+      width: #{$w_base}em;
+      &\+ {
+        width: #{$w_base + 1}em;
+      }
+      &\* {
+        width: #{$w_base * 2}em;
+      }
+    }
+    .#{$media}min-w-#{$sz} {
+      min-width: #{$w_base}em;
+      &\+ {
+        min-width: #{$w_base + 1}em;
+      }
+      &\* {
+        min-width: #{$w_base * 2}em;
+      }
+    }
+    .#{$media}max-w-#{$sz} {
+      max-width: #{$w_base}em;
+      &\+ {
+        max-width: #{$w_base + 1}em;
+      }
+      &\* {
+        max-width: #{$w_base * 2}em;
+      }
+    }
+    $w_base: $w_base + 2;
+  }
+
+  // 高度
+  $h_base: 0;
+  @each $sz in $size {
+    .#{$media}h-#{$sz} {
+      height: #{$h_base}em;
+      &\+ {
+        height: #{$h_base + 1}em;
+      }
+      &\* {
+        height: #{$h_base * 2}em;
+      }
+    }
+    .#{$media}min-h-#{$sz} {
+      min-height: #{$h_base}em;
+      &\+ {
+        min-height: #{$h_base + 1}em;
+      }
+      &\* {
+        min-height: #{$h_base * 2}em;
+      }
+    }
+    .#{$media}max-h-#{$sz} {
+      max-height: #{$h_base}em;
+      &\+ {
+        max-height: #{$h_base + 1}em;
+      }
+      &\* {
+        max-height: #{$h_base * 2}em;
+      }
+    }
+    $h_base: $h_base + 2;
+  }
+
+  // 缩小
+  .#{$media}s-no {
+    transform: scale3d(0, 0, 1);
+  }
+  .#{$media}s-ss {
+    transform: scale3d(0.1, 0.1, 1);
+  }
+  .#{$media}s-sm {
+    transform: scale3d(0.2, 0.2, 1);
+  }
+  .#{$media}s-sl {
+    transform: scale3d(0.3, 0.3, 1);
+  }
+  .#{$media}s-ms {
+    transform: scale3d(0.4, 0.4, 1);
+  }
+  .#{$media}s-mm {
+    transform: scale3d(0.5, 0.5, 1);
+  }
+  .#{$media}s-ml {
+    transform: scale3d(0.6, 0.6, 1);
+  }
+  .#{$media}s-ls {
+    transform: scale3d(0.7, 0.7, 1);
+  }
+  .#{$media}s-lm {
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  .#{$media}s-ll {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  .#{$media}s-xl {
+    transform: scale3d(0.95, 0.95, 1);
+  }
+
+  .#{$media}s-ss\+mm {
+    transform: scale3d(0.15, 0.15, 1);
+  }
+  .#{$media}s-sm\+mm {
+    transform: scale3d(0.25, 0.25, 1);
+  }
+  .#{$media}s-sl\+mm {
+    transform: scale3d(0.35, 0.35, 1);
+  }
+  .#{$media}s-ms\+mm {
+    transform: scale3d(0.45, 0.45, 1);
+  }
+  .#{$media}s-mm\+mm {
+    transform: scale3d(0.55, 0.55, 1);
+  }
+  .#{$media}s-ml\+mm {
+    transform: scale3d(0.65, 0.65, 1);
+  }
+  .#{$media}s-ls\+mm {
+    transform: scale3d(0.75, 0.75, 1);
+  }
+  .#{$media}s-lm\+mm {
+    transform: scale3d(0.85, 0.85, 1);
+  }
+  .#{$media}s-ll\+mm {
+    transform: scale3d(0.95, 0.95, 1);
+  }
+
+  // 旋转
+  .#{$media}tm-r-90 {
+    transform: rotate(-90deg);
+  }
+  .#{$media}tm-r-180 {
+    transform: rotate(-180deg);
+  }
+  .#{$media}tm-r-360 {
+    transform: rotate(-360deg);
+  }
+
+  .#{$media}tm-r\+90 {
+    transform: rotate(90deg);
+  }
+  .#{$media}tm-r\+180 {
+    transform: rotate(180deg);
+  }
+  .#{$media}tm-r\+360 {
+    transform: rotate(360deg);
+  }
+}
+
+// 桌面
+@include trim();
+
+// 平板
+@include pad {
+  @include trim('pad\\:');
+}
+
+// 移动
+@include mob {
+  @include trim('mob\\:');
+}

@@ -1,0 +1,114 @@
+// 显示动画
+@keyframes am-show-ac {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0) scale3d(1, 1, 1);
+  }
+  55% {
+    opacity: 1;
+    transform: translate3d(0, 1.5%, 0) scale3d(1, 1, 1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, -1%, 0) scale3d(1.02, 0.95, 1);
+  }
+  85% {
+    opacity: 1;
+    transform: translate3d(0, 0.5%, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0%, 0) scale3d(1, 1, 1);
+  }
+}
+
+// 隐藏动画
+@keyframes am-hide-ac {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -10%, 0) scale3d(1, 0.95, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0) scale3d(1, 1, 1);
+  }
+}
+
+// 引用显示
+%am-show-ac {
+  transform: translate3d(0, -150%, 0);
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform-origin: 50% 80%;
+}
+
+// 引用隐藏
+%am-hide-ac {
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  opacity: 0;
+  transform-style: preserve-3d;
+}
+
+// 传参调用
+@mixin am-view-ac($time: 450ms, $delay: 100ms) {
+  &.show,
+  &[view='2'] {
+    & > * {
+      @extend %am-show-ac;
+      animation: am-show-ac $time $delay both;
+    }
+  }
+
+  &.hide,
+  &[view='1'] {
+    opacity: 0;
+    transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+    pointer-events: none;
+
+    & > * {
+      @extend %am-hide-ac;
+      animation: am-hide-ac $time $delay both;
+    }
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}
+
+// 动画时间
+$time: 450ms;
+$delay: 100ms;
+
+// 全套引用
+[am-view='ac'] {
+  &.show,
+  &[view='2'] {
+    & > * {
+      @extend %am-show-ac;
+      animation: am-show-ac $time $delay both;
+    }
+  }
+
+  &.hide,
+  &[view='1'] {
+    opacity: 0;
+    transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+    pointer-events: none;
+
+    & > * {
+      @extend %am-hide-ac;
+      animation: am-hide-ac $time $delay both;
+    }
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}

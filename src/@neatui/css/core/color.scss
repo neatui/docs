@@ -1,0 +1,245 @@
+html {
+  @include theme {
+    color: co(read);
+    fill: co(read);
+    background-color: co(back);
+  }
+}
+
+@mixin color($n, $v) {
+  .co-#{$n},
+  .hover-co-#{$n}:hover {
+    color: #{$v} !important;
+    fill: #{$v} !important;
+  }
+  // 透明度
+  .co-#{$n}\+o-xs {
+    color: rgba($v, 0.05) !important;
+    fill: rgba($v, 0.05) !important;
+  }
+  .co-#{$n}\+o-ss {
+    color: rgba($v, 0.1) !important;
+    fill: rgba($v, 0.1) !important;
+  }
+  .co-#{$n}\+o-sm {
+    color: rgba($v, 0.2) !important;
+    fill: rgba($v, 0.2) !important;
+  }
+  .co-#{$n}\+o-sl {
+    color: rgba($v, 0.3) !important;
+    fill: rgba($v, 0.3) !important;
+  }
+  .co-#{$n}\+o-ms {
+    color: rgba($v, 0.4) !important;
+    fill: rgba($v, 0.4) !important;
+  }
+  .co-#{$n}\+o-mm {
+    color: rgba($v, 0.5) !important;
+    fill: rgba($v, 0.5) !important;
+  }
+  .co-#{$n}\+o-ml {
+    color: rgba($v, 0.6) !important;
+    fill: rgba($v, 0.6) !important;
+  }
+  .co-#{$n}\+o-ls {
+    color: rgba($v, 0.7) !important;
+    fill: rgba($v, 0.7) !important;
+  }
+  .co-#{$n}\+o-lm {
+    color: rgba($v, 0.8) !important;
+    fill: rgba($v, 0.8) !important;
+  }
+  .co-#{$n}\+o-ll {
+    color: rgba($v, 0.9) !important;
+    fill: rgba($v, 0.9) !important;
+  }
+  .co-#{$n}\+o-xl {
+    color: rgba($v, 0.95) !important;
+    fill: rgba($v, 0.95) !important;
+  }
+
+  .bg-#{$n},
+  .hover-bg-#{$n}:hover {
+    background-color: #{$v} !important;
+  }
+  // 透明度
+  .bg-#{$n}\+o-xs {
+    background-color: rgba($v, 0.05) !important;
+  }
+  .bg-#{$n}\+o-ss {
+    background-color: rgba($v, 0.1) !important;
+  }
+  .bg-#{$n}\+o-sm {
+    background-color: rgba($v, 0.2) !important;
+  }
+  .bg-#{$n}\+o-sl {
+    background-color: rgba($v, 0.3) !important;
+  }
+  .bg-#{$n}\+o-ms {
+    background-color: rgba($v, 0.4) !important;
+  }
+  .bg-#{$n}\+o-mm {
+    background-color: rgba($v, 0.5) !important;
+  }
+  .bg-#{$n}\+o-ml {
+    background-color: rgba($v, 0.6) !important;
+  }
+  .bg-#{$n}\+o-ls {
+    background-color: rgba($v, 0.7) !important;
+  }
+  .bg-#{$n}\+o-lm {
+    background-color: rgba($v, 0.8) !important;
+  }
+  .bg-#{$n}\+o-ll {
+    background-color: rgba($v, 0.9) !important;
+  }
+  .bg-#{$n}\+o-xl {
+    background-color: rgba($v, 0.95) !important;
+  }
+
+  .b-#{$n},
+  .bk-#{$n},
+  .hover-b-#{$n}:hover,
+  .hover-bk-#{$n}:hover {
+    border-color: #{$v} !important;
+  }
+  // 透明度
+  .bk-#{$n}\+o-xs {
+    border-color: rgba($v, 0.05) !important;
+  }
+  .bk-#{$n}\+o-ss {
+    border-color: rgba($v, 0.1) !important;
+  }
+  .bk-#{$n}\+o-sm {
+    border-color: rgba($v, 0.2) !important;
+  }
+  .bk-#{$n}\+o-sl {
+    border-color: rgba($v, 0.3) !important;
+  }
+  .bk-#{$n}\+o-ms {
+    border-color: rgba($v, 0.4) !important;
+  }
+  .bk-#{$n}\+o-mm {
+    border-color: rgba($v, 0.5) !important;
+  }
+  .bk-#{$n}\+o-ml {
+    border-color: rgba($v, 0.6) !important;
+  }
+  .bk-#{$n}\+o-ls {
+    border-color: rgba($v, 0.7) !important;
+  }
+  .bk-#{$n}\+o-lm {
+    border-color: rgba($v, 0.8) !important;
+  }
+  .bk-#{$n}\+o-ll {
+    border-color: rgba($v, 0.9) !important;
+  }
+  .bk-#{$n}\+o-xl {
+    border-color: rgba($v, 0.95) !important;
+  }
+}
+
+@mixin colors($d: '') {
+  $f: nth(nth($theme, 1), 1);
+  @each $i in $theme {
+    $n: nth($i, 1);
+    $s: nth($i, 2);
+    @if ($n == $f) {
+      html,
+      [theme] {
+        @each $c in $s {
+          @include color(nth($c, 1), nth($c, 2));
+        }
+      }
+    } @else {
+      [theme~='#{$n}'] {
+        @each $c in $s {
+          @include color(nth($c, 1), nth($c, 2));
+        }
+      }
+    }
+    @each $c in $s {
+      $cn: nth($c, 1);
+      $cv: nth($c, 2);
+      .#{$n}-co-#{$cn} {
+        color: $cv !important;
+      }
+      .#{$n}-bg-#{$cn} {
+        background-color: $cv !important;
+      }
+      .#{$n}-bk-#{$cn} {
+        border-color: $cv !important;
+      }
+    }
+  }
+}
+
+// 随机背景色
+.bg-0 {
+  @include theme {
+    background-color: co(main);
+  }
+}
+.bg-1 {
+  background-color: #0084ff;
+}
+.bg-2 {
+  background-color: #30d158;
+}
+.bg-3 {
+  background-color: #5e5ce6;
+}
+.bg-4 {
+  background-color: #ff9f0a;
+}
+.bg-5 {
+  background-color: #ff375f;
+}
+.bg-6 {
+  background-color: #af52de;
+}
+.bg-7 {
+  background-color: #ff453a;
+}
+.bg-8 {
+  background-color: #af52de;
+}
+.bg-9 {
+  background-color: #5ac8fa;
+}
+.bg-10 {
+  background-color: #ffcc00;
+}
+.bg-11 {
+  background-color: #8e8e93;
+}
+.bg-12 {
+  background-color: #bad80a;
+}
+.bg-13 {
+  background-color: #1d6fa3;
+}
+.bg-14 {
+  background-color: #fd6585;
+}
+.bg-15 {
+  background-color: #df5900;
+}
+.bg-16 {
+  background-color: #3388ff;
+}
+.bg-17 {
+  background-color: #623aa2;
+}
+.bg-18 {
+  background-color: #d939cd;
+}
+.bg-19 {
+  background-color: #f55555;
+}
+.bg-20 {
+  background-color: #bb4e75;
+}
+
+// 桌面
+@include colors();

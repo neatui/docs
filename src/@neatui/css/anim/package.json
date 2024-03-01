@@ -1,0 +1,16 @@
+{
+  "name": "@neatui/anim",
+  "version": "1.0.0",
+  "description": "MCUI 核心组件，MCUI 全局架构性组件。官网 https://mcui.fekit.cn",
+  "main": "mcui@anim.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "mcui",
+    "ui"
+  ]
+}

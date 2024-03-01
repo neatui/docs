@@ -1,0 +1,178 @@
+%scroll {
+  & {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-gutter: auto;
+    @include theme {
+      scrollbar-color: rgba(co(text), 0.15) transparent;
+    }
+
+    &::-webkit-scrollbar {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border: 1px solid transparent;
+      border-radius: 10px;
+      @include theme {
+        background-color: rgba(co(text), 0.15) !important;
+      }
+      background-clip: content-box;
+    }
+
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-track-piece,
+    &::-webkit-scrollbar-corner,
+    &::-webkit-resizer {
+      background-color: transparent;
+    }
+  }
+
+  &[ui-scroll~='xs'] {
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+  }
+  &[ui-scroll~='s'] {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+  }
+  &[ui-scroll~='m'] {
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  &[ui-scroll~='l'] {
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  &[ui-scroll~='xl'] {
+    &::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.ui-scroll,
+[ui-scroll] {
+  @extend %scroll;
+}
+
+.ui-scroll-x,
+[ui-scroll~=':x'] {
+  overflow-x: auto;
+}
+
+.ui-scroll-y,
+[ui-scroll~=':y'] {
+  overflow-y: auto;
+}
+.ui-scroll-x-hidden,
+[ui-scroll~='x:hidden'] {
+  overflow-x: hidden;
+}
+.ui-scroll-y-hidden,
+[ui-scroll~='y:hidden'] {
+  overflow-y: hidden;
+}
+
+.ui-scroll-unset,
+.ui-scroll-x-unset,
+[ui-scroll~='x:unset'] {
+  overflow-x: unset;
+}
+.ui-scroll-unset,
+.ui-scroll-y-unset,
+[ui-scroll~='y:unset'] {
+  overflow-y: unset;
+}
+
+::-webkit-scrollbar-thumb {
+  @include theme {
+    background-color: rgba(co(text), 0.15) !important;
+  }
+}
+
+@include med('>mob') {
+  %mob-scroll {
+    & {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-gutter: auto;
+      @include theme {
+        scrollbar-color: rgba(co(text), 0.15) transparent;
+      }
+
+      &::-webkit-scrollbar {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border: 1px solid transparent;
+        border-radius: 10px;
+        @include theme {
+          background-color: rgba(co(text), 0.15) !important;
+        }
+        background-clip: content-box;
+      }
+
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-button,
+      &::-webkit-scrollbar-track-piece,
+      &::-webkit-scrollbar-corner,
+      &::-webkit-resizer {
+        background-color: transparent;
+      }
+    }
+
+    &[ui-scroll~='xs'] {
+      &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+    }
+    &[ui-scroll~='s'] {
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+    }
+    &[ui-scroll~='m'] {
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+    }
+    &[ui-scroll~='l'] {
+      &::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+      }
+    }
+    &[ui-scroll~='xl'] {
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  html,
+  body {
+    @extend %mob-scroll;
+  }
+}

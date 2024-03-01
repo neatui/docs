@@ -1,0 +1,252 @@
+[ui-pos] {
+  position: relative;
+  display: flex;
+  // pointer-events: none;
+  flex-wrap: wrap;
+
+  // 行列
+  &,
+  &[ui-pos~=':row'] {
+    flex-direction: row;
+
+    &[ui-pos~='lt'] {
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='ct'] {
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='rt'] {
+      justify-content: flex-end;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='xt'] {
+      justify-content: space-between;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+    &[ui-pos~='at'] {
+      justify-content: space-around;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='lm'] {
+      justify-content: flex-start;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='cm'] {
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='rm'] {
+      justify-content: flex-end;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='xm'] {
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='am'] {
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='lb'] {
+      justify-content: flex-start;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='cb'] {
+      justify-content: center;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='rb'] {
+      justify-content: flex-end;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='xb'] {
+      justify-content: space-between;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='ab'] {
+      justify-content: space-around;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+  }
+  &[ui-pos~=':col'] {
+    flex-direction: column;
+
+    &[ui-pos~='lt'] {
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='ct'] {
+      justify-content: flex-start;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='rt'] {
+      justify-content: flex-start;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='xt'] {
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+    }
+    &[ui-pos~='at'] {
+      justify-content: flex-start;
+      align-items: space-around;
+      align-content: space-around;
+    }
+
+    &[ui-pos~='lm'] {
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='cm'] {
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='rm'] {
+      justify-content: center;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='xm'] {
+      justify-content: center;
+      align-items: stretch;
+      align-content: stretch;
+    }
+    &[ui-pos~='am'] {
+      justify-content: center;
+      align-items: space-around;
+      align-content: space-around;
+    }
+
+    &[ui-pos~='lb'] {
+      justify-content: flex-end;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='cb'] {
+      justify-content: flex-end;
+      align-items: center;
+      align-content: center;
+    }
+
+    &[ui-pos~='rb'] {
+      justify-content: flex-end;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
+    &[ui-pos~='xb'] {
+      justify-content: flex-end;
+      align-items: stretch;
+      align-content: stretch;
+    }
+    &[ui-pos~='ab'] {
+      justify-content: flex-end;
+      align-items: space-around;
+      align-content: space-around;
+    }
+
+    &[ui-pos~='ly'] {
+      justify-content: space-between;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+    &[ui-pos~='la'] {
+      justify-content: space-around;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    &[ui-pos~='cy'] {
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+    }
+    &[ui-pos~='ca'] {
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+    }
+    &[ui-pos~='ry'] {
+      justify-content: space-between;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+    &[ui-pos~='ra'] {
+      justify-content: space-around;
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+    &[ui-pos~='xy'] {
+      justify-content: space-between;
+      align-items: space-between;
+      align-content: space-between;
+    }
+    &[ui-pos~='aa'] {
+      justify-content: space-around;
+      align-items: space-around;
+      align-content: space-around;
+    }
+  }
+
+  // 撑满
+  &[ui-pos~=':full'] {
+    flex-grow: 1;
+  }
+
+  // 行内
+  &[ui-pos~=':inline'] {
+    display: inline-flex;
+  }
+
+  // 不换行
+  &[ui-pos~=':nowrap'] {
+    flex-wrap: nowrap;
+  }
+
+  & > * {
+    position: relative !important;
+  }
+}

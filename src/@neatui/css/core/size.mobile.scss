@@ -1,0 +1,105 @@
+/*
+ * 模块：字号
+ * 模块类型：b(基础模块)
+ * 精度：9 +
+ * 分级：3 +
+ * 适配：桌面 | 平析 | 移动
+ * 兼容：
+ * 版本：v0.0.1
+ * 备注：s->Small 小，m->Middle 中，l->Large 大；x->Extra 特大
+ */
+
+// 全局字号
+// @mixin baseSize($sz: 13) {
+//   $size: 'xs', 's', 'm', 'l', 'xl';
+
+//   @each $i in $size {
+//     [size='#{$i}'],
+//     [ui-size='#{$i}'] {
+//       $s: index($size, $i) + $sz;
+//       font-size: #{$s}px;
+//     }
+//   }
+// }
+
+// 分级字号
+@mixin randSize($d: '') {
+  $rank: 'xs', 'ss', 'sm', 'sl', 'ms', 'mm', 'ml', 'ls', 'lm', 'll', 'xl';
+  // 分级字号
+  .#{$d}fs-no {
+    font-size: 0rem;
+  }
+  .#{$d}lh-no {
+    line-height: 0;
+  }
+
+  $sz: 0.2;
+
+  @each $k in $rank {
+    .#{$d}lh-#{$k} {
+      line-height: #{$sz * 5};
+    }
+
+    @if ($sz<0.2) {
+      $sz: $sz + 0.01;
+    } @else if ($sz<.28) {
+      $sz: $sz + 0.02;
+    } @else if($sz<.4) {
+      $sz: $sz + 0.04;
+    } @else if($sz<.6) {
+      $sz: $sz + 0.06;
+    } @else {
+      $sz: $sz + 0.08;
+    }
+
+    .#{$d}fs-#{$k},
+    .#{$d}fs-#{$k}-sub > *,
+    .#{$d}fs-#{$k}-sub\:sta > *::before,
+    .#{$d}fs-#{$k}-sub\:end > *::after,
+    .#{$d}fs-#{$k}\:sta::before,
+    .#{$d}fs-#{$k}\:end::after {
+      font-size: #{$sz}rem;
+    }
+  }
+
+  // 标题
+  $hsz: 1;
+
+  h1,
+  .h1 {
+    font-size: 2em;
+  }
+  h2,
+  .h2 {
+    font-size: 1.6em;
+  }
+  h3,
+  .h3 {
+    font-size: 1.4em;
+  }
+  h4,
+  .h4 {
+    font-size: 1.2em;
+  }
+  h5,
+  .h5 {
+    font-size: 1.1em;
+  }
+  h6,
+  .h6 {
+    font-size: 1em;
+  }
+}
+
+// 桌面
+@include randSize();
+
+// 平板
+@media screen and (max-width: 1024px) {
+  @include randSize('pad\\:');
+}
+
+// 移动
+@media screen and (max-width: 767px) {
+  @include randSize('mob\\:');
+}

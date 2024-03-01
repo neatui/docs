@@ -1,0 +1,38 @@
+[ui-path~='@a'] {
+  & > * {
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+
+    &:not(:last-child) {
+      cursor: pointer;
+      transition: all 0.3s;
+      @include dpc {
+        &:hover {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+
+      @include pad {
+        &:active {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+
+      // 分隔符
+      &:after {
+        content: '';
+        width: 1em;
+        height: 1em;
+        background:
+          linear-gradient(225deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 70% 23.5% / 50% 35%,
+          linear-gradient(-45deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 70% 76.5% / 50% 35%;
+        opacity: 0.5;
+      }
+    }
+  }
+}

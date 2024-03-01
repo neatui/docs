@@ -1,0 +1,10 @@
+%icon-menu {
+  background:
+    linear-gradient(0deg, transparent 42%, currentColor 0%, currentColor 57%, transparent 0%),
+    linear-gradient(0deg, transparent 8%, currentColor 10%, currentColor 20%, transparent 22%, transparent 78%, currentColor 80%, currentColor 90%, transparent 92%) no-repeat left /
+      80% 100%;
+}
+
+[ui-icon~='menu'] {
+  @extend %icon-menu;
+}

@@ -1,0 +1,268 @@
+// 桌面
+@mixin dpc() {
+  $this: #{nth(&, 1)};
+  @media screen and (min-width: 1120px) {
+    @if ($this == '') {
+      @content;
+    } @else {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+// 平板
+@mixin pad() {
+  $this: #{nth(&, 1)};
+  @media screen and (max-width: 1119px) {
+    @if ($this == '') {
+      @content;
+    } @else {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+// 移动
+@mixin mob() {
+  $this: #{nth(&, 1)};
+  @media screen and (max-width: 799px) {
+    @if ($this == '') {
+      @content;
+    } @else {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+$level: (
+  mob-s: 320px,
+  mob-m: 480px,
+  mob-l: 640px,
+  pad-s: 800px,
+  pad-m: 960px,
+  pad-l: 1120px,
+  dpc-s: 1280px,
+  dpc-m: 1440px,
+  dpc-l: 1600px
+);
+
+// 设备
+@mixin med($p) {
+  $this: #{nth(&, 1)};
+
+  $r: str-slice($p, 1, 1);
+  $_n: str-slice($p, 2, -1);
+
+  // 大于某节点时
+  @if ($r == '>') {
+    // 大于平板
+    @if ($p == '>pad') {
+      @media screen and (min-width: 1120px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+    // 大于移动
+    @if ($p == '>mob') {
+      @media screen and (min-width: 800px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+    @each $sz in $level {
+      $n: #{nth($sz, 1)};
+      $v: #{nth($sz, 2)};
+      @if ($_n == $n) {
+        @media screen and (min-width: $v) {
+          @if ($this == '') {
+            @content;
+          } @else {
+            & {
+              @content;
+            }
+          }
+        }
+      }
+    }
+  }
+  // 小于某节点时
+  @if ($r == '<') {
+    // 小于桌面
+    @if ($p == '<dpc') {
+      @media screen and (max-width: 1119px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+    // 小于平板
+    @if ($p == '<pad') {
+      @media screen and (max-width: 799px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+
+    @each $sz in $level {
+      $n: #{nth($sz, 1)};
+      $v: #{nth($sz, 2) - 1};
+      @if ($_n == $n) {
+        @media screen and (max-width: $v) {
+          @if ($this == '') {
+            @content;
+          } @else {
+            & {
+              @content;
+            }
+          }
+        }
+      }
+    }
+  }
+  // 仅在某节点时
+  @if ($r == '=') {
+    @if ($p == '=dpc') {
+      @media screen and (min-width: 1120px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+    @if ($p == '=pad') {
+      @media screen and (min-width: 800px) and (max-width: 1119px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+    @if ($p == '=mob') {
+      @media screen and (max-width: 799px) {
+        @if ($this == '') {
+          @content;
+        } @else {
+          & {
+            @content;
+          }
+        }
+      }
+    }
+    @each $sz in $level {
+      $n: #{nth($sz, 1)};
+      $v: #{nth($sz, 2)};
+      $m: #{nth($sz, 2) + 159};
+      @if ($_n == $n) {
+        @if ($_n == 'mob-s') {
+          @media screen and (max-width: $m) {
+            @content;
+          }
+        } @else if($_n == 'dpc-l') {
+          @media screen and (min-width: $v) {
+            @content;
+          }
+        } @else {
+          @media screen and (min-width: $v) and (max-width: $m) {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 大于某节点时
+@each $sz in $level {
+  $n: #{nth($sz, 1)};
+  [ui-hide~='>#{$n}'] {
+    @include med('>#{$n}') {
+      display: none !important;
+    }
+  }
+}
+[ui-hide~='>mob'] {
+  @include med('>mob') {
+    display: none !important;
+  }
+}
+[ui-hide~='>pad'] {
+  @include med('>pad') {
+    display: none !important;
+  }
+}
+
+// 小于某节点时
+@each $sz in $level {
+  $n: #{nth($sz, 1)};
+  [ui-hide~='<#{$n}'] {
+    @include med('<#{$n}') {
+      display: none !important;
+    }
+  }
+}
+[ui-hide~='<pad'] {
+  @include med('<pad') {
+    display: none !important;
+  }
+}
+[ui-hide~='<dpc'] {
+  @include med('<dpc') {
+    display: none !important;
+  }
+}
+
+// 等于某节点时
+@each $sz in $level {
+  $n: #{nth($sz, 1)};
+  [ui-hide~='=#{$n}'] {
+    @include med('=#{$n}') {
+      display: none !important;
+    }
+  }
+}
+[ui-hide~='=mob'] {
+  @include med('=mob') {
+    display: none !important;
+  }
+}
+[ui-hide~='=pad'] {
+  @include med('=pad') {
+    display: none !important;
+  }
+}
+[ui-hide~='=dpc'] {
+  @include med('=dpc') {
+    display: none !important;
+  }
+}

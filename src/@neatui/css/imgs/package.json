@@ -1,0 +1,16 @@
+{
+  "name": "@neatui/imgs",
+  "version": "1.1.17",
+  "description": "",
+  "main": "mcui@imgs.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "mcui",
+    "ui"
+  ]
+}

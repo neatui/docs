@@ -1,0 +1,33 @@
+$co: 'main', 'text', 'read', 'well', 'warn', 'risk', 'info';
+
+[ui-note~='@b'] {
+  width: 100%;
+  padding: 0.5em 1em;
+  border-radius: 0.1em;
+
+  @mixin note($co, $bg, $bk) {
+    color: $co;
+    border-left: 0.15em solid $bk;
+    background: $bg;
+  }
+
+  @each $key in $co {
+    @include theme {
+      $val: co($key);
+      $co: mix($val, co(text), 85%);
+      $bg: saturate(rgba($val, 0.1), 20%);
+      $bk: $val;
+
+      @if ($key== 'main') {
+        &,
+        &[ui-note~='#{$key}'] {
+          @include note($co, $bg, $bk);
+        }
+      } @else {
+        &[ui-note~='#{$key}'] {
+          @include note($co, $bg, $bk);
+        }
+      }
+    }
+  }
+}

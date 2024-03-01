@@ -1,0 +1,351 @@
+// 位置
+[ui-tips] {
+  // 上
+  [ui-tips-box~='tl'] {
+    top: auto;
+    right: 0;
+    bottom: 120%;
+    left: auto;
+    transform: translate3d(0, -0.5em, 0);
+
+    &::before {
+      width: 100%;
+      height: 1em;
+      bottom: auto;
+      top: 100%;
+      left: 0;
+    }
+    &::after {
+      top: auto;
+      right: 0.75em;
+      bottom: -0.25em;
+      left: auto;
+      box-shadow: 1px 1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='tc'] {
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: 120%;
+    transform: translate3d(-50%, -0.5em, 0);
+
+    &::before {
+      width: 100%;
+      height: 1em;
+      bottom: auto;
+      top: 100%;
+      left: 0;
+    }
+    &::after {
+      top: auto;
+      right: auto;
+      bottom: -0.25em;
+      left: 50%;
+      margin-left: -0.25em;
+      box-shadow: 1px 1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='tr'] {
+    top: auto;
+    right: auto;
+    bottom: 120%;
+    left: 0;
+    transform: translate3d(0, -0.5em, 0);
+
+    &::before {
+      width: 100%;
+      height: 1em;
+      bottom: auto;
+      top: 100%;
+      left: 0;
+    }
+    &::after {
+      top: auto;
+      right: auto;
+      bottom: -0.25em;
+      left: 0.75em;
+      box-shadow: 1px 1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  // 左
+  [ui-tips-box~='lt'] {
+    top: auto;
+    right: 120%;
+    bottom: 0;
+    left: auto;
+    transform: translate3d(-0.5em, 0, 0);
+
+    &::before {
+      width: 1em;
+      height: 100%;
+      top: 0;
+      left: 100%;
+    }
+    &::after {
+      top: auto;
+      right: -0.25em;
+      bottom: 0.75em;
+      left: auto;
+      box-shadow: 1px -1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='lm'] {
+    top: 50%;
+    right: 120%;
+    bottom: auto;
+    left: auto;
+    transform: translate3d(-0.5em, -50%, 0);
+
+    &::before {
+      width: 1em;
+      height: 100%;
+      top: 0;
+      left: 100%;
+    }
+    &::after {
+      top: 50%;
+      right: -0.25em;
+      bottom: auto;
+      left: auto;
+      margin-top: -0.25em;
+      box-shadow: 1px -1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='lb'] {
+    top: 0;
+    right: 120%;
+    bottom: auto;
+    left: auto;
+    transform: translate3d(-0.5em, 0, 0);
+
+    &::before {
+      width: 1em;
+      height: 100%;
+      top: 0;
+      left: 100%;
+    }
+    &::after {
+      top: 0.75em;
+      right: -0.25em;
+      bottom: auto;
+      left: auto;
+      box-shadow: 1px -1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  // 中
+  [ui-tips-box~='cm'] {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  // 右
+  [ui-tips-box~='rt'] {
+    top: auto;
+    left: 120%;
+    bottom: 0;
+    right: auto;
+    transform: translate3d(0.5em, 0, 0);
+
+    &::before {
+      width: 1em;
+      height: 100%;
+      right: 100%;
+      top: 0;
+    }
+    [ui-tips-arrow],
+    &[ui-tips-arrow~='true']::after {
+      top: auto;
+      left: -0.25em;
+      bottom: 0.75em;
+      right: auto;
+      box-shadow: -1px 1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='rm'] {
+    top: 50%;
+    left: 120%;
+    bottom: auto;
+    right: auto;
+    transform: translate3d(0.5em, -50%, 0);
+
+    &::before {
+      width: 1em;
+      height: 100%;
+      right: 100%;
+      top: 0;
+    }
+    [ui-tips-arrow],
+    &[ui-tips-arrow~='true']::after {
+      top: 50%;
+      left: -0.25em;
+      bottom: auto;
+      right: auto;
+      margin-top: -0.25em;
+      box-shadow: -1px 1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='rb'] {
+    top: 0;
+    left: 120%;
+    bottom: auto;
+    right: auto;
+    transform: translate3d(0.5em, 0, 0);
+
+    &::before {
+      width: 1em;
+      height: 100%;
+      right: 100%;
+      top: 0;
+    }
+    [ui-tips-arrow],
+    &[ui-tips-arrow~='true']::after {
+      top: 0.75em;
+      left: -0.25em;
+      bottom: auto;
+      right: auto;
+      box-shadow: -1px 1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  // 下
+  [ui-tips-box~='bl'] {
+    bottom: auto;
+    right: 0;
+    top: 120%;
+    left: auto;
+    transform: translate3d(0, 0.5em, 0);
+
+    &::before {
+      width: 100%;
+      height: 1em;
+      bottom: auto;
+      bottom: 100%;
+      left: 0;
+    }
+    [ui-tips-arrow],
+    &[ui-tips-arrow~='true']::after {
+      bottom: auto;
+      right: 1em;
+      top: -0.25em;
+      left: auto;
+      box-shadow: -1px -1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='bc'] {
+    bottom: auto;
+    right: auto;
+    left: 50%;
+    top: 120%;
+    transform: translate3d(-50%, 0.5em, 0);
+
+    &::before {
+      width: 100%;
+      height: 1em;
+      bottom: auto;
+      bottom: 100%;
+      left: 0;
+    }
+    [ui-tips-arrow],
+    &[ui-tips-arrow~='true']::after {
+      bottom: auto;
+      right: auto;
+      top: -0.25em;
+      left: 50%;
+      margin-left: -0.25em;
+      box-shadow: -1px -1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+  [ui-tips-box~='br'] {
+    bottom: auto;
+    right: auto;
+    top: 120%;
+    left: 0;
+    transform: translate3d(0, 0.5em, 0);
+
+    &::before {
+      width: 100%;
+      height: 1em;
+      bottom: auto;
+      bottom: 100%;
+      left: 0;
+    }
+    [ui-tips-arrow],
+    &[ui-tips-arrow~='true']::after {
+      bottom: auto;
+      right: auto;
+      top: -0.25em;
+      left: 1em;
+      box-shadow: -1px -1px 0.2em 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  // 展开
+  &[ui-tips~='ux:hover']:hover > *,
+  &[ui-tips~='ux:active']:active > *,
+  &[ui-tips-view~='1'] > * {
+    &[ui-tips-box] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    // 上
+    &[ui-tips-box~='tl'] {
+      transform: translate3d(0, 0, 0);
+    }
+    &[ui-tips-box~='tc'] {
+      transform: translate3d(-50%, 0, 0);
+    }
+    &[ui-tips-box~='tr'] {
+      transform: translate3d(0, 0, 0);
+    }
+
+    // 左
+    &[ui-tips-box~='lt'] {
+      transform: translate3d(0, 0, 0);
+    }
+    &[ui-tips-box~='lm'] {
+      transform: translate3d(0, -50%, 0);
+    }
+    &[ui-tips-box~='lb'] {
+      transform: translate3d(0, 0, 0);
+    }
+
+    // 中
+    &[ui-tips-box~='cm'] {
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0) scale(1);
+    }
+
+    // 右
+    &[ui-tips-box~='rt'] {
+      transform: translate3d(0, 0, 0);
+    }
+    &[ui-tips-box~='rm'] {
+      transform: translate3d(0, -50%, 0);
+    }
+    &[ui-tips-box~='rb'] {
+      transform: translate3d(0, 0, 0);
+    }
+
+    // 下
+    &[ui-tips-box~='bl'] {
+      transform: translate3d(0, 0, 0);
+    }
+    &[ui-tips-box~='bc'] {
+      transform: translate3d(-50%, 0, 0);
+    }
+    &[ui-tips-box~='br'] {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

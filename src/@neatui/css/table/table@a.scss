@@ -1,0 +1,230 @@
+// 主题
+
+[ui-table~='@a'] {
+  width: 100%;
+
+  th {
+    @include theme {
+      color: co(text);
+    }
+    // text-align: left;
+    font-weight: normal;
+  }
+
+  .table-sort {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+  }
+
+  td {
+    @include theme {
+      color: co(read);
+    }
+  }
+
+  &[tirm*='n'] {
+    border-collapse: separate;
+  }
+
+  // 固定宽度
+  &[ui-table~='fix'] {
+    table-layout: fixed;
+  }
+
+  // 线条
+  &[ui-table~='line'] {
+    th,
+    td {
+      @include theme {
+        border-bottom: 1px solid co(line);
+      }
+      padding: 0.75em 1em;
+
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    tr:last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  // 格子
+  &[ui-table~='grid'],
+  &[ui-table~='cube'] {
+    tr {
+      @include theme {
+        box-shadow: inset 0 -1px 0 0 co(line);
+      }
+      // &:last-child {
+      //   box-shadow: 0 0 0 0;
+      // }
+    }
+    th,
+    td {
+      @include theme {
+        // border-left: 1px solid co(line);
+        box-shadow: inset 1px 0 0 0 co(line);
+        // border-top: 1px solid co(line);
+        &:first-child {
+          box-shadow: 0 0 0 0;
+        }
+      }
+      // padding: 0.75em 1em;
+    }
+  }
+  &[ui-table~='grid'] {
+    @include theme {
+      // border: 1px solid co(line);
+      box-shadow: inset 0 0 0px 1px co(line);
+    }
+    border-radius: 0.25em;
+    border-left: 0;
+    border-top: 0;
+    &[trim*='n'] {
+      th,
+      td {
+        @include theme {
+          border-right: 1px solid co(line);
+        }
+        &:first-child {
+          @include theme {
+            border-left: 1px solid co(line);
+          }
+        }
+      }
+      tr:last-child {
+        td {
+          @include theme {
+            border-bottom: 1px solid co(line);
+          }
+        }
+      }
+      tr:first-child {
+        th,
+        td {
+          @include theme {
+            border-top: 1px solid co(line);
+          }
+        }
+      }
+    }
+
+    tr {
+      &:first-child {
+        th,
+        td {
+          &:first-child {
+            border-radius: 0.2rem 0 0 0;
+          }
+          &:last-child {
+            border-radius: 0 0.2rem 0 0;
+          }
+        }
+      }
+      &:last-child {
+        th,
+        td {
+          &:first-child {
+            border-radius: 0 0 0 0.2rem;
+          }
+          &:last-child {
+            border-radius: 0 0 0.2rem 0;
+          }
+        }
+      }
+    }
+  }
+
+  // 分割
+  &[ui-table~='cube'] {
+    border: 0;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+
+    [ui-hide] {
+      & + th,
+      & + td {
+        border-left: 0;
+      }
+      & + tr {
+        th,
+        td {
+          border-top: 0;
+        }
+      }
+    }
+
+    &[trim*='n'] {
+      @include theme {
+        border: 1px solid co(line);
+      }
+    }
+
+    th,
+    td {
+      &:first-child {
+        border-left: 0;
+      }
+    }
+    tr:first-child {
+      th,
+      td {
+        border-top: 0;
+      }
+    }
+  }
+
+  // // 小行
+  // &[ui-table~='s'] {
+  //   th,
+  //   td {
+  //     padding: 0.5em 1em;
+  //   }
+  // }
+
+  // // 大行
+  // &[ui-table~='l'] {
+  //   th,
+  //   td {
+  //     padding: 1em 1em;
+  //   }
+  // }
+
+  &[ui-table~=':hover'] {
+    tr {
+      transition: all 0.3s;
+      &:hover {
+        @include theme {
+          background-color: rgba(co(weak), 0.5);
+        }
+      }
+    }
+  }
+
+  // 对齐
+  &[ui-table~=':vt'] {
+    th,
+    td {
+      vertical-align: top;
+    }
+  }
+  &[ui-table~=':vb'] {
+    th,
+    td {
+      vertical-align: bottom;
+    }
+  }
+}

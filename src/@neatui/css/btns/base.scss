@@ -1,0 +1,152 @@
+@use 'sass:math';
+$size: 'xs', 's', 'm', 'l', 'xl';
+
+[ui-btn] {
+  & {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+
+    height: 2.5em;
+    padding: 0 1em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: all 50ms;
+    text-align: center;
+    vertical-align: middle;
+    border: 0;
+    user-select: none;
+    white-space: nowrap;
+    color: inherit;
+    border: 1px solid currentColor;
+    @include theme {
+      background: co(weak);
+    }
+  }
+
+  // 按钮尺寸
+  $base: 1.5;
+  @each $i in $size {
+    &[ui-btn~='sz:#{$i}'] {
+      height: #{$base}em;
+      padding: 0 #{calc(($base - 0.5) / 2)}em;
+
+      // 方形按钮
+      &[ui-btn~=':square'] {
+        width: #{$base}em;
+        padding: 0;
+      }
+
+      &[ui-btn~=':abs'] {
+        height: #{$base}rem;
+        padding: 0 #{calc(($base - 0.5) / 2)}rem;
+      }
+    }
+
+    @include med('=mob') {
+      &[ui-btn~='mob-#{$i}'] {
+        height: #{$base}em;
+        padding: 0 #{calc(($base - 0.5) / 2)}em;
+
+        // 方形按钮
+        &[ui-btn~=':square'] {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btn~=':abs'] {
+          height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+    @include med('=pad') {
+      &[ui-btn~='pad-#{$i}'] {
+        height: #{$base}em;
+        padding: 0 #{calc(($base - 0.5) / 2)}em;
+
+        // 方形按钮
+        &[ui-btn~=':square'] {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btn~=':abs'] {
+          height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+
+    $base: $base + 0.5;
+  }
+}
+
+[ui-btns] {
+  // 按钮尺寸
+  $base: 1.5;
+  @each $i in $size {
+    &[ui-btns~='sz:#{$i}'] {
+      & > * {
+        height: #{$base}em;
+        padding: 0 #{calc(($base - 0.5) / 2)}em;
+      }
+
+      // 方形按钮
+      &[ui-btns~=':square'] > * {
+        width: #{$base}em;
+        padding: 0;
+      }
+
+      &[ui-btns~=':abs'] > * {
+        height: #{$base}rem;
+        padding: 0 #{calc(($base - 0.5) / 2)}rem;
+      }
+    }
+
+    @include med('=mob') {
+      &[ui-btns~='mob-#{$i}'] {
+        & > * {
+          height: #{$base}em;
+          padding: 0 #{calc(($base - 0.5) / 2)}em;
+        }
+
+        // 方形按钮
+        &[ui-btns~=':square'] > * {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btns~=':abs'] > * {
+          height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+    @include med('=pad') {
+      &[ui-btns~='pad-#{$i}'] {
+        & > * {
+          height: #{$base}em;
+          padding: 0 #{calc(($base - 0.5) / 2)}em;
+        }
+
+        // 方形按钮
+        &[ui-btns~=':square'] > * {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btns~=':abs'] > * {
+          height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+
+    $base: $base + 0.5;
+  }
+}

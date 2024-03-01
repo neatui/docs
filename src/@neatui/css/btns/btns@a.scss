@@ -1,0 +1,469 @@
+@use 'sass:math';
+$size: xs, s, m, l, xl;
+$type: none, main, vice, text, link, read, note, case, line, weak, back, info, well, warn, risk, w, b;
+
+// 基础
+%btnBase {
+  & {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 2.5em;
+    padding: 0 1em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: all 50ms;
+    text-align: center;
+    vertical-align: middle;
+    border: 0;
+    user-select: none;
+    white-space: nowrap;
+    color: inherit;
+    box-shadow: inset 0 0 0 1px currentColor;
+    @include theme {
+      background: co(weak);
+    }
+  }
+
+  & > * {
+    &.icon {
+      display: inline-block;
+      & + * {
+        margin-left: 0.2em;
+      }
+    }
+  }
+}
+
+// 按钮
+body [ui-btn~='@a'] {
+  // 基础样式
+  @extend %btnBase;
+
+  // &[ui-btn~=':flex'] {
+  //   display: inline-flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  // 绝对尺寸
+  &[ui-btn~=':abs'] {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+  }
+  // 圆弧按钮
+  &[ui-btn~=':round'] {
+    border-radius: 100em;
+  }
+
+  // 移入状态
+  &:hover {
+    @include theme {
+      box-shadow:
+        inset 0 0 0 1px co(line),
+        inset 0 0 0 100em rgba(co(text), 0.04);
+    }
+  }
+
+  // 按下状态
+  &:active {
+    transform: scale(0.98, 0.95);
+  }
+
+  // 正方形按钮
+  &[ui-btn~=':square'] {
+    width: 2.5em;
+    padding: 0;
+  }
+
+  // 块状按钮
+  &[ui-btn~=':block'] {
+    width: 100%;
+  }
+
+  // 禁用按钮
+  &[ui-btn~=':disabled'] {
+    &,
+    &:hover {
+      opacity: 0.65;
+      box-shadow:
+        inset 0 0 0 1px transparent,
+        inset 0 0 0 100em rgba(0, 0, 0, 0);
+      cursor: not-allowed;
+    }
+    &:active {
+      transform: scale(1, 1);
+      cursor: not-allowed;
+    }
+  }
+
+  // 按钮尺寸
+  $base: 1.5;
+  @each $i in $size {
+    &[ui-btn~='#{$i}'] {
+      height: #{$base}em;
+      // line-height: #{$base}em;
+      padding: 0 #{calc(($base - 0.5) / 2)}em;
+
+      // 方形按钮
+      &[ui-btn~=':square'] {
+        width: #{$base}em;
+        padding: 0;
+      }
+
+      &[ui-btn~=':abs'] {
+        height: #{$base}rem;
+        // line-height: #{$base}rem;
+        padding: 0 #{calc(($base - 0.5) / 2)}rem;
+      }
+    }
+
+    @include med('=mob') {
+      &[ui-btn~='mob-#{$i}'] {
+        height: #{$base}em;
+        // line-height: #{$base}em;
+        padding: 0 #{calc(($base - 0.5) / 2)}em;
+
+        // 方形按钮
+        &[ui-btn~=':square'] {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btn~=':abs'] {
+          height: #{$base}rem;
+          // line-height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+    @include med('=pad') {
+      &[ui-btn~='pad-#{$i}'] {
+        height: #{$base}em;
+        // line-height: #{$base}em;
+        padding: 0 #{calc(($base - 0.5) / 2)}em;
+
+        // 方形按钮
+        &[ui-btn~=':square'] {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btn~=':abs'] {
+          height: #{$base}rem;
+          // line-height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+
+    $base: $base + 0.5;
+  }
+
+  // 按钮颜色
+  @each $name in $type {
+    &[ui-btn~='#{$name}'] {
+      @if ($name == 'none' or $name == 'weak' or $name == 'back') {
+        @include theme {
+          background: co($name);
+        }
+        color: inherit;
+      } @else {
+        @include theme {
+          // 背景色
+          background: co($name);
+          color: co(fore);
+        }
+      }
+      box-shadow: inset 0 0 0 1px transparent;
+
+      &:hover {
+        @include theme {
+          box-shadow:
+            inset 0 0 0 1px transparent,
+            inset 0 0 0 100em rgba(co(text), 0.04);
+        }
+      }
+
+      // 边框式
+      &[ui-btn~=':border'] {
+        background: transparent;
+        @if ($name == 'line' or $name == 'case') {
+          @include theme {
+            color: co(read);
+          }
+        } @else {
+          @include theme {
+            color: co($name);
+          }
+        }
+        @include theme {
+          box-shadow: inset 0 0 0 1px co($name);
+        }
+
+        &:hover {
+          @include theme {
+            box-shadow:
+              inset 0 0 0 1px co($name),
+              inset 0 0 0 100em rgba(co($name), 0.08);
+          }
+        }
+      }
+
+      // 下划线
+      &[ui-btn~=':underline'] {
+        @include theme {
+          color: co($name);
+        }
+        background: transparent;
+        box-shadow: inset 0 0 0 1px transparent;
+
+        &:hover {
+          box-shadow: inset 0 0 0 1px transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// 群组
+[ui-btns~='@a'] {
+  // 群组模式
+  &[ui-btns~=':group'] {
+    & > * {
+      border-radius: 0;
+      margin-right: -1px;
+
+      // 普通倒角
+      &:first-child {
+        border-radius: 0.25em 0 0 0.25em;
+      }
+      &:last-child {
+        border-radius: 0 0.25em 0.25em 0;
+      }
+    }
+    // 圆弧倒角
+    &[ui-btns~=':round'] > * {
+      border-radius: 0;
+
+      // 普通倒角
+      &:first-child {
+        border-radius: 100em 0 0 100em;
+      }
+      &:last-child {
+        border-radius: 0 100em 100em 0;
+      }
+    }
+
+    & {
+      display: inline-flex;
+    }
+  }
+
+  // 基础样式
+  & > * {
+    @extend %btnBase;
+  }
+
+  &[ui-btns~=':flex'] > * {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // 绝对尺寸
+  &[ui-btns~=':abs'] > * {
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+  }
+  // 圆弧按钮
+  &[ui-btns~=':round'] > * {
+    border-radius: 100em;
+  }
+
+  // 移入状态
+  & > *:hover {
+    @include theme {
+      box-shadow:
+        inset 0 0 0 1px co(line),
+        inset 0 0 0 100em rgba(co(text), 0.04);
+    }
+  }
+
+  // 按下状态
+  & > *:active {
+    transform: scale(0.98, 0.95);
+  }
+
+  // 正方形按钮
+  &[ui-btns~=':square'] > * {
+    width: 2.5em;
+    padding: 0;
+  }
+
+  // 块状按钮
+  &[ui-btns~=':block'] > * {
+    width: 100%;
+  }
+
+  // 禁用按钮
+  &[ui-btns~=':disabled'] > * {
+    &,
+    &:hover {
+      opacity: 0.65;
+      box-shadow:
+        inset 0 0 0 1px transparent,
+        inset 0 0 0 100em rgba(0, 0, 0, 0);
+      cursor: not-allowed;
+    }
+    &:active {
+      transform: scale(1, 1);
+      cursor: not-allowed;
+    }
+  }
+
+  // 按钮尺寸
+  $base: 1.5;
+  @each $i in $size {
+    &[ui-btns~='#{$i}'] {
+      & > * {
+        height: #{$base}em;
+        // line-height: #{$base}em;
+        padding: 0 #{calc(($base - 0.5) / 2)}em;
+      }
+
+      // 方形按钮
+      &[ui-btns~=':square'] > * {
+        width: #{$base}em;
+        padding: 0;
+      }
+
+      &[ui-btns~=':abs'] > * {
+        height: #{$base}rem;
+        // line-height: #{$base}rem;
+        padding: 0 #{calc(($base - 0.5) / 2)}rem;
+      }
+    }
+
+    @include med('=mob') {
+      &[ui-btns~='mob-#{$i}'] {
+        & > * {
+          height: #{$base}em;
+          // line-height: #{$base}em;
+          padding: 0 #{calc(($base - 0.5) / 2)}em;
+        }
+
+        // 方形按钮
+        &[ui-btns~=':square'] > * {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btns~=':abs'] > * {
+          height: #{$base}rem;
+          // line-height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+    @include med('=pad') {
+      &[ui-btns~='pad-#{$i}'] {
+        & > * {
+          height: #{$base}em;
+          // line-height: #{$base}em;
+          padding: 0 #{calc(($base - 0.5) / 2)}em;
+        }
+
+        // 方形按钮
+        &[ui-btns~=':square'] > * {
+          width: #{$base}em;
+          padding: 0;
+        }
+
+        &[ui-btns~=':abs'] > * {
+          height: #{$base}rem;
+          // line-height: #{$base}rem;
+          padding: 0 #{calc(($base - 0.5) / 2)}rem;
+        }
+      }
+    }
+
+    $base: $base + 0.5;
+  }
+
+  // 按钮颜色
+  @each $name in $type {
+    &[ui-btns~='#{$name}'] {
+      & > * {
+        @if ($name == 'none' or $name == 'weak' or $name == 'back') {
+          @include theme {
+            background: co($name);
+          }
+          color: inherit;
+        } @else {
+          @include theme {
+            // 背景色
+            background: co($name);
+            color: co(fore);
+          }
+        }
+
+        box-shadow: inset 0 0 0 1px transparent;
+
+        &:hover {
+          @include theme {
+            box-shadow:
+              inset 0 0 0 1px transparent,
+              inset 0 0 0 100em rgba(co(text), 0.04);
+          }
+        }
+      }
+
+      // 边框式
+      &[ui-btns~=':border'] > * {
+        background: transparent;
+        @if ($name == 'line') {
+          @include theme {
+            color: co(read);
+          }
+        } @else {
+          @include theme {
+            color: co($name);
+          }
+        }
+        @include theme {
+          box-shadow: inset 0 0 0 1px co($name);
+        }
+
+        &:hover {
+          @include theme {
+            box-shadow:
+              inset 0 0 0 1px co($name),
+              inset 0 0 0 100em rgba(co($name), 0.08);
+          }
+        }
+      }
+
+      // 下划线
+      &[ui-btns~=':underline'] > * {
+        @include theme {
+          color: co($name);
+        }
+        background: transparent;
+        box-shadow: inset 0 0 0 1px transparent;
+
+        &:hover {
+          box-shadow: inset 0 0 0 1px transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

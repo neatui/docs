@@ -1,0 +1,14 @@
+%icon-link {
+  background:
+    linear-gradient(-45deg, transparent 38%, currentColor 40%, currentColor 60%, transparent 62%) no-repeat 50% 50% / 30% 30%,
+    linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 19% 51% / 20% 20%,
+    linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 48% 81% / 20% 20%,
+    linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 51% 19% / 20% 20%,
+    linear-gradient(-45deg, transparent 32%, currentColor 34%, currentColor 63%, transparent 65%) no-repeat 81% 48% / 20% 20%,
+    radial-gradient(circle at 75% 25%, transparent 37%, currentColor 39%, currentColor 60%, transparent 62%) no-repeat 15% 85% / 35% 35%,
+    radial-gradient(circle at 25% 75%, transparent 37%, currentColor 39%, currentColor 60%, transparent 62%) no-repeat 85% 15% / 35% 35%;
+}
+
+[ui-icon~='link'] {
+  @extend %icon-link;
+}

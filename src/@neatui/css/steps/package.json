@@ -1,0 +1,17 @@
+{
+  "name": "@neatui/steps",
+  "version": "1.0.8",
+  "description": "",
+  "main": "mcui@steps.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "steps"
+  ],
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {
+    "@neatui/icon": "^1.0.2"
+  }
+}

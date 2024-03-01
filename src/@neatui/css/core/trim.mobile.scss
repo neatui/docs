@@ -1,0 +1,327 @@
+@mixin trim($media: '') {
+  $size: (no, xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl);
+
+  // 栅格
+  $col_base: 0;
+  $col_unit: rem;
+  @each $sz in $size {
+    @if ($sz == xs) {
+      $col_base: 1;
+      $col_unit: px;
+    } @else {
+      $col_unit: rem;
+    }
+
+    // 栅格系统配套
+    [ui-row] {
+      // 左右内边距
+      &.#{$media}n-#{$sz}-sub,
+      &.#{$media}nx-#{$sz}-sub,
+      &.#{$media}nl-#{$sz}-sub {
+        margin-left: -$col_base + $col_unit;
+      }
+      &.#{$media}n-#{$sz}-sub,
+      &.#{$media}nx-#{$sz}-sub,
+      &.#{$media}nr-#{$sz}-sub {
+        margin-right: -$col_base + $col_unit;
+      }
+    }
+
+    @if ($sz == xs) {
+      $col_base: 0;
+    }
+    @if ($col_base >= 1) {
+      $col_base: $col_base + 0.4;
+    } @else if($col_base >= 0.6) {
+      $col_base: $col_base + 0.2;
+    } @else {
+      $col_base: $col_base + 0.1;
+    }
+  }
+
+  // 边距
+  $base: 0;
+  $unit: rem;
+  @each $sz in $size {
+    @if ($sz == xs) {
+      $base: 1;
+      $unit: px;
+    } @else {
+      $unit: rem;
+    }
+
+    // 内边距
+    .#{$media}n {
+      &,
+      &x,
+      &l {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-left: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-left: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &,
+      &x,
+      &r {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-right: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-right: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &,
+      &y,
+      &t {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-top: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-top: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &,
+      &y,
+      &b {
+        &-#{$sz} {
+          @at-root {
+            & {
+              padding-bottom: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              padding-bottom: $base + $unit;
+            }
+          }
+        }
+      }
+    }
+
+    // 外边距
+    .#{$media}m {
+      &,
+      &x,
+      &l {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-left: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-left: $base + $unit;
+            }
+          }
+
+          // 子集
+          &-sub > *,
+          &-sun > * > * {
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      &,
+      &x,
+      &r {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-right: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-right: $base + $unit;
+            }
+          }
+
+          // 子集
+          &-sub > *,
+          &-sun > * > * {
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      &,
+      &y,
+      &t {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-top: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-top: $base + $unit;
+            }
+          }
+        }
+      }
+
+      &,
+      &y,
+      &b {
+        &-#{$sz} {
+          @at-root {
+            & {
+              margin-bottom: $base + $unit !important;
+            }
+
+            html body &-sub > *,
+            &-sun > * > * {
+              margin-bottom: $base + $unit;
+            }
+          }
+        }
+      }
+    }
+
+    @if ($sz == xs) {
+      $base: 0;
+    }
+    @if ($base >= 1) {
+      $base: $base + 0.4;
+    } @else if($base >= 0.6) {
+      $base: $base + 0.2;
+    } @else {
+      $base: $base + 0.1;
+    }
+  }
+
+  // 圆角
+  $br_base: 0;
+  @each $sz in $size {
+    .#{$media}br-#{$sz} {
+      border-radius: #{$br_base}em;
+    }
+    $br_base: $br_base + 0.1;
+  }
+
+  // 边框
+  $bk_base: 0;
+  @each $sz in $size {
+    // 边框
+    .#{$media}b {
+      &,
+      &x,
+      &l {
+        &-#{$sz} {
+          &,
+          &-sub > *,
+          &-sun > * > * {
+            border-left-width: #{$bk_base}px;
+          }
+        }
+      }
+
+      &,
+      &x,
+      &r {
+        &-#{$sz} {
+          &,
+          &-sub > *,
+          &-sun > * > * {
+            border-right-width: #{$bk_base}px;
+          }
+        }
+      }
+
+      &,
+      &y,
+      &t {
+        &-#{$sz} {
+          &,
+          &-sub > *,
+          &-sun > * > * {
+            border-top-width: #{$bk_base}px;
+          }
+        }
+      }
+
+      &,
+      &y,
+      &b {
+        &-#{$sz} {
+          &,
+          &-sub > *,
+          &-sun > * > * {
+            border-bottom-width: #{$bk_base}px;
+          }
+        }
+      }
+    }
+
+    $bk_base: $bk_base + 1;
+  }
+
+  // 宽度
+  $w_base: 0;
+  @each $sz in $size {
+    .#{$media}w-#{$sz} {
+      width: #{$w_base}em;
+      max-width: 100%;
+    }
+    $w_base: $w_base + 1;
+    @if ($w_base > 5) {
+      $w_base: $w_base + 2;
+    }
+  }
+
+  // 高度
+  $h_base: 0;
+  @each $sz in $size {
+    .#{$media}h-#{$sz} {
+      height: #{$h_base}em;
+      max-height: 100%;
+    }
+    $h_base: $h_base + 2;
+    @if ($h_base > 5) {
+      $h_base: $h_base + 2;
+    }
+  }
+}
+
+// 桌面
+@include trim();
+
+// 平板
+@include pad {
+  @include trim('pad\:');
+}
+
+// 移动
+@include mob {
+  @include trim('mob\:');
+}

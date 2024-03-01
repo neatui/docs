@@ -1,0 +1,112 @@
+// 显示动画
+@keyframes am-show-aj {
+  0% {
+    opacity: 0;
+    transform: rotateY(80deg);
+  }
+  40% {
+    transform: rotateY(-20deg);
+  }
+  70% {
+    transform: rotateY(10deg);
+  }
+  90% {
+    transform: rotateY(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+// 隐藏动画
+@keyframes am-hide-aj {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: rotateY(-20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(80deg);
+  }
+}
+
+// 引用显示
+%am-show-aj {
+  opacity: 0;
+  transform: rotateY(80deg);
+  backface-visibility: visible;
+}
+
+// 引用隐藏
+%am-hide-aj {
+  opacity: 1;
+  transform: rotateY(0deg);
+  backface-visibility: visible;
+}
+
+// 传参调用
+@mixin am-view-aj($time: 350ms, $delay: 100ms) {
+  perspective: 500;
+  &.show,
+  &[view='2'] {
+    & > * {
+      @extend %am-show-aj;
+      animation: am-show-aj $time $delay both;
+    }
+  }
+
+  &.hide,
+  &[view='1'] {
+    opacity: 0;
+    transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+    pointer-events: none;
+
+    & > * {
+      @extend %am-hide-aj;
+      animation: am-hide-aj $time $delay both;
+    }
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}
+
+// 动画时间
+$time: 350ms;
+$delay: 100ms;
+
+// 全套引用
+[am-view='aj'] {
+  perspective: 500;
+  &.show,
+  &[view='2'] {
+    & > * {
+      @extend %am-show-aj;
+      animation: am-show-aj $time $delay both;
+    }
+  }
+
+  &.hide,
+  &[view='1'] {
+    opacity: 0;
+    transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+    pointer-events: none;
+
+    & > * {
+      @extend %am-hide-aj;
+      animation: am-hide-aj $time $delay both;
+    }
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}

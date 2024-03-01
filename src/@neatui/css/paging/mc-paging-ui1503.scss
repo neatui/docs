@@ -1,0 +1,106 @@
+/*主体*/
+/*辅助*/
+/*辅助*/
+/*阅读(默认)*/
+/*辅助阅读*/
+/*信息*/
+/*成功*/
+/*提醒/警告*/
+/*错误/强调*/
+/*黑色*/
+/*白色*/
+/*UI1502---xui-paging (css)---STA*/
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav {
+  display: inline-block;
+  list-style: none;
+  position: relative;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > * {
+  display: inline-block;
+  float: left;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.4rem;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #dfdfdf;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -o-transition: all 0.2s;
+  margin-right: -1px;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.group {
+  width: 6rem;
+  margin-right: 5px;
+  border: 0;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *:first-child {
+  border-radius: 3px 0 0 3px;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *:last-child {
+  border: 1px solid #dfdfdf;
+  border-radius: 0 3px 3px 0;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.prve:after,
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.next:after {
+  display: inline-block;
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 0.45rem solid transparent;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.prve:after {
+  border-right-color: #999999;
+  margin-left: -0.45rem;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.next:after {
+  border-left-color: #999999;
+  margin-right: -0.45rem;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.frist:before,
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.last:before {
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: .9rem;
+  background: #999999;
+  border-radius: 1px;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.frist:after,
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.last:after {
+  display: inline-block;
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 0.45rem solid transparent;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.last:before {
+  margin-right: -0.8rem;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.frist:after {
+  border-right-color: #999999;
+  margin-left: -0.2rem;
+}
+.mc-paging[data-mcui=ui1503] > .mc-paging-nav > *.last:after {
+  border-left-color: #999999;
+  margin-right: -0.6rem;
+}
+/*---UI1503 xui-paging END---*/
+.mc-paging[data-mcui=ui1503][data-sz=s] > .mc-paging-nav > * {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.4rem;
+}
+.mc-paging[data-mcui=ui1503][data-sz=m] > .mc-paging-nav > * {
+  min-width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+.mc-paging[data-mcui=ui1503][data-sz=l] > .mc-paging-nav > * {
+  min-width: 3.5rem;
+  height: 3.5rem;
+  line-height: 3.4rem;
+}

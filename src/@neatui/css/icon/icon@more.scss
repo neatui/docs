@@ -1,0 +1,8 @@
+%icon-more {
+  background: radial-gradient(circle at 50% 18%, currentColor 9%, transparent 11%), radial-gradient(circle at 50% 50%, currentColor 13%, transparent 15%),
+    radial-gradient(circle at 50% 82%, currentColor 9%, transparent 11%);
+}
+
+[ui-icon~='more'] {
+  @extend %icon-more;
+}

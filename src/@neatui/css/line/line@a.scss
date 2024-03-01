@@ -1,0 +1,51 @@
+[ui-line~='@a'] {
+  $szs: xs, s, m, l, xl;
+  $cos: main, read, case, weak;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  white-space: nowrap;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 1px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @include theme {
+      background: co(line);
+    }
+  }
+
+  & > * {
+    padding: 0 0.5em;
+  }
+
+  // 粗细
+  $sz_base: 0px;
+  @each $sz in $szs {
+    $sz_base: $sz_base + 1;
+    &[ui-line~='sz:#{$sz}'] {
+      &::before,
+      &::after {
+        height: $sz_base;
+      }
+    }
+  }
+
+  // 颜色
+  @each $co in $cos {
+    &[ui-line~='co:#{$co}'] {
+      &::before,
+      &::after {
+        @include theme {
+          background: co($co);
+        }
+      }
+    }
+  }
+}

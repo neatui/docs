@@ -1,0 +1,11 @@
+%icon-refresh {
+  background:
+    linear-gradient(15deg, transparent 32%, currentColor 40%, currentColor 65%, transparent 73%) no-repeat 81% 28% / 23% 20%,
+    linear-gradient(15deg, transparent 38%, currentColor 48%, currentColor 73%, transparent 80%) no-repeat 17% 75% / 23% 20%,
+    radial-gradient(circle at 50% 125%, transparent 50%, currentColor 53%, currentColor 62%, transparent 65%) no-repeat 50% 0% / 100% 40%,
+    radial-gradient(circle at 50% -25%, transparent 50%, currentColor 53%, currentColor 62%, transparent 65%) no-repeat 50% 100% / 100% 40%;
+}
+
+[ui-icon~='refresh'] {
+  @extend %icon-refresh;
+}

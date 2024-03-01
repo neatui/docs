@@ -1,0 +1,18 @@
+[ui-title~='@a'] {
+  & {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      display: block;
+      content: '';
+      width: 0.3em;
+      height: 0.95em;
+      border-radius: 0.1em;
+      margin-right: 0.2em;
+      @include theme {
+        background-color: co(main);
+      }
+    }
+  }
+}

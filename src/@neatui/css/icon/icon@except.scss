@@ -1,0 +1,9 @@
+// 除以
+%icon-except {
+  background: linear-gradient(0deg, transparent 42%, currentColor 0%, currentColor 57%, transparent 0%), radial-gradient(circle at 50% 18%, currentColor 12%, transparent 00%),
+    radial-gradient(circle at 50% 83%, currentColor 13%, transparent 00%);
+}
+
+[ui-icon~='except'] {
+  @extend %icon-except;
+}

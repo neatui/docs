@@ -1,0 +1,24 @@
+@mixin scale($d: '') {
+  $rank: 'xxs', 'xs', 'ss', 'sm', 'sl', 'ms', 'mm', 'ml', 'ls', 'lm', 'll', 'xl', 'xxl';
+
+  $sz: 0;
+  @each $k in $rank {
+    [ui-scale~='#{$k}'] {
+      transform: scale($sz);
+
+      &[ui-scale~='ct'] {
+        transform-origin: 50% 0%;
+      }
+      &[ui-scale~='cb'] {
+        transform-origin: 50% 100%;
+      }
+      &[ui-scale~='lm'] {
+        transform-origin: 0% 50%;
+      }
+      &[ui-scale~='rm'] {
+        transform-origin: 100% 50%;
+      }
+    }
+    $sz: $sz + 0.1;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "jsxBracketSameLine": true,
+  "semi": true,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "printWidth": 180,
+  "tabWidth": 2,
+  "vueIndentScriptAndStyle": true
+}

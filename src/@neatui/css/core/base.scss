@@ -1,0 +1,544 @@
+@mixin base($d: '') {
+  // BASE
+  .#{$d}full,
+  .#{$d}full-x,
+  .#{$d}full-w,
+  .#{$d}full-sub > *,
+  .#{$d}full-x-sub > *,
+  .#{$d}full-w-sub > * {
+    width: 100%;
+  }
+  .#{$d}full,
+  .#{$d}full-h,
+  .#{$d}full-y,
+  .#{$d}full-sub > *,
+  .#{$d}full-h-sub > *,
+  .#{$d}full-y-sub > * {
+    height: 100%;
+  }
+
+  .#{$d}min-full,
+  .#{$d}min-full-x,
+  .#{$d}min-full-w,
+  .#{$d}min-full-sub > *,
+  .#{$d}min-full-x-sub > *,
+  .#{$d}min-full-w-sub > * {
+    min-width: 100%;
+  }
+  .#{$d}min-full,
+  .#{$d}min-full-h,
+  .#{$d}min-full-y,
+  .#{$d}min-full-sub > *,
+  .#{$d}min-full-h-sub > *,
+  .#{$d}min-full-y-sub > * {
+    min-height: 100%;
+  }
+
+  .#{$d}max-full,
+  .#{$d}max-full-x,
+  .#{$d}max-full-w,
+  .#{$d}max-full-sub > *,
+  .#{$d}max-full-x-sub > *,
+  .#{$d}max-full-w-sub > * {
+    max-width: 100%;
+  }
+  .#{$d}max-full,
+  .#{$d}max-full-h,
+  .#{$d}max-full-y,
+  .#{$d}max-full-sub > *,
+  .#{$d}max-full-h-sub > *,
+  .#{$d}max-full-y-sub > * {
+    max-height: 100%;
+  }
+
+  // 居中对齐
+  .#{$d}ac,
+  .#{$d}ac-sub > * {
+    text-align: center;
+  }
+
+  // 居左对齐
+  .#{$d}al,
+  .#{$d}al-sub > * {
+    text-align: left;
+  }
+
+  // 两端对齐
+  .#{$d}aj,
+  .#{$d}aj-sub > * {
+    text-align: justify;
+  }
+
+  // 居右对齐
+  .#{$d}ar,
+  .#{$d}ar-sub > * {
+    text-align: right;
+  }
+
+  // 顶部对齐
+  .#{$d}vt,
+  .#{$d}vt-sub > * {
+    vertical-align: top;
+  }
+  // 上下居中
+  .#{$d}vm,
+  .#{$d}vm-sub > * {
+    vertical-align: middle;
+  }
+
+  // 底部对齐
+  .#{$d}vb,
+  .#{$d}vb-sub > * {
+    vertical-align: bottom;
+  }
+
+  // 横竖对齐
+  .#{$d}avc {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+    & > * {
+      width: 100%;
+      height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+
+      & > * {
+        display: inline-block;
+        text-align: left;
+      }
+    }
+  }
+
+  /*定位*/
+  .#{$d}pr,
+  .#{$d}pr-sub > * {
+    position: relative;
+  }
+  .#{$d}pa,
+  .#{$d}pa-sub > * {
+    position: absolute;
+  }
+  .#{$d}pf,
+  .#{$d}pf-sub > * {
+    position: fixed;
+  }
+  .#{$d}ps,
+  .#{$d}ps-sub > * {
+    position: sticky;
+  }
+
+  /*浮动*/
+  .#{$d}fl,
+  .#{$d}fl-sub > * {
+    float: left;
+  }
+  .#{$d}fr,
+  .#{$d}fr-sub > * {
+    float: right;
+  }
+  .#{$d}fn,
+  .#{$d}fn-sub > * {
+    float: none;
+  }
+
+  // 清除浮动
+  .#{$d}cb,
+  .#{$d}cb-sub > * {
+    clear: both;
+
+    &:after {
+      display: table;
+      content: '';
+      clear: both;
+    }
+  }
+
+  // 字体粗细
+  .#{$d}bold {
+    font-weight: bold;
+  }
+  @for $i from 1 through 9 {
+    // 字粗
+    .#{$d}fw#{$i} {
+      font-weight: #{$i * 100};
+      @if ($i < 4) {
+        -webkit-font-smoothing: auto;
+        -moz-osx-font-smoothing: auto;
+      }
+    }
+
+    // 宽度
+    .#{$d}w#{$i*10} {
+      width: $i * 10%;
+    }
+
+    // 缩小
+    .#{$d}sr#{$i} {
+      transform: scale(#{calc($i / 10)});
+    }
+  }
+  .#{$d}fw-auto {
+    font-weight: normal;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  // 块级
+  .#{$d}b,
+  .#{$d}block,
+  .#{$d}b-sub > *,
+  .#{$d}block-sub > * {
+    display: block;
+  }
+  .#{$d}dib,
+  .#{$d}inline-block,
+  .#{$d}dib-sub > *,
+  .#{$d}inline-block-sub > * {
+    display: inline-block;
+  }
+  .#{$d}df,
+  .#{$d}flex,
+  .#{$d}df-sub > *,
+  .#{$d}flex-sub > * {
+    display: flex;
+  }
+  .#{$d}dif,
+  .#{$d}inline-flex,
+  .#{$d}dif-sub > *,
+  .#{$d}inline-flex-sub > * {
+    display: inline-flex;
+  }
+  .#{$d}di,
+  .#{$d}inline,
+  .#{$d}di-sub > *,
+  .#{$d}inline-sub > * {
+    display: inline;
+  }
+
+  .#{$d}scroll {
+    overflow: auto;
+  }
+  .#{$d}scroll-x {
+    overflow-x: auto;
+  }
+  .#{$d}scroll-y {
+    overflow-y: auto;
+  }
+
+  .#{$d}nowrap {
+    white-space: nowrap;
+  }
+
+  // 是否穿透
+  .#{$d}pe-auto {
+    pointer-events: auto;
+  }
+  .#{$d}pe-none {
+    pointer-events: none;
+  }
+
+  // 图层层级
+  .#{$d}z-no {
+    z-index: 0;
+  }
+  .#{$d}z-ss {
+    z-index: 1;
+  }
+  .#{$d}z-sm {
+    z-index: 2;
+  }
+  .#{$d}z-sl {
+    z-index: 3;
+  }
+  .#{$d}z-ms {
+    z-index: 4;
+  }
+  .#{$d}z-mm {
+    z-index: 5;
+  }
+  .#{$d}z-ml {
+    z-index: 6;
+  }
+  .#{$d}z-ls {
+    z-index: 7;
+  }
+  .#{$d}z-lm {
+    z-index: 8;
+  }
+  .#{$d}z-ll {
+    z-index: 9;
+  }
+
+  // 不透明度
+  .#{$d}o-no {
+    opacity: 0;
+  }
+  .#{$d}o-xs {
+    opacity: 0.05;
+  }
+  .#{$d}o-ss {
+    opacity: 0.1;
+  }
+  .#{$d}o-sm {
+    opacity: 0.2;
+  }
+  .#{$d}o-sl {
+    opacity: 0.3;
+  }
+  .#{$d}o-ms {
+    opacity: 0.4;
+  }
+  .#{$d}o-mm {
+    opacity: 0.5;
+  }
+  .#{$d}o-ml {
+    opacity: 0.6;
+  }
+  .#{$d}o-ls {
+    opacity: 0.7;
+  }
+  .#{$d}o-lm {
+    opacity: 0.8;
+  }
+  .#{$d}o-ll {
+    opacity: 0.9;
+  }
+  .#{$d}o-xl {
+    opacity: 0.95;
+  }
+
+  .#{$d}o-ss\+mm {
+    opacity: 0.15;
+  }
+  .#{$d}o-sm\+mm {
+    opacity: 0.25;
+  }
+  .#{$d}o-sl\+mm {
+    opacity: 0.35;
+  }
+  .#{$d}o-ms\+mm {
+    opacity: 0.45;
+  }
+  .#{$d}o-mm\+mm {
+    opacity: 0.55;
+  }
+  .#{$d}o-ml\+mm {
+    opacity: 0.65;
+  }
+  .#{$d}o-ls\+mm {
+    opacity: 0.75;
+  }
+  .#{$d}o-lm\+mm {
+    opacity: 0.85;
+  }
+  .#{$d}o-ll\+mm {
+    opacity: 0.95;
+  }
+}
+
+// 桌面
+@include base();
+
+// 平板
+@include med('<dpc') {
+  @include base('pad\\:');
+}
+// 移动
+@include med('<pad') {
+  @include base('mob\\:');
+}
+
+// 代码
+code,
+.code {
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+}
+
+// 容器
+.box {
+  position: relative;
+  width: 100%;
+  max-width: 95rem;
+  height: 100%;
+  margin: 0 auto;
+  // padding: 0 1rem;
+  // clear: both;
+  // &:after {
+  //   display: table;
+  //   content: '';
+  //   clear: both;
+  // }
+}
+// 全屏的
+[layout='full'] {
+  &,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+}
+[layout='full'],
+// 宽阔的
+[layout='wide'] {
+  .box {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+[layout='full'] {
+  .box {
+    padding: 0;
+  }
+}
+[layout='slim'] {
+  .box {
+    width: 100%;
+    max-width: 640px;
+    padding: 0;
+  }
+}
+
+// 小于桌面时
+@include med('>pad') {
+  // 自动的
+  [layout='auto'] {
+    .box {
+      width: 80%;
+      max-width: 100%;
+    }
+  }
+}
+
+// 文档
+.doc {
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.bk {
+  &-solid {
+    border-style: solid;
+  }
+  &-dashed {
+    border-style: dashed;
+  }
+  &-double {
+    border-style: double;
+  }
+  &-dotted {
+    border-style: dotted;
+  }
+}
+
+// 省略号
+[ui-omit~='1'],
+[ui-omit~='2'],
+[ui-omit~='3'],
+[ui-omit~='4'],
+[ui-omit~='5'],
+[ui-omit~='6'] {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+[ui-omit~='1'] {
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+[ui-omit~='2'] {
+  -webkit-line-clamp: 2;
+}
+[ui-omit~='3'] {
+  -webkit-line-clamp: 3;
+}
+[ui-omit~='4'] {
+  -webkit-line-clamp: 4;
+}
+[ui-omit~='5'] {
+  -webkit-line-clamp: 5;
+}
+[ui-omit~='6'] {
+  -webkit-line-clamp: 6;
+}
+
+// 等分
+.ew1,
+.ew1-sub > *,
+.ew1-sun > * > * {
+  width: 100%;
+}
+.ew2,
+.ew2-sub > *,
+.ew2-sun > * > * {
+  width: 50%;
+}
+.ew3,
+.ew3-sub > *,
+.ew3-sun > * > * {
+  width: 33.333333%;
+}
+.ew4,
+.ew4-sub > *,
+.ew4-sun > * > * {
+  width: 25%;
+}
+.ew5,
+.ew5-sub > *,
+.ew5-sun > * > * {
+  width: 20%;
+}
+.ew6,
+.ew6-sub > *,
+.ew6-sun > * > * {
+  width: 16.666666%;
+}
+.ew7,
+.ew7-sub > *,
+.ew7-sun > * > * {
+  width: 14.285714%;
+}
+.ew8,
+.ew8-sub > *,
+.ew8-sun > * > * {
+  width: 12.5%;
+}
+.ew9,
+.ew9-sub > *,
+.ew9-sun > * > * {
+  width: 11.111111%;
+}
+
+// 符号与单位
+[ui-sign] {
+  &::before {
+    position: relative;
+    content: attr(ui-sign);
+    font-weight: inherit;
+    margin-right: 0.2em;
+  }
+}
+[ui-unit] {
+  &::after {
+    position: relative;
+    content: attr(ui-unit);
+    font-weight: inherit;
+    margin-left: 0.2em;
+  }
+}
+
+// 图标
+[ui-icon] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}

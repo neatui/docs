@@ -1,0 +1,22 @@
+{
+  "name": "@neatui/table",
+  "version": "1.1.22",
+  "description": "",
+  "main": "mcui@table.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/mcui/mcui.desktop.git"
+  },
+  "keywords": [
+    "mcui"
+  ],
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/mcui/mcui.desktop/issues"
+  },
+  "homepage": "https://gitlab.com/mcui/mcui.desktop#readme"
+}

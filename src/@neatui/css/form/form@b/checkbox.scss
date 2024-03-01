@@ -1,0 +1,86 @@
+/**
+属性	        描述
+disabled	   规定输入字段应该被禁用。
+max	         规定输入字段的最大值。
+maxlength	   规定输入字段的最大字符数。
+min          规定输入字段的最小值。
+pattern	     规定通过其检查输入值的正则表达式。
+readonly	   规定输入字段为只读（无法修改）。
+required	   规定输入字段是必需的（必需填写）。
+size	       规定输入字段的宽度（以字符计）。
+step	       规定输入字段的合法数字间隔。
+value	       规定输入字段的默认值。
+*/
+@use 'sass:math';
+$co: 'info', 'well', 'warn', 'risk';
+
+@keyframes am-b-checked {
+  0% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  50% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
+
+[ui-form~='@b'] {
+  // 复选框
+  &[ui-form~='type:checkbox'] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    vertical-align: middle;
+    user-select: none;
+
+    &[ui-form~='lt'] {
+      align-items: baseline;
+      [type='checkbox'] {
+        position: relative;
+        top: 0.15em;
+      }
+    }
+
+    [type='checkbox'] {
+      appearance: none;
+      font-size: inherit;
+      width: 0.95em;
+      height: 0.95em;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: inset 0 0 0 1px currentColor;
+      border-radius: 0.2em;
+      flex-shrink: 0;
+
+      &:checked {
+        background: radial-gradient(circle at 23% 43.3%, currentColor 5%, transparent 6%), radial-gradient(circle at 26% 46%, currentColor 5.5%, transparent 6.5%),
+          radial-gradient(circle at 29% 49%, currentColor 6%, transparent 7%), radial-gradient(circle at 32% 51.5%, currentColor 6.5%, transparent 7.5%),
+          radial-gradient(circle at 35% 54.4%, currentColor 7%, transparent 8%), radial-gradient(circle at 38% 57.5%, currentColor 7.5%, transparent 8.5%),
+          radial-gradient(circle at 42% 61%, currentColor 8%, transparent 9%), radial-gradient(circle at 45% 63%, currentColor 9%, transparent 10%),
+          radial-gradient(circle at 47% 69.8%, currentColor 5%, transparent 6%), radial-gradient(circle at 50.8% 63.8%, currentColor 5%, transparent 6%),
+          radial-gradient(circle at 52.5% 57%, currentColor 8%, transparent 9%), radial-gradient(circle at 55.8% 52%, currentColor 7.5%, transparent 8.5%),
+          radial-gradient(circle at 59% 47.5%, currentColor 7%, transparent 8%), radial-gradient(circle at 62.8% 42%, currentColor 6%, transparent 7%),
+          radial-gradient(circle at 66.8% 37%, currentColor 5%, transparent 6%), radial-gradient(circle at 70% 32.5%, currentColor 4.5%, transparent 5.5%),
+          radial-gradient(circle at 73.8% 28%, currentColor 3.9%, transparent 4.9%), radial-gradient(circle at 77.5% 23.7%, currentColor 3.4%, transparent 4.4%),
+          radial-gradient(circle at 81% 19.5%, currentColor 3%, transparent 4%), radial-gradient(circle at 85% 15.2%, currentColor 2.5%, transparent 3.5%);
+        animation: am-b-checked 0.3s;
+        &,
+        & + * {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+
+      & + * {
+        margin-left: 0.2em;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+// 添加
+%icon-quit {
+  background:
+    linear-gradient(90deg, transparent 36%, currentColor 48%, currentColor 62%, transparent 72%) no-repeat 50% 5% / 30% 50%,
+    radial-gradient(circle at 50% -160%, transparent 68%, currentColor 75%, currentColor 81%, transparent 86%) no-repeat 50% 100% / 40% 22%,
+    radial-gradient(circle at -65% 50%, transparent 49%, currentColor 55%, currentColor 60%, transparent 66%) no-repeat 100% 50% / 30% 100%,
+    radial-gradient(circle at 165% 50%, transparent 49%, currentColor 55%, currentColor 60%, transparent 66%) no-repeat 0% 50% / 30% 100%;
+}
+[ui-icon~='quit'] {
+  @extend %icon-quit;
+}

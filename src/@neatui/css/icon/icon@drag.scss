@@ -1,0 +1,9 @@
+// 拖拽
+%icon-drag {
+  background: radial-gradient(circle at 35% 15%, currentColor 8%, transparent 9%), radial-gradient(circle at 65% 15%, currentColor 8%, transparent 9%),
+    radial-gradient(circle at 35% 50%, currentColor 10.5%, transparent 11.5%), radial-gradient(circle at 65% 50%, currentColor 10.5%, transparent 11.5%),
+    radial-gradient(circle at 35% 85%, currentColor 8%, transparent 9%), radial-gradient(circle at 65% 85%, currentColor 8%, transparent 9%);
+}
+[ui-icon~='drag'] {
+  @extend %icon-drag;
+}

@@ -1,0 +1,35 @@
+[ui-load='@g'],
+.ui-load-g {
+  @keyframes ui-load-g {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  & {
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-right-color: currentColor !important;
+    animation: ui-load-g 1.5s linear infinite both;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      box-shadow: 0 0 0 1px currentColor;
+      opacity: 0.2;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+<template>
+  <div class="full-x" ui-flex="row xt">
+    <div ui-flex="row lm :wrap" class="mr-mm-sub my-sm-sub">
+      <template v-for="(item, idx) in state.limit" :key="idx">
+        <div v-if="item._view" ui-flex="row lm" v-bind="item.attrs">
+          <span class="nr-sm flex-fixed o-ls">{{ item.label }}{{ item.label ? ':' : '' }}</span>
+          <Select sz="s" v-if="item.model === 'Select'" class="w-mm" :options="item.enums" v-model="state.param[item.field]" />
+          <Cascader sz="s" v-else-if="item.model === 'Cascader'" class="w-mm" :options="item.enums" v-model="state.param[item.field]" />
+          <MoreSelect sz="s" v-else-if="item.model === 'MoreSelect'" class="w-mm" :options="item.enums" v-model="state.param[item.field]" />
+          <SearchMoreSelect sz="s" v-else-if="item.model === 'SearchMoreSelect'" class="w-mm" :options="item.enums" v-model="state.param[item.field]" />
+          <DatePicker v-else-if="item.model === 'DatePicker'" class="w-mm" sz="s" v-model="state.param[item.field]" @change="(val:any) => (state.param[item.field] = val)" />
+          <DateRangePicker
+            v-else-if="item.model === 'DateRangePicker'"
+            class="w-ls"
+            sz="s"
+            v-model="state.param[item.field]"
+            @change="(val:any) => (state.param[item.field] = val)"
+          />
+          <Input sz="s" v-else class="w-mm" :block="false" v-model="state.param[item.field]" />
+        </div>
+      </template>
+    </div>
+    <div ui-hide="<pad" class="mr-sl-sub my-sm-sub nowrap">
+      <IFollowView tipBoxClass="nr-no">
+        <button ui-btn="@a s case :border"><i class="icon icon-add2 fs-xs"></i>添加条件</button>
+        <template v-if="state.limit.length" #tips>
+          <div class="w-mm h-ls nr-sl" ui-scroll="x:hidden :y">
+            <div v-for="(item, idx) in state.limit" class="item ux-hover nowrap r-ss" :key="idx">
+              <label ui-form="@a type:checkbox" class="ny-xs nx-sm">
+                <input type="checkbox" :checked="item._view" @change="item._view = item._view ? 0 : 1" />
+                <span>{{ item.label }}</span>
+              </label>
+            </div>
+          </div>
+        </template>
+      </IFollowView>
+      <button ui-btn="@a s main" @click="fResetLimit">{{ words['common.reset'] || '重置' }}</button>
+    </div>
+  </div>
+  <div ui-hide=">mob" class="mr-sl-sub my-sm-sub nowrap">
+    <IFollowView tipBoxClass="nr-no">
+      <button ui-btn="@a s case :border"><i class="icon icon-add2 fs-xs"></i>添加条件</button>
+      <template v-if="state.limit.length" #tips>
+        <div class="w-mm h-ls nr-sl" ui-scroll="x:hidden :y">
+          <div v-for="(item, idx) in state.limit" class="item ux-hover nowrap r-ss" :key="idx">
+            <label ui-form="@a type:checkbox" class="ny-xs nx-sm">
+              <input type="checkbox" :checked="item._view" @change="item._view = item._view ? 0 : 1" />
+              <span>{{ item.label }}</span>
+            </label>
+          </div>
+        </div>
+      </template>
+    </IFollowView>
+    <button ui-btn="@a s main" @click="fResetLimit">{{ words['common.reset'] || '重置' }}</button>
+  </div>
+</template>
+<script setup lang="ts">
+  import { computed, reactive, watch } from 'vue';
+  import { useRoute } from 'vue-router';
+  import { IFollowView } from '../../basic';
+  import { Input, Select, MoreSelect, SearchMoreSelect, DatePicker, DateRangePicker, Cascader } from '../../form';
+  const route = useRoute();
+
+  // 外部数据
+  const props: any = defineProps({
+    words: {
+      type: Object,
+      default: () => ({})
+    },
+    limit: {
+      type: Array as () => any[],
+      default: () => []
+    },
+    param: {
+      type: Object,
+      default: () => ({})
+    }
+  });
+
+  // 内部数据
+  const state: any = reactive({
+    name: computed(() => 'confs' + route.path?.replace(/\//g, '_')),
+    limit: computed(() => {
+      const _cache = JSON.parse(localStorage.getItem(`${state.name}_limit`) || '{}');
+      return (props.limit || [])?.map((item: any) => {
+        if (_cache[item.field] && Object.prototype.hasOwnProperty.call(_cache[item.field], '_view')) {
+          item._view = _cache[item.field]?._view;
+        } else {
+          if (item.view === true || item.view === 1 || item.view === 'always') {
+            item._view = 1;
+          }
+        }
+        return item;
+      });
+    }),
+    param: {}
+  });
+  watch(
+    [() => state.limit],
+    () => {
+      const _limit: any = {};
+      state.limit.forEach((item: any, idx: number) => {
+        if (Object.prototype.hasOwnProperty.call(item, '_view')) {
+          _limit[item.field] = { _view: item._view ? 1 : 0 };
+          if (!item._view) {
+            delete state.param[item.field];
+          }
+        }
+      });
+      localStorage.setItem(`${state.name}_limit`, JSON.stringify(_limit));
+    },
+    { deep: true }
+  );
+
+  watch(
+    () => props.param,
+    () => {
+      state.param = props.param;
+    },
+    { deep: true, immediate: true }
+  );
+
+  // 重置筛选
+  const fResetLimit = () => {
+    for (const key in state.param) {
+      if (key !== 'page' && key !== 'pageSize') {
+        delete state.param[key];
+      }
+    }
+  };
+</script>

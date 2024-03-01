@@ -1,0 +1,9 @@
+%icon-left {
+  background:
+    linear-gradient(-225deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 30% 23.5% / 50% 35%,
+    linear-gradient(45deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 30% 76.5% / 50% 35%;
+}
+
+[ui-icon~='left'] {
+  @extend %icon-left;
+}

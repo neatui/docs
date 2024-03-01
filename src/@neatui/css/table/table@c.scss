@@ -1,0 +1,18 @@
+// 主题
+@import './base.scss';
+
+[ui-table~='@c'] {
+  & {
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+  }
+
+  tbody {
+    tr {
+      @include theme {
+        box-shadow: inset 0 0 0 1px co(line);
+        border-radius: 0.2em;
+      }
+    }
+  }
+}

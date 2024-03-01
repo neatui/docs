@@ -1,0 +1,111 @@
+[ui-navs~='@b'] {
+  position: relative;
+  & > * {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      & > * {
+        @include theme {
+          text-decoration: underline;
+          opacity: 0.8;
+        }
+      }
+    }
+    &:active {
+      & > * {
+        display: inline-block;
+        transform: scale3d(0.95, 0.9, 1);
+      }
+    }
+
+    &:not(:last-child):after {
+      display: inline-block;
+      content: '|';
+      margin-left: 1.2em;
+      margin-right: 1em;
+      opacity: 0.3;
+    }
+  }
+
+  // 主题
+  &,
+  &[ui-navs~='text'] {
+    & > * {
+      @include theme {
+        color: co(text);
+      }
+      &.active {
+        & > *:first-child {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+    }
+  }
+
+  &[ui-navs~='read'] {
+    & > * {
+      @include theme {
+        color: co(read);
+      }
+      &.active {
+        & > *:first-child {
+          @include theme {
+            color: mix(co(main), co(read), 45%);
+          }
+        }
+      }
+    }
+  }
+
+  &[ui-navs~='note'] {
+    & > * {
+      @include theme {
+        color: co(note);
+      }
+      &.active {
+        & > *:first-child {
+          @include theme {
+            // color: co(main);
+            color: mix(co(main), co(back), 45%);
+          }
+        }
+      }
+    }
+  }
+
+  &[ui-navs~='back'] {
+    & > * {
+      @include theme {
+        color: rgba(co(back), 0.7);
+      }
+      &.active {
+        & > *:first-child {
+          @include theme {
+            color: co(back);
+          }
+        }
+      }
+    }
+  }
+
+  // 对齐
+  & {
+    &,
+    &[ui-navs~='al'] {
+      text-align: left;
+    }
+
+    &[ui-navs~='ac'] {
+      text-align: center;
+    }
+
+    &[ui-navs~='ar'] {
+      text-align: right;
+    }
+  }
+}

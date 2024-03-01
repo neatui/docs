@@ -1,0 +1,16 @@
+{
+  "name": "@neatui/navs",
+  "version": "1.0.2",
+  "description": "",
+  "main": "mcui@navs.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "mcui",
+    "ui"
+  ]
+}

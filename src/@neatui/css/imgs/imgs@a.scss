@@ -1,0 +1,171 @@
+@use 'sass:math';
+@import './base.scss';
+
+@mixin imgs($n: 'ui-img', $sub: '') {
+  [#{$n}~='@a'] {
+    &#{$sub} {
+      position: relative;
+      display: inline-flex;
+      vertical-align: middle;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.25rem;
+      padding: 3px;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px currentColor;
+      transition: all 0.3s;
+
+      & > * {
+        width: 100%;
+        height: 100%;
+        transform: scale3d(1, 1, 1);
+        border-radius: 2px;
+        overflow: hidden;
+        transition: all 0.3s;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      & > img {
+        width: 100%;
+        height: 100%;
+        // max-width: 100%;
+        // max-height: 100%;
+        object-fit: cover;
+      }
+
+      &:hover {
+        @include theme {
+          // border: 1px solid co(text);
+          box-shadow: inset 0 0 0 1px co(text);
+        }
+        & > * {
+          transform: scale3d(0.85, 0.85, 1);
+        }
+      }
+
+      // 激活
+      &.active {
+        @include theme {
+          // border: 1px solid co(main) !important;
+          box-shadow: inset 0 0 0 1px co(main);
+        }
+      }
+      // 选中
+      &.selected,
+      &[selected~='1'] {
+        @include theme {
+          // border: 1px solid co(main) !important;
+          box-shadow: inset 0 0 0 1px co(main);
+        }
+
+        &::after {
+          position: absolute;
+          display: block;
+          content: '';
+          width: 0.6rem;
+          height: 0.6rem;
+          max-width: 1rem;
+          max-height: 1rem;
+          top: 3%;
+          right: 3%;
+          border-radius: 0.2rem;
+          background-image: radial-gradient(circle at 26% 56%, currentColor 8%, transparent 9%), radial-gradient(circle at 32% 62%, currentColor 8%, transparent 9%),
+            radial-gradient(circle at 35% 65%, currentColor 8%, transparent 9%), radial-gradient(circle at 41% 71%, currentColor 8%, transparent 9%),
+            radial-gradient(circle at 47% 70%, currentColor 9%, transparent 10%), radial-gradient(circle at 53% 62%, currentColor 9%, transparent 10%),
+            radial-gradient(circle at 59% 54%, currentColor 9%, transparent 10%), radial-gradient(circle at 65% 46%, currentColor 9%, transparent 10%),
+            radial-gradient(circle at 71% 38%, currentColor 8%, transparent 9%);
+          @include theme {
+            background-color: co(main);
+            color: co(back);
+          }
+          animation: am-selected 0.2s 0.1s both;
+        }
+      }
+    }
+
+    // 文本类
+    &[#{$n}~=':text']#{$sub} {
+      width: auto;
+    }
+
+    // 圆形
+    &[#{$n}~=':round']#{$sub} {
+      border-radius: 50%;
+      &.selected,
+      &[selected~='1'] {
+        &::after {
+          width: 1rem;
+          height: 1rem;
+          top: 15%;
+          right: 15%;
+          border-radius: 2rem;
+        }
+      }
+
+      & > * {
+        border-radius: 50%;
+      }
+    }
+    // 叶形
+    &[#{$n}~=':leaf']#{$sub} {
+      border-radius: 30% 0.3rem;
+      & > * {
+        border-radius: 28% 0.1rem;
+      }
+    }
+
+    // 颜色
+    $color: 'none', 'main', 'text', 'read', 'case', 'line', 'note', 'weak', 'back', 'fore';
+    @each $co in $color {
+      &[#{$n}~='#{$co}'] {
+        &#{$sub} {
+          @include theme {
+            box-shadow: inset 0 0 0 1px co($co);
+          }
+        }
+      }
+    }
+
+    // 尺寸
+    $size: 'xs', 'ss', 'sm', 'sl', 'ms', 'mm', 'ml', 'ls', 'lm', 'll', 'xl';
+    $base: 1.5em;
+    $padd: 2px;
+    @each $sz in $size {
+      &[#{$n}~='sz:#{$sz}'] {
+        &#{$sub} {
+          width: $base;
+          min-width: $base;
+          height: $base;
+          padding: $padd;
+        }
+
+        &.selected,
+        &[selected~='1'] {
+          &::after {
+            width: calc($base / 5);
+            height: calc($base / 5);
+          }
+        }
+
+        &[#{$n}~=':text']#{$sub} {
+          width: auto;
+        }
+      }
+      @if ($base<3) {
+        $base: $base + 0.5;
+      } @else {
+        $base: $base + 1;
+      }
+      $padd: $padd + 1;
+    }
+  }
+}
+
+// 单个
+@include imgs('ui-img');
+// 群组
+@include imgs('ui-imgs', '>*');

@@ -1,0 +1,16 @@
+{
+  "name": "@neatui/load",
+  "version": "1.1.0",
+  "description": "",
+  "main": "mcui@load.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "mcui",
+    "ui"
+  ]
+}

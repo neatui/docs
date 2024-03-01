@@ -1,0 +1,52 @@
+[ui-opts~='@a'] {
+  & {
+    position: relative;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    @include theme {
+      box-shadow: inset 0 0 0 1px co(case);
+    }
+
+    &.active {
+      @include theme {
+        box-shadow: inset 0 0 0 1px co(main);
+      }
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 0.6rem;
+        height: 0.6rem;
+        max-width: 1rem;
+        max-height: 1rem;
+        top: 0.2em;
+        right: 0.2em;
+        border-radius: 0.15rem;
+        background-image: radial-gradient(circle at 26% 56%, currentColor 8%, transparent 9%), radial-gradient(circle at 32% 62%, currentColor 8%, transparent 9%),
+          radial-gradient(circle at 35% 65%, currentColor 8%, transparent 9%), radial-gradient(circle at 41% 71%, currentColor 8%, transparent 9%),
+          radial-gradient(circle at 47% 70%, currentColor 9%, transparent 10%), radial-gradient(circle at 53% 62%, currentColor 9%, transparent 10%),
+          radial-gradient(circle at 59% 54%, currentColor 9%, transparent 10%), radial-gradient(circle at 65% 46%, currentColor 9%, transparent 10%),
+          radial-gradient(circle at 71% 38%, currentColor 8%, transparent 9%);
+        @include theme {
+          background-color: co(main);
+          color: co(fore);
+        }
+        -webkit-animation: am-selected 0.2s 0.1s both;
+        animation: am-selected 0.2s 0.1s both;
+      }
+    }
+  }
+
+  & > * {
+    transform: scale(1);
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    & > * {
+      transform: scale(0.9);
+    }
+  }
+}

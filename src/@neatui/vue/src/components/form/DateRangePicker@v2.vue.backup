@@ -1,0 +1,224 @@
+<template>
+  <div :ui-form="`@a type:select sz:${sz}`" ui-tips="@a co:well" :ui-tips-view="state.show">
+    <IFollowView>
+      <Input v-bind="$props" :clearable="false" readonly v-model="state.value" @click="toggle">
+        <template #suffix><i ui-form-select=""></i></template>
+      </Input>
+      <template #tips>
+        <div ui-calendar="@a" class="w-ll">
+          <div ui-calendar-head="">
+            <div ui-flex="row lm" class="nx-ss-sub">
+              <span class="fw-auto">{{ curr.y }}-{{ curr.m }}</span>
+            </div>
+            <div ui-flex="row rm">
+              <button class="fs-xs mr-ss" ui-btn="@a main s">使用</button>
+            </div>
+          </div>
+          <ul ui-calendar-week="">
+            <li><span>日</span></li>
+            <li><span>一</span></li>
+            <li><span>二</span></li>
+            <li><span>三</span></li>
+            <li><span>四</span></li>
+            <li><span>五</span></li>
+            <li><span>六</span></li>
+          </ul>
+          <div>
+            <ul ui-calendar-days="">
+              <li
+                v-for="(item, idx) in curr.days"
+                :key="idx"
+                :class="`${item.isToday ? 'today' : item.isLastMonth || item.isNextMonth ? 'o-sl' : item.isHoliday ? 'co-risk' : ''} ${
+                  state.selected && state.selected === item.date ? 'active' : ''
+                }`"
+              >
+                <div v-if="item.day" @click="change(item)" class="pr">
+                  <span>{{ item.day }}</span>
+                  <sup style="font-size: 0.6em; margin-top: -0.3em; position: absolute; left: 100%; top: 0" v-if="item.holiday" class="lh-ss">休</sup>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div ui-calendar-foot="">
+            <div ui-flex="row lm">
+              <div ui-calendar-prev-year="" @click="prev('y')"></div>
+              <div ui-calendar-prev="" @click="prev('m')"></div>
+            </div>
+            <div ui-flex="row cm" class="nx-ss-sub">
+              <ul class="fs-xs n-sm-sub" ui-flex="row lm">
+                <li ui-btn="@a s none">年</li>
+                <li ui-btn="@a s none">月</li>
+                <li ui-btn="@a s none">日</li>
+                <li ui-btn="@a s none">时</li>
+              </ul>
+            </div>
+            <div ui-flex="row rm">
+              <div ui-calendar-next="" @click="next('m')"></div>
+              <div ui-calendar-next-year="" @click="next('y')"></div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </IFollowView>
+  </div>
+</template>
+<script setup lang="ts">
+  import { computed, reactive, toRefs } from 'vue';
+  import { idate } from '@fekit/utils';
+  import { Input } from '../form';
+  import { IFollowView } from '../basic';
+
+  // 创建日期
+  const cDate = (date: any = null) => {
+    const _date = new Date(date);
+    return date && _date instanceof Date && !isNaN(_date.getTime()) ? _date : new Date();
+  };
+  // 个位补零
+  const numfill = (num: string | number = '') => {
+    return Number(num) < 10 ? `0${num}` : num;
+  };
+  // 外部入参
+  const props = defineProps({
+    theme: { type: String, default: '@a' },
+    sz: { type: String, default: 'm' },
+    co: { type: String, default: '' },
+    block: { type: Boolean, default: true },
+    // 提示文案
+    tips: {
+      type: String,
+      default: ''
+    },
+    // 提示文案
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    // 格式
+    format: {
+      type: String,
+      default: ''
+    },
+    // 值
+    value: {
+      type: [String, Number],
+      default: ''
+    },
+    // 节假日
+    holiday: {
+      type: Object,
+      default: () => ({})
+    },
+    // 校验规则
+    rules: {
+      type: Array,
+      default: () => []
+    },
+    // 是否是示校验图标
+    verify: {
+      type: Boolean,
+      default: false
+    }
+  });
+
+  // 内部数据
+  const state: any = reactive({
+    view: 1,
+    show: 0,
+    pos: 'bl',
+    selected: '',
+    date: props.value,
+    curr: computed(() => {
+      const date = cDate(state.date);
+      const calendar = [];
+      // 年
+      const y: any = date.getFullYear();
+      // 月
+      const m: any = date.getMonth() + 1;
+      // 日
+      const d: any = date.getDate();
+      // 本月第一天星期几
+      const w = new Date(`${y}-${m}-1`).getDay();
+      // 当前月份一共几天
+      const days = new Date(y, m, 0).getDate();
+
+      // 当前
+      const curr = new Date();
+      const curr_y = curr.getFullYear();
+      const curr_m = curr.getMonth() + 1;
+      const curr_d = curr.getDate();
+
+      // 上月
+      const last = new Date(y, m - 1, 0);
+      const last_y = last.getFullYear();
+      const last_m = last.getMonth() + 1;
+
+      // 下月
+      const next = new Date(y, m + 1, 0);
+      const next_y = next.getFullYear();
+      const next_m = next.getMonth() + 1;
+      let prevdays = last.getDate();
+
+      for (let i = 0; i < w; i++) {
+        calendar.unshift({
+          date: `${last_y}-${numfill(last_m)}-${prevdays}`,
+          day: prevdays,
+          isLastMonth: 1
+        });
+        prevdays = prevdays - 1;
+      }
+      for (let i = 1; i <= days; i++) {
+        const _i = numfill(i);
+        calendar.push({
+          date: `${y}-${numfill(m)}-${_i}`,
+          day: _i,
+          isToday: curr_y === y && curr_m === m && curr_d === i,
+          isHoliday: props.holiday[`${y}-${numfill(m)}-${_i}`]?.name ? 1 : 0,
+          holiday: props.holiday[`${y}-${numfill(m)}-${_i}`]?.name
+        });
+      }
+      for (let i = 1; calendar.length < 42; i++) {
+        const _i = numfill(i);
+        calendar.push({
+          date: `${next_y}-${numfill(next_m)}-${_i}`,
+          day: _i,
+          isNextMonth: 1
+        });
+      }
+      return { days: calendar, y, m, d };
+    }),
+    value: computed(() => {
+      return props.format ? idate(state.selected || props.value).format(props.format) : state.selected || props.value;
+    })
+  });
+  const { curr = {} }: any = toRefs(state);
+
+  const toggle = () => {
+    state.show = state.show ? 0 : 1;
+  };
+  const upload = (a: any = 'm', b: any = 1) => {
+    const date = cDate(state.date);
+    if (a === 'm') {
+      date.setMonth(date.getMonth() + b);
+    } else {
+      date.setFullYear(date.getFullYear() + b);
+    }
+    return date.toISOString().substring(0, 10);
+  };
+
+  // 日期前翻
+  const prev = (type: any = 'm') => {
+    state.date = upload(type, -1);
+  };
+  // 日期后翻
+  const next = (type: any = 'm') => {
+    state.date = upload(type, 1);
+  };
+
+  // 向外通信
+  const emits = defineEmits(['change']);
+  const change = (item: any) => {
+    state.selected = item.date;
+    state.date = item.date;
+    emits('change', item.date);
+  };
+</script>

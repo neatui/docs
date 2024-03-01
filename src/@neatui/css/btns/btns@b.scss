@@ -1,0 +1,187 @@
+@use 'sass:math';
+$size: 'xs', 's', 'm', 'l', 'xl';
+$type: 'none', 'main', 'vice', 'text', 'read', 'weak', 'back', 'info', 'well', 'warn', 'risk';
+
+// 按钮
+[ui-btn~='@b'] {
+  // 基础样式
+  & {
+    position: relative;
+    display: inline-table;
+    height: 2.5em;
+    line-height: 2.5em;
+    padding: 0 1em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: all 50ms;
+    text-align: center;
+    vertical-align: middle;
+    // -webkit-font-smoothing: auto;
+    // -moz-osx-font-smoothing: auto;
+    border: 0;
+    user-select: none;
+    white-space: nowrap;
+    @include theme {
+      color: co(text);
+      background: co(weak);
+      box-shadow: inset 0 0 0 1px co(line);
+    }
+  }
+
+  & > * {
+    &.icon {
+      display: inline-block;
+      & + * {
+        margin-left: 0.2em;
+      }
+    }
+  }
+
+  // 绝对尺寸
+  &[ui-btn~=':abs'] {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+  }
+  // 圆弧按钮
+  &[ui-btn~=':round'] {
+    border-radius: 100em;
+  }
+
+  // 移入状态
+  &:hover {
+    @include theme {
+      box-shadow:
+        inset 0 0 0 1px co(line),
+        inset 0 0 0 100em rgba(co(text), 0.04);
+    }
+  }
+
+  // 按下状态
+  &:active {
+    transform: scale(0.98, 0.95);
+  }
+
+  // 正方形按钮
+  &[ui-btn~=':square'] {
+    width: 2.5em;
+    padding: 0;
+  }
+
+  // 禁用按钮
+  &[ui-btn~=':disabled'] {
+    &,
+    &:hover {
+      opacity: 0.65;
+      box-shadow:
+        inset 0 0 0 1px transparent,
+        inset 0 0 0 100em rgba(0, 0, 0, 0);
+      cursor: not-allowed;
+    }
+    &:active {
+      transform: scale(1, 1);
+      cursor: not-allowed;
+    }
+  }
+
+  // 按钮尺寸
+  $base: 1.5;
+  @each $i in $size {
+    &[ui-btn~='#{$i}'] {
+      height: #{$base}em;
+      line-height: #{$base}em;
+      padding: 0 #{calc(($base - 1) / 2)}em;
+
+      // 方形按钮
+      &[ui-btn~=':square'] {
+        width: #{$base}em;
+        padding: 0;
+      }
+
+      &[ui-btn~=':block'] {
+        width: 100%;
+      }
+
+      &[ui-btn~=':abs'] {
+        height: #{$base}rem;
+        line-height: #{$base}rem;
+        padding: 0 #{calc(($base - 1) / 2)}rem;
+      }
+    }
+    $base: $base + 0.5;
+  }
+
+  // 按钮颜色
+  @each $name in $type {
+    &[ui-btn~='#{$name}'] {
+      @if ($name == 'none' or $name == 'weak' or $name == 'back') {
+        @include theme {
+          background: co($name);
+        }
+        color: inherit;
+      } @else {
+        @include theme {
+          // 背景色
+          $co: co($name);
+          background-image: linear-gradient(180deg, saturate($co, 5%) 0%, mix($co, co(text), 80%) 100%);
+          box-shadow: inset 0 -0.3em 0 0 rgba(0, 0, 0, 0.15);
+
+          // 智能计算文字颜色
+          // $wd: lightness($co) - (saturation($co) / 3);
+          // @if ($wd < 60%) {
+          //   color: #fff;
+          // } @else {
+          //   color: co(back);
+          // }
+          color: co(back);
+        }
+      }
+      box-shadow: inset 0 0 0 1px transparent;
+
+      &:hover {
+        @include theme {
+          box-shadow:
+            inset 0 0 0 1px transparent,
+            inset 0 0 0 100em rgba(co(text), 0.04);
+        }
+      }
+
+      // 边框式
+      &[ui-btn~=':border'] {
+        background: transparent;
+        @include theme {
+          color: co($name);
+          box-shadow:
+            inset 0 0 0 1px co($name),
+            inset 0 -0.2em 0 0 co(back),
+            inset 0 -0.3em 0 0 co($name);
+        }
+
+        &:hover {
+          @include theme {
+            box-shadow:
+              inset 0 0 0 1px co($name),
+              inset 0 -0.2em 0 0 co(back),
+              inset 0 -0.3em 0 0 co($name),
+              inset 0 0 0 100em rgba(co($name), 0.08);
+          }
+        }
+      }
+
+      // 下划线
+      &[ui-btn~=':underline'] {
+        @include theme {
+          color: co($name);
+        }
+        background: transparent;
+        box-shadow: inset 0 0 0 1px transparent;
+
+        &:hover {
+          box-shadow: inset 0 0 0 1px transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

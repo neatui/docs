@@ -1,0 +1,26 @@
+$cos: 'main', 'well', 'warn', 'risk', 'info';
+[ui-note~='@a'] {
+  // 基础
+  & {
+    width: 100%;
+    padding: 0.5em 1em;
+    border-radius: 0.25rem;
+
+    @include theme {
+      color: co(read);
+      box-shadow: inset 0 0 0 1px co(line);
+      background: co(weak);
+    }
+  }
+
+  // 颜色
+  @each $key in $cos {
+    &[ui-note~='#{$key}'] {
+      @include theme {
+        color: mix(co($key), co(text), 85%);
+        box-shadow: inset 0 0 0 1px rgba(co($key), 0.3);
+        background: saturate(rgba(co($key), 0.06), 20%);
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+.home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  // background: #880382;
+  @include theme {
+    background: co(main);
+  }
+
+  &::before {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 34%,
+        rgba(0, 0, 0, 0.6) 35%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.1) 51%,
+        rgba(0, 0, 0, 0.1) 84%,
+        rgba(0, 0, 0, 0.6) 85%,
+        rgba(0, 0, 0, 0.6)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 34%,
+        rgba(0, 0, 0, 0.6) 35%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.1) 51%,
+        rgba(0, 0, 0, 0.1) 84%,
+        rgba(0, 0, 0, 0.6) 85%,
+        rgba(0, 0, 0, 0.6)
+      );
+    background-repeat: repeat;
+    background-size: 6px 6px;
+    content: '';
+    left: 0;
+    top: 0;
+  }
+
+  &-anim {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    &::before {
+      background-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.1) 34%,
+          rgba(0, 0, 0, 0.6) 35%,
+          rgba(0, 0, 0, 0.6) 50%,
+          rgba(0, 0, 0, 0.1) 51%,
+          rgba(0, 0, 0, 0.1) 84%,
+          rgba(0, 0, 0, 0.6) 85%,
+          rgba(0, 0, 0, 0.6)
+        ),
+        linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.1) 34%,
+          rgba(0, 0, 0, 0.6) 35%,
+          rgba(0, 0, 0, 0.6) 50%,
+          rgba(0, 0, 0, 0.1) 51%,
+          rgba(0, 0, 0, 0.1) 84%,
+          rgba(0, 0, 0, 0.6) 85%,
+          rgba(0, 0, 0, 0.6)
+        );
+      background-repeat: repeat;
+      background-size: 8px 8px;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    @keyframes am-decoration {
+      0% {
+        border-radius: 40%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      50% {
+        border-radius: 48%;
+      }
+      to {
+        border-radius: 40%;
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+    }
+
+    @keyframes am-decoration2 {
+      0% {
+        border-radius: 48%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      50% {
+        border-radius: 42%;
+      }
+      to {
+        border-radius: 48%;
+        -webkit-transform: rotate(-359deg);
+        transform: rotate(-359deg);
+      }
+    }
+    .am-decoration {
+      bottom: 17%;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      padding-top: 70%;
+      pointer-events: none;
+      position: absolute;
+      right: 30%;
+      width: 75%;
+    }
+    @media screen and (max-width: 799px) {
+      .am-decoration {
+        padding-top: 170%;
+        width: 180%;
+      }
+    }
+    .am-decoration:after,
+    .am-decoration:before {
+      bottom: 0;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      -webkit-transform: rotate(50deg);
+      transform: rotate(50deg);
+      width: 100%;
+    }
+    .am-decoration:before {
+      animation: am-decoration 5s linear infinite;
+      // background: linear-gradient(90deg, rgba(#d93268, 0.3), rgba(#d93268, 0.3) 97.68%);
+      @include theme {
+        background: linear-gradient(90deg, rgba(co(main), 0.3), rgba(co(main), 0.3) 97.68%);
+      }
+      bottom: -2%;
+    }
+    .am-decoration:after {
+      animation: am-decoration2 5s linear infinite;
+      // background: linear-gradient(90deg, rgba(#f06345, 0.15), rgba(#f06345, 0.15) 97.68%);
+      @include theme {
+        background: linear-gradient(90deg, rgba(co(vice), 0.15), rgba(co(vice), 0.15) 97.68%);
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+/*
+ * 模块：字号
+ * 模块类型：b(基础模块)
+ * 精度：9 +
+ * 分级：3 +
+ * 适配：桌面 | 平析 | 移动
+ * 兼容：
+ * 版本：v0.0.1
+ * 备注：s->Small 小，m->Middle 中，l->Large 大；x->Extra 特大
+ */
+
+// 全局字号
+@mixin baseSize($sz: 13) {
+  $size: 'xs', 's', 'm', 'l', 'xl';
+
+  @each $i in $size {
+    [size='#{$i}'],
+    [ui-size='#{$i}'] {
+      $s: index($size, $i) + $sz;
+      font-size: #{$s}px;
+    }
+  }
+}
+
+// 分级字号
+@mixin randSize($d: '') {
+  $rank: 'xs', 'ss', 'sm', 'sl', 'ms', 'mm', 'ml', 'ls', 'lm', 'll', 'xl';
+  // 分级字号
+  .#{$d}fs-no {
+    font-size: 0rem;
+  }
+  .#{$d}lh-no {
+    line-height: 0;
+  }
+
+  $sz: 0.7;
+  @each $k in $rank {
+    @if ($sz<1.2) {
+      $sz: $sz + 0.1;
+    } @else if ($sz<1.4) {
+      $sz: $sz + 0.2;
+    } @else if($sz<2.4) {
+      $sz: $sz + 0.4;
+    } @else if($sz<3.4) {
+      $sz: $sz + 0.6;
+    } @else {
+      $sz: $sz + 0.8;
+    }
+
+    .#{$d}fs-#{$k},
+    .#{$d}fs-#{$k}-sub > *,
+    .#{$d}fs-#{$k}-sub\:sta > *::before,
+    .#{$d}fs-#{$k}-sub\:end > *::after,
+    .#{$d}fs-#{$k}\:sta::before,
+    .#{$d}fs-#{$k}\:end::after {
+      font-size: #{$sz}rem;
+    }
+    // 双倍
+    .#{$d}fs-#{$k}\*2,
+    .#{$d}fs-#{$k}-sub\*2 > *,
+    .#{$d}fs-#{$k}-sub\*2\:sta > *::before,
+    .#{$d}fs-#{$k}-sub\*2\:end > *::after,
+    .#{$d}fs-#{$k}\*2\:sta::before,
+    .#{$d}fs-#{$k}\*2\:end::after {
+      font-size: #{$sz * 2}rem;
+    }
+    // 三倍
+    .#{$d}fs-#{$k}\*3,
+    .#{$d}fs-#{$k}-sub\*3 > *,
+    .#{$d}fs-#{$k}-sub\*3\:sta > *::before,
+    .#{$d}fs-#{$k}-sub\*3\:end > *::after,
+    .#{$d}fs-#{$k}\*3\:sta::before,
+    .#{$d}fs-#{$k}\*3\:end::after {
+      font-size: #{$sz * 3}rem;
+    }
+  }
+
+  .#{$d}lh-no {
+    line-height: 1;
+  }
+  .#{$d}lh-xs {
+    line-height: 1;
+  }
+  .#{$d}lh-ss {
+    line-height: 1.25;
+  }
+  .#{$d}lh-sm {
+    line-height: 1.5;
+  }
+  .#{$d}lh-ms {
+    line-height: 1.75;
+  }
+  .#{$d}lh-mm {
+    line-height: 2;
+  }
+  .#{$d}lh-ml {
+    line-height: 2.25;
+  }
+  .#{$d}lh-ls {
+    line-height: 2.5;
+  }
+  .#{$d}lh-lm {
+    line-height: 2.75;
+  }
+  .#{$d}lh-ll {
+    line-height: 3;
+  }
+  .#{$d}lh-xl {
+    line-height: 3.5;
+  }
+
+  // 标题
+  $hsz: 1;
+  // @for $i from 1 through 6 {}
+  // $h_sz: 1;
+  // @for $i from 1 through 6 {
+  //   $sz: 1 + (4 - $i)/10 + $h_sz;
+  //   $sz: round($sz * 10) / 10;
+
+  //   @if ($d == '') {
+  //     h#{$i},
+  //     .#{$d}h#{$i} {
+  //       font-size: #{$sz}em;
+  //     }
+  //   } @else {
+  //     .#{$d}h#{$i} {
+  //       font-size: #{$sz}em;
+  //     }
+  //   }
+
+  //   $h_sz: $h_sz - ($h_sz/3);
+  // }
+
+  h1,
+  .h1 {
+    font-size: 2em;
+  }
+  h2,
+  .h2 {
+    font-size: 1.6em;
+  }
+  h3,
+  .h3 {
+    font-size: 1.4em;
+  }
+  h4,
+  .h4 {
+    font-size: 1.2em;
+  }
+  h5,
+  .h5 {
+    font-size: 1.1em;
+  }
+  h6,
+  .h6 {
+    font-size: 1em;
+  }
+}
+
+// 桌面
+@include baseSize(11);
+@include randSize();
+
+// 平板
+@media screen and (max-width: 1024px) {
+  @include randSize('pad\\:');
+}
+
+// 移动
+@media screen and (max-width: 767px) {
+  // @include baseSize(9);
+  @include randSize('mob\\:');
+}
+
+// 超小屏
+@media screen and (max-width: 374px) {
+  @include baseSize(9);
+}

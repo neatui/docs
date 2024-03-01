@@ -1,0 +1,51 @@
+[ui-load='@i'],
+.ui-load-h {
+  @keyframes ui-load-i {
+    0%,
+    20% {
+      background: radial-gradient(circle at 15% 50%, currentColor 12%, transparent 13%);
+    }
+    21%,
+    25% {
+    }
+    25%,
+    40% {
+      background: radial-gradient(circle at 50% 50%, currentColor 17%, transparent 18%);
+    }
+    41%,
+    45% {
+    }
+    45%,
+    60% {
+      background: radial-gradient(circle at 85% 50%, currentColor 12%, transparent 13%);
+    }
+    61%,
+    100% {
+    }
+  }
+
+  & {
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    @include theme {
+      background: radial-gradient(circle at 15% 50%, rgba(co(text), 0.2) 12%, transparent 13%), radial-gradient(circle at 50% 50%, rgba(co(text), 0.2) 14%, transparent 15%),
+        radial-gradient(circle at 85% 50%, rgba(co(text), 0.2) 9%, transparent 10%);
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      @include theme {
+        color: co(text);
+      }
+      animation: ui-load-h 1s cubic-bezier(0.72, 0.115, 0.355, 0.88) infinite both;
+    }
+  }
+}

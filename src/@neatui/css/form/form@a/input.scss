@@ -1,0 +1,156 @@
+/**
+属性	        描述
+disabled	   规定输入字段应该被禁用。
+max	         规定输入字段的最大值。
+maxlength	   规定输入字段的最大字符数。
+min          规定输入字段的最小值。
+pattern	     规定通过其检查输入值的正则表达式。
+readonly	   规定输入字段为只读（无法修改）。
+required	   规定输入字段是必需的（必需填写）。
+size	       规定输入字段的宽度（以字符计）。
+step	       规定输入字段的合法数字间隔。
+value	       规定输入字段的默认值。
+*/
+@use 'sass:math';
+$cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'warn', 'risk';
+$sz: 'xs', 's', 'm', 'l', 'xl';
+
+[ui-form~='@a'] {
+  &[ui-form~='type:input'] {
+    position: relative;
+    min-width: 6em;
+    height: 100%;
+    height: 2.5em;
+    line-height: 1.5em;
+    padding: 0 0.5em;
+    border-radius: 0.25em;
+    transition:
+      all 0.35s,
+      background-color 0s;
+    @include theme {
+      border: 1px solid co(case);
+      background-color: co(fore);
+    }
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > * {
+      position: relative;
+    }
+
+    &:hover {
+      @include theme {
+        border: 1px solid rgba(co(main), 0.5);
+      }
+    }
+
+    &.form-focus,
+    &:focus-within {
+      @include theme {
+        background-color: co(fore);
+        border: 1px solid rgba(co(main), 0.6);
+        box-shadow: 0 0 0 2px rgba(co(main), 0.15);
+      }
+    }
+
+    input {
+      flex-shrink: 1;
+      flex-grow: 1;
+      // 未知原因如果不设宽度会把 ui-form-subffix 挤出框外
+      width: 100%;
+      height: 100%;
+      padding: 0 0.25em;
+      border: 0;
+      background-color: transparent;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      // 清除数字箭头
+      &[type='number'] {
+        // 火狐内核
+        appearance: textfield;
+        // 谷歌内核
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          appearance: none;
+          margin: 0;
+        }
+      }
+
+      &:-webkit-autofill {
+        @include theme {
+          box-shadow: 0 0 0 1000px co(fore) inset;
+          color: co(read);
+          -webkit-text-fill-color: co(read);
+        }
+      }
+
+      &::placeholder {
+        @include theme {
+          color: rgba(co(read), 0.35);
+        }
+      }
+    }
+
+    // 禁用
+    &[ui-form~='disabled'] {
+      cursor: not-allowed;
+      input {
+        cursor: not-allowed;
+      }
+      opacity: 0.5;
+    }
+
+    // 禁用
+    &[ui-form~='readonly'] {
+      cursor: pointer;
+      input {
+        cursor: pointer;
+      }
+    }
+
+    // 撑满
+    &[ui-form~=':block'] {
+      width: 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    // 圆弧
+    &[ui-form~=':round'] {
+      border-radius: 50em;
+    }
+
+    // 颜色
+    @each $c in $cos {
+      &[ui-form~='co:#{$c}'] {
+        & {
+          @include theme {
+            color: mix(co($c), co(text), 85%);
+            border: 1px solid rgba(co($c), 0.6);
+          }
+        }
+
+        &:focus-within {
+          box-shadow: 0 0 0 2px rgba(co($c), 0.15) !important;
+        }
+      }
+    }
+
+    // 尺寸
+    $sz_base: 1.5em;
+    @each $s in $sz {
+      &[ui-form~='sz:#{$s}'] {
+        height: $sz_base;
+        padding: 0 (($sz_base - 1) * 0.25);
+        input {
+          padding: 0 0.25em;
+        }
+      }
+      $sz_base: $sz_base + 0.5;
+    }
+  }
+}

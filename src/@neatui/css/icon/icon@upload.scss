@@ -1,0 +1,26 @@
+// 添加
+%icon-upload {
+  background:
+    radial-gradient(circle at 50% 23%, currentColor 4%, transparent 5%),
+    radial-gradient(circle at 47% 25%, currentColor 4%, transparent 5%),
+    radial-gradient(circle at 53% 25%, currentColor 4%, transparent 5%),
+    radial-gradient(circle at 44% 27%, currentColor 3.7%, transparent 4.7%),
+    radial-gradient(circle at 56% 27%, currentColor 3.7%, transparent 4.7%),
+    \radial-gradient(circle at 41% 29%, currentColor 3.5%, transparent 4.5%),
+    radial-gradient(circle at 59% 29%, currentColor 3.5%, transparent 4.5%),
+    radial-gradient(circle at 38% 31%, currentColor 3.3%, transparent 4.3%),
+    radial-gradient(circle at 62% 31%, currentColor 3.3%, transparent 4.3%),
+    radial-gradient(circle at 35% 33%, currentColor 3.1%, transparent 4.1%),
+    radial-gradient(circle at 65% 33%, currentColor 3.1%, transparent 4.1%),
+    radial-gradient(circle at 32% 35%, currentColor 2.9%, transparent 3.9%),
+    radial-gradient(circle at 68% 35%, currentColor 2.9%, transparent 3.9%),
+    radial-gradient(circle at 80% 82%, currentColor 3.5%, transparent 4.5%),
+    radial-gradient(circle at 20% 82%, currentColor 3.5%, transparent 4.5%),
+    linear-gradient(90deg, transparent 0%, currentColor 2%, currentColor 10%, transparent 13%, transparent 87%, currentColor 90%, currentColor 98%, transparent 100%) no-repeat 50%
+      75% / 70% 20%,
+    linear-gradient(0deg, transparent 42%, currentColor 45%, currentColor 55%, transparent 58%) no-repeat 50% 116% / 60% 50%,
+    linear-gradient(90deg, transparent 42%, currentColor 45%, currentColor 55%, transparent 58%) no-repeat 50% 40% / 50% 40%;
+}
+[ui-icon~='upload'] {
+  @extend %icon-upload;
+}

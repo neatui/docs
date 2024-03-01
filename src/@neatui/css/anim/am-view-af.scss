@@ -1,0 +1,104 @@
+// 显示动画
+@keyframes am-show-af {
+  0% {
+    transform: rotateX(45deg);
+    opacity: 0;
+  }
+  20% {
+    transform: rotateX(-7deg);
+    opacity: 1;
+  }
+  40% {
+    transform: rotateX(5deg);
+    opacity: 1;
+  }
+  60% {
+    transform: rotateX(-3deg);
+    opacity: 1;
+  }
+  80% {
+    transform: rotateX(1.5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+// 隐藏动画
+@keyframes am-hide-af {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  60% {
+    transform: rotateX(20deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-45deg);
+    opacity: 0;
+  }
+}
+
+// 动画时间
+$time: 750ms;
+$delay: 100ms;
+// 引用显示
+%am-show-af {
+  & > * {
+    transform: rotateX(45deg);
+    opacity: 0;
+    animation: am-show-af $time $delay both;
+  }
+}
+
+// 引用隐藏
+%am-hide-af {
+  opacity: 0;
+  transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+  pointer-events: none;
+  & > * {
+    opacity: 1;
+    animation: am-hide-af ($time + $delay) * (6 * 0.1) both;
+  }
+}
+
+// 传参调用
+@mixin am-view-af($time: 750ms, $delay: 100ms) {
+  perspective: 500;
+  &.show,
+  &[view='2'] {
+    @extend %am-show-af;
+  }
+
+  &.hide,
+  &[view='1'] {
+    @extend %am-hide-af;
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}
+
+// 全套引用
+[am-view='af'] {
+  perspective: 500;
+  &.show,
+  &[view='2'] {
+    @extend %am-show-af;
+  }
+
+  &.hide,
+  &[view='1'] {
+    @extend %am-hide-af;
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}

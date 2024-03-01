@@ -1,0 +1,7 @@
+%icon-minus {
+  background: linear-gradient(0deg, transparent 42%, currentColor 0%, currentColor 57%, transparent 0%);
+}
+
+[ui-icon~='minus'] {
+  @extend %icon-minus;
+}

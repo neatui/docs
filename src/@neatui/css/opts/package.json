@@ -1,0 +1,11 @@
+{
+  "name": "@neatui/opts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "note@theme=aa.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT"
+}

@@ -1,0 +1,125 @@
+$state: 'main', 'well', 'warn', 'risk', 'info', 'read', 'note', 'idle';
+$sz: 'xs', 's', 'm', 'l', 'xl';
+
+// 单个
+[ui-tag~='@a'] {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  border-radius: 0.2rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+
+  // 圆角
+  &[ui-tag~=':round'] {
+    border-radius: 10em;
+    padding: 0.25em 0.65em;
+  }
+  // 叶型
+  &[ui-tag~=':leaf'] {
+    border-radius: 0.5em 0;
+  }
+  // 弹头
+  &[ui-tag~=':bullet'] {
+    padding: 0.25em 0.5em 0.25em 0.65em;
+    border-radius: 1em 0.2em 0.2em 1em;
+  }
+
+  @each $key in $state {
+    @include theme {
+      $val: co($key);
+      $co: mix($val, co(text), 95%);
+      $bg: saturate(rgba($val, 0.06), 20%);
+      $bk: $val;
+
+      @if ($key== 'main') {
+        &,
+        &[ui-tag~='#{$key}'] {
+          color: $co;
+          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
+          background: $bg;
+        }
+      } @else {
+        &[ui-tag~='#{$key}'] {
+          color: $co;
+          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
+          background: $bg;
+        }
+      }
+    }
+  }
+}
+
+// 群组
+[ui-tags~='@a'] {
+  // 容器
+  & {
+    position: relative;
+    width: 100%;
+
+    &[ui-tags~='al'] {
+      & > * {
+        margin-right: 0.5rem;
+      }
+    }
+    &[ui-tags~='ac'] {
+      & > * {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+    &[ui-tags~='ar'] {
+      & > * {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  // 子项
+  & > * {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    border-radius: 0.2rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  // 圆角
+  &[ui-tags~=':round'] > * {
+    border-radius: 10em;
+  }
+  // 叶型
+  &[ui-tags~=':leaf'] > * {
+    border-radius: 10em 0;
+  }
+  // 弹头
+  &[ui-tag~=':bullet'] > * {
+    padding: 0.25em 0.65em 0.25em 0.5em;
+    border-radius: 1em 0.2em 0.2em 1em;
+  }
+
+  // 主题
+  @each $key in $state {
+    @include theme {
+      $val: co($key);
+      $co: mix($val, co(text), 85%);
+      $bg: saturate(rgba($val, 0.06), 20%);
+      $bk: $val;
+
+      @if ($key== 'main') {
+        & > *,
+        &[ui-tags~='#{$key}'] > * {
+          color: $co;
+          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
+          background: $bg;
+        }
+      } @else {
+        &[ui-tags~='#{$key}'] > * {
+          color: $co;
+          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
+          background: $bg;
+        }
+      }
+    }
+  }
+}

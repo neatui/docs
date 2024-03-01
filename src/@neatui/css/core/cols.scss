@@ -1,0 +1,148 @@
+@mixin cols($cols: 24, $base: 160, $space: 1) {
+  [ui-row] {
+    & {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      & > * {
+        position: relative;
+      }
+    }
+
+    // 间距
+    &[ui-row~='space'] {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      & > * {
+        padding: 1rem;
+      }
+    }
+
+    @include mob {
+      // 间距
+      &[ui-row~='space'] {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        & > * {
+          padding: 0.5rem;
+        }
+      }
+    }
+
+    // 撑满
+    &[ui-row~=':full'] {
+      & > * > * {
+        height: 100%;
+      }
+    }
+
+    // 用于容器需要居中对齐
+    &[ui-row~='inline'] {
+      display: inline-flex;
+    }
+    // 反向
+    &[ui-row~='reverse'] {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // 两种模块 普通模式和flex模式，普通模式废弃！
+  // [ui-row~='float'] {
+  //   & {
+  //     display: block;
+  //   }
+
+  //   // 清除浮动
+  //   &::after {
+  //     content: '';
+  //     display: table;
+  //     clear: both;
+  //   }
+
+  //   & > * {
+  //     position: relative;
+  //     height:100%;
+  //   }
+
+  //   // 向左浮动（默认）
+  //   & > *,
+  //   &[ui-row~='fl'] > * {
+  //     float: left;
+  //   }
+  //   // 向右浮动
+  //   &[ui-row~='fr'] > * {
+  //     float: right;
+  //   }
+  //   // 不要浮动
+  //   &[ui-row~='fn'] > * {
+  //     float: none !important;
+  //   }
+  // }
+
+  // 表格使用栅格
+  tr[ui-row] {
+    display: table-row;
+  }
+  td,
+  th {
+    &[ui-col] {
+      display: table-cell;
+    }
+  }
+
+  // 响应断点
+  $level: 'mob-s', 'mob-m', 'mob-l', 'pad-s', 'pad-m', 'pad-l', 'dpc-s', 'dpc-m', 'dpc-l';
+  $level2: 'mob', '', '', 'pad', '', '', 'dpc', '', '';
+
+  @each $i in $level {
+    $d: nth($level2, index($level, $i));
+    // 遍历断点
+    $base: $base + 160;
+    // 基础
+    @if ($i == 'mob-s') {
+      @for $n from 0 through $cols {
+        // 宽度
+        $w: calc(floor(calc(100% / $cols * $n) * 100000) / 100000);
+        [ui-row~='mob-#{$n}'] > *,
+        [ui-row~='#{$i}-#{$n}'] > *,
+        [ui-row] [ui-col~='mob-#{$n}'],
+        [ui-row] [ui-col~='#{$i}-#{$n}'] {
+          width: #{$w};
+        }
+      }
+    } @else {
+      @media (min-width: #{$base}px) {
+        @for $n from 0 through $cols {
+          // 宽度
+          $w: calc((floor((calc(100% / $cols) * $n) * 100000) / 100000));
+          @if ($d != '') {
+            // 三端
+            [ui-row~='#{$d}-#{$n}'] > *,
+           [ui-row] [ui-col~='#{$d}-#{$n}'],
+            // 细分三端
+            [ui-row~='#{$i}-#{$n}'] > *,
+           [ui-row] [ui-col~='#{$i}-#{$n}'] {
+              width: #{$w};
+            }
+          } @else {
+            [ui-row~='#{$i}-#{$n}'] > *,
+            [ui-row] [ui-col~='#{$i}-#{$n}'] {
+              width: #{$w};
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 自动
+  [ui-row~='mob-auto'],
+  [ui-row~='pad-auto'],
+  [ui-row~='dpc-auto'] {
+    justify-content: space-between;
+    & > * {
+      flex-grow: 1;
+    }
+  }
+}
+@include cols();

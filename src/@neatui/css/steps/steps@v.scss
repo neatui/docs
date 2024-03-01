@@ -1,0 +1,122 @@
+@import '../icon/icon@hook.scss';
+@import '../icon/icon@close.scss';
+@import '../icon/icon@more.scss';
+
+$co: 'none', 'main', 'vice', 'text', 'read', 'note', 'line', 'case', 'weak', 'fore', 'back', 'info', 'well', 'warn', 'risk';
+$sz: 'xs', 's', 'm', 'l', 'xl';
+
+[ui-steps~='@v'] {
+  & {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  // 宽度撑满
+  &[ui-steps~=':full'] {
+    width: 100%;
+  }
+
+  & > * {
+    position: relative;
+    padding-left: 2em;
+    padding-bottom: 1.5em;
+    flex-grow: 1;
+    @include theme {
+      color: co(note);
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    & > *:first-child {
+      line-height: 1.2;
+      margin-bottom: 0.2em;
+    }
+
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 1px;
+      border-radius: 2px;
+      left: 0.55em;
+      top: 1.5em;
+      bottom: 0.3em;
+      @include theme {
+        background: co(case);
+      }
+    }
+    &::after {
+      position: absolute;
+      display: block;
+      content: attr(data-num);
+      width: 1.2em;
+      height: 1.2em;
+      text-align: center;
+      line-height: 1em;
+      left: 0%;
+      top: 0;
+      border-radius: 50%;
+      @include theme {
+        color: co(note);
+        border: 1px solid co(note);
+      }
+    }
+
+    &.done {
+      @include theme {
+        color: co(main);
+      }
+      &::before {
+        @include theme {
+          background: co(main);
+        }
+      }
+      &::after {
+        content: '';
+        @include theme {
+          color: co(main);
+          border: 1px solid co(main);
+        }
+        @extend %icon-hook;
+      }
+    }
+
+    &.fail {
+      @include theme {
+        color: co(risk);
+      }
+      &::before {
+        @include theme {
+          background: co(risk);
+        }
+      }
+      &::after {
+        content: '';
+        @include theme {
+          color: co(risk);
+          border: 1px solid co(risk);
+        }
+        @extend %icon-close;
+      }
+    }
+
+    &.curr {
+      &::before {
+        @include theme {
+          background: co(read);
+        }
+      }
+      &::after {
+        content: '';
+        @include theme {
+          color: co(read);
+          border: 1px solid co(read);
+        }
+        @extend %icon-more;
+      }
+    }
+  }
+}

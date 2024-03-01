@@ -1,0 +1,156 @@
+$default: (
+  '_sys': (
+    main: #d52932,
+    vice: #67337d,
+    text: #111,
+    fore: #fff,
+    back: #f7f7f7,
+    land: #ff9900,
+    link: #0d66d0,
+    code: #e23861,
+    well: #4bbc73,
+    warn: #fb9a2a,
+    risk: #f95850,
+    info: #0889e4
+  )
+);
+
+// 检测
+@if (global-variable-exists(theme)) {
+  // 检测关键的基础颜色是否完整
+  @each $var in $theme {
+    $n: nth($var, 1);
+    $s: nth($var, 2);
+    @debug '检测到主题色卡[theme=#{$n}]';
+
+    // @debug '检查主题关键颜色是否完整!';
+    $baseColor: 'main', 'text', 'fore', 'back', 'link', 'code', 'well', 'warn', 'risk', 'info';
+    @each $baseColorItem in $baseColor {
+      @if (map-has-key($s, $baseColorItem)) {
+      } @else {
+        @error '[theme=#{$n}]主题缺少一个关键的基础颜色#{$baseColorItem}';
+      }
+    }
+  }
+} @else {
+  @debug '未定义基础色卡，请遵循MCUI设计规范建立主题色卡；https://mcui.asnowsoft.com/#/start/design';
+  @debug '尝试修复错误...';
+  @debug '创建系统默认色卡[theme=_sys]';
+  $theme: $default !global;
+}
+
+// 扩展颜色
+@each $i in $theme {
+  $n: nth($i, 1);
+  $s: nth($i, 2);
+  $m: (
+    read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
+    desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 60%),
+    note: mix(map-get($s, 'text'), map-get($s, 'fore'), 40%),
+    idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
+    case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
+    line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
+    weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
+    deep:
+      rgb(
+        red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
+        green(map-get($s, 'back')) - (green(map-get($s, 'back')) * 0.05 + 5),
+        blue(map-get($s, 'back')) - (blue(map-get($s, 'back')) * 0.05 + 5)
+      ),
+    none: transparent,
+    w: #fff,
+    b: #000
+  );
+  // 将扩展颜色加入放题色卡中
+  $theme: map-merge(
+    $theme,
+    (
+      $n: map-merge($m, $s)
+    )
+  ) !global;
+}
+
+// 主题
+@mixin theme($themeName: null) {
+  $hasTheme: map-get($theme, $themeName);
+  @if ($themeName != null) {
+    @if ($hasTheme != null) {
+      $t: $hasTheme;
+      $first: nth(nth($theme, 1), 1);
+      $n: $themeName;
+      $this: #{nth(&, 1)};
+      @if ($this == 'html' or $this == '' or $this == null) {
+        @if ($n == $first) {
+          @at-root html,
+            [theme],
+            [theme='#{$n}'] {
+            @content;
+          }
+        } @else {
+          @at-root [theme='#{$n}'] {
+            @content;
+          }
+        }
+      } @else {
+        @if ($n == $first) {
+          @content;
+        } @else {
+          [theme='#{$n}'] & {
+            @content;
+          }
+        }
+      }
+    } @else {
+      @debug '没有指定主题#{$hasTheme}';
+    }
+  } @else {
+    $first: nth(nth($theme, 1), 1);
+    @each $t in $theme {
+      $n: nth($t, 1);
+      $this: #{nth(&, 1)};
+      @if ($this == 'html' or $this == ':root' or $this == '' or $this == null) {
+        @if ($n == $first) {
+          @at-root html,
+            [theme],
+            [theme='#{$n}'] {
+            @content;
+          }
+        } @else {
+          @at-root [theme='#{$n}'] {
+            @content;
+          }
+        }
+      } @else {
+        @if ($n == $first) {
+          @content;
+        } @else {
+          [theme='#{$n}'] & {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 颜色
+@function co($a: '') {
+  @if (& != null) {
+    $r: nth(nth(&, 1), 1);
+    $n: str-slice($r, 8, -2);
+    $s: map-get($theme, $n);
+    @if ($s == null) {
+      $n: nth(nth($theme, 1), 1);
+      $s: nth(nth($theme, 1), 2);
+    }
+
+    @if ($s != null) {
+      @if (map-has-key($s, $a)) {
+        $a: map-get($s, $a);
+      } @else {
+        @debug '当前主题[theme=#{$n}]没有定义颜色名 #{$a}';
+      }
+    }
+    @return $a;
+  }
+}

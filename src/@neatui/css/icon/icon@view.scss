@@ -1,0 +1,20 @@
+%icon-view {
+  background:
+    radial-gradient(at 50% 50%, transparent 53%, currentColor 56%, currentColor 67%, transparent 70%) no-repeat center / 100% 70%,
+    radial-gradient(circle at 50% 50%, transparent 15%, currentColor 18%, currentColor 27%, transparent 30%);
+}
+
+%icon-unview {
+  background:
+    radial-gradient(at 50% 50%, transparent 53%, currentColor 56%, currentColor 67%, transparent 70%) no-repeat center / 100% 70%,
+    radial-gradient(circle at 50% 50%, transparent 15%, currentColor 18%, currentColor 27%, transparent 30%),
+    linear-gradient(-45deg, transparent 45%, currentColor 48%, currentColor 52%, transparent 55%) no-repeat center / 75% 75%;
+}
+
+[ui-icon~='view'] {
+  @extend %icon-view;
+}
+
+[ui-icon~='unview'] {
+  @extend %icon-unview;
+}

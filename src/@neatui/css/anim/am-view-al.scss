@@ -1,0 +1,98 @@
+// 显示动画
+@keyframes am-show-al {
+  0% {
+    opacity: 0;
+    transform: translate3d(150%, 0, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+// 隐藏动画
+@keyframes am-hide-al {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(150%, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+// 引用显示
+%am-show-al {
+  transform: translate3d(0, -150%, 0);
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform-origin: 50% 80%;
+}
+
+// 引用隐藏
+%am-hide-al {
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  opacity: 0;
+  transform-style: preserve-3d;
+}
+
+// 传参调用
+@mixin am-view-al($time: 450ms, $delay: 100ms) {
+  &.show,
+  &[view='2'] {
+    & > * {
+      @extend %am-show-al;
+      animation: am-show-al $time $delay both;
+    }
+  }
+
+  &.hide,
+  &[view='1'] {
+    opacity: 0;
+    transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+    pointer-events: none;
+
+    & > * {
+      @extend %am-hide-al;
+      animation: am-hide-al $time $delay both;
+    }
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}
+
+// 动画时间
+$time: 450ms;
+$delay: 100ms;
+
+// 全套引用
+[am-view='al'] {
+  &.show,
+  &[view='2'] {
+    & > * {
+      @extend %am-show-al;
+      animation: am-show-al $time $delay both;
+    }
+  }
+
+  &.hide,
+  &[view='1'] {
+    opacity: 0;
+    transition: ($time + $delay) * (4 * 0.1) ($time + $delay) * (6 * 0.1);
+    pointer-events: none;
+
+    & > * {
+      @extend %am-hide-al;
+      animation: am-hide-al $time $delay both;
+    }
+  }
+
+  &.none,
+  &[view='0'] {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+$co: 'main', 'well', 'warn', 'risk', 'info';
+$sz: 'xs', 's', 'm', 'l', 'xl';
+
+[ui-tabs~='@a'] {
+  position: relative;
+  max-width: 100%;
+  height: 2.5em;
+  line-height: 2.5em;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @include theme {
+    box-shadow: inset 0 -0.2em 0 rgba(co(line), 0.4);
+  }
+
+  & > * {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.active {
+      -webkit-font-smoothing: auto;
+      @include theme {
+        color: co(main);
+        box-shadow: inset 0 -0.2em 0 co(main);
+      }
+    }
+  }
+
+  // 对齐
+  &,
+  &[ui-tabs~='al'] {
+    text-align: left;
+  }
+  &[ui-tabs~='ac'] {
+    text-align: center;
+  }
+  &[ui-tabs~='ar'] {
+    text-align: right;
+  }
+
+  // 尺寸
+  $base: 2em;
+  @each $i in $sz {
+    // @debug $i;
+    &[ui-tabs~='#{$i}'] {
+      height: $base;
+      line-height: $base;
+    }
+    $base: $base + 0.5;
+  }
+}

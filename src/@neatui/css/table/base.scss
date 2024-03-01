@@ -1,0 +1,140 @@
+[ui-table] {
+  width: 100%;
+
+  th,
+  td {
+    &[col-fixed] {
+      position: sticky !important;
+      z-index: 1;
+    }
+
+    &[min-width] {
+      width: 1%;
+      white-space: nowrap;
+    }
+
+    &[col-fixed-side='l'] {
+      position: sticky;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 100%;
+        right: -5px;
+        top: 0;
+        @include theme {
+          box-shadow: inset 5px 0 5px -5px rgba(co(text), 0.15);
+        }
+      }
+    }
+    &[col-fixed-side='r'] {
+      position: sticky;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 100%;
+        left: -5px;
+        top: 0;
+        @include theme {
+          box-shadow: inset -5px 0 5px -5px rgba(co(text), 0.15);
+        }
+      }
+    }
+  }
+
+  // 固宽
+  &[ui-table~=':fix'],
+  &[ui-table~=':fixed'] {
+    table-layout: fixed;
+  }
+
+  // 对齐
+  &[ui-table~=':vt'] {
+    th,
+    td {
+      vertical-align: top;
+    }
+  }
+  &[ui-table~=':vb'] {
+    th,
+    td {
+      vertical-align: bottom;
+    }
+  }
+
+  // 尺寸
+  &[ui-table~='sz:xs'] {
+    th,
+    td {
+      padding: 0.25em;
+    }
+  }
+  &[ui-table~='sz:s'] {
+    th,
+    td {
+      padding: 0.5em;
+    }
+  }
+  &,
+  &[ui-table~='sz:m'] {
+    th,
+    td {
+      padding: 0.75em;
+    }
+  }
+  &[ui-table~='sz:l'] {
+    th,
+    td {
+      padding: 1em;
+    }
+  }
+  &[ui-table~='sz:xl'] {
+    th,
+    td {
+      padding: 1.25em;
+    }
+  }
+
+  // 固定头部
+  .table-head-fixed {
+    @include theme {
+      background: co(fore);
+      box-shadow:
+        2px 0 0 co(fore),
+        -2px 0 0 co(fore),
+        0 -2px 0 co(fore),
+        0 1px 3px rgba(co(deep), 0.5);
+    }
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+}
+
+[scroll-side-l='1'] {
+  [ui-table] {
+    th,
+    td {
+      &[col-fixed-side='l'] {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+[scroll-side-r='1'] {
+  [ui-table] {
+    th,
+    td {
+      &[col-fixed-side='r'] {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}

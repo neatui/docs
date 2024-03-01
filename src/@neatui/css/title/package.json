@@ -1,0 +1,15 @@
+{
+  "name": "@neatui/title",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mcui@title.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "title"
+  ],
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {}
+}

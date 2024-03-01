@@ -1,0 +1,81 @@
+// 阴影
+$cos: main, read, case, line, back;
+$szs: xs, ss, sm, sl, ms, mm, ml, ls, lm, ll;
+
+div {
+  width: 5em;
+  height: 2em;
+  margin: 1em;
+  background: #f0f0f0;
+}
+
+.bs {
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.bs-x {
+  box-shadow: inset 1px 0 0 0 currentColor, inset -1px 0 0 0 currentColor;
+}
+
+.bs-y {
+  box-shadow: inset 0 1px 0 0 currentColor, inset 0 -1px 0 0 currentColor;
+}
+
+.bs-l {
+  box-shadow: inset 1px 0 0 0 currentColor;
+}
+
+.bs-r {
+  box-shadow: inset -1px 0 0 0 currentColor;
+}
+
+.bs-t {
+  box-shadow: inset 0 1px 0 0 currentColor;
+}
+
+.bs-b {
+  box-shadow: inset 0 -1px 0 0 currentColor;
+}
+
+/* 主题色 */
+.bs-xs-main {
+  @include theme {
+    box-shadow: inset 0 0 0 1px co(main);
+  }
+}
+
+.bs-x-xs-main {
+  @include theme {
+    box-shadow: inset 1px 0 0 0 co(main), inset -1px 0 0 0 co(main);
+  }
+}
+
+.bs-y-xs-main {
+  @include theme {
+    box-shadow: inset 0 1px 0 0 co(main), inset 0 -1px 0 0 co(main);
+  }
+}
+
+.bs-l-xs-main {
+  @include theme {
+    box-shadow: inset 1px 0 0 0 co(main);
+  }
+}
+
+.bs-r-xs-main {
+  @include theme {
+    box-shadow: inset -1px 0 0 0 co(main);
+  }
+}
+
+.bs-t-xs-main {
+  @include theme {
+    box-shadow: inset 0 1px 0 0 co(main);
+  }
+}
+
+.bs-b-xs-main {
+  @include theme {
+    box-shadow: inset 0 -1px 0 0 co(main);
+  }
+}

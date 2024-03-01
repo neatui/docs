@@ -1,0 +1,44 @@
+$theme: (
+  'light': (
+    main: #03777a,
+    vice: #41b856,
+    text: #151515,
+    fore: #ffffff,
+    back: #f5f5f5,
+    link: #d07950,
+    code: #e23861,
+    well: #4bbc73,
+    warn: #fb9a2a,
+    risk: #f95850,
+    info: #0889e4,
+    side: #ffffff,
+    fund: #ff0000
+  ),
+  'dark': (
+    main: #03777a,
+    vice: #4bbc73,
+    text: #fff,
+    fore: #222,
+    back: #171717,
+    land: #ff9900,
+    link: #dd7f49,
+    code: #e23861,
+    well: #4bbc73,
+    warn: #fb9a2a,
+    risk: #f95850,
+    info: #0889e4,
+    fund: #ff0000
+  )
+);
+
+// 组件
+@import '@neatui/css';
+
+// 插件
+@import '@fekit/toast/theme/toast@ac.scss';
+@import '@fekit/inview/theme/inview@aa.scss';
+@import '@fekit/inview/theme/inview@ad.scss';
+
+// 页面
+@import './base.scss';
+@import './home.scss';

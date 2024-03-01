@@ -1,0 +1,90 @@
+/**
+属性	        描述
+disabled	   规定输入字段应该被禁用。
+max	         规定输入字段的最大值。
+maxlength	   规定输入字段的最大字符数。
+min          规定输入字段的最小值。
+pattern	     规定通过其检查输入值的正则表达式。
+readonly	   规定输入字段为只读（无法修改）。
+required	   规定输入字段是必需的（必需填写）。
+size	       规定输入字段的宽度（以字符计）。
+step	       规定输入字段的合法数字间隔。
+value	       规定输入字段的默认值。
+*/
+@use 'sass:math';
+$co: 'info', 'well', 'warn', 'risk';
+
+@keyframes am-checked {
+  0% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  50% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
+
+[ui-form~='@c'] {
+  // 复选框
+  &[ui-form~='type:checkbox'] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+
+    &[ui-form~='lt'] {
+      align-items: baseline;
+      [type='checkbox'] {
+        position: relative;
+        top: 0.15em;
+      }
+    }
+
+    &[ui-form~=':block'] {
+      display: flex;
+    }
+
+    [type='checkbox'] {
+      appearance: none;
+      font-size: inherit;
+      width: 1em;
+      height: 1em;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: inset 0 0 0 1px currentColor;
+      border-radius: 25%;
+      transform: scale3d(0.9, 0.9, 1);
+      flex-shrink: 0;
+      @include theme {
+        background-color: mix(co(weak), co(fore), 50%);
+      }
+
+      &:checked {
+        background:
+          linear-gradient(0deg, transparent 29%, currentColor 31%) no-repeat 39.5% 0% / 5% 79%,
+          linear-gradient(47deg, currentColor 33%, transparent 34%) no-repeat,
+          linear-gradient(-50deg, currentColor 42%, transparent 43%) no-repeat,
+          linear-gradient(-50deg, transparent 73%, currentColor 74%) no-repeat,
+          linear-gradient(43deg, transparent 59%, currentColor 60%) no-repeat -32% 18% / 55% 80%,
+          linear-gradient(-45deg, transparent 59%, currentColor 60%) no-repeat 133% -20% / 70% 80%,
+          linear-gradient(45deg, transparent 65%, currentColor 66%) no-repeat 125% 0% / 50% 80%;
+        animation: am-checked 0.3s;
+        &,
+        & + * {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+
+      & + * {
+        margin-left: 0.2em;
+      }
+    }
+  }
+}

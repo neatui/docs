@@ -1,0 +1,174 @@
+<template>
+  <div class="full-x" ui-flex="row xt">
+    <div ui-flex="row lm :wrap" class="mr-mm-sub my-sm-sub">
+      <template v-for="(item, idx) in state.limit" :key="idx">
+        <div v-if="item._view" ui-flex="row lm" v-bind="{ ...(item.attrs || {}) }">
+          <span class="nr-sm flex-fixed o-ls">{{ item.label }}{{ item.label ? ':' : '' }}</span>
+          <Select sz="s" v-if="item.model[0] === 'Select'" :options="item.enums" v-model="state.param[item.field]" v-bind="{ ...(item.model[1] || {}) }" />
+          <Cascader sz="s" v-else-if="item.model[0] === 'Cascader'" :options="item.enums" v-model="state.param[item.field]" v-bind="{ ...(item.model[1] || {}) }" />
+          <MoreSelect sz="s" v-else-if="item.model[0] === 'MoreSelect'" :options="item.enums" v-model="state.param[item.field]" v-bind="{ ...(item.model[1] || {}) }" />
+          <SearchMoreSelect sz="s" v-else-if="item.model[0] === 'SearchMoreSelect'" :options="item.enums" v-model="state.param[item.field]" v-bind="{ ...(item.model[1] || {}) }" />
+          <DatePicker
+            v-else-if="item.model[0] === 'DatePicker'"
+            sz="s"
+            v-model="state.param[item.field]"
+            @change="(val:any) => (state.param[item.field] = val)"
+            v-bind="{ ...(item.model[1] || {}) }"
+          />
+          <DateRangePicker
+            v-else-if="item.model[0] === 'DateRangePicker'"
+            sz="s"
+            v-model="state.param[item.field]"
+            @change="(val:any) => (state.param[item.field] = val)"
+            v-bind="{ ...(item.model[1] || {}) }"
+          />
+          <Input sz="s" v-else :block="false" v-model="state.param[item.field]" v-bind="{ ...(item.model[1] || {}) }" />
+        </div>
+      </template>
+    </div>
+    <div ui-hide="<pad" class="mr-sl-sub my-sm-sub nowrap">
+      <IFollowView tipBoxClass="nr-no">
+        <button ui-btn="@a s case :border"><i class="icon icon-add2 fs-xs"></i>添加条件</button>
+        <template v-if="state.limit.length" #tips>
+          <div class="w-mm h-ls nr-sl" ui-scroll="x:hidden :y">
+            <div v-for="(item, idx) in state.limit" class="item ux-hover nowrap r-ss" :key="idx">
+              <label ui-form="@a type:checkbox" class="ny-xs nx-sm">
+                <input type="checkbox" :checked="item._view" @change="item._view = item._view ? 0 : 1" />
+                <span>{{ item.label }}</span>
+              </label>
+            </div>
+          </div>
+        </template>
+      </IFollowView>
+      <button ui-btn="@a s main" @click="fResetLimit">{{ words['common.reset'] || '重置' }}</button>
+    </div>
+  </div>
+  <div ui-hide=">mob" class="mr-sl-sub my-sm-sub nowrap">
+    <IFollowView tipBoxClass="nr-no">
+      <button ui-btn="@a s case :border"><i class="icon icon-add2 fs-xs"></i>添加条件</button>
+      <template v-if="state.limit.length" #tips>
+        <div class="w-mm h-ls nr-sl" ui-scroll="x:hidden :y">
+          <div v-for="(item, idx) in state.limit" class="item ux-hover nowrap r-ss" :key="idx">
+            <label ui-form="@a type:checkbox" class="ny-xs nx-sm">
+              <input type="checkbox" :checked="item._view" @change="item._view = item._view ? 0 : 1" />
+              <span>{{ item.label }}</span>
+            </label>
+          </div>
+        </div>
+      </template>
+    </IFollowView>
+    <button ui-btn="@a s main" @click="fResetLimit">{{ words['common.reset'] || '重置' }}</button>
+  </div>
+</template>
+<script setup lang="ts">
+  import { computed, reactive, watch } from 'vue';
+  import { useRoute } from 'vue-router';
+  import { isString } from '@fekit/utils';
+  import { IFollowView } from '../../basic';
+  import { Input, Select, MoreSelect, SearchMoreSelect, DatePicker, DateRangePicker, Cascader } from '../../form';
+  const route = useRoute();
+
+  /**
+   * 入参说明
+   *
+   * words          语言包
+   * limit          结构配置
+   * param          数据
+   */
+
+  interface LimitProps {
+    label?: string | (() => string);
+    field: string | (() => string);
+    model?: string | Array<any> | (() => string | Array<any>);
+    enums?: Array<any> | (() => string | Array<any>);
+    rules?: Array<any> | (() => string | Array<any>);
+    event?: Array<any> | (() => string | Array<any>);
+    attrs?: Array<any> | (() => string | Array<any>);
+    value?: any | (() => any);
+    clear?: boolean | (() => boolean);
+    close?: boolean;
+  }
+
+  // 类型
+  interface Props {
+    words?: { [key: string | number]: any };
+    limit: Array<LimitProps>;
+    param: any;
+  }
+  const props: any = withDefaults(defineProps<Props>(), {
+    words: () => ({}),
+    limit: () => [],
+    param: () => ({})
+  });
+
+  // 内部数据
+  const state: any = reactive({
+    name: computed(() => 'confs' + route.path?.replace(/\//g, '_')),
+    limit: computed(() => {
+      const _cache = JSON.parse(localStorage.getItem(`${state.name}_limit`) || '{}');
+      return (props.limit || [])?.map((item: any) => {
+        if (_cache[item.field] && Object.prototype.hasOwnProperty.call(_cache[item.field], '_view')) {
+          item._view = _cache[item.field]?._view;
+        } else {
+          if (item.view === true || item.view === 1 || item.view === 'always') {
+            item._view = 1;
+          }
+        }
+
+        // 模型处理
+        if (item.model) {
+          if (isString(item.model)) {
+            item.model = [item.model, { verify: false }];
+          }
+        } else {
+          item.model = ['Input', { verify: false }];
+        }
+
+        // 属性处理
+        if (item.model[1].class) {
+          if (!/\bw-[sml]+/.test(item.model[1].class || '')) {
+            item.model[1].class += ' w-mm';
+          }
+        } else {
+          item.model[1].class = 'w-mm';
+        }
+
+        return item;
+      });
+    }),
+    param: {}
+  });
+  watch(
+    [() => state.limit],
+    () => {
+      const _limit: any = {};
+      state.limit.forEach((item: any, idx: number) => {
+        if (Object.prototype.hasOwnProperty.call(item, '_view')) {
+          _limit[item.field] = { _view: item._view ? 1 : 0 };
+          if (!item._view) {
+            delete state.param[item.field];
+          }
+        }
+      });
+      localStorage.setItem(`${state.name}_limit`, JSON.stringify(_limit));
+    },
+    { deep: true }
+  );
+
+  watch(
+    () => props.param,
+    () => {
+      state.param = props.param;
+    },
+    { deep: true, immediate: true }
+  );
+
+  // 重置筛选
+  const fResetLimit = () => {
+    for (const key in state.param) {
+      if (key !== 'page' && key !== 'pageSize') {
+        delete state.param[key];
+      }
+    }
+  };
+</script>

@@ -1,0 +1,16 @@
+{
+  "name": "@neatui/line",
+  "version": "1.0.5",
+  "description": "",
+  "main": "mcui@line.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaojunbo",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "mcui",
+    "ui"
+  ]
+}

@@ -1,0 +1,160 @@
+@use 'sass:math';
+
+[ui-form~='@d'] {
+  &[ui-form~='type:upload'] {
+    position: relative;
+    display: inline-flex;
+
+    &[ui-form~=':block'] {
+      display: flex;
+    }
+
+    %item {
+      position: relative;
+      width: 10rem;
+      height: 10rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      border-radius: 0.25em;
+      padding: 0.5em;
+      text-align: center;
+      overflow: hidden;
+      transition: all 0.5s;
+      border-style: solid;
+      border-width: 1px;
+      @include theme {
+        border-color: co(line);
+        background-color: co(fore);
+      }
+    }
+
+    @keyframes am-file-add {
+      0% {
+      }
+      100% {
+      }
+    }
+    @keyframes am-file-del {
+      0% {
+        opacity: 1;
+      }
+      30% {
+        margin: 0.5em 1.5em 1.5em 0.5em;
+        opacity: 0;
+      }
+      100% {
+        width: 0;
+        height: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+      }
+    }
+
+    [ui-form-files] {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      & > * {
+        @extend %item;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 0.5em;
+          top: 0;
+          left: 0;
+
+          @include theme {
+            background-color: co(fore);
+          }
+        }
+
+        img,
+        video {
+          max-width: 100%;
+          max-height: 100%;
+          border-radius: 0.15em;
+          transform: translate3d(0, 0, 0);
+          transition: all 0.5s;
+          transform-origin: 50% 0%;
+        }
+        // 进度条
+        [ui-form-file-progress] {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          @include theme {
+            background-color: rgba(co(fore), 0.85);
+          }
+          top: 0;
+          right: 0;
+        }
+
+        // 工具栏
+        [ui-form-file-tools] {
+          position: absolute;
+          height: 1.5em;
+          width: 100%;
+          opacity: 0;
+          pointer-events: none;
+          transition: all 0.5s;
+          bottom: 0em;
+          left: 0;
+          transform: translate3d(0, 2em, 0);
+
+          & > * {
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 50%;
+          }
+        }
+        &:hover {
+          [ui-form-file-tools] {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate3d(0, -0.5em, 0);
+          }
+          img,
+          video {
+            border-radius: 1em;
+            transform: translate3d(0, -2em, 0);
+          }
+        }
+
+        // 删除时
+        &.deling {
+          animation: am-file-del 0.35s forwards;
+        }
+      }
+    }
+
+    [ui-form-input] {
+      @extend %item;
+      border-style: dashed;
+      @include theme {
+        border-color: co(case);
+      }
+      input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+
+        &:-webkit-autofill {
+          @include theme {
+            box-shadow: 0 0 0 1000px co(fore) inset;
+          }
+        }
+      }
+    }
+  }
+}

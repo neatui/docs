@@ -1,0 +1,302 @@
+.mc-menu {
+  position: relative;
+  display: inline-block;
+
+  // 切换状态
+  .mc-menu-switch {
+    display: none;
+  }
+
+  // 导航列表
+  .mc-menu-list {
+    & > label {
+      display: none;
+    }
+
+    & > * {
+      position: relative;
+      display: inline-block;
+
+      & > * {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+
+        & > a {
+          padding: 0 1em;
+        }
+
+        &:hover,
+        & .active {
+          & > a {
+            @include theme {
+              color: co(main);
+            }
+          }
+
+          .mc-menu-list-two {
+            text-align: left;
+            opacity: 1;
+            transform: translate3d(-50%, 0.5rem, 0);
+            pointer-events: auto;
+            transition: all 0.5s;
+          }
+        }
+      }
+    }
+
+    .mc-menu-list-two {
+      position: absolute;
+      min-width: 10rem;
+      left: 50%;
+      padding: 2rem;
+      @include theme {
+        background: co(back);
+      }
+      line-height: 3rem;
+      transform: translate3d(-50%, 1rem, 0);
+      opacity: 0;
+      pointer-events: none;
+      border-radius: 0.1rem;
+      transition: all 0.2s;
+
+      & > * {
+        white-space: nowrap;
+
+        &:hover {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        border: 0.5rem solid transparent;
+        @include theme {
+          border-bottom-color: co(back);
+        }
+        width: 1rem;
+        height: 1rem;
+        left: 50%;
+        top: -1rem;
+        margin-left: -0.5rem;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1rem;
+        top: -1rem;
+        left: 0;
+      }
+    }
+    // 搜索框
+    & > .head-search {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      left: 0;
+      top: 0;
+      @include theme {
+        background: co(back);
+      }
+
+      & > input {
+        width: 8rem;
+        height: 2.5rem;
+        @include theme {
+          background: co(weak);
+        }
+        border-radius: 2.5rem;
+      }
+    }
+  }
+
+  // 导航按钮
+  .mc-menu-icon {
+    display: none;
+  }
+}
+
+// 移动
+@media screen and (max-width: 768px) {
+  .mc-menu {
+    position: static;
+    display: inline-block;
+
+    // 切换状态
+    .mc-menu-switch {
+      display: none;
+
+      // 开启状态
+      &:checked + .mc-menu-icon {
+        &:after {
+          border-radius: 30%;
+          @include theme {
+            background: linear-gradient(45deg, transparent 45%, co(read) 45%, co(read) 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, co(read) 45%, co(read) 55%, transparent 55%);
+          }
+        }
+
+        & + .mc-menu-list {
+          transition: transform 0.35s;
+          transform: translate3d(-100%, 0, 1px);
+          pointer-events: auto;
+
+          & > * {
+            opacity: 1;
+            transform: translate3d(0, 0, 1px);
+          }
+        }
+      }
+    }
+
+    // 导航主体
+    .mc-menu-list {
+      position: fixed;
+      display: block;
+      width: 100%;
+      left: 100%;
+      top: 4rem;
+      bottom: 0;
+      z-index: 10;
+      text-align: center;
+      //height: 100%;
+      line-height: 3.5rem;
+      pointer-events: none;
+      transition: transform 0.2s;
+      transform: translate3d(0, 0, 1px);
+      //background: rgba(0, 0, 0, .85);
+
+      padding: 1rem 3rem;
+      //color: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      @include theme {
+        background: co(back);
+        border-top: 1px solid co(line);
+      }
+
+      // 开关按钮
+      //& > label {
+      //  width: 100%;
+      //  height: 100%;
+      //  position: absolute;
+      //  top: 0;
+      //  right: 16rem;
+      //  z-index: 12;
+      //
+      //  &:after {
+      //    position: absolute;
+      //    right: -15rem;
+      //    top: 1rem;
+      //    border-radius: 30%;
+      //    background: linear-gradient(45deg, transparent 45%, #fff 45%, #fff 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, #fff 45%, #fff 55%, transparent 55%);
+      //    transform: scale3d(1, 1, 1);
+      //    transition: all .1s;
+      //  }
+      //
+      //  &:active {
+      //    &:after {
+      //      transform: scale3d(.75, .75, 1);
+      //    }
+      //  }
+      //}
+
+      // 搜索框
+      & > .head-search {
+        padding-top: 3rem;
+        @include theme {
+          border-top: 1px solid co(line);
+        }
+
+        .head-search-list {
+          padding: 1em 0;
+
+          & > * {
+            @include theme {
+              border-bottom: 1px dotted co(line);
+            }
+          }
+        }
+
+        input {
+          width: 100%;
+          height: 3rem;
+          border-radius: 3px;
+          @include theme {
+            background: co(weak);
+          }
+          padding: 1em;
+        }
+      }
+
+      // 导航列表
+      & > * {
+        position: relative;
+        width: 100%;
+        z-index: 11;
+        margin-bottom: 2rem;
+
+        & > * {
+          display: block;
+          text-align: left;
+          border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    // 开关按钮
+    .mc-menu-icon {
+      position: relative;
+      //height: 100%;
+      display: inline-block;
+      padding: 0.25rem;
+      //top: 1px;
+      z-index: 11;
+      width: 1.5rem;
+      height: 1.5rem;
+      @include theme {
+        border: 1px solid co(read);
+      }
+      border-radius: 0.25rem;
+      vertical-align: middle;
+      top: -0.1rem;
+      right: 0.3em;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 300%;
+        height: 300%;
+        position: absolute;
+        left: -100%;
+        top: -100%;
+      }
+
+      &:after {
+        width: 100%;
+        height: 100%;
+        content: '';
+        display: block;
+        @include theme {
+          background: linear-gradient(0deg, transparent 42%, co(read) 0%, co(read) 57%, transparent 0%), linear-gradient(90deg, transparent 75%, co(back) 76%), linear-gradient(0deg, transparent 10%, co(read) 0%, co(read) 25%, transparent 0%), linear-gradient(0deg, transparent 75%, co(read) 0%, co(read) 90%, transparent 0%);
+        }
+        transform: scale3d(1, 1, 1);
+        transition: all 0.1s;
+      }
+
+      &:active & .active {
+        &:after {
+          transform: scale3d(0.75, 0.75, 1);
+        }
+      }
+    }
+  }
+}

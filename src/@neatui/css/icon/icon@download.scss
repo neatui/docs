@@ -1,0 +1,26 @@
+// 下载
+%icon-download {
+  background:
+    radial-gradient(circle at 50% 56%, currentColor 4%, transparent 5%),
+    radial-gradient(circle at 47% 54%, currentColor 4%, transparent 5%),
+    radial-gradient(circle at 53% 54%, currentColor 4%, transparent 5%),
+    radial-gradient(circle at 44% 52%, currentColor 3.7%, transparent 4.7%),
+    radial-gradient(circle at 56% 52%, currentColor 3.7%, transparent 4.7%),
+    radial-gradient(circle at 41% 50%, currentColor 3.5%, transparent 4.5%),
+    radial-gradient(circle at 59% 50%, currentColor 3.5%, transparent 4.5%),
+    radial-gradient(circle at 38% 48%, currentColor 3.3%, transparent 4.3%),
+    radial-gradient(circle at 62% 48%, currentColor 3.3%, transparent 4.3%),
+    radial-gradient(circle at 35% 46%, currentColor 3.1%, transparent 4.1%),
+    radial-gradient(circle at 65% 46%, currentColor 3.1%, transparent 4.1%),
+    radial-gradient(circle at 32% 44%, currentColor 2.9%, transparent 3.9%),
+    radial-gradient(circle at 68% 44%, currentColor 2.9%, transparent 3.9%),
+    radial-gradient(circle at 80% 82%, currentColor 3.5%, transparent 4.5%),
+    radial-gradient(circle at 20% 82%, currentColor 3.5%, transparent 4.5%),
+    linear-gradient(90deg, transparent 0%, currentColor 2%, currentColor 10%, transparent 13%, transparent 87%, currentColor 90%, currentColor 98%, transparent 100%) no-repeat 50%
+      75% / 70% 20%,
+    linear-gradient(0deg, transparent 42%, currentColor 45%, currentColor 55%, transparent 58%) no-repeat 50% 116% / 60% 50%,
+    linear-gradient(90deg, transparent 42%, currentColor 45%, currentColor 55%, transparent 58%) no-repeat 50% 30% / 50% 40%;
+}
+[ui-icon~='download'] {
+  @extend %icon-download;
+}

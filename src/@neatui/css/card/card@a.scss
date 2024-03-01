@@ -1,0 +1,238 @@
+$co: 'none', 'main', 'vice', 'text', 'read', 'note', 'line', 'case', 'weak', 'fore', 'back', 'info', 'well', 'warn', 'risk';
+$sz: 'xs', 's', 'm', 'l', 'xl';
+
+@mixin card_a($name: 'ui-card', $group: 0, $path: '') {
+  &#{$path} {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.3em;
+    transition: box-shadow 0.3s;
+    // &:hover {
+    // @include theme {
+    // box-shadow: 0 1px 6px co(deep);
+    // box-shadow: 0 1px 0.2em 1px rgba(0, 0, 0, 0.07);
+    // }
+    // }
+    &.active {
+      @include theme {
+        border: 1px solid co(read);
+      }
+    }
+
+    & > * {
+      @include theme {
+        background-color: co(fore);
+      }
+
+      &:first-child {
+        border-top-left-radius: 0.3em;
+        border-top-right-radius: 0.3em;
+      }
+      &:last-child {
+        border-bottom-left-radius: 0.3em;
+        border-bottom-right-radius: 0.3em;
+      }
+    }
+
+    // 标题
+    [ui-card-head],
+    [ui-card-foot] {
+      position: relative;
+      padding: 1em 1.5em;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
+    }
+    [ui-card-head~='xm'],
+    [ui-card-foot~='xm'] {
+      justify-content: space-between;
+    }
+    [ui-card-head~='cm'],
+    [ui-card-foot~='cm'] {
+      justify-content: center;
+    }
+    [ui-card-head~='lm'],
+    [ui-card-foot~='lm'] {
+      justify-content: flex-start;
+    }
+    [ui-card-head~='rm'],
+    [ui-card-foot~='rm'] {
+      justify-content: flex-end;
+    }
+
+    // 工具
+    [ui-card-tool] {
+      & {
+        position: relative;
+        pointer-events: auto;
+        max-height: 1000px;
+        opacity: 1;
+        z-index: 2;
+        transition:
+          all 0.2s,
+          padding 0.35s,
+          margin 0.35s;
+        @include theme {
+          background: rgba(co(fore), 0.8);
+        }
+        padding: 1em 1.5em;
+        margin-bottom: 1px;
+      }
+
+      &[ui-card-tool~='hide'] {
+        pointer-events: none;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+        max-height: 0 !important;
+        opacity: 0;
+        transition:
+          all 0.25s,
+          padding ease 0.35s,
+          margin ease 0.35s;
+      }
+    }
+
+    // 主体
+    [ui-card-body] {
+      position: relative;
+      padding: 1.5em;
+      flex-grow: 1;
+      height: auto;
+    }
+
+    // 头部
+    [ui-card-head] {
+      margin-bottom: 2px;
+    }
+
+    // 底部
+    [ui-card-foot] {
+      margin-top: 1px;
+    }
+  }
+
+  @each $i in $co {
+    // 背景
+    &[#{$name}~='bg:#{$i}']#{$path} {
+      & > * {
+        @include theme {
+          background-color: co($i);
+        }
+
+        &[ui-card-tool] {
+          @include theme {
+            background-color: rgba(co($i), 0.8);
+          }
+        }
+      }
+    }
+
+    // 边框
+    &[#{$name}~='bk:#{$i}']#{$path} {
+      @include theme {
+        border: 1px solid co($i);
+      }
+    }
+
+    // 颜色
+    &[#{$name}~='co:#{$i}']#{$path} {
+      @include theme {
+        color: co($i);
+      }
+    }
+  }
+  // 交互
+  &[#{$name}~='ux:hover']#{$path} {
+    &:hover {
+      @include theme {
+        box-shadow: 0 1px 6px co(deep);
+      }
+    }
+  }
+
+  // 尺寸
+  $sz_base: 0.5em;
+  @each $i in $sz {
+    &[#{$name}~='sz:#{$i}']#{$path} {
+      [ui-card-head],
+      [ui-card-foot] {
+        padding: $sz_base ($sz_base + 0.5);
+      }
+      [ui-card-body] {
+        padding: $sz_base ($sz_base + 0.5);
+      }
+    }
+    $sz_base: $sz_base + 0.25;
+  }
+}
+
+// 单个卡片
+[ui-card~='@a'] {
+  @include card_a('ui-card', 0, '');
+  // 撑满
+  &[ui-card~=':full'] {
+    flex-grow: 1;
+    height: auto;
+  }
+
+  &[ui-card~=':inline'] {
+    display: inline-flex;
+  }
+
+  // 放大
+  &[ui-card~=':max'] {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow: auto;
+    @include theme {
+      background-color: co(back);
+    }
+
+    [ui-card-body] {
+      overflow: auto;
+    }
+  }
+}
+
+// 群组卡片
+[ui-cards~='@a'] {
+  @include card_a('ui-cards', 1, '>*>*');
+
+  // 撑满
+  &[ui-cards~=':full'] {
+    & > * {
+      flex-grow: 1;
+      height: auto;
+    }
+  }
+
+  // 放大
+  [ui-card~=':max'] {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow: auto;
+    @include theme {
+      background-color: co(back);
+    }
+
+    [ui-card-body] {
+      overflow: auto;
+    }
+  }
+
+  & > * > * {
+    height: 100%;
+  }
+}

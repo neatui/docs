@@ -1,0 +1,83 @@
+$cos: 'main', 'vice', 'read', 'info', 'well', 'warn', 'risk';
+
+[ui-list~='@b'] {
+  // 容器
+  & {
+    position: relative;
+    padding-left: 0.5em;
+
+    // 连线
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 1px;
+      height: 100%;
+      top: 0;
+      left: auto;
+      @include theme {
+        background: linear-gradient(0deg, rgba(co(line), 0) 0%, co(line) 3%);
+      }
+    }
+  }
+
+  // 子集
+  & > * {
+    & {
+      position: relative;
+      display: block;
+      padding-left: 1em;
+      border-radius: 0.25em;
+    }
+
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 1em;
+      left: 0;
+      top: -0.2em;
+      margin-left: -0.7em;
+      @include theme {
+        background-image: radial-gradient(at 50% 50%, co(fore) 37%, co(line) 39%, co(line) 47%, co(fore) 49%);
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: attr(time);
+      display: block;
+      width: 5em;
+      height: 1.5em;
+      line-height: 1.5em;
+      right: 100%;
+      margin-right: 1em;
+      top: 0.8em;
+      overflow: hidden;
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &.active,
+    &:hover {
+      &::before {
+        @include theme {
+          background-image: radial-gradient(at 50% 50%, co(main) 20%, transparent 23%), radial-gradient(at 50% 50%, co(fore) 37%, co(main) 39%, co(main) 47%, co(fore) 49%);
+        }
+      }
+      &::after {
+        font-weight: bold;
+        @include theme {
+          color: co(main);
+        }
+      }
+    }
+
+    & > *:first-child {
+      line-height: 1;
+    }
+  }
+}

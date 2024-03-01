@@ -1,0 +1,16 @@
+// 打勾
+%icon-hook {
+  background-image: radial-gradient(circle at 26% 46%, currentColor 5.5%, transparent 6.5%), radial-gradient(circle at 29% 49%, currentColor 6%, transparent 7%),
+    radial-gradient(circle at 32% 51.5%, currentColor 6.5%, transparent 7.5%), radial-gradient(circle at 35% 54.4%, currentColor 7%, transparent 8%),
+    radial-gradient(circle at 38% 57.5%, currentColor 7.5%, transparent 8.5%), radial-gradient(circle at 42% 61%, currentColor 8%, transparent 9%),
+    radial-gradient(circle at 45% 63%, currentColor 9%, transparent 10%), radial-gradient(circle at 47% 69.8%, currentColor 5%, transparent 6%),
+    radial-gradient(circle at 50.8% 63.8%, currentColor 5%, transparent 6%), radial-gradient(circle at 52.5% 57%, currentColor 8%, transparent 9%),
+    radial-gradient(circle at 55.8% 52%, currentColor 7.5%, transparent 8.5%), radial-gradient(circle at 59% 47.5%, currentColor 7%, transparent 8%),
+    radial-gradient(circle at 62.8% 42%, currentColor 6%, transparent 7%), radial-gradient(circle at 66.8% 37%, currentColor 5%, transparent 6%),
+    radial-gradient(circle at 70% 32.5%, currentColor 4.5%, transparent 5.5%), radial-gradient(circle at 73.8% 28%, currentColor 3.9%, transparent 4.9%),
+    radial-gradient(circle at 77.5% 23.7%, currentColor 3.4%, transparent 4.4%);
+}
+
+[ui-icon~='hook'] {
+  @extend %icon-hook;
+}

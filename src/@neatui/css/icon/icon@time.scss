@@ -1,0 +1,12 @@
+%icon-time {
+  background:
+    linear-gradient(90deg, transparent 40%, #000 41%, #000 50%, transparent 51%) no-repeat 100% 25% / 100% 40%,
+    radial-gradient(at 45.5% 30%, #000 6%, transparent 7%) no-repeat top / 100% 50%,
+    linear-gradient(0deg, transparent 40%, #000 41%, #000 50%, transparent 51%) no-repeat 85% 50% / 40% 100%,
+    radial-gradient(at 80% 54.7%, #000 6%, transparent 7%) no-repeat right / 50% 100%,
+    radial-gradient(circle at 47% 54%, #000 9%, transparent 10%);
+}
+
+[ui-icon~='time'] {
+  @extend %icon-time;
+}

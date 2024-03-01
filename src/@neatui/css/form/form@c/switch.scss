@@ -1,0 +1,83 @@
+/**
+属性	        描述
+disabled	   规定输入字段应该被禁用。
+max	         规定输入字段的最大值。
+maxlength	   规定输入字段的最大字符数。
+min          规定输入字段的最小值。
+pattern	     规定通过其检查输入值的正则表达式。
+readonly	   规定输入字段为只读（无法修改）。
+required	   规定输入字段是必需的（必需填写）。
+size	       规定输入字段的宽度（以字符计）。
+step	       规定输入字段的合法数字间隔。
+value	       规定输入字段的默认值。
+*/
+@use 'sass:math';
+$co: 'info', 'well', 'warn', 'risk';
+
+@keyframes am-checked {
+  0% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  50% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
+
+// 复选框
+[ui-form~='@c'] {
+  &[ui-form~='type:switch'] {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+
+    &[ui-form~=':block'] {
+      display: flex;
+    }
+
+    [type='checkbox'] {
+      appearance: none;
+      font-size: inherit;
+      width: 1.5em;
+      height: 1em;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: inset 0 0 0 1px currentColor;
+      border-radius: 10em;
+      flex-shrink: 0;
+      position: relative;
+      top: 0.15em;
+      @include theme {
+        background-color: mix(co(weak), co(fore), 50%);
+      }
+      background-image: radial-gradient(circle at 50% 50%, currentColor 28%, transparent 30%);
+      background-position-x: -0.2em;
+      transition:
+        all 0.3s,
+        background-position-x ease-out 0.3s;
+
+      &:checked {
+        @include theme {
+          background-color: co(main);
+          background-image: radial-gradient(circle at 50% 50%, co(fore) 28%, transparent 30%);
+        }
+        background-position-x: 0.2em;
+        &,
+        & + * {
+          @include theme {
+            color: co(main);
+          }
+        }
+      }
+
+      & + * {
+        margin-left: 0.2em;
+      }
+    }
+  }
+}
