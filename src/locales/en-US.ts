@@ -13,7 +13,7 @@ export default {
   'menu.plugins': 'Plugins',
   'menu.resources': 'Resources',
   'menu.solutions': 'Solutions',
-  'menu.case': 'Case',
+  'menu.case': 'Cases',
   'menu.blog': 'Blog',
   'components.calendar': 'Calendar',
   'components.cascader': 'Cascader',
@@ -99,5 +99,11 @@ export default {
   'resources.yhj.title': 'YHJ design material',
   'resources.yhj.describe': "Contains design source files such as YHJ's LOGO",
   'resources.yyb.title': 'YYB design material',
-  'resources.yyb.describe': "Contains design source files such as YYB's LOGO"
+  'resources.yyb.describe': "Contains design source files such as YYB's LOGO",
+  'cases.title': 'Cases',
+  'cases.desc': 'Modern website templates, crafted with NeatUI.',
+  'cases.1.title': 'QACMS',
+  'cases.1.desc': 'Form design system developed based on NeatUI (demo data based on Mockjs)',
+  'cases.2.title': 'Admin',
+  'cases.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)'
 };
