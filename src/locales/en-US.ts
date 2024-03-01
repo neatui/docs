@@ -92,6 +92,10 @@ export default {
   'components.spin': 'Spin',
   'components.watermark': 'Watermark',
 
+  'plugins.title': 'Plugins',
+  'plugins.desc':
+    'Here, various plugins have been provided or collected around the entire project ecosystem to guide developers in selecting plugins for various scenarios encountered during the development process.',
+
   'resources.title': 'Resources',
   'resources.describe':
     'Here are some downloads of design materials, such as the LOGO source files of each main body, and the UI design source files of various standard components.',

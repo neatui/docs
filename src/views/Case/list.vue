@@ -11,12 +11,12 @@
         <li class="am-view" data-theme="aa" data-inview="view">
           <div>
             <div ui-card-body="">
-              <div class="ux-click" @click="fLink('http://qacms.fekit.cn')">
+              <div @click="fLink('http://qacms.fekit.cn/')">
                 <CoverView>
-                  <img class="r-sm lazyload" src="@/assets/img/none.png" data-src="/upload/yhj-admin-cover.png" alt="" />
+                  <img class="r-sm lazyload ux-none" src="@/assets/img/none.png" data-src="/upload/case1-cover.png" alt="" />
                 </CoverView>
-                <h3>QACMS</h3>
-                <p class="my-ss co-desc">{{ words['cases.1.desc'] || '基于 NeatUI 开发的表单设计系统（演示数据基于Mockjs）' }}</p>
+                <h3 class="ux-click">QACMS</h3>
+                <p class="my-ss co-desc ux-none">{{ words['cases.1.desc'] || '基于 NeatUI 开发的表单设计系统（演示数据基于Mockjs）' }}</p>
               </div>
             </div>
             <div ui-card-foot="" ui-flex="row xm">
@@ -33,12 +33,12 @@
         <li class="am-view" data-theme="aa" data-inview="view">
           <div>
             <div ui-card-body="">
-              <div class="ux-click" @click="fLink('http://case.fekit.cn/neatui-admin')">
+              <div @click="fLink('http://case.fekit.cn/aa/')">
                 <CoverView>
-                  <img class="r-sm lazyload" src="@/assets/img/none.png" data-src="/upload/yhj-admin-cover.png" alt="" />
+                  <img class="r-sm lazyload ux-none" src="@/assets/img/none.png" data-src="/upload/case2-cover.png" alt="" />
                 </CoverView>
-                <h3>NeatUI Admin</h3>
-                <p class="my-ss co-desc">{{ words['cases.2.desc'] || '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）' }}</p>
+                <h3 class="ux-click">NeatUI Admin</h3>
+                <p class="my-ss co-desc ux-none">{{ words['cases.2.desc'] || '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）' }}</p>
               </div>
             </div>
             <div ui-card-foot="" ui-flex="row xm">
@@ -68,7 +68,7 @@
   const { words = {} }: any = storeToRefs(base);
 
   const fLink = (id: any) => {
-    // window.open(url, '_blank');
-    router.push({ path: '/blog', query: { id } });
+    window.open(id, '_blank');
+    // router.push({ path: '/case', query: { id } });
   };
 </script>

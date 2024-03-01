@@ -19,10 +19,10 @@
             </div>
           </div>
           <div v-else>
-            <div class="flex-fixed">
+            <div class="flex-fixed ny-ms">
               <div class="box">
-                <h1>{{ words['plugins.title'] || '插件' }}</h1>
-                <p>{{ words['plugins.describe'] || '这里提供或收集了围绕整个项目生态所需的各种插件，以供开发者在开发过程中遇到的各个场景提供插件选用指导。' }}</p>
+                <h1>{{ words['plugins.title'] }}</h1>
+                <p>{{ words['plugins.desc'] }}</p>
               </div>
             </div>
             <div class="box">

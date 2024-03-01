@@ -41,7 +41,7 @@
   onMounted(() => {
     if (route.query.id) {
       axios
-        .get('/blog/' + route.query.id + '.md')
+        .get(props.file)
         .then((response) => {
           code.value = md.render(response.data);
         })

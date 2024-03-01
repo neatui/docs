@@ -92,6 +92,9 @@ export default {
   'components.spin': 'Spin 加载中',
   'components.watermark': 'Watermark 水印',
 
+  'plugins.title': '插件',
+  'plugins.desc': '这里提供或收集了围绕整个项目生态所需的各种插件，以供开发者在开发过程中遇到的各个场景提供插件选用指导。',
+
   'resources.title': '资源',
   'resources.describe': '这里提供一些设计物料下载，比如各个主体的LOGO源文件，各种标准组件的UI设计稿源文件下载。',
   'resources.ydk.title': '设计素材',
@@ -99,5 +102,11 @@ export default {
   'resources.yhj.title': '设计素材',
   'resources.yhj.describe': '主导开发，带一个成员一起完成（无法演示）',
   'resources.yyb.title': '易优贝设计素材',
-  'resources.yyb.describe': '主导开发，带一个成员一起完成（无法演示）'
+  'resources.yyb.describe': '主导开发，带一个成员一起完成（无法演示）',
+  'cases.title': 'Cases',
+  'cases.desc': 'Modern website templates, crafted with NeatUI.',
+  'cases.1.title': 'QACMS',
+  'cases.1.desc': 'Form design system developed based on NeatUI (demo data based on Mockjs)',
+  'cases.2.title': 'Admin',
+  'cases.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)'
 };

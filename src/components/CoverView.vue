@@ -1,6 +1,7 @@
 <template>
   <div :ui-cover="opts" class="cover r-sm">
     <div ui-flex="col cm" class="o-mm"><i ui-load="@d"></i></div>
+
     <slot></slot>
   </div>
 </template>
