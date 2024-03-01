@@ -9,9 +9,9 @@
             <p>这里为前端开发者提供全方面的指导，引导开发者快速进入开发工作。</p>
           </div>
         </div>
-        <FootView />
       </BodyView>
     </div>
+    <FootView />
   </PageView>
 </template>
 <script setup lang="ts">

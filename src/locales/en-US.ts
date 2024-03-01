@@ -3,6 +3,7 @@ export default {
   'base.title': 'NeatUI',
   'base.description':
     "Help front-end developers create products with 'the ultimate experience' 'more easily', allowing developers and users to experience every detail just right ~",
+  'base.copyright': '© 2024 Junbo. All rights reserved.',
   'common.download': 'Download',
   'common.know_more': 'Know more',
   'common.start_using': 'Start using',

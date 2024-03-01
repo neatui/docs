@@ -48,9 +48,9 @@
             </ul>
           </div>
         </div>
-        <FootView />
       </BodyView>
     </div>
+    <FootView />
   </PageView>
 </template>
 <script setup lang="ts">

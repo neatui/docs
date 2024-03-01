@@ -1,7 +1,7 @@
 <template>
-  <div class="fs-ss nx-ms ny-sl" ui-flex="row cm" style="overflow: hidden">
+  <div class="fs-ss nx-ms ny-sm bg-fore b-solid b-back bt-xs" ui-flex="row cm" style="overflow: hidden">
     <ul ui-flex="row lm" class="mr-sl-sub">
-      <li class="am-view">©2023 {{ words['base.title'] }}</li>
+      <li class="am-view">{{ words['base.copyright'] }}</li>
     </ul>
   </div>
 </template>

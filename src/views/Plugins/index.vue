@@ -1,35 +1,6 @@
 <template>
   <PageView>
-    <HeadView>
-      <!-- <div class="al mr-sm-sub" ui-flex="row lm">
-        <a href="#/" ui-flex="row lm">
-          <b class="nl-ss fs-ms">{{ words['base.title'] || '前端开发者平台' }}</b>
-        </a>
-        <span class="mx-ms mob:mx-sm o-ss">|</span>
-        <RouterLink ui-btn="@a none s" to="/plugins">
-          <b>{{ words['menu.plugins'] || '插件' }}</b>
-        </RouterLink>
-      </div>
-      <div ui-hide="<dpc" class="ml-sl-sub" ui-flex="row rm">
-        <RouterLink ui-btn="@a none s" a-active-class="co-main" to="/plugins">{{ words['menu.aaa'] || '常用插件' }}</RouterLink>
-        <RouterLink class="co-link ux-click" a-active-class="co-main" to="/plugins/guide">{{ words['menu.bbb'] || '如何开发插件？' }}</RouterLink>
-        <MoreLangs />
-      </div>
-      <div ui-hide=">pad" class="ml-sm-sub">
-        <MoreLangs />
-        <IFollowView>
-          <button ui-btn="@a s none" class="nr-sm">
-            <span class="icon icon-menu"></span>
-          </button>
-          <template #tips>
-            <div class="min-w-sl max-h-lm n-sl nx-sl-sub ny-ss-sub" ui-scroll="x:hidden :y">
-              <RouterLink ui-btn="@a none s" a-active-class="co-main" to="/plugins">{{ words['menu.aaa'] || '常用插件' }}</RouterLink>
-              <RouterLink class="ux-click nowrap" a-active-class="co-main" to="/plugins/guide">{{ words['menu.bbb'] || '如何开发插件？' }}</RouterLink>
-            </div>
-          </template>
-        </IFollowView>
-      </div> -->
-    </HeadView>
+    <HeadView />
     <div class="flex-block">
       <BodyView>
         <div class="midden">
@@ -74,9 +45,9 @@
             </div>
           </div>
         </div>
-        <FootView />
       </BodyView>
     </div>
+    <FootView />
   </PageView>
 </template>
 <script setup lang="ts">
