@@ -6,14 +6,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 0.3em;
+    border-radius: 0.5em;
     transition: box-shadow 0.3s;
-    // &:hover {
-    // @include theme {
-    // box-shadow: 0 1px 6px co(deep);
-    // box-shadow: 0 1px 0.2em 1px rgba(0, 0, 0, 0.07);
-    // }
-    // }
+
     &.active {
       @include theme {
         border: 1px solid co(read);
@@ -26,12 +21,12 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       }
 
       &:first-child {
-        border-top-left-radius: 0.3em;
-        border-top-right-radius: 0.3em;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
       }
       &:last-child {
-        border-bottom-left-radius: 0.3em;
-        border-bottom-right-radius: 0.3em;
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
       }
     }
 
