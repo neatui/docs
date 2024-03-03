@@ -2,13 +2,7 @@
   <DocView>
     <div>
       <h1>{{ words['components.layer'] || 'Layer' }}</h1>
-      <!-- <p class="co-main">弹层组件, 这是一个弹层组件。</p> -->
-      <p class="co-text">弹层组件, 这是一个弹层组件。</p>
-      <p class="co-read">弹层组件, 这是一个弹层组件。</p>
-      <p class="co-desc">弹层组件, 这是一个弹层组件。</p>
-      <p class="co-note">弹层组件, 这是一个弹层组件。</p>
-      <p class="co-idle">弹层组件, 这是一个弹层组件。</p>
-      <p class="co-case">弹层组件, 这是一个弹层组件。</p>
+      <p class="co-desc">弹层组件</p>
     </div>
     <div>
       <h2>代码演示</h2>
