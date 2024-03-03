@@ -5,7 +5,7 @@
     & > * {
       position: relative;
       transition: box-shadow 0.3s;
-      border-radius: 0.3em;
+      border-radius: 0.4em;
       @include theme {
         background: co(fore);
         &:hover {
