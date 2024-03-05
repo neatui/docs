@@ -25,6 +25,18 @@
       &.#{$media}nr-#{$sz}-sub {
         margin-right: -$col_base + $col_unit;
       }
+
+      // 上下内边距
+      &.#{$media}n-#{$sz}-sub,
+      &.#{$media}ny-#{$sz}-sub,
+      &.#{$media}nt-#{$sz}-sub {
+        margin-top: -$col_base + $col_unit;
+      }
+      &.#{$media}n-#{$sz}-sub,
+      &.#{$media}ny-#{$sz}-sub,
+      &.#{$media}nb-#{$sz}-sub {
+        margin-bottom: -$col_base + $col_unit;
+      }
     }
 
     @if ($sz == xs) {
