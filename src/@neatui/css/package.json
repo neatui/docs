@@ -1,26 +1,13 @@
 {
   "name": "@neatui/css",
-  "version": "1.0.4",
-  "description": "mcui",
-  "main": "./all.scss",
+  "version": "1.0.6",
+  "description": "neatui",
+  "main": "./neatui.scss",
   "license": "MIT",
   "author": "xiaojunbo",
-  "peerDependencies": {
-    "vue": "^3.2.0"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "typescript": "^5.1.6"
   },
-  "dependencies": {
-    "@fekit/floor": "^2.2.2",
-    "@fekit/follow": "^1.0.8",
-    "@fekit/itable": "^1.1.3",
-    "@fekit/pullload": "^1.3.4",
-    "@fekit/scale": "^2.0.1",
-    "@fekit/scrollto": "^3.0.2",
-    "@fekit/toast": "^2.2.3",
-    "@fekit/url": "^2.0.1",
-    "@fekit/utils": "^2.10.7",
-    "swiper": "^11.0.4"
-  }
+  "dependencies": {}
 }

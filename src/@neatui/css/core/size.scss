@@ -55,28 +55,29 @@
     .#{$d}fs-#{$k}\:end::after {
       font-size: #{$sz}rem;
     }
-    // 双倍
-    .#{$d}fs-#{$k}\*2,
-    .#{$d}fs-#{$k}-sub\*2 > *,
-    .#{$d}fs-#{$k}-sub\*2\:sta > *::before,
-    .#{$d}fs-#{$k}-sub\*2\:end > *::after,
-    .#{$d}fs-#{$k}\*2\:sta::before,
-    .#{$d}fs-#{$k}\*2\:end::after {
-      font-size: #{$sz * 2}rem;
+    // 加0.05
+    .#{$d}fs-#{$k}\+,
+    .#{$d}fs-#{$k}-sub\+ > *,
+    .#{$d}fs-#{$k}\+\:sta::before,
+    .#{$d}fs-#{$k}\+\:end::after,
+    .#{$d}fs-#{$k}-sub\+\:sta > *::before,
+    .#{$d}fs-#{$k}-sub\+\:end > *::after {
+      font-size: #{$sz + 0.05}rem;
     }
-    // 三倍
-    .#{$d}fs-#{$k}\*3,
-    .#{$d}fs-#{$k}-sub\*3 > *,
-    .#{$d}fs-#{$k}-sub\*3\:sta > *::before,
-    .#{$d}fs-#{$k}-sub\*3\:end > *::after,
-    .#{$d}fs-#{$k}\*3\:sta::before,
-    .#{$d}fs-#{$k}\*3\:end::after {
-      font-size: #{$sz * 3}rem;
+
+    // 双倍
+    .#{$d}fs-#{$k}\*,
+    .#{$d}fs-#{$k}-sub\* > *,
+    .#{$d}fs-#{$k}\*\:sta::before,
+    .#{$d}fs-#{$k}\*\:end::after,
+    .#{$d}fs-#{$k}-sub\*\:sta > *::before,
+    .#{$d}fs-#{$k}-sub\*\:end > *::after {
+      font-size: #{$sz * 2}rem;
     }
   }
 
   .#{$d}lh-no {
-    line-height: 1;
+    line-height: 0;
   }
   .#{$d}lh-xs {
     line-height: 1;
@@ -110,27 +111,6 @@
   }
 
   // 标题
-  $hsz: 1;
-  // @for $i from 1 through 6 {}
-  // $h_sz: 1;
-  // @for $i from 1 through 6 {
-  //   $sz: 1 + (4 - $i)/10 + $h_sz;
-  //   $sz: round($sz * 10) / 10;
-
-  //   @if ($d == '') {
-  //     h#{$i},
-  //     .#{$d}h#{$i} {
-  //       font-size: #{$sz}em;
-  //     }
-  //   } @else {
-  //     .#{$d}h#{$i} {
-  //       font-size: #{$sz}em;
-  //     }
-  //   }
-
-  //   $h_sz: $h_sz - ($h_sz/3);
-  // }
-
   h1,
   .h1 {
     font-size: 2em;
@@ -168,11 +148,11 @@
 
 // 移动
 @media screen and (max-width: 767px) {
-  // @include baseSize(9);
+  // @include baseSize(15);
   @include randSize('mob\\:');
 }
 
 // 超小屏
 @media screen and (max-width: 374px) {
-  @include baseSize(9);
+  // @include baseSize(9);
 }

@@ -1,8 +1,10 @@
 export default {
   'lang.name': '简体中文',
   'base.title': 'NeatUI',
-  'base.description': '助力前端开发者「更轻松」打造出「极致体验」的产品，让开发者与用户体验每个细节的恰到好处～',
+  'base.description': '助力前端开发者「更轻松」打造出「极致体验」的产品～',
   'base.copyright': '© 2024 Junbo. 保留所有权利',
+  'base.support': '技术支持',
+  'base.tel': '18616226230',
   'common.download': '下载',
   'common.know_more': '了解更多',
   'common.start_using': '开始使用',

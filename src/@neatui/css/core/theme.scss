@@ -45,7 +45,7 @@ $default: (
   $s: nth($i, 2);
   $m: (
     read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
-    desc: mix(map-get($s, 'text'), mix(map-get($s, 'main'), map-get($s, 'fore'), 40%), 45%),
+    desc: mix(map-get($s, 'text'), mix(map-get($s, 'main'), map-get($s, 'fore'), 50%), 45%),
     note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
     idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
     case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),

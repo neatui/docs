@@ -1,9 +1,10 @@
 export default {
   'lang.name': 'English',
   'base.title': 'NeatUI',
-  'base.description':
-    "Help front-end developers create products with 'the ultimate experience' 'more easily', allowing developers and users to experience every detail just right ~",
+  'base.description': "Help front-end developers create products with 'the ultimate experience' 'more easily' ~",
   'base.copyright': '© 2024 Junbo. All rights reserved.',
+  'base.support': 'Technical support',
+  'base.tel': '18616226230',
   'common.download': 'Download',
   'common.know_more': 'Know more',
   'common.start_using': 'Start using',

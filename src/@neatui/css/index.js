@@ -1,4 +1,4 @@
-const mcui = {
+const neatui = {
   theme: {
     set: function (theme) {
       document.documentElement.attr('theme', theme);
@@ -25,4 +25,4 @@ const mcui = {
   }
 };
 
-module.exports = mcui;
+export default neatui;

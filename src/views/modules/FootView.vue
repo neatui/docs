@@ -1,7 +1,11 @@
 <template>
-  <div class="fs-ss nx-ms ny-sm bg-fore b-solid b-back bt-xs" ui-flex="row cm" style="overflow: hidden">
-    <ul ui-flex="row lm" class="mr-sl-sub">
-      <li class="am-view">{{ words['base.copyright'] }}</li>
+  <div class="fs-ss nx-ms ny-sm bg-fore b-solid b-back bt-xs" style="overflow: hidden">
+    <ul ui-flex="row cm" class="mr-sl-sub">
+      <li>{{ words['base.copyright'] }}</li>
+      <li>
+        <span>{{ words['base.support'] }}：</span>
+        <span>{{ words['base.tel'] }}</span>
+      </li>
     </ul>
   </div>
 </template>

@@ -10,9 +10,9 @@
           <div></div>
           <div class="box co-w nb-xl ac nx-ms" ui-flex="col cm">
             <h1 class="fs-xl mob:fs-ls">
-              <b class="nl-ss fs-xl* mob:fs-ls*">{{ words['base.title'] }}</b>
+              <b class="nl-ss fs-ls* mob:fs-ms*">{{ words['base.title'] }}</b>
             </h1>
-            <h2 class="mob:fs-sl">{{ words['base.description'] }}</h2>
+            <p class="fs-mm mob:fs-sl">{{ words['base.description'] }}</p>
             <div ui-flex="row cm" class="mx-sl-sub mt-mm">
               <RouterLink to="/docs" ui-btn="@a w l :border">
                 <span class="co-w">{{ words['common.start_using'] }}</span>
@@ -21,7 +21,13 @@
           </div>
         </IPullScrollView>
       </div>
-      <div class="ac co-w fs-ss n-sl o-ll">{{ words['base.copyright'] }}</div>
+      <ul class="full-w ac co-w fs-ss n-sl o-ll mr-sl-sub" ui-flex="row cm">
+        <li>{{ words['base.copyright'] }}</li>
+        <li>
+          <span ui-hide="=mob">{{ words['base.support'] }}：</span>
+          <span>{{ words['base.tel'] }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

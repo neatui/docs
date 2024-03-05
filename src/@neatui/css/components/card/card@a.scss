@@ -101,12 +101,18 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
 
     // 头部
     [ui-card-head] {
-      margin-bottom: 2px;
+      // margin-bottom: 2px;
+      @include theme {
+        border-bottom: 2px solid rgba(co(back), 0.7);
+      }
     }
 
     // 底部
     [ui-card-foot] {
-      margin-top: 1px;
+      // margin-top: 1px;
+      @include theme {
+        border-top: 1px solid rgba(co(back), 0.7);
+      }
     }
   }
 
