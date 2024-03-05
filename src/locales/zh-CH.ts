@@ -105,10 +105,12 @@ export default {
   'resources.yhj.describe': '主导开发，带一个成员一起完成（无法演示）',
   'resources.yyb.title': '易优贝设计素材',
   'resources.yyb.describe': '主导开发，带一个成员一起完成（无法演示）',
-  'cases.title': 'Cases',
-  'cases.desc': 'Modern website templates, crafted with NeatUI.',
+  'cases.title': '案例',
+  'cases.desc': '这里提供一些基于NeatUI开发的产品案例',
   'cases.1.title': 'QACMS',
-  'cases.1.desc': 'Form design system developed based on NeatUI (demo data based on Mockjs)',
+  'cases.1.desc': '基于 NeatUI 开发的表单设计系统（演示数据基于Mockjs）',
   'cases.2.title': 'Admin',
-  'cases.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)'
+  'cases.2.desc': '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）',
+  // 'cases.3.title': '',
+  'cases.3.desc': '基于 NeatUI 开发的页面生成系统（演示数据基于Mockjs）'
 };

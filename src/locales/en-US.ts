@@ -111,5 +111,7 @@ export default {
   'cases.1.title': 'QACMS',
   'cases.1.desc': 'Form design system developed based on NeatUI (demo data based on Mockjs)',
   'cases.2.title': 'Admin',
-  'cases.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)'
+  'cases.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)',
+  // 'cases.3.title': '',
+  'cases.3.desc': 'Page generation system developed based on NeatUI (demo data based on Mockjs)'
 };

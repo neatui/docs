@@ -14,12 +14,12 @@
               <div @click="fLink('http://qacms.fekit.cn/')">
                 <CoverView opts="16:10">
                   <div class="n-mm" ui-flex="col cm">
-                    <div class="full bg-1 r-sm pa z-ss o-ss"></div>
+                    <div class="full bg-3 r-sm pa z-ss o-ls"></div>
                     <img class="r-sm lazyload ux-none z-sm" src="@/assets/img/none.png" data-src="/upload/case1-cover.png" alt="" />
                   </div>
                 </CoverView>
                 <h3 class="ux-click">QACMS</h3>
-                <p class="my-ss co-desc ux-none">{{ words['cases.1.desc'] || '基于 NeatUI 开发的表单设计系统（演示数据基于Mockjs）' }}</p>
+                <p class="my-ss co-desc">{{ words['cases.1.desc'] || '基于 NeatUI 开发的表单设计系统（演示数据基于Mockjs）' }}</p>
               </div>
             </div>
             <div ui-card-foot="" ui-flex="row xm">
@@ -39,12 +39,12 @@
               <div @click="fLink('http://case.fekit.cn/aa/')">
                 <CoverView opts="16:10">
                   <div class="n-mm" ui-flex="col cm">
-                    <div class="full bg-2 r-sm pa z-ss o-ss"></div>
+                    <div class="full bg-2 r-sm pa z-ss o-ls"></div>
                     <img class="r-sm lazyload ux-none z-sm" src="@/assets/img/none.png" data-src="/upload/case2-cover.png" alt="" />
                   </div>
                 </CoverView>
                 <h3 class="ux-click">NeatUI Admin</h3>
-                <p class="my-ss co-desc ux-none">{{ words['cases.2.desc'] || '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）' }}</p>
+                <p class="my-ss co-desc">{{ words['cases.2.desc'] || '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）' }}</p>
               </div>
             </div>
             <div ui-card-foot="" ui-flex="row xm">
@@ -52,6 +52,30 @@
                 <span ui-tag="@b main :round">VUE3</span>
                 <span ui-tag="@b main :round">TS</span>
                 <span ui-tag="@b main :round">Pinia</span>
+                <span ui-tag="@b main :round">NeatUI</span>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </li>
+        <li class="am-view" data-theme="aa" data-inview="view">
+          <div>
+            <div ui-card-body="">
+              <div @click="fLink('http://vds.fekit.cn/#r=edit&item=1')">
+                <CoverView opts="16:10">
+                  <div class="n-mm" ui-flex="col cm">
+                    <div class="full bg-5 r-sm pa z-ss o-ls"></div>
+                    <img class="r-sm lazyload ux-none z-sm" src="@/assets/img/none.png" data-src="/upload/case3-cover.png" alt="" />
+                  </div>
+                </CoverView>
+                <h3 class="ux-click">ProMod</h3>
+                <p class="my-ss co-desc">{{ words['cases.3.desc'] || '基于 NeatUI 开发的页面生成系统（演示数据基于Mockjs）' }}</p>
+              </div>
+            </div>
+            <div ui-card-foot="" ui-flex="row xm">
+              <div ui-flex="row lm" class="fs-xs mr-sm-sub">
+                <span ui-tag="@b main :round">React</span>
+                <span ui-tag="@b main :round">TS</span>
                 <span ui-tag="@b main :round">NeatUI</span>
               </div>
               <div></div>
