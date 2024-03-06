@@ -13,6 +13,7 @@ export default {
   'menu.design': '设计',
   'menu.components': '组件',
   'menu.plugins': '插件',
+  'menu.templates': '模板',
   'menu.resources': '资源',
   'menu.solutions': '方案',
   'menu.case': '案例',
@@ -112,5 +113,14 @@ export default {
   'cases.2.title': 'Admin',
   'cases.2.desc': '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）',
   // 'cases.3.title': '',
-  'cases.3.desc': '基于 NeatUI 开发的页面生成系统（演示数据基于Mockjs）'
+  'cases.3.desc': '基于 NeatUI 开发的页面生成系统（演示数据基于Mockjs）',
+
+  'templates.title': '案例',
+  'templates.desc': '这里提供一些基于NeatUI开发的产品案例',
+  'templates.1.title': 'QACMS',
+  'templates.1.desc': '基于 NeatUI 开发的表单设计系统（演示数据基于Mockjs）',
+  'templates.2.title': 'Admin',
+  'templates.2.desc': '基于 NeatUI 开发的管理系统模板（演示数据基于Mockjs）',
+  // 'templates.3.title': '',
+  'templates.3.desc': '基于 NeatUI 开发的页面生成系统（演示数据基于Mockjs）'
 };

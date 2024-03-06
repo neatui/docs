@@ -1,6 +1,6 @@
 <template>
   <!-- 桌面端 -->
-  <table ui-hide="<pad" class="nx-ms" ui-table="@b sz:l" ref="tableRef">
+  <table ui-hide="<pad" ui-table="@b sz:l" ref="tableRef">
     <thead class="table-head-fixed">
       <tr>
         <th v-if="showSelectAll" col-fixed="1" min-width>

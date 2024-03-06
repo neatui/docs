@@ -16,6 +16,7 @@ export default {
   'menu.resources': 'Resources',
   'menu.solutions': 'Solutions',
   'menu.case': 'Cases',
+  'menu.templates': 'Templates',
   'menu.blog': 'Blog',
   'components.calendar': 'Calendar',
   'components.cascader': 'Cascader',
@@ -113,5 +114,14 @@ export default {
   'cases.2.title': 'Admin',
   'cases.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)',
   // 'cases.3.title': '',
-  'cases.3.desc': 'Page generation system developed based on NeatUI (demo data based on Mockjs)'
+  'cases.3.desc': 'Page generation system developed based on NeatUI (demo data based on Mockjs)',
+
+  'templates.title': 'Templates',
+  'templates.desc': 'Modern website templates, crafted with NeatUI.',
+  'templates.1.title': 'QACMS',
+  'templates.1.desc': 'Form design system developed based on NeatUI (demo data based on Mockjs)',
+  'templates.2.title': 'Admin',
+  'templates.2.desc': 'Admin template based on NeatUI (demonstration data based on Mockjs)',
+  // 'templates.3.title': '',
+  'templates.3.desc': 'Page generation system developed based on NeatUI (demo data based on Mockjs)'
 };

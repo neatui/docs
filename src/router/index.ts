@@ -13,6 +13,7 @@ import Design from '@/views/Design/index.vue';
 import Resources from '@/views/Design/Resources/index.vue';
 import Specification from '@/views/Design/Specification/index.vue';
 import Case from '@/views/Case/index.vue';
+import Templates from '@/views/Templates/index.vue';
 
 import Components from '@/views/Docs/Components/index.vue';
 import ComponentsHome from '@/views/Docs/Components/Home/index.vue';
@@ -109,7 +110,7 @@ import LimitLoaderDemo from '@/views/Docs/Components/LimitLoader/demo.vue';
 // 列表
 import TableLoader from '@/views/Docs/Components/TableLoader/index.vue';
 import TableLoaderDemo from '@/views/Docs/Components/TableLoader/demo.vue';
-
+// 插件
 import Plugins from '@/views/Plugins/index.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -155,6 +156,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/case',
     name: 'case',
     component: Case,
+    children: []
+  },
+  {
+    path: '/templates',
+    name: 'Templates',
+    component: Templates,
     children: []
   },
   {
