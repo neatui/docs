@@ -17,12 +17,10 @@
   import { useRoute } from 'vue-router';
   import axios from 'axios';
   import { Remarkable } from 'remarkable';
-  import VueHtmlParser from 'vue-html-parser';
+
   import hljs from 'highlight.js';
   import 'highlight.js/styles/github.css';
   import { useBaseStore } from '@/store';
-  import mcScrollTo from './mc-scrollto';
-  import IPullScrollView from '@/components/IPullScrollView.vue';
 
   const base: any = useBaseStore();
 
