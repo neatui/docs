@@ -30,6 +30,7 @@ export default {
   'docs.color': '颜色',
   'docs.fontsize': '字号',
   'docs.interaction': '交互',
+  'docs.layout': '布局',
   'docs.response': '响应',
   'docs.grid': '栅格',
   'docs.microcontrol': '微控',

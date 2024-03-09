@@ -1,6 +1,6 @@
 <template>
   <DocView>
-    <DocFileLoader :file="`/docs/${base.lang}/fontsize.md`" />
+    <DocFileLoader :file="`/docs/${base.lang}/Fontsize.md`" />
   </DocView>
 </template>
 <script setup lang="ts">

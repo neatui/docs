@@ -3,7 +3,7 @@
     <div class="flex-block nr-ls">
       <div v-if="file" class="file-loader doc" ui-scroll=":x :y" v-html="state.code"></div>
     </div>
-    <div class="flex-fixed w-lm nl-ls nt-ms" ui-hide="<dpc">
+    <div class="flex-fixed w-lm nl-ls" ui-hide="<dpc">
       <ul class="n-ss-sub">
         <li v-for="(nav, idx) in state.navs" :key="idx" class="ux-hover r-sm">
           <a :href="`#${nav}`">{{ nav }}</a>
@@ -22,6 +22,7 @@
   import 'highlight.js/styles/github.css';
   import { useBaseStore } from '@/store';
   import mcScrollTo from './mc-scrollto';
+  import IPullScrollView from '@/components/IPullScrollView.vue';
 
   const base: any = useBaseStore();
 
@@ -77,9 +78,11 @@
           })
           .catch(() => {
             state.code = base.words['base.file.error'];
+            state.navs = [];
           });
       } else {
         state.code = base.words['base.file.error'];
+        state.navs = [];
       }
     },
     { deep: true, immediate: true }

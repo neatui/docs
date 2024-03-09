@@ -30,6 +30,7 @@ export default {
   'docs.color': 'Color',
   'docs.fontsize': 'Font size',
   'docs.interaction': 'Interaction',
+  'docs.layout': 'Layout',
   'docs.response': 'Response',
   'docs.grid': 'Grid',
   'docs.microcontrol': 'Microcontrol',

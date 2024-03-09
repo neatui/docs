@@ -1,6 +1,6 @@
 <template>
   <DocView>
-    <DocFileLoader :file="`/docs/${base.lang}/introduction.md`" />
+    <DocFileLoader :file="`/docs/${base.lang}/Introduction.md`" />
   </DocView>
 </template>
 <script setup lang="ts">
