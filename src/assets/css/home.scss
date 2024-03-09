@@ -6,7 +6,7 @@
   top: 0;
   // background: #880382;
   @include theme {
-    background: co(main);
+    background: co(home);
   }
 
   &::before {
@@ -146,7 +146,7 @@
       animation: am-decoration 5s linear infinite;
       // background: linear-gradient(90deg, rgba(#d93268, 0.3), rgba(#d93268, 0.3) 97.68%);
       @include theme {
-        background: linear-gradient(90deg, rgba(co(main), 0.3), rgba(co(main), 0.3) 97.68%);
+        background: linear-gradient(90deg, rgba(co(home), 0.3), rgba(co(home), 0.3) 97.68%);
       }
       bottom: -2%;
     }

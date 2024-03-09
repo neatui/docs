@@ -32,7 +32,7 @@ export const useBaseStore = defineStore('base', {
         // { path: '/docs/design', name: 'Design', word: 'menu.design' },
         { path: '/docs/development', name: 'Development', word: 'menu.development' },
         {
-          path: '/docs/components',
+          path: '/components',
           name: 'Components',
           word: 'menu.components',
           chlid: [
@@ -40,122 +40,122 @@ export const useBaseStore = defineStore('base', {
               word: words['components.basic'] || 'Basic',
               name: 'Basic',
               chlid: [
-                { path: '/docs/components/Layer', name: 'Layer', word: 'Layer', image: '/upload/layer.gif' },
-                { path: '/docs/components/IRouterView', name: 'IRouterView', word: 'IRouterView' },
-                { path: '/docs/components/IFollowView', name: 'IFollowView', word: 'IFollowView' },
-                { path: '/docs/components/IPickerView', name: 'IPickerView', word: 'IPickerView' },
-                { path: '/docs/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
+                { path: '/components/Layer', name: 'Layer', word: 'Layer', image: '/upload/layer.gif' },
+                { path: '/components/IRouterView', name: 'IRouterView', word: 'IRouterView' },
+                { path: '/components/IFollowView', name: 'IFollowView', word: 'IFollowView' },
+                { path: '/components/IPickerView', name: 'IPickerView', word: 'IPickerView' },
+                { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
               ]
             },
             // {
             //   word: words['components.general'] || 'General',
             //   name: 'General',
             //   chlid: [
-            //     { path: '/docs/components/button', word: words['components.button'] || 'Button' },
-            //     { path: '/docs/components/floatButton', word: words['components.floatButton'] || 'floatButton' },
-            //     { path: '/docs/components/icon', word: words['components.icon'] || 'Icon' },
-            //     { path: '/docs/components/typography', word: words['components.typography'] || 'Typography' }
+            //     { path: '/components/button', word: words['components.button'] || 'Button' },
+            //     { path: '/components/floatButton', word: words['components.floatButton'] || 'floatButton' },
+            //     { path: '/components/icon', word: words['components.icon'] || 'Icon' },
+            //     { path: '/components/typography', word: words['components.typography'] || 'Typography' }
             //   ]
             // },
             // {
             //   word: words['components.layout'] || 'Layout',
             //   name: 'Layout',
             //   chlid: [
-            //     { path: '/docs/components/divider', word: words['components.divider'] || 'Divider' },
-            //     { path: '/docs/components/grid', word: words['components.grid'] || 'Grid' },
-            //     { path: '/docs/components/layout', word: words['components.layout'] || 'Layout' },
-            //     { path: '/docs/components/space', word: words['components.space'] || 'Space' }
+            //     { path: '/components/divider', word: words['components.divider'] || 'Divider' },
+            //     { path: '/components/grid', word: words['components.grid'] || 'Grid' },
+            //     { path: '/components/layout', word: words['components.layout'] || 'Layout' },
+            //     { path: '/components/space', word: words['components.space'] || 'Space' }
             //   ]
             // },
             {
               word: words['components.tools'] || 'Tools',
               name: 'Tools',
               chlid: [
-                //     { path: '/docs/components/anchor', word: words['components.anchor'] || 'Anchor' },
-                //     { path: '/docs/components/breadcrumb', word: words['components.breadcrumb'] || 'Breadcrumb' },
-                //     { path: '/docs/components/dropDown', word: words['components.dropDown'] || 'Dropdown' },
-                //     { path: '/docs/components/menu', word: words['components.menu'] || 'Menu' },
-                { path: '/docs/components/pagination', word: words['components.pagination'] || 'Pagination' }
-                //     { path: '/docs/components/steps', word: words['components.steps'] || 'Steps' }
+                //     { path: '/components/anchor', word: words['components.anchor'] || 'Anchor' },
+                //     { path: '/components/breadcrumb', word: words['components.breadcrumb'] || 'Breadcrumb' },
+                //     { path: '/components/dropDown', word: words['components.dropDown'] || 'Dropdown' },
+                //     { path: '/components/menu', word: words['components.menu'] || 'Menu' },
+                { path: '/components/pagination', word: words['components.pagination'] || 'Pagination' }
+                //     { path: '/components/steps', word: words['components.steps'] || 'Steps' }
               ]
             },
             {
               word: words['components.dataShow'] || 'Display',
               name: 'Display',
               chlid: [
-                // { path: '/docs/components/avatar', word: words['components.avatar'] || 'Avatar' },
-                // { path: '/docs/components/badge', word: words['components.badge'] || 'Badge' },
-                { path: '/docs/components/Calendar', word: words['components.calendar'] || 'Calendar' },
-                // { path: '/docs/components/card', word: words['components.card'] || 'Card' },
-                // { path: '/docs/components/carousel', word: words['components.carousel'] || 'Carousel' },
-                // { path: '/docs/components/collapse', word: words['components.collapse'] || 'Collapse' },
-                // { path: '/docs/components/descriptions', word: words['components.descriptions'] || 'Descriptions' },
-                // { path: '/docs/components/empty', word: words['components.empty'] || 'Empty' },
-                // { path: '/docs/components/image', word: words['components.image'] || 'Image' },
-                // { path: '/docs/components/list', word: words['components.list'] || 'List' },
-                // { path: '/docs/components/popover', word: words['components.popover'] || 'Popover' },
-                // { path: '/docs/components/qrcode', word: words['components.qrcode'] || 'QRCode' },
-                // { path: '/docs/components/segmented', word: words['components.segmented'] || 'Segmented' },
-                // { path: '/docs/components/statistic', word: words['components.statistic'] || 'Statistic' },
-                // { path: '/docs/components/table', word: words['components.table'] || 'Table' },
-                // { path: '/docs/components/tabs', word: words['components.tabs'] || 'Tabs' },
-                // { path: '/docs/components/tag', word: words['components.tag'] || 'Tag' },
-                // { path: '/docs/components/timeline', word: words['components.timeline'] || 'Timeline' },
-                // { path: '/docs/components/tooltip', word: words['components.tooltip'] || 'Tooltip' },
-                // { path: '/docs/components/tour', word: words['components.tour'] || 'Tour' },
-                // { path: '/docs/components/photoViewer', word: words['components.photoViewer'] || 'PhotoViewer' },
-                { path: '/docs/components/Tree', word: words['components.tree'] || 'Tree' }
+                // { path: '/components/avatar', word: words['components.avatar'] || 'Avatar' },
+                // { path: '/components/badge', word: words['components.badge'] || 'Badge' },
+                { path: '/components/Calendar', word: words['components.calendar'] || 'Calendar' },
+                // { path: '/components/card', word: words['components.card'] || 'Card' },
+                // { path: '/components/carousel', word: words['components.carousel'] || 'Carousel' },
+                // { path: '/components/collapse', word: words['components.collapse'] || 'Collapse' },
+                // { path: '/components/descriptions', word: words['components.descriptions'] || 'Descriptions' },
+                // { path: '/components/empty', word: words['components.empty'] || 'Empty' },
+                // { path: '/components/image', word: words['components.image'] || 'Image' },
+                // { path: '/components/list', word: words['components.list'] || 'List' },
+                // { path: '/components/popover', word: words['components.popover'] || 'Popover' },
+                // { path: '/components/qrcode', word: words['components.qrcode'] || 'QRCode' },
+                // { path: '/components/segmented', word: words['components.segmented'] || 'Segmented' },
+                // { path: '/components/statistic', word: words['components.statistic'] || 'Statistic' },
+                // { path: '/components/table', word: words['components.table'] || 'Table' },
+                // { path: '/components/tabs', word: words['components.tabs'] || 'Tabs' },
+                // { path: '/components/tag', word: words['components.tag'] || 'Tag' },
+                // { path: '/components/timeline', word: words['components.timeline'] || 'Timeline' },
+                // { path: '/components/tooltip', word: words['components.tooltip'] || 'Tooltip' },
+                // { path: '/components/tour', word: words['components.tour'] || 'Tour' },
+                // { path: '/components/photoViewer', word: words['components.photoViewer'] || 'PhotoViewer' },
+                { path: '/components/Tree', word: words['components.tree'] || 'Tree' }
               ]
             },
             {
               word: words['components.formComp'] || 'From',
               name: 'Form',
               chlid: [
-                { path: '/docs/components/Input', name: 'Input', word: words['components.input'] || 'Input' },
-                // { path: '/docs/components/InputNumber', word: words['components.inputNumber'] || 'InputNumber' },
-                // { path: '/docs/components/InputNumber', word: words['components.inputRange'] || 'InputRange' },
-                { path: '/docs/components/TextArea', name: 'TextArea', word: words['components.textarea'] || 'TextArea' },
-                { path: '/docs/components/Select', name: 'Select', word: words['components.select'] || 'Select' },
-                // { path: '/docs/components/autoComplete', word: words['components.autoComplete'] || 'AutoComplete' },
-                // { path: '/docs/components/checkbox', word: words['components.checkbox'] || 'Checkbox' },
-                // { path: '/docs/components/colorPicker', word: words['components.colorPicker'] || 'ColorPicker' },
-                { path: '/docs/components/Cascader', word: words['components.Cascader'] || 'Cascader' },
-                { path: '/docs/components/DatePicker', word: words['components.datePicker'] || 'DatePicker' }
-                // { path: '/docs/components/mentions', word: words['components.mentions'] || 'Mentions' },
-                // { path: '/docs/components/rate', word: words['components.rate'] || 'Rate' },
-                // { path: '/docs/components/slider', word: words['components.slider'] || 'Slider' },
-                // { path: '/docs/components/switch', word: words['components.switch'] || 'Switch' },
-                // { path: '/docs/components/TimePicker', word: words['components.timePicker'] || 'TimePicker' },
-                // { path: '/docs/components/transfer', word: words['components.transfer'] || 'Transfer' },
-                // { path: '/docs/components/treeSelect', word: words['components.treeSelect'] || 'TreeSelect' },
-                // { path: '/docs/components/upload', word: words['components.upload'] || 'Upload' }
-                // { path: '/docs/components/photoEditor', word: words['components.photoEditor'] || 'PhotoEditor' }
+                { path: '/components/Input', name: 'Input', word: words['components.input'] || 'Input' },
+                // { path: '/components/InputNumber', word: words['components.inputNumber'] || 'InputNumber' },
+                // { path: '/components/InputNumber', word: words['components.inputRange'] || 'InputRange' },
+                { path: '/components/TextArea', name: 'TextArea', word: words['components.textarea'] || 'TextArea' },
+                { path: '/components/Select', name: 'Select', word: words['components.select'] || 'Select' },
+                // { path: '/components/autoComplete', word: words['components.autoComplete'] || 'AutoComplete' },
+                // { path: '/components/checkbox', word: words['components.checkbox'] || 'Checkbox' },
+                // { path: '/components/colorPicker', word: words['components.colorPicker'] || 'ColorPicker' },
+                { path: '/components/Cascader', word: words['components.Cascader'] || 'Cascader' },
+                { path: '/components/DatePicker', word: words['components.datePicker'] || 'DatePicker' }
+                // { path: '/components/mentions', word: words['components.mentions'] || 'Mentions' },
+                // { path: '/components/rate', word: words['components.rate'] || 'Rate' },
+                // { path: '/components/slider', word: words['components.slider'] || 'Slider' },
+                // { path: '/components/switch', word: words['components.switch'] || 'Switch' },
+                // { path: '/components/TimePicker', word: words['components.timePicker'] || 'TimePicker' },
+                // { path: '/components/transfer', word: words['components.transfer'] || 'Transfer' },
+                // { path: '/components/treeSelect', word: words['components.treeSelect'] || 'TreeSelect' },
+                // { path: '/components/upload', word: words['components.upload'] || 'Upload' }
+                // { path: '/components/photoEditor', word: words['components.photoEditor'] || 'PhotoEditor' }
               ]
             },
             // {
             //   word: words['components.feedback'] || 'Feedback',
             //   name: 'Feedback',
             //   chlid: [
-            //     { path: '/docs/components/alert', word: words['components.alert'] || 'Alert' },
-            //     { path: '/docs/components/drawer', word: words['components.drawer'] || 'Drawer' },
-            //     { path: '/docs/components/message', word: words['components.message'] || 'Message' },
-            //     { path: '/docs/components/modal', word: words['components.modal'] || 'Modal' },
-            //     { path: '/docs/components/notification', word: words['components.notification'] || 'Notification' },
-            //     { path: '/docs/components/popconfirm', word: words['components.popconfirm'] || 'popconfirm' },
-            //     { path: '/docs/components/progress', word: words['components.progress'] || 'Progress' },
-            //     { path: '/docs/components/result', word: words['components.result'] || 'Result' },
-            //     { path: '/docs/components/skeleton', word: words['components.skeleton'] || 'Skeleton' },
-            //     { path: '/docs/components/spin', word: words['components.spin'] || 'Spin' },
-            //     { path: '/docs/components/watermark', word: words['components.watermark'] || 'Watermark' }
+            //     { path: '/components/alert', word: words['components.alert'] || 'Alert' },
+            //     { path: '/components/drawer', word: words['components.drawer'] || 'Drawer' },
+            //     { path: '/components/message', word: words['components.message'] || 'Message' },
+            //     { path: '/components/modal', word: words['components.modal'] || 'Modal' },
+            //     { path: '/components/notification', word: words['components.notification'] || 'Notification' },
+            //     { path: '/components/popconfirm', word: words['components.popconfirm'] || 'popconfirm' },
+            //     { path: '/components/progress', word: words['components.progress'] || 'Progress' },
+            //     { path: '/components/result', word: words['components.result'] || 'Result' },
+            //     { path: '/components/skeleton', word: words['components.skeleton'] || 'Skeleton' },
+            //     { path: '/components/spin', word: words['components.spin'] || 'Spin' },
+            //     { path: '/components/watermark', word: words['components.watermark'] || 'Watermark' }
             //   ]
             // },
             {
               word: words['components.solutions'] || 'Solutions',
               name: 'Solutions',
               chlid: [
-                { path: '/docs/components/LimitLoader', word: words['components.solutions.limitloader'], name: 'LimitLoader' },
-                { path: '/docs/components/FormLoader', word: words['components.solutions.iformloader'], name: 'FormLoader' },
-                { path: '/docs/components/TableLoader', word: words['components.solutions.tlableloader'], name: 'TableLoader' }
+                { path: '/components/LimitLoader', word: words['components.solutions.limitloader'], name: 'LimitLoader' },
+                { path: '/components/FormLoader', word: words['components.solutions.iformloader'], name: 'FormLoader' },
+                { path: '/components/TableLoader', word: words['components.solutions.tlableloader'], name: 'TableLoader' }
               ]
             }
           ]

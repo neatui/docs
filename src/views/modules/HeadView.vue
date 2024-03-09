@@ -9,9 +9,9 @@
           </a>
         </div>
         <div ui-hide="<dpc" class="ml-sl-sub" ui-flex="row rm">
-          <RouterLink ui-btn="@a none s" active-class="co-main fw7" to="/design">{{ words['menu.design'] || '规范' }}</RouterLink>
-          <RouterLink ui-btn="@a none s" active-class="co-main fw7" to="/development">{{ words['menu.development'] || '开发' }}</RouterLink>
-          <RouterLink ui-btn="@a none s" active-class="co-main fw7" to="/docs/components">{{ words['menu.components'] || '组件' }}</RouterLink>
+          <RouterLink ui-btn="@a none s" active-class="co-main" to="/docs">{{ words['menu.docs'] || '文档' }}</RouterLink>
+          <!-- <RouterLink ui-btn="@a none s" active-class="co-main" to="/development">{{ words['menu.development'] || '开发' }}</RouterLink> -->
+          <RouterLink ui-btn="@a none s" active-class="co-main" to="/components">{{ words['menu.components'] || '组件' }}</RouterLink>
           <!-- <IFollowView>
             <div ui-btn="@a none s" class="nr-sm">
               <span>{{ words['menu.components'] || '组件' }}</span>
@@ -19,15 +19,15 @@
             </div>
             <template #tips>
               <ul class="n-sl" ui-flex="col xm">
-                <RouterLink class="nowrap nx-sl ny-ss r-sm ux-hover" active-class="co-main" to="/docs/components">
+                <RouterLink class="nowrap nx-sl ny-ss r-sm ux-hover" active-class="co-main" to="/components">
                   <span>MCUI</span>
                 </RouterLink>
               </ul>
             </template>
           </IFollowView> -->
-          <RouterLink ui-btn="@a none s" active-class="co-main fw7" to="/plugins">{{ words['menu.plugins'] || '插件' }}</RouterLink>
-          <RouterLink ui-btn="@a none s" active-class="co-main fw7" to="/templates">{{ words['menu.templates'] || '模板' }}</RouterLink>
-          <RouterLink ui-btn="@a none s" active-class="co-main fw7" to="/blog">{{ words['menu.blog'] || '博客' }}</RouterLink>
+          <RouterLink ui-btn="@a none s" active-class="co-main" to="/plugins">{{ words['menu.plugins'] || '插件' }}</RouterLink>
+          <RouterLink ui-btn="@a none s" active-class="co-main" to="/templates">{{ words['menu.templates'] || '模板' }}</RouterLink>
+          <!-- <RouterLink ui-btn="@a none s" active-class="co-main" to="/blog">{{ words['menu.blog'] || '博客' }}</RouterLink> -->
           <!-- <a href="https://www.npmjs.com/search?q=%40mcui" target="_blank" ui-btn="@a none s"><span class="ux-link">NPM</span></a> -->
           <MoreLangs />
         </div>
@@ -39,12 +39,12 @@
             </button>
             <template #tips>
               <div class="min-w-sl max-h-lm nx-sm-sub ny-ss-sub" ui-scroll="x:hidden :y">
-                <RouterLink class="full-x ux-hover r-sm" active-class="co-main fw7" to="/design">{{ words['menu.design'] || '规范' }}</RouterLink>
-                <RouterLink class="full-x ux-hover r-sm" active-class="co-main fw7" to="/development">{{ words['menu.development'] || '开发' }}</RouterLink>
-                <RouterLink class="full-x ux-hover r-sm" active-class="co-main fw7" to="/docs/components">{{ words['menu.components'] || '组件' }}</RouterLink>
-                <RouterLink class="full-x ux-hover r-sm" active-class="co-main fw7" to="/plugins">{{ words['menu.plugins'] || '插件' }}</RouterLink>
-                <RouterLink class="full-x ux-hover r-sm" active-class="co-main fw7" to="/templates">{{ words['menu.templates'] || '模板' }}</RouterLink>
-                <RouterLink class="full-x ux-hover r-sm" active-class="co-main fw7" to="/blog">{{ words['menu.blog'] || '博客' }}</RouterLink>
+                <RouterLink class="full-x ux-hover r-sm" active-class="co-main" to="/docs">{{ words['menu.docs'] || '文档' }}</RouterLink>
+                <!-- <RouterLink class="full-x ux-hover r-sm" active-class="co-main" to="/development">{{ words['menu.development'] || '开发' }}</RouterLink> -->
+                <RouterLink class="full-x ux-hover r-sm" active-class="co-main" to="/components">{{ words['menu.components'] || '组件' }}</RouterLink>
+                <RouterLink class="full-x ux-hover r-sm" active-class="co-main" to="/plugins">{{ words['menu.plugins'] || '插件' }}</RouterLink>
+                <RouterLink class="full-x ux-hover r-sm" active-class="co-main" to="/templates">{{ words['menu.templates'] || '模板' }}</RouterLink>
+                <!-- <RouterLink class="full-x ux-hover r-sm" active-class="co-main" to="/blog">{{ words['menu.blog'] || '博客' }}</RouterLink> -->
                 <!-- <a class="full-x ux-hover r-ms" href="https://www.npmjs.com/search?q=%40mcui" target="_blank"><span class="ux-link">NPM</span></a> -->
               </div>
             </template>
