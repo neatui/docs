@@ -5,6 +5,8 @@ export default {
   'base.copyright': '© 2024 Junbo. All rights reserved.',
   'base.support': 'Technical support',
   'base.tel': '18616226230',
+  'base.file.error': 'Failed to get file',
+
   'common.download': 'Download',
   'common.know_more': 'Know more',
   'common.start_using': 'Start using',

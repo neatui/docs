@@ -12,10 +12,11 @@
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/basics">{{ words['docs.basics'] || 'Basics' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/color">{{ words['docs.color'] || 'Color' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/fontsize">{{ words['docs.fontsize'] || 'Font size' }}</RouterLink>
-        <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/interaction">{{ words['docs.interaction'] || 'Interaction' }}</RouterLink>
+        <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/layout">{{ words['docs.layout'] || 'Layout' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/response">{{ words['docs.response'] || 'Response' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/grid">{{ words['docs.grid'] || 'Grid' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/microcontrol">{{ words['docs.microcontrol'] || 'Microcontrol' }}</RouterLink>
+        <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/interaction">{{ words['docs.interaction'] || 'Interaction' }}</RouterLink>
         <span class="o-mm fs-xs bold mt-sl">{{ words['docs.version'] || 'Version' }}</span>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/version">{{ words['docs.change-log'] || 'Change log' }}</RouterLink>
       </Sidebar>

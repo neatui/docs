@@ -1,0 +1,13 @@
+.file-loader {
+  code {
+    @include theme {
+      color: co(code);
+    }
+  }
+
+  a {
+    @include theme {
+      color: co(link);
+    }
+  }
+}

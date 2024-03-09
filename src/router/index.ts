@@ -14,6 +14,7 @@ import DocsDesign from '@/views/Docs/Design.vue';
 import DocsBasics from '@/views/Docs/Basics.vue';
 import DocsColor from '@/views/Docs/Color.vue';
 import DocsFontsize from '@/views/Docs/Fontsize.vue';
+import DocsLayout from '@/views/Docs/Layout.vue';
 import DocsInteraction from '@/views/Docs/Interaction.vue';
 import DocsResponse from '@/views/Docs/Response.vue';
 import DocsGrid from '@/views/Docs/Grid.vue';
@@ -145,6 +146,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: 'basics', name: 'DocsBasics', component: DocsBasics },
       { path: 'color', name: 'DocsColor', component: DocsColor },
       { path: 'fontsize', name: 'DocsFontsize', component: DocsFontsize },
+      { path: 'layout', name: 'DocsLayout', component: DocsLayout },
       { path: 'interaction', name: 'DocsInteraction', component: DocsInteraction },
       { path: 'response', name: 'DocsResponse', component: DocsResponse },
       { path: 'grid', name: 'DocsGrid', component: DocsGrid },

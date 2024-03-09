@@ -5,6 +5,8 @@ export default {
   'base.copyright': '© 2024 Junbo. 保留所有权利',
   'base.support': '技术支持',
   'base.tel': '18616226230',
+  'base.file.error': '获取文件失败',
+
   'common.download': '下载',
   'common.know_more': '了解更多',
   'common.start_using': '开始使用',

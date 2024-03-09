@@ -1,11 +1,13 @@
 <template>
-  <div v-if="route.query.id" class="codeview-code n-ls mob:n-ms b-solid b-back bt-xs" ui-scroll=":x :y" v-html="code"></div>
+  <div v-if="file" class="file-loader doc" ui-scroll=":x :y" v-html="state.code"></div>
+  {{ state.navs }}
 </template>
 <script setup lang="ts">
-  import { ref, reactive, onMounted } from 'vue';
+  import { ref, reactive, onMounted, watch } from 'vue';
   import { useRoute } from 'vue-router';
   import axios from 'axios';
   import { Remarkable } from 'remarkable';
+  import VueHtmlParser from 'vue-html-parser';
   import hljs from 'highlight.js';
   import 'highlight.js/styles/github.css';
 
@@ -17,7 +19,10 @@
     }
   });
 
-  const code = ref('');
+  const state: any = reactive({
+    code: '',
+    navs: []
+  });
 
   const md = new Remarkable('full', {
     html: true,
@@ -38,18 +43,31 @@
     }
   });
 
-  onMounted(() => {
-    if (route.query.id) {
-      axios
-        .get(props.file)
-        .then((response) => {
-          code.value = md.render(response.data);
-        })
-        .catch(() => {
-          code.value = '获取文件失败';
-        });
-    } else {
-      console.log();
-    }
-  });
+  watch(
+    () => props.file,
+    () => {
+      if (props.file) {
+        axios
+          .get(props.file)
+          .then((response) => {
+            state.code = md.render(response.data);
+
+            // 创建DOM解析器
+            const parser = new DOMParser();
+            // 解析HTML字符串
+            const html = parser.parseFromString(state.code, 'text/html');
+            // 获取所有的<h2>标签
+            const navs = html.querySelectorAll('h2');
+            // 提取<h2>标签的内容
+            state.navs = Array.from(navs).map((tag) => tag.textContent);
+          })
+          .catch(() => {
+            state.code = words['base.file.error'];
+          });
+      } else {
+        state.code = words['base.file.error'];
+      }
+    },
+    { deep: true, immediate: true }
+  );
 </script>
