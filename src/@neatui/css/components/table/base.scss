@@ -103,10 +103,9 @@
     @include theme {
       background: co(fore);
       box-shadow:
-        2px 0 0 co(fore),
-        -2px 0 0 co(fore),
-        0 -2px 0 co(fore),
-        0 1px 3px rgba(co(deep), 0.5);
+        0 1px 0 rgba(co(deep), 0.1),
+        0 2px 0 rgba(co(deep), 0.1),
+        0 3px 0 rgba(co(deep), 0.1);
     }
     position: sticky;
     top: 0;

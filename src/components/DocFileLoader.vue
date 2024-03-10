@@ -1,7 +1,7 @@
 <template>
   <div ui-flex="row xy">
     <div class="flex-block nr-ls">
-      <div v-if="file" class="file-loader doc" ui-scroll=":x :y" v-html="state.code"></div>
+      <div v-if="file" class="file-loader doc fs-sl" ui-scroll=":x :y" v-html="state.code"></div>
     </div>
     <div class="flex-fixed w-lm nl-ls" ui-hide="<dpc">
       <ul class="n-ss-sub">

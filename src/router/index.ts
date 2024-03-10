@@ -32,7 +32,7 @@ import ComponentsHome from '@/views/Components/Home/index.vue';
 
 // 组件文档
 // 基础
-import Layer from '@/views/Components/basic/Layer/index.vue';
+import Layer from '@/views/Components/Layer/index.vue';
 import IRouterView from '@/views/Components/IRouterView/index.vue';
 import IFollowView from '@/views/Components/IFollowView/index.vue';
 import IPickerView from '@/views/Components/IPickerView/index.vue';

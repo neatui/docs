@@ -10,7 +10,42 @@
         <li>
           <CodeView file="/components/Input/Input.md">
             <h5>基础用法</h5>
-            <IRouterView mode="preview" item-class="full n-ms">
+            <div class="bg-weak nx-ms nt-ms">
+              <div class="bg-fore r-sm n-ms" ui-flex="row lm">
+                <span class="mr-sm">模式：</span>
+                <form name="form1" class="mr-sl-sub">
+                  <label ui-form="@a type:radio">
+                    <input type="radio" name="form1" value="default" v-model="state.mode" />
+                    <span>default</span>
+                  </label>
+                  <label ui-form="@a type:radio">
+                    <input type="radio" name="form1" value="preview" v-model="state.mode" />
+                    <span>preview</span>
+                  </label>
+                  <label ui-form="@a type:radio">
+                    <input type="radio" name="form1" value="pop-up" v-model="state.mode" />
+                    <span>pop-up</span>
+                  </label>
+                </form>
+              </div>
+            </div>
+            <IRouterView v-if="state.mode === 'pop-up'" :mode="state.mode" item-class="full n-ms">
+              <template #list>
+                <ListView />
+              </template>
+              <template #item>
+                <SideView />
+              </template>
+            </IRouterView>
+            <IRouterView v-else-if="state.mode === 'preview'" :mode="state.mode" item-class="full n-ms">
+              <template #list>
+                <ListView />
+              </template>
+              <template #item>
+                <SideView />
+              </template>
+            </IRouterView>
+            <IRouterView v-else-if="state.mode === 'default'" :mode="state.mode" item-class="full n-ms">
               <template #list>
                 <ListView />
               </template>
@@ -51,12 +86,18 @@
   </DocView>
 </template>
 <script setup lang="ts">
+  import { reactive } from 'vue';
   import { IRouterView } from '@/@neatui/vue';
   import { DocView, CodeView } from '@/components';
   import { storeToRefs, useBaseStore } from '@/store';
   import ListView from './ListView.vue';
   import ItemView from './ItemView.vue';
+  import SideView from './SideView.vue';
 
   const base: any = useBaseStore();
   const { words = {} }: any = storeToRefs(base);
+
+  const state: any = reactive({
+    mode: 'default'
+  });
 </script>

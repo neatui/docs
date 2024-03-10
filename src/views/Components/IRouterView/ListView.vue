@@ -1,5 +1,5 @@
 <template>
-  <div class="full-w ny-ms">
+  <div class="full-w n-ms">
     <TableLoader
       :table="state.table"
       :lists="state.data"
@@ -39,11 +39,11 @@
     table: [
       {
         label: '标题',
-        field: 'name',
-        attrs: { class: 'ux-link' },
-        event: {
-          click: fToItem
-        }
+        field: 'name'
+        // attrs: { class: 'ux-link' },
+        // event: {
+        //   click: fToItem
+        // }
       },
       {
         label: '手机号',
@@ -57,25 +57,37 @@
     ],
     data: [
       {
-        name: '点击打开详情页',
+        name: 'Junbo',
         phone: 13888776666,
         status: 1,
         groupIdList: 1
       },
       {
-        name: '点击打开详情页',
+        name: 'Junbo',
         phone: 13888776666,
         status: 1,
         groupIdList: 1
       },
       {
-        name: '点击打开详情页',
+        name: 'Junbo',
         phone: 13888776666,
         status: 1,
         groupIdList: 1
       },
       {
-        name: '点击打开详情页',
+        name: 'Junbo',
+        phone: 13888776666,
+        status: 1,
+        groupIdList: 1
+      },
+      {
+        name: 'Junbo',
+        phone: 13888776666,
+        status: 1,
+        groupIdList: 1
+      },
+      {
+        name: 'Junbo',
         phone: 13888776666,
         status: 1,
         groupIdList: 1

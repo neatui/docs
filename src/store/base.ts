@@ -42,9 +42,9 @@ export const useBaseStore = defineStore('base', {
               chlid: [
                 { path: '/components/Layer', name: 'Layer', word: 'Layer', image: '/upload/layer.gif' },
                 { path: '/components/IRouterView', name: 'IRouterView', word: 'IRouterView' },
-                { path: '/components/IFollowView', name: 'IFollowView', word: 'IFollowView' },
-                { path: '/components/IPickerView', name: 'IPickerView', word: 'IPickerView' },
-                { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
+                { path: '/components/IFollowView', name: 'IFollowView', word: 'IFollowView' }
+                // { path: '/components/IPickerView', name: 'IPickerView', word: 'IPickerView' },
+                // { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
               ]
             },
             // {
