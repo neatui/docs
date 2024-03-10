@@ -41,8 +41,7 @@
   import { ref, reactive, watch, onMounted, onUnmounted, computed } from 'vue';
   import { useRoute } from 'vue-router';
   import scrollTo from '@fekit/scrollto';
-  import { findEnumName } from '@/utils';
-  import { diff, deepcopy, isArray } from '@fekit/utils';
+  import { diff, deepcopy, isArray, findEnumName } from '@fekit/utils';
   const emits = defineEmits(['update:data', 'confirm', 'discard']);
   const route: any = useRoute();
   const props: any = defineProps({

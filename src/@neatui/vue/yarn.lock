@@ -9,10 +9,10 @@
   dependencies:
     "@fekit/utils" "^0.2.0"
 
-"@fekit/follow@^1.0.8":
-  version "1.0.8"
-  resolved "http://npm.yhjcare.com/@fekit%2ffollow/-/follow-1.0.8.tgz#f0f714c55646d9472a06e6e32638fc86a67f5460"
-  integrity sha512-2h0DChRM7/ap4LxvKheegYBG4ARIy5bambM0dp5PY2Q63gyAICJ9KvcPIxE3Npw+GB3pMN2N6JDerlVfrrdTsw==
+"@fekit/follow@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@fekit/follow/-/follow-1.0.9.tgz#70da30394e0f4d67dae570e2dd12714b5b2bf144"
+  integrity sha512-ayLe+Sl+AGeQv1d/uGyagLGetH54IP2nXeIGWopMyaao+jtFAgiekRyVSN+w/NIAcapGvnaZMmlJNL2HDY9gFA==
   dependencies:
     resize-observer-polyfill "^1.5.1"
 
@@ -93,6 +93,11 @@ resize-observer-polyfill@^1.5.1:
   resolved "http://npm.yhjcare.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
+sortablejs@1.10.2:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.10.2.tgz#6e40364d913f98b85a14f6678f92b5c1221f5290"
+  integrity sha512-YkPGufevysvfwn5rfdlGyrGjt7/CRHwvRPogD/lC+TnvcN29jDpCifKP+rBqf+LRldfXSTh+0CGLcSg0VIxq3A==
+
 swiper@^11.0.4:
   version "11.0.5"
   resolved "http://npm.yhjcare.com/swiper/-/swiper-11.0.5.tgz#6ed1ad06e6906ba42fd4b93d4988f0626a49046e"
@@ -102,3 +107,15 @@ typescript@^5.1.6:
   version "5.3.3"
   resolved "http://npm.yhjcare.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
   integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
+
+vue-cropper@^0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/vue-cropper/-/vue-cropper-0.6.4.tgz#9ca841248e2f22aae0bc2533b13b4d8705152298"
+  integrity sha512-U3bm17Li/Xwfw2t3pr8/hFE/tYhvwIWqepHK9IFC1TnX1KFd64VyfCD9nMBhPY91RyvMC6jSQgT/DyDNKuTpIQ==
+
+vuedraggable@^2.24.3:
+  version "2.24.3"
+  resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-2.24.3.tgz#43c93849b746a24ce503e123d5b259c701ba0d19"
+  integrity sha512-6/HDXi92GzB+Hcs9fC6PAAozK1RLt1ewPTLjK0anTYguXLAeySDmcnqE8IC0xa7shvSzRjQXq3/+dsZ7ETGF3g==
+  dependencies:
+    sortablejs "1.10.2"

@@ -1,6 +1,6 @@
 {
   "name": "@neatui/vue",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "basic component ui",
   "main": "./src/index.ts",
   "license": "MIT",
@@ -21,6 +21,8 @@
     "@fekit/toast": "^2.2.3",
     "@fekit/url": "^2.0.1",
     "@fekit/utils": "^2.10.7",
-    "swiper": "^11.0.4"
+    "swiper": "^11.0.4",
+    "vue-cropper": "^0.6.4",
+    "vuedraggable": "^2.24.3"
   }
 }

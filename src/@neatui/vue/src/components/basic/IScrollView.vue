@@ -36,11 +36,11 @@
   const props: any = defineProps({
     pull: {
       type: Boolean,
-      default: true
+      default: false
     },
     load: {
       type: Boolean,
-      default: true
+      default: false
     }
   });
   const root: any = ref(null);

@@ -42,7 +42,7 @@ export const useBaseStore = defineStore('base', {
               chlid: [
                 { path: '/components/Layer', name: 'Layer', word: 'Layer', image: '/upload/layer.gif' },
                 { path: '/components/IRouterView', name: 'IRouterView', word: 'IRouterView' },
-                { path: '/components/IFollowView', name: 'IFollowView', word: 'IFollowView' },
+                { path: '/components/IFollowView', name: 'IFollowView', word: 'IFollowView', image: '/upload/components/comboboxes.png' },
                 { path: '/components/IPickerView', name: 'IPickerView', word: 'IPickerView' },
                 { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
               ]
@@ -85,7 +85,7 @@ export const useBaseStore = defineStore('base', {
               chlid: [
                 // { path: '/components/avatar', word: words['components.avatar'] || 'Avatar' },
                 // { path: '/components/badge', word: words['components.badge'] || 'Badge' },
-                { path: '/components/Calendar', word: words['components.calendar'] || 'Calendar' },
+                { path: '/components/Calendar', word: words['components.calendar'] || 'Calendar', image: '/upload/components/calendars.png' },
                 // { path: '/components/card', word: words['components.card'] || 'Card' },
                 // { path: '/components/carousel', word: words['components.carousel'] || 'Carousel' },
                 // { path: '/components/collapse', word: words['components.collapse'] || 'Collapse' },
@@ -111,11 +111,11 @@ export const useBaseStore = defineStore('base', {
               word: words['components.formComp'] || 'From',
               name: 'Form',
               chlid: [
-                { path: '/components/Input', name: 'Input', word: words['components.input'] || 'Input' },
+                { path: '/components/Input', name: 'Input', word: words['components.input'] || 'Input', image: '/upload/components/input.png' },
                 // { path: '/components/InputNumber', word: words['components.inputNumber'] || 'InputNumber' },
                 // { path: '/components/InputNumber', word: words['components.inputRange'] || 'InputRange' },
-                { path: '/components/TextArea', name: 'TextArea', word: words['components.textarea'] || 'TextArea' },
-                { path: '/components/Select', name: 'Select', word: words['components.select'] || 'Select' },
+                // { path: '/components/TextArea', name: 'TextArea', word: words['components.textarea'] || 'TextArea' },
+                { path: '/components/Select', name: 'Select', word: words['components.select'] || 'Select', image: '/upload/components/comboboxes.png' },
                 // { path: '/components/autoComplete', word: words['components.autoComplete'] || 'AutoComplete' },
                 // { path: '/components/checkbox', word: words['components.checkbox'] || 'Checkbox' },
                 // { path: '/components/colorPicker', word: words['components.colorPicker'] || 'ColorPicker' },
@@ -155,7 +155,7 @@ export const useBaseStore = defineStore('base', {
               chlid: [
                 { path: '/components/LimitLoader', word: words['components.solutions.limitloader'], name: 'LimitLoader' },
                 { path: '/components/FormLoader', word: words['components.solutions.iformloader'], name: 'FormLoader' },
-                { path: '/components/TableLoader', word: words['components.solutions.tlableloader'], name: 'TableLoader' }
+                { path: '/components/TableLoader', word: words['components.solutions.tlableloader'], name: 'TableLoader', image: '/upload/components/tables.png' }
               ]
             }
           ]
