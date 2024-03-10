@@ -41,7 +41,30 @@
   import { ref, reactive, watch, onMounted, onUnmounted, computed } from 'vue';
   import { useRoute } from 'vue-router';
   import scrollTo from '@fekit/scrollto';
-  import { diff, deepcopy, isArray, findEnumName } from '@fekit/utils';
+  import { diff, deepcopy, isArray } from '@fekit/utils';
+
+  // 通过枚举值查找枚举名
+  const findEnumName = (enums: any, val: any, join: boolean | string = ' Ι ') => {
+    // 转换核心
+    const _core = (v: any) => {
+      const { label = v }: any = enums.find(({ value = '' }: any) => value == v) || {};
+      return label;
+    };
+    // 判断枚举字典是否可用
+    if (enums && enums.find) {
+      // 兼容多种入参类型
+      if (isArray(val)) {
+        // 数组
+        const arr = val.map((i: any) => _core(i));
+        return join ? arr.join(join) : arr;
+      } else {
+        return _core(val);
+      }
+    } else {
+      return val;
+    }
+  };
+
   const emits = defineEmits(['update:data', 'confirm', 'discard']);
   const route: any = useRoute();
   const props: any = defineProps({
