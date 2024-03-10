@@ -183,6 +183,11 @@
       transform: scale(#{calc($i / 10)});
     }
   }
+  .#{$d}fw0 {
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   .#{$d}fw-auto {
     font-weight: normal;
     -webkit-font-smoothing: auto;

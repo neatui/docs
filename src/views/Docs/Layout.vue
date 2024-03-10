@@ -1,10 +1,8 @@
 <template>
-  <DocView>
-    <DocFileLoader :file="`/docs/${base.lang}/Layout.md`" />
-  </DocView>
+  <DocFileLoader :file="`/docs/${base.lang}/Layout.md`" />
 </template>
 <script setup lang="ts">
-  import { DocView, CodeView, DocFileLoader } from '@/components';
+  import { DocFileLoader } from '@/components';
   import { useBaseStore } from '@/store';
   const base: any = useBaseStore();
 </script>

@@ -12,7 +12,7 @@
             <h1 class="fs-xl mob:fs-ls">
               <b class="nl-ss fs-ls* mob:fs-ms*">{{ words['base.title'] }}</b>
             </h1>
-            <p class="fs-mm mob:fs-sl">{{ words['base.description'] }}</p>
+            <p class="fs-mm fw0 mob:fs-sl">{{ words['base.description'] }}</p>
             <div ui-flex="row cm" class="mx-sl-sub mt-mm">
               <RouterLink to="/docs" ui-btn="@a w l :border">
                 <span class="co-w">{{ words['common.start_using'] }}</span>

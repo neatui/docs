@@ -1,5 +1,5 @@
 <template>
-  <div ui-flex="row xy">
+  <div class="bg-fore r-ms nx-lm ny-mm" ui-flex="row xy">
     <div class="flex-block nr-ls">
       <div v-if="file" class="file-loader doc fs-sl" ui-scroll=":x :y" v-html="state.code"></div>
     </div>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { ref, reactive, onMounted, watch } from 'vue';
+  import { reactive, watch } from 'vue';
   import { useRoute } from 'vue-router';
   import axios from 'axios';
   import { Remarkable } from 'remarkable';
