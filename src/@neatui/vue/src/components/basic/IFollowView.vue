@@ -24,9 +24,8 @@
 <script setup lang="ts">
   import { reactive, ref, onMounted, onUnmounted, watch } from 'vue';
   import Follow from '@fekit/follow';
-  // import Follow from './follow';
 
-  const emits = defineEmits(['onhide', 'onshow']);
+  const emits = defineEmits(['update:modelValue', 'onhide', 'onshow']);
 
   const area: any = document.querySelector('#ifollow');
   if (!area) {
@@ -35,15 +34,30 @@
     document.body.appendChild(el);
   }
 
-  const props = defineProps({
-    pos: { type: String, default: 'bl' },
-    event: { type: String, default: 'click' },
-    btnClass: { type: String, default: 'dib' },
-    btnStyle: { type: String, default: 'dib' },
-    tipClass: { type: String, default: '' },
-    tipStyle: { type: String, default: '' },
-    tipBoxClass: { type: String, default: '' },
-    tipBoxStyle: { type: String, default: '' }
+  // 类型
+  interface Props {
+    modelValue?: string | number;
+    pos?: string;
+    event?: string;
+    btnClass?: string;
+    btnStyle?: string;
+    tipClass?: string;
+    tipStyle?: string;
+    tipBoxClass?: string;
+    tipBoxStyle?: string;
+  }
+
+  // 入参
+  const props: any = withDefaults(defineProps<Props>(), {
+    modelValue: 0,
+    pos: 'bl',
+    event: 'click',
+    btnClass: 'dib',
+    btnStyle: 'dib',
+    tipClass: '',
+    tipStyle: '',
+    tipBoxClass: '',
+    tipBoxStyle: ''
   });
 
   const dom: any = ref(null);
@@ -90,6 +104,7 @@
       } else {
         emits('onhide');
       }
+      emits('update:modelValue', state.show);
     },
     { deep: true }
   );
@@ -145,6 +160,7 @@
   onUnmounted(() => {
     document.removeEventListener('click', cancel, true);
     state.show = 0;
+
     if (ex.value) {
       ex.value.remove();
     }

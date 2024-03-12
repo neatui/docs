@@ -20,7 +20,7 @@
 <script setup lang="ts">
   import { inject, ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import { TableLoader } from '@/@neatui/vue';
+  import { TableLoader } from '@neatui/vue';
   const router: any = useRouter();
 
   const onlist: any = inject('onlist', () => {});

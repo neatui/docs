@@ -33,10 +33,12 @@
               <template #list>
                 <ListView />
               </template>
-              <template #item>
-                <ItemView v-if="state.mode === 'default'" />
-                <SideView v-else />
-              </template>
+              <!-- <template #item>
+                <div>
+                  <ItemView v-if="state.mode === 'default'" />
+                  <SideView v-else />
+                </div>
+              </template> -->
             </IRouterView>
           </CodeView>
         </li>
