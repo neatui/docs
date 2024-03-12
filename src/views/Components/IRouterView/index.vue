@@ -29,16 +29,14 @@
                 </form>
               </div>
             </div>
-            <IRouterView :mode="state.mode" item-class="full n-ms">
+            <IRouterView :mode="state.mode" item-class="pr full n-ms">
               <template #list>
                 <ListView />
               </template>
-              <!-- <template #item>
-                <div>
-                  <ItemView v-if="state.mode === 'default'" />
-                  <SideView v-else />
-                </div>
-              </template> -->
+              <template #item>
+                <ItemView v-if="state.mode === 'default'" />
+                <SideView v-else />
+              </template>
             </IRouterView>
           </CodeView>
         </li>
