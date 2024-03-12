@@ -29,28 +29,13 @@
                 </form>
               </div>
             </div>
-            <IRouterView v-if="state.mode === 'pop-up'" :mode="state.mode" item-class="full n-ms">
+            <IRouterView :mode="state.mode" item-class="full n-ms">
               <template #list>
                 <ListView />
               </template>
               <template #item>
-                <SideView />
-              </template>
-            </IRouterView>
-            <IRouterView v-else-if="state.mode === 'preview'" :mode="state.mode" item-class="full n-ms">
-              <template #list>
-                <ListView />
-              </template>
-              <template #item>
-                <SideView />
-              </template>
-            </IRouterView>
-            <IRouterView v-else-if="state.mode === 'default'" :mode="state.mode" item-class="full n-ms">
-              <template #list>
-                <ListView />
-              </template>
-              <template #item>
-                <ItemView />
+                <ItemView v-if="state.mode === 'default'" />
+                <SideView v-else />
               </template>
             </IRouterView>
           </CodeView>
@@ -87,7 +72,7 @@
 </template>
 <script setup lang="ts">
   import { reactive } from 'vue';
-  import { IRouterView } from '@/@neatui/vue';
+  import { IRouterView } from '@neatui/vue';
   import { DocView, CodeView } from '@/components';
   import { storeToRefs, useBaseStore } from '@/store';
   import ListView from './ListView.vue';
