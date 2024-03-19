@@ -268,9 +268,9 @@
     }
 
     .side-preview {
-      width: 40rem;
+      min-width: 10rem;
       height: 100%;
-      box-shadow: -0.5em 0 1em rgba(0, 0, 0, 0.07);
+      box-shadow: -0.25em 0 0.5em rgba(0, 0, 0, 0.05);
       pointer-events: auto;
 
       &[ui-card~='@a'][ui-card~=':max'] {

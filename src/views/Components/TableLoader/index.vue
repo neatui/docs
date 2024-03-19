@@ -20,13 +20,14 @@
                   }
                 }"
               >
-                <!-- <template #operate>
+                <template #roleIdList><span>Slot 优先</span></template>
+                <template #operate>
                   <div class="ar mob:ac ml-sm-sub nowrap">
                     <button ui-btn="@a s none :square"><i class="icon icon-view co-link"></i></button>
                     <button ui-btn="@a s none :square"><i class="icon icon-revise co-info"></i></button>
                     <button ui-btn="@a s none :square"><i class="icon icon-delete co-risk"></i></button>
                   </div>
-                </template> -->
+                </template>
               </TableLoader>
             </div>
           </CodeView>
@@ -68,16 +69,18 @@
   const state: any = {
     table: [
       {
+        thead: {},
         label: '姓名',
         field: 'name',
         logic: true,
         attrs: (data: any) => ({ class: 'ux-copy', 'data-copy': data.realName }),
         view: 1,
         event: {
-          click() {
+          click(event, item) {
             alert(2);
           }
-        }
+        },
+        sort: true
       },
       {
         label: '手机号',

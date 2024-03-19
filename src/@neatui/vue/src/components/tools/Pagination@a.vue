@@ -141,7 +141,7 @@
     id?: string;
     modelValue: ModelValueProps;
     data: DataProps;
-    defined: DefinedProps;
+    defined?: DefinedProps;
   }
 
   const route: any = useRoute();

@@ -4,13 +4,13 @@
       <template v-for="(col, idx) in state.form" :key="idx">
         <div v-if="!col.clear" :id="col._fid" :ui-col="col.media" :ui-flex="`${vertical ? 'col xm' : 'row lt'}`">
           <template v-if="col.label">
-            <h5 v-if="vertical" :style="`${col.rules?.some((validator: any) => validator.required) ? 'text-indent: -1em' : ''}`" class="o-ls">
+            <h6 v-if="vertical" :style="`${col.rules?.some((validator: any) => validator.required) ? 'text-indent: -1em' : ''}`" class="o-ls">
               <template v-if="col.label == '*'"></template>
               <template v-else>
                 <b v-if="col.rules?.some((validator: any) => validator.required)" class="co-risk pr" style="left: 0.1em">﹡</b>
                 <span>{{ col.label ? col.label + ':' : '' }}</span>
               </template>
-            </h5>
+            </h6>
             <p v-else :class="`${clh({ ...(col.model[1] || {}) })}`" :style="`width:${state._lw + 'em'}; max-width:50%;`" class="ar nr-sm flex-fixed o-ls">
               <template v-if="col.label == '*'"></template>
               <template v-else>

@@ -83,7 +83,7 @@
     </thead>
     <tbody :ui-tbody-load="state.load">
       <template v-if="lists.length">
-        <tr v-for="(item, idx) in lists" :key="idx" v-bind="rows.attrs" v-on="event(rows.event, item)">
+        <tr v-for="(item, idx) in lists" :key="idx" v-bind="rows.attrs" v-on="event(rows.event, item, 'td')">
           <td v-if="showSelectAll" col-fixed="1" min-width>
             <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" v-model="item.__selected" /><span></span></label>
           </td>
@@ -96,7 +96,8 @@
               :col-fixed-side="col.fixed || 'l'"
               :data-field="col.field"
             >
-              <TableColView :col="col" :data="item" />
+              <slot v-if="slots[col.field]" :name="col.field"></slot>
+              <TableColView v-else :col="col" :data="item" />
             </td>
           </template>
           <td v-if="slots.operate" col-fixed="r" class="ar"><slot name="operate" :item="item" :idx="idx"></slot></td>
@@ -186,6 +187,7 @@
     attrs?: Array<any> | (() => string | Array<any>);
     value?: any | (() => any);
     clear?: boolean | (() => boolean);
+    sort?: boolean | (() => boolean);
   }
   interface Props {
     words?: { [key: string]: any };
