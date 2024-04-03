@@ -71,6 +71,7 @@ $type: 'none', 'main', 'vice', 'text', 'read', 'weak', 'back', 'info', 'well', '
 
   // 禁用按钮
   &[ui-btn~=':disabled'] {
+    pointer-events: none;
     &,
     &:hover {
       opacity: 0.65;

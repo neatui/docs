@@ -65,6 +65,7 @@
 <script setup lang="ts">
   import { TableLoader } from '@neatui/vue';
   import { DocView, CodeView } from '@/components';
+  import { dataToEnum } from '@fekit/utils/dist/common';
 
   const state: any = {
     table: [
@@ -79,6 +80,9 @@
           click(event, item) {
             alert(2);
           }
+        },
+        value(data: any) {
+          return data.name + data.id;
         },
         sort: true
       },

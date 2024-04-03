@@ -88,6 +88,7 @@ body [ui-btn~='@a'] {
 
   // 禁用按钮
   &[ui-btn~=':disabled'] {
+    pointer-events: none;
     &,
     &:hover {
       opacity: 0.65;

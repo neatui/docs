@@ -6,7 +6,7 @@
         <th v-if="showSelectAll" col-fixed="1" min-width>
           <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" :checked="state.isAllSelect" @change="fSelectAll" /><span></span></label>
         </th>
-        <template v-for="(col, idx) in state.table" :key="col.field + idx">
+        <template v-for="(col, idx) in state.table" :key="idx">
           <th v-if="!col._close" class="fs-xs nowrap" :min-width="col.fixed" :col-fixed="col.fixed" :col-fixed-side="col.fixed || 'l'" :data-field="col.field">
             <div :ui-flex="`row ${!slots.operate && idx === state._last ? 'rm' : 'lm'}`">
               <span class="nl-xs" v-if="col.sort" :ui-sort="0" @click="emits('onsort', col)">{{ col.label }}</span>
@@ -26,8 +26,8 @@
                       filter=".forbid"
                       :move="(e: any) => !e.relatedContext.element.fixed"
                     >
-                      <template #item="{ element }">
-                        <div :class="`item ux-hover nowrap r-ss ${element.fixed ? 'forbid' : 'element'}`" :key="element.field">
+                      <template #item="{ element, index }">
+                        <div :class="`item ux-hover nowrap r-ss ${element.fixed ? 'forbid' : 'element'}`" :key="index">
                           <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
                             <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
                             <span>
@@ -62,8 +62,8 @@
                     filter=".forbid"
                     :move="(e: any) => !e.relatedContext.element.fixed"
                   >
-                    <template #item="{ element }">
-                      <div :class="`item ux-hover nowrap r-ss ${element.fixed ? 'forbid' : 'element'}`" :key="element.field">
+                    <template #item="{ element, index }">
+                      <div :class="`item ux-hover nowrap r-ss ${element.fixed ? 'forbid' : 'element'}`" :key="index">
                         <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
                           <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
                           <span>
@@ -87,7 +87,7 @@
           <td v-if="showSelectAll" col-fixed="1" min-width>
             <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" v-model="item.__selected" /><span></span></label>
           </td>
-          <template v-for="(col, idx) in state.table" :key="col.field + idx">
+          <template v-for="(col, idx) in state.table" :key="idx">
             <td
               v-if="!col._close"
               :class="`${!slots.operate && idx === state._last ? 'ar' : ''}`"
@@ -117,8 +117,8 @@
                 <button :ui-btn="`@a none s :square`"><Icon name="tableloader-setting" class="co-read"></Icon></button>
                 <template #tips>
                   <draggable :list="state.table" :force-fallback="false" item-key="name" chosen-class="chosen" animation="200">
-                    <template #item="{ element }">
-                      <div class="item ux-hover nowrap r-ss" :key="element.field">
+                    <template #item="{ element, index }">
+                      <div class="item ux-hover nowrap r-ss" :key="index">
                         <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
                           <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
                           <span>{{ element.label }}</span>
@@ -138,7 +138,7 @@
             <td ui-card="@a bk:line" class="mb-sl">
               <div ui-card-body="" class="n-ss">
                 <ul>
-                  <template v-for="(col, idx) in state.table" :key="col.field + idx">
+                  <template v-for="(col, idx) in state.table" :key="idx">
                     <li v-if="!col._close" :class="`${col.fixed ? 'ps z-sm' : ''}`" ui-flex="row lm">
                       <div class="w-sl">{{ col.label }}:</div>
                       <TableColView :col="col" :data="item" />
