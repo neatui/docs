@@ -29,15 +29,21 @@ export const useMyuiStore = defineStore('myui', {
         this.theme = theme;
         document.documentElement.setAttribute('theme', theme);
         then(theme);
+      } else {
+        document.documentElement.setAttribute('theme', this.theme);
+        then(this.theme);
       }
     },
     // 设置系统字号
     async setsize(size: any = '', then = (res: any) => {}) {
       if (size) {
         localStorage.setItem('neatui_size', size);
-        this.theme = size;
-        document.documentElement.setAttribute('size', this.size);
+        this.size = size;
+        document.documentElement.setAttribute('size', size);
         then(size);
+      } else {
+        document.documentElement.setAttribute('size', this.size);
+        then(this.size);
       }
     }
   }

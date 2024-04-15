@@ -1,6 +1,6 @@
 {
   "name": "@neatui/vue",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "basic component ui",
   "main": "./src/index.ts",
   "license": "MIT",
