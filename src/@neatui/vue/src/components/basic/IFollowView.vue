@@ -144,12 +144,18 @@
   watch([() => dom.value, () => tip.value], () => {
     if (dom.value && tip.value) {
       ex.value = new Follow(dom.value, tip.value, (status) => {
-        if (status === 'b') {
-          const _pos = props.pos.replace(/b/g, 't');
-          state.pos = _pos;
-        } else {
-          const _pos = props.pos.replace(/t/g, 'b');
-          state.pos = _pos;
+        if (!props?.pos?.includes(':fixed')) {
+          if (status === 'b') {
+            const _pos = props?.pos?.replace(/b/g, 't');
+            if (_pos) {
+              state.pos = _pos;
+            }
+          } else {
+            const _pos = props?.pos?.replace(/t/g, 'b');
+            if (_pos) {
+              state.pos = _pos;
+            }
+          }
         }
       });
     } else {
