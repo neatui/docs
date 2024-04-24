@@ -171,8 +171,7 @@
     }
   }
 
-  html,
-  body {
+  [ui-scroll] {
     @extend %mob-scroll;
   }
 }
