@@ -8,6 +8,8 @@
 
 .ux-disable {
   cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.35;
 }
 
 // 移入效果
