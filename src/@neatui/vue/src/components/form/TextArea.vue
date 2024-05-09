@@ -152,7 +152,7 @@
     nextTick(() => {
       if (props.autoHeight) {
         el.value.style.height = 'auto';
-        el.value.style.height = el.value.scrollHeight + 2 + 'px';
+        el.value.style.height = el.value.scrollHeight + 1 + 'px';
       }
     });
   };
