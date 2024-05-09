@@ -178,7 +178,7 @@
         <div v-else :style="`padding-left:${state._lw + 'em'};`">
           <slot name="submit"></slot>
         </div>
-      
+      </div>
     </div>
   </slot>
 </template>

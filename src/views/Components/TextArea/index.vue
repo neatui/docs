@@ -2,7 +2,7 @@
   <h1>{{ words['components.textArea'] || 'TextArea' }}</h1>
   <div class="w-ls">
     <span>value: {{ value }}</span>
-    <TextArea v-model="value"></TextArea>
+    <TextArea v-model="value" :auto-height="true"></TextArea>
   </div>
 </template>
 <script setup lang="ts">

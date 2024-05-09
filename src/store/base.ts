@@ -114,7 +114,7 @@ export const useBaseStore = defineStore('base', {
                 { path: '/components/Input', name: 'Input', word: words['components.input'] || 'Input', image: '/upload/components/input.png' },
                 // { path: '/components/InputNumber', word: words['components.inputNumber'] || 'InputNumber' },
                 // { path: '/components/InputNumber', word: words['components.inputRange'] || 'InputRange' },
-                // { path: '/components/TextArea', name: 'TextArea', word: words['components.textarea'] || 'TextArea' },
+                { path: '/components/TextArea', name: 'TextArea', word: words['components.textarea'] || 'TextArea' },
                 { path: '/components/Select', name: 'Select', word: words['components.select'] || 'Select', image: '/upload/components/comboboxes.png' },
                 // { path: '/components/autoComplete', word: words['components.autoComplete'] || 'AutoComplete' },
                 // { path: '/components/checkbox', word: words['components.checkbox'] || 'Checkbox' },

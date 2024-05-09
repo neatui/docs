@@ -6,6 +6,7 @@
     <div v-if="ready" :ui-form-tips="state.ontips">{{ state.tips }}</div>
     <slot>
       <textarea
+        ref="el"
         :rows="rows"
         v-model="mv"
         :type="type"
@@ -60,6 +61,11 @@
     minLength: {
       type: Number,
       default: null
+    },
+    // 最小长度
+    autoHeight: {
+      type: Boolean,
+      default: false
     },
     // 是否禁用
     disabled: {
@@ -141,7 +147,6 @@
   });
 
   const mv: any = ref(props.modelValue);
-
   watch(
     () => props.modelValue,
     (v: any) => {
@@ -150,6 +155,8 @@
     },
     { deep: true, immediate: true }
   );
+  const el: any = ref(null);
+  // const rows = ref(1);
   watch(
     () => mv.value,
     (v: any) => {
@@ -159,6 +166,12 @@
         mv.value = value;
       }
       emits('update:modelValue', value);
+
+      // 自动高度
+      if (props.autoHeight) {
+        el.value.style.height = 'auto';
+        el.value.style.height = el.value.scrollHeight + 'px';
+      }
     },
     { deep: true }
   );
