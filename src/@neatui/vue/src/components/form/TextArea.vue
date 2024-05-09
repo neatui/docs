@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch, computed, onMounted, PropType } from 'vue';
+  import { ref, watch, computed, onMounted, PropType, nextTick } from 'vue';
 
   const emits = defineEmits(['update:modelValue', 'click', 'blur', 'focus', 'change', 'input', 'clear']);
   const props = defineProps({
@@ -146,17 +146,26 @@
     }
   });
 
+  // 自动高度
+  const el: any = ref(null);
+  const fAutoHeight = () => {
+    nextTick(() => {
+      if (props.autoHeight) {
+        el.value.style.height = 'auto';
+        el.value.style.height = el.value.scrollHeight + 2 + 'px';
+      }
+    });
+  };
+
   const mv: any = ref(props.modelValue);
   watch(
     () => props.modelValue,
     (v: any) => {
-      console.log(149, v);
       mv.value = v;
     },
     { deep: true, immediate: true }
   );
-  const el: any = ref(null);
-  // const rows = ref(1);
+
   watch(
     () => mv.value,
     (v: any) => {
@@ -168,10 +177,7 @@
       emits('update:modelValue', value);
 
       // 自动高度
-      if (props.autoHeight) {
-        el.value.style.height = 'auto';
-        el.value.style.height = el.value.scrollHeight + 'px';
-      }
+      fAutoHeight();
     },
     { deep: true }
   );
@@ -180,5 +186,7 @@
     setTimeout(() => {
       ready.value = 1;
     }, 300);
+    // 自动高度
+    fAutoHeight();
   });
 </script>
