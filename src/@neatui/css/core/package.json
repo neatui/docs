@@ -1,6 +1,6 @@
 {
   "name": "@neatui/core",
-  "version": "1.12.12",
+  "version": "1.12.15",
   "description": "MCUI 核心组件，MCUI 全局架构性组件。官网 https://mcui.fekit.cn",
   "main": "mcui@core.scss",
   "scripts": {
