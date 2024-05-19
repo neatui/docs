@@ -379,8 +379,8 @@
   }
 
   &[ui-flex~='ct'] {
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     align-content: flex-start;
   }
 
