@@ -377,10 +377,48 @@
     align-items: flex-start;
     align-content: flex-start;
   }
+  &[ui-flex~='lm'] {
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='lb'] {
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+  &[ui-flex~='ld'] {
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+  &[ui-flex~='ly'] {
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
 
   &[ui-flex~='ct'] {
     justify-content: center;
     align-items: flex-start;
+    align-content: flex-start;
+  }
+  &[ui-flex~='cm'] {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='cb'] {
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+  &[ui-flex~='cd'] {
+    justify-content: center;
+    align-items: normal;
+    align-content: flex-start;
+  }
+  &[ui-flex~='cy'] {
+    justify-content: center;
+    align-items: normal;
     align-content: flex-start;
   }
 
@@ -389,82 +427,77 @@
     align-items: flex-start;
     align-content: flex-start;
   }
+  &[ui-flex~='rm'] {
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='rb'] {
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+  &[ui-flex~='rd'] {
+    justify-content: flex-end;
+    align-items: normal;
+    align-content: flex-start;
+  }
+  &[ui-flex~='ry'] {
+    justify-content: flex-end;
+    align-items: normal;
+    align-content: space-between;
+  }
 
   &[ui-flex~='xt'] {
     justify-content: space-between;
     align-items: flex-start;
     align-content: flex-start;
   }
-  &[ui-flex~='at'] {
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-
-  &[ui-flex~='lm'] {
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-  }
-
-  &[ui-flex~='cm'] {
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-
-  &[ui-flex~='rm'] {
-    justify-content: flex-end;
-    align-items: center;
-    align-content: center;
-  }
-
   &[ui-flex~='xm'] {
     justify-content: space-between;
     align-items: center;
     align-content: center;
   }
-
-  &[ui-flex~='am'] {
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-  }
-
-  &[ui-flex~='lb'] {
-    justify-content: flex-start;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
-
-  &[ui-flex~='cb'] {
-    justify-content: center;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
-
-  &[ui-flex~='rb'] {
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
-
-  &[ui-flex~='ry'] {
-    justify-content: flex-end;
-    align-items: stretch;
-    align-content: space-between;
-  }
-
   &[ui-flex~='xb'] {
     justify-content: space-between;
     align-items: flex-end;
     align-content: flex-end;
   }
+  &[ui-flex~='xd'] {
+    justify-content: space-between;
+    align-items: normal;
+    align-content: flex-start;
+  }
+  &[ui-flex~='xy'] {
+    justify-content: space-between;
+    align-items: normal;
+    align-content: flex-start;
+  }
 
+  &[ui-flex~='at'] {
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+  &[ui-flex~='am'] {
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+  }
   &[ui-flex~='ab'] {
     justify-content: space-around;
     align-items: flex-end;
     align-content: flex-end;
+  }
+  &[ui-flex~='ad'] {
+    justify-content: space-around;
+    align-items: normal;
+    align-content: flex-start;
+  }
+  &[ui-flex~='ay'] {
+    justify-content: space-around;
+    align-items: normal;
+    align-content: flex-start;
   }
 }
 
@@ -477,9 +510,49 @@
     align-items: flex-start;
     align-content: flex-start;
   }
+  &[ui-flex~='lm'] {
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+  &[ui-flex~='lb'] {
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+  &[ui-flex~='ld'] {
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+  &[ui-flex~='ly'] {
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
 
   &[ui-flex~='ct'] {
     justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='cm'] {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='cb'] {
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='cd'] {
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+  }
+  &[ui-flex~='cy'] {
+    justify-content: space-between;
     align-items: center;
     align-content: center;
   }
@@ -489,69 +562,36 @@
     align-items: flex-end;
     align-content: flex-end;
   }
-
-  &[ui-flex~='xt'] {
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: stretch;
-  }
-  &[ui-flex~='at'] {
-    justify-content: flex-start;
-    align-items: space-around;
-    align-content: space-around;
-  }
-
-  &[ui-flex~='lm'] {
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-
-  &[ui-flex~='cm'] {
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-
   &[ui-flex~='rm'] {
     justify-content: center;
     align-items: flex-end;
     align-content: flex-end;
   }
-
-  &[ui-flex~='xm'] {
-    justify-content: center;
-    align-items: stretch;
-    align-content: stretch;
-  }
-  &[ui-flex~='am'] {
-    justify-content: center;
-    align-items: space-around;
-    align-content: space-around;
-  }
-
-  &[ui-flex~='lb'] {
-    justify-content: flex-end;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-
-  &[ui-flex~='cb'] {
-    justify-content: flex-end;
-    align-items: center;
-    align-content: center;
-  }
-
   &[ui-flex~='rb'] {
     justify-content: flex-end;
     align-items: flex-end;
     align-content: flex-end;
   }
+  &[ui-flex~='rd'] {
+    justify-content: space-around;
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+  &[ui-flex~='ry'] {
+    justify-content: space-between;
+    align-items: flex-end;
+    align-content: flex-end;
+  }
 
-  &[ui-flex~='xb'] {
-    justify-content: flex-end;
-    align-items: stretch;
-    align-content: stretch;
+  &[ui-flex~='at'] {
+    justify-content: flex-start;
+    align-items: space-around;
+    align-content: space-around;
+  }
+  &[ui-flex~='am'] {
+    justify-content: center;
+    align-items: space-around;
+    align-content: space-around;
   }
   &[ui-flex~='ab'] {
     justify-content: flex-end;
@@ -568,50 +608,35 @@
     align-content: space-around;
     align-items: stretch;
   }
-  &[ui-flex~='ly'] {
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-  &[ui-flex~='ld'] {
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
 
-  &[ui-flex~='cy'] {
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-  }
-  &[ui-flex~='cd'] {
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-  }
-  &[ui-flex~='ry'] {
-    justify-content: space-between;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
-  &[ui-flex~='rd'] {
-    justify-content: space-around;
-    align-items: flex-end;
-    align-content: flex-end;
-  }
-  &[ui-flex~='xy'] {
-    justify-content: space-between;
+  &[ui-flex~='xt'] {
+    justify-content: flex-start;
     align-items: stretch;
-    align-content: space-between;
+    align-content: stretch;
+  }
+  &[ui-flex~='xm'] {
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  &[ui-flex~='xb'] {
+    justify-content: flex-end;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  &[ui-flex~='ad'] {
+    justify-content: space-around;
+    align-items: space-around;
+    align-content: space-around;
   }
   &[ui-flex~='xd'] {
     justify-content: space-around;
     align-items: stretch;
     align-content: space-between;
   }
-  &[ui-flex~='ad'] {
-    justify-content: space-around;
-    align-items: space-around;
-    align-content: space-around;
+  &[ui-flex~='xy'] {
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: space-between;
   }
 }

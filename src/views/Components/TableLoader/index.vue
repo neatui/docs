@@ -97,7 +97,8 @@
         label: '状态',
         field: 'status',
         logic: true,
-        view: 1
+        view: 1,
+        sort: true
       },
       {
         label: '用户组',

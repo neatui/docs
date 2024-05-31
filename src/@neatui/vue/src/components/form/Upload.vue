@@ -1,12 +1,9 @@
 <template>
-  <ul ui-flex="row lm" v-bind="{ ...attrs }">
-    {{
-      state.files
-    }}
-    <li v-for="(file, idx) in state.files" :key="idx" ui-flex="col cm" class="bg-fore ny-mm w-mm h-mm b-solid b-line b-xs">
+  <ul ui-flex="row lm :wrap" class="mb-ss-sub mr-ss-sub" v-bind="{ ...attrs }">
+    <li v-for="(file, idx) in state.files" :key="idx" ui-flex="col cm" class="flex-fixed bg-fore n-sl w-ms h-ms b-solid b-line b-xs">
       <img v-if="file.type === 'image'" :src="file.path" alt="" />
-      <div v-else-if="file.type === 'pdf'">
-        <svg t="1705645350800" class="w-sl h-sl" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1913">
+      <template v-else-if="file.type === 'pdf'">
+        <svg t="1705645350800" class="w-ss h-ss" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1913">
           <path
             d="M205.5 64H665l232 232v639c0 13.807-11.193 25-25 25H205.5c-13.807 0-25-11.193-25-25V89c0-13.807 11.193-25 25-25z m449.145 25H205.5v846H872V306.355L654.645 89z"
             fill="#B7B7BD"
@@ -25,9 +22,9 @@
             p-id="1922"
           ></path>
         </svg>
-      </div>
-      <div v-else-if="file.type === 'xlsx'">
-        <svg t="1705645380770" class="w-sl h-sl" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2060">
+      </template>
+      <template v-else-if="file.type === 'xlsx'">
+        <svg t="1705645380770" class="w-ss h-ss" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2060">
           <path
             d="M205.799024 64.936585H664.850732l231.773658 231.773659v638.376585c0 13.79353-11.18208 24.97561-24.97561 24.97561H205.799024c-13.79353 0-24.97561-11.18208-24.975609-24.97561V89.912195c0-13.79353 11.18208-24.97561 24.975609-24.97561z m448.70681 24.97561H205.799024v845.174634H871.64878V307.055141L654.505834 89.912195z"
             fill="#B7B7BD"
@@ -74,9 +71,9 @@
             p-id="2069"
           ></path>
         </svg>
-      </div>
-      <div v-else-if="file.type === 'docx'">
-        <svg t="1705645401993" class="w-sl h-sl" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2207">
+      </template>
+      <template v-else-if="file.type === 'docx'">
+        <svg t="1705645401993" class="w-ss h-ss" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2207">
           <path
             d="M205.5 64H665l232 232v639c0 13.807-11.193 25-25 25H205.5c-13.807 0-25-11.193-25-25V89c0-13.807 11.193-25 25-25z m449.145 25H205.5v846H872V306.355L654.645 89z"
             fill="#B7B7BD"
@@ -95,9 +92,9 @@
             p-id="2216"
           ></path>
         </svg>
-      </div>
-      <div v-else-if="file.type === 'pptx'">
-        <svg t="1705645414803" class="w-sl h-sl" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2354">
+      </template>
+      <template v-else-if="file.type === 'pptx'">
+        <svg t="1705645414803" class="w-ss h-ss" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2354">
           <path
             d="M205.5 64H665l232 232v639c0 13.807-11.193 25-25 25H205.5c-13.807 0-25-11.193-25-25V89c0-13.807 11.193-25 25-25z m449.145 25H205.5v846H872V306.355L654.645 89z"
             fill="#B7B7BD"
@@ -116,9 +113,9 @@
             p-id="2363"
           ></path>
         </svg>
-      </div>
-      <div v-else>
-        <svg t="1705645436666" class="w-sl h-sl" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2501">
+      </template>
+      <template v-else>
+        <svg t="1705645436666" class="w-ss h-ss" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2501">
           <path
             d="M205.5 64H665l232 232v639c0 13.807-11.193 25-25 25H205.5c-13.807 0-25-11.193-25-25V89c0-13.807 11.193-25 25-25z m449.145 25H205.5v846H872V306.355L654.645 89z"
             fill="#B7B7BD"
@@ -137,18 +134,18 @@
             p-id="2510"
           ></path>
         </svg>
-      </div>
-      <p>{{ file.name }}</p>
+      </template>
+      <p ui-omit="1" class="fs-ss ac">{{ file.name }}</p>
     </li>
     <li v-if="(!multiple && state.files && state.files.length === 0) || (multiple && (!limit || (limit && state.files && state.files.length < limit)))">
       <slot>
-        <label ui-flex="row cm" ui-form="@a type:upload tips:hover" :class="`upload bg-fore b-solid b-case b-xs mb-sl ${uploadClass}`" :style="uploadStyle">
+        <label ui-flex="row cm" ui-form="@a type:upload tips:hover" :class="`upload w-ms h-ms n-sl bg-fore b-solid b-line b-xs ${uploadClass}`" :style="uploadStyle">
           <div v-if="tips" ui-form-tips>
             {{ tips }}
           </div>
           <input style="display: none" type="file" class="pa input" :multiple="multiple" @change="change" />
           <div class="co-note ac input-icon">
-            <svg t="1705642180833" class="w-sl h-sl" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4215" width="16" height="16">
+            <svg t="1705642180833" style="width: 1em; height: 1em" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4215">
               <path
                 d="M906.212134 565.732986 565.732986 565.732986 565.732986 906.212134C565.732986 926.013685 541.666486 959.972 511.97312 959.972 482.297674 959.972 458.213254 926.013685 458.213254 906.212134L458.213254 565.732986 117.734106 565.732986C97.950475 565.732986 63.97424 541.666486 63.97424 511.97312 63.97424 482.279754 97.950475 458.213254 117.734106 458.213254L458.213254 458.213254 458.213254 117.734106C458.213254 97.950475 482.297674 63.97424 511.97312 63.97424 541.666486 63.97424 565.732986 97.950475 565.732986 117.734106L565.732986 458.213254 906.212134 458.213254C925.995765 458.213254 959.972 482.279754 959.972 511.97312 959.972 541.666486 925.995765 565.732986 906.212134 565.732986Z"
                 p-id="4216"
@@ -174,8 +171,8 @@
   interface Props {
     modelValue?: string | any[];
     // 文件限制数量
-    limit: number;
-    attrs: object;
+    limit?: number;
+    attrs?: object;
     uploadClass?: string;
     uploadStyle?: string;
     id?: string;
@@ -189,7 +186,7 @@
     // 上传路径
     action?: string;
     // 请求上传接口
-    upload: (formData: FormData) => Promise<any>;
+    upload?: (formData: FormData) => Promise<any>;
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -221,9 +218,9 @@
   //   });
   // };
 
-  const uploadClick = () => {
-    LayerById(layerId).show();
-  };
+  // const uploadClick = () => {
+  //   LayerById(layerId).show();
+  // };
 
   // const update = () => {
   //   emit('update:modelValue', isArray(props.modelValue) ? files.value : files.value.length > 0 ? files.value[0].imgUrl : '');
@@ -246,7 +243,7 @@
         type = 'pdf';
       } else if (_file.type === 'text/html') {
         type = 'html';
-      } else if (_file.type.startsWith('image/')) {
+      } else if (_file.type.startsWith('image/') && _file.type !== 'image/vnd.adobe.photoshop') {
         type = 'image';
       }
       const file: any = { name: _file.name, type, path: URL.createObjectURL(_file), url: await props.upload(_file) };
