@@ -1,6 +1,6 @@
 {
   "name": "@neatui/css",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "neatui",
   "main": "./neatui.scss",
   "license": "MIT",

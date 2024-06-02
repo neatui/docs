@@ -9,8 +9,8 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 3px;
-  border-radius: 0.5em;
+  padding: 2px;
+  border-radius: 0.35em;
 
   @include theme {
     background: co(weak);
