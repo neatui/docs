@@ -9,7 +9,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 3px;
+  padding: 2px;
   border-radius: 0.5em;
 
   @include theme {
@@ -24,6 +24,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     border-radius: 0.25em;
     padding: 0.5em 1em;
     &.active {
+      -webkit-font-smoothing: auto;
       @include theme {
         color: co(fore);
         background: co(main);

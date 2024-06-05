@@ -24,6 +24,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     border-radius: 0.25em;
     padding: 0.5em 1em;
     &.active {
+      -webkit-font-smoothing: auto;
       @include theme {
         color: co(main);
         background: co(fore);

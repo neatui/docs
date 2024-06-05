@@ -236,6 +236,9 @@
     overflow-y: auto;
   }
 
+  .#{$d}wrap {
+    white-space: normal;
+  }
   .#{$d}nowrap {
     white-space: nowrap;
   }
