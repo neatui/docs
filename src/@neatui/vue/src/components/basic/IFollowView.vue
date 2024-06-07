@@ -131,7 +131,7 @@
 
   // 取消
   const cancel = ({ target }: any = {}) => {
-    if (tip.value && !tip.value?.contains(target) && dom.value && !dom.value.contains(target)) {
+    if (tip.value && !tip.value?.contains(target) && dom.value && !dom.value.contains(target) && !tip.value.querySelector('input:focus')) {
       state.show = 0;
     }
   };
