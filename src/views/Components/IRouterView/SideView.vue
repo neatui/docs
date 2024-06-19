@@ -1,5 +1,5 @@
 <template>
-  <div class="w-xl+ bg-fore r-sm" style="box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.08)">
+  <div class="w-xl+ bg-fore r-sm">
     <div class="nx-ss ny-sm b-solid b-line bb-xs">
       <div ui-btn="@a s none" @click="onBack"><i class="icon icon-back"></i>返回</div>
     </div>

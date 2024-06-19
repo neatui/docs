@@ -1,16 +1,19 @@
 <template>
-  <div :am-view="view" :am-mode="mode" class="route-view pr full bg-back" :view-full="full ? 1 : 0" @animationend="anim">
+  <div :am-view="view" :am-mode="mode" class="iroute-view pr full bg-back" :view-full="full ? 1 : 0" @animationend="anim">
     <div :class="listClass" :style="listStyle" am-view-item="list">
       <slot name="list" :mode="mode"></slot>
     </div>
     <div :class="itemClass" :style="itemStyle" am-view-item="item" ref="itemRef" v-if="view === 'iteming' || view === 'listing' || view === 'item'">
-      <slot name="item" :mode="mode"></slot>
+      <div class="iroute-view-dark" @click="cancel"></div>
+      <div class="iroute-view-body" :style="mode === 'preview' || mode === 'pop-up' ? 'box-shadow: rgba(0, 0, 0, 0.08) -5px 0px 10px 0px;' : 'width: 100%;'">
+        <slot name="item" :mode="mode"></slot>
+      </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
   import { deepcopy } from '@fekit/utils';
-  import { onMounted, onUnmounted, ref, watch, provide, reactive } from 'vue';
+  import { ref, watch, provide, reactive } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   const route = useRoute();
   const router = useRouter();
@@ -93,39 +96,32 @@
   watch(() => route.query[props.queryName], a);
   a();
 
-  const itemRef: any = ref(null);
   // 取消
   const cancel = ({ target }: any = {}) => {
-    const ifollow: any = document.querySelector('#ifollow');
-    const fekit: any = document.querySelector('#fekit');
-    const toasts: any = document.querySelectorAll('.mc-toast');
-    const layers: any = document.querySelectorAll('.fekit-layer');
-    if (
-      itemRef.value &&
-      !itemRef.value.contains(target) &&
-      !ifollow?.contains(target) &&
-      !fekit?.contains(target) &&
-      Array.from(layers).every((t: any) => !t.contains(target)) &&
-      Array.from(toasts).every((t: any) => !t.contains(target))
-    ) {
-      const _query = { ...route.query };
-      delete _query[props.queryName];
-      router.push({ path: route.path, query: _query });
-    }
+    const _query = { ...route.query };
+    delete _query[props.queryName];
+    router.push({ path: route.path, query: _query });
   };
-  onMounted(() => {
-    if (props.mode === 'preview' || props.mode === 'pop-up') {
-      document.addEventListener('click', cancel, true);
-    }
-  });
-  onUnmounted(() => {
-    if (props.mode === 'preview' || props.mode === 'pop-up') {
-      document.removeEventListener('click', cancel, true);
-    }
-  });
 </script>
 
 <style lang="scss">
+  .iroute-view-dark {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  .iroute-view-body {
+    z-index: 1;
+  }
+
+  [am-mode='preview'] {
+    .iroute-view-body > * {
+      height: 100%;
+    }
+  }
+
   // 默认模式
   [am-view][am-mode~='default'] {
     overflow: hidden;

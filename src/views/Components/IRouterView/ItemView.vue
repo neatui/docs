@@ -1,5 +1,5 @@
 <template>
-  <div class="full-w bg-fore r-sm" :class="``" style="box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.08)">
+  <div class="full-w bg-fore r-sm">
     <div class="nx-ss ny-sl b-solid b-line bb-xs">
       <div ui-btn="@a s none" @click="onBack"><i class="icon icon-back"></i>返回</div>
     </div>
