@@ -14,7 +14,7 @@
       @mouseover="hovershow"
       @mouseout="hoverhide"
     >
-      <div ref="box" :ui-tips-box="state.pos" :class="tipBoxClass" :style="tipBoxStyle">
+      <div ref="box" :ui-tips-box="state.pos" :class="tipBoxClass" :style="tipBoxStyle" @mousedown="downdom">
         <slot name="tips"></slot>
         <div ui-tips-arrow=""></div>
       </div>
@@ -67,7 +67,8 @@
     view: 0,
     show: 0,
     pos: props.pos,
-    hover: 0
+    hover: 0,
+    tipdom: false
   });
 
   const showTimer: any = ref(null);
@@ -131,9 +132,22 @@
 
   // 取消
   const cancel = ({ target }: any = {}) => {
-    if (tip.value && !tip.value?.contains(target) && dom.value && !dom.value.contains(target) && !tip.value.querySelector('input:focus')) {
+    if (tip.value && !state.tipdom && !tip.value?.contains(target) && dom.value && !dom.value.contains(target) && !tip.value.querySelector('input:focus')) {
       state.show = 0;
     }
+  };
+
+  const downdom = (ev: any) => {
+    state.tipdom = true;
+    document.addEventListener(
+      'mouseup',
+      () => {
+        setTimeout(() => {
+          state.tipdom = false;
+        }, 10);
+      },
+      true
+    );
   };
 
   onMounted(() => {

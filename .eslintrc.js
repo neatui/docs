@@ -16,5 +16,6 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/no-setup-props-destructure': 'off'
-  }
+  },
+  ignorePatterns: ['node_modules/']
 };

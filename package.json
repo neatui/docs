@@ -63,6 +63,7 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
+    "@fekit/tinypng-webpack-plugin": "^5.0.0",
     "@types/crypto-js": "^4.2.1",
     "@types/remarkable": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
@@ -83,7 +84,6 @@
     "prettier": "^3.1.1",
     "sass": "^1.70.0",
     "sass-loader": "^14.0.0",
-    "@fekit/tinypng-webpack-plugin": "^5.0.0",
     "typescript": "^5.4.5"
   },
   "gitHooks": {
