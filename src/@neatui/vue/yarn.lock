@@ -4,91 +4,91 @@
 
 "@fekit/floor@^2.2.2":
   version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@fekit/floor/-/floor-2.2.2.tgz#d9da6fa1746d2cfffb3687f9dd20e1bbab524284"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/floor/-/floor-2.2.2.tgz#d9da6fa1746d2cfffb3687f9dd20e1bbab524284"
   integrity sha512-bDnITHtgsULs2g8zIUWNwTebR7DHabZNuAe7OVOfVToMc5Ky7srngULet5L6+X2DONEW3Zri/Rdkfgh4RwE5ZA==
   dependencies:
     "@fekit/utils" "^0.2.0"
 
 "@fekit/follow@^1.0.10":
   version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@fekit/follow/-/follow-1.0.10.tgz#2be0b7898e5e4a0fa23ce4de8bef1621bb8ec79b"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/follow/-/follow-1.0.10.tgz#2be0b7898e5e4a0fa23ce4de8bef1621bb8ec79b"
   integrity sha512-Sg8RLVXR3U+5O661KCEpvXdQjtKRJpGum62HeokvMnJ3d36q9vn/JLRLZzVX3HJDXbYnIlWlwznj9+by8jG2OA==
   dependencies:
     resize-observer-polyfill "^1.5.1"
 
 "@fekit/itable@^1.1.5":
   version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@fekit/itable/-/itable-1.1.5.tgz#b438bde68a6016819fc39bfeb76c86a6376813cc"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/itable/-/itable-1.1.5.tgz#b438bde68a6016819fc39bfeb76c86a6376813cc"
   integrity sha512-0Sd5PWgdhm41uQlV4y8DypYpwcFygZQXx5eGBBcvARMMuxPCRTq8r3XAM/NkIsAYfeTfMEz1tkHe51gqUQqG1Q==
   dependencies:
     resize-observer-polyfill "^1.5.1"
 
 "@fekit/pullload@^1.3.4":
   version "1.3.4"
-  resolved "https://registry.yarnpkg.com/@fekit/pullload/-/pullload-1.3.4.tgz#c0f2728446b1ee660f602f534e528902902bc3ed"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/pullload/-/pullload-1.3.4.tgz#c0f2728446b1ee660f602f534e528902902bc3ed"
   integrity sha512-qDoIxd8Kq0hvPlI7giLVDchjWr6D1luN7wXh93a7UC1jpZEGvuVOwtfuL+a+7M5A4GytE/rGFqz5HHzOgklxnA==
   dependencies:
     resize-observer-polyfill "^1.5.1"
 
 "@fekit/scale@^2.0.1":
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@fekit/scale/-/scale-2.0.1.tgz#698ee2e1837dda7ba129376617ef1ad09da379fb"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/scale/-/scale-2.0.1.tgz#698ee2e1837dda7ba129376617ef1ad09da379fb"
   integrity sha512-y1hoXZJLNF/JOq1+IK67HbFl6TTluJUOT3Kh6nitZEh0s64oGFbIV2LSKfsp65qLWEEw5n/FOBG7YcRwPQlyFg==
 
 "@fekit/scrollto@^3.0.2":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@fekit/scrollto/-/scrollto-3.0.2.tgz#e059c094f06d2ee35ae1a3da3325b20fecaa3c5d"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/scrollto/-/scrollto-3.0.2.tgz#e059c094f06d2ee35ae1a3da3325b20fecaa3c5d"
   integrity sha512-/+vqNVglCUUWHH3e8DC3Ff1D4payZrM43GoWWWCChTKB1sZ8YD6yi7DX4PzQSfUwQVkZccfeafqX4++sNmbCGQ==
   dependencies:
     "@fekit/utils" "^0.1.0"
 
 "@fekit/toast@^2.2.3":
   version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@fekit/toast/-/toast-2.2.3.tgz#75011360ac7c07873270e61c4c6953b662418342"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/toast/-/toast-2.2.3.tgz#75011360ac7c07873270e61c4c6953b662418342"
   integrity sha512-tnXXuyAjsFau8J13p8zXHrn2mAlTbTX7Vg+gLJ5c/h9DuP2TGPFCDWsebjOSEs+okHJ0Km2ldzzlB9O86jj+vw==
 
 "@fekit/url@^2.0.1":
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@fekit/url/-/url-2.0.1.tgz#b131ef398b3105fb1a572b731deabb2a7fb2d95c"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/url/-/url-2.0.1.tgz#b131ef398b3105fb1a572b731deabb2a7fb2d95c"
   integrity sha512-0ib9OKww6UGwTK13TKZ8EKrbjSZngK/DqxSKKOWrK1QjUj8oVxwHhNcVlvTMqF7lO/z73+pG6DlV179Lt6h7zw==
   dependencies:
     "@fekit/utils" "^0.3.0"
 
 "@fekit/utils@^0.1.0":
   version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@fekit/utils/-/utils-0.1.0.tgz#e4ba61370f57a5b37cb620fd02a7cc17424bc9c2"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/utils/-/utils-0.1.0.tgz#e4ba61370f57a5b37cb620fd02a7cc17424bc9c2"
   integrity sha512-SBooy99a0MGcATaMI3nvdwlSsbwxs2Tm+rJ/GmTQEZU7S0qWPWTF1lLG3gini/BOTSgmvs2oPQ4AcubXJueUHA==
 
 "@fekit/utils@^0.2.0":
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@fekit/utils/-/utils-0.2.0.tgz#6b59729b36ff97e7382118c3c1311e0b44408d13"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/utils/-/utils-0.2.0.tgz#6b59729b36ff97e7382118c3c1311e0b44408d13"
   integrity sha512-Ec3ZJQqnKbFQ32DXEHeveitC3GU0RHXhNjEyCIX+YRBpRK69ODczsgHv46d+IySBYxlcTJF4flSz0eAs3jhiIA==
 
 "@fekit/utils@^0.3.0":
   version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@fekit/utils/-/utils-0.3.0.tgz#b214d4fc3dab3dcfc1a860124cafe87628951137"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/utils/-/utils-0.3.0.tgz#b214d4fc3dab3dcfc1a860124cafe87628951137"
   integrity sha512-4e861DaAFBei6IK9kpHki1lAowjehGhXUyW/IZdyIy72v4cM9ta/g4rNeIUX/vIrKsAQbykMydx36HXJLvkrrw==
 
 "@fekit/utils@^2.10.7":
-  version "2.10.7"
-  resolved "https://registry.yarnpkg.com/@fekit/utils/-/utils-2.10.7.tgz#9da57bb5e7032fef84499f45456e881700dcbd0e"
-  integrity sha512-xZHdcWsT5gz9cqLn22nDfAMKAVE8CDJqZaAAjJrPSBr7KiIT1VGWW1Z40Pz26XpaMfbXdknXo2kq1156wzGJoA==
+  version "2.10.17"
+  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/utils/-/utils-2.10.17.tgz#b7f0a577281d3ded58ff76db289876852c4c455d"
+  integrity sha512-8TyFs2TnCLDAFTMgH4btFc+uQHJnzbnDN0WHoiE91dJ90e378+/LsZ/0/WMj6aKLt+SnzqW/j1unX38QcXsvKw==
   dependencies:
     mockjs "^1.1.0"
 
 blueimp-canvas-to-blob@^3.29.0:
   version "3.29.0"
-  resolved "https://registry.npmjs.org/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.29.0.tgz#d965f06cb1a67fdae207a2be56683f55ef531466"
+  resolved "https://mirrors.cloud.tencent.com/npm/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.29.0.tgz#d965f06cb1a67fdae207a2be56683f55ef531466"
   integrity sha512-0pcSSGxC0QxT+yVkivxIqW0Y4VlO2XSDPofBAqoJ1qJxgH9eiUDLv50Rixij2cDuEfx4M6DpD9UGZpRhT5Q8qg==
 
 commander@*:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-12.0.0.tgz#b929db6df8546080adfd004ab215ed48cf6f2592"
-  integrity sha512-MwVNWlYjDTtOjX5PiD7o5pK0UrFU/OYgcJfjjK4RaHZETNtjJqrZa9Y9ds88+A+f+d5lv+561eZ+yCKoS3gbAA==
+  version "12.1.0"
+  resolved "https://mirrors.cloud.tencent.com/npm/commander/-/commander-12.1.0.tgz#01423b36f501259fdaac4d0e4d60c96c991585d3"
+  integrity sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==
 
 compressorjs@^1.2.1:
   version "1.2.1"
-  resolved "https://registry.npmjs.org/compressorjs/-/compressorjs-1.2.1.tgz#4dee18ef5032f8166bd0a3258f045eda2cd07671"
+  resolved "https://mirrors.cloud.tencent.com/npm/compressorjs/-/compressorjs-1.2.1.tgz#4dee18ef5032f8166bd0a3258f045eda2cd07671"
   integrity sha512-+geIjeRnPhQ+LLvvA7wxBQE5ddeLU7pJ3FsKFWirDw6veY3s9iLxAQEw7lXGHnhCJvBujEQWuNnGzZcvCvdkLQ==
   dependencies:
     blueimp-canvas-to-blob "^3.29.0"
@@ -96,7 +96,7 @@ compressorjs@^1.2.1:
 
 echarts@^5.5.0:
   version "5.5.0"
-  resolved "https://registry.npmjs.org/echarts/-/echarts-5.5.0.tgz#c13945a7f3acdd67c134d8a9ac67e917830113ac"
+  resolved "https://mirrors.cloud.tencent.com/npm/echarts/-/echarts-5.5.0.tgz#c13945a7f3acdd67c134d8a9ac67e917830113ac"
   integrity sha512-rNYnNCzqDAPCr4m/fqyUFv7fD9qIsd50S6GDFgO1DxZhncCsNsG7IfUlAlvZe5oSEQxtsjnHiUuppzccry93Xw==
   dependencies:
     tslib "2.3.0"
@@ -104,56 +104,56 @@ echarts@^5.5.0:
 
 is-blob@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npmjs.org/is-blob/-/is-blob-2.1.0.tgz#e36cd82c90653f1e1b930f11baf9c64216a05385"
+  resolved "https://mirrors.cloud.tencent.com/npm/is-blob/-/is-blob-2.1.0.tgz#e36cd82c90653f1e1b930f11baf9c64216a05385"
   integrity sha512-SZ/fTft5eUhQM6oF/ZaASFDEdbFVe89Imltn9uZr03wdKMcWNVYSMjQPFtg05QuNkt5l5c135ElvXEQG0rk4tw==
 
 mockjs@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+  resolved "https://mirrors.cloud.tencent.com/npm/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
   integrity sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==
   dependencies:
     commander "*"
 
 resize-observer-polyfill@^1.5.1:
   version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  resolved "https://mirrors.cloud.tencent.com/npm/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 sortablejs@1.14.0:
   version "1.14.0"
-  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
+  resolved "https://mirrors.cloud.tencent.com/npm/sortablejs/-/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
   integrity sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==
 
 swiper@^11.0.4:
-  version "11.0.7"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.7.tgz#fe51bb64546c2c21a1ec6914e7764af953443ded"
-  integrity sha512-cDfglW1B6uSmB6eB6pNmzDTNLmZtu5bWWa1vak0RU7fOI9qHjMzl7gVBvYSl34b0RU2N11HxxETJqQ5LeqI1cA==
+  version "11.1.4"
+  resolved "https://mirrors.cloud.tencent.com/npm/swiper/-/swiper-11.1.4.tgz#2f8e303e8bf9e5bc40a3885fc637ae60ff27996c"
+  integrity sha512-1n7kbYJB2dFEpUHRFszq7gys/ofIBrMNibwTiMvPHwneKND/t9kImnHt6CfGPScMHgI+dWMbGTycCKGMoOO1KA==
 
 tslib@2.3.0:
   version "2.3.0"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
+  resolved "https://mirrors.cloud.tencent.com/npm/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
 
 typescript@^5.1.6:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.2.tgz#0ae9cebcfae970718474fe0da2c090cad6577372"
-  integrity sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==
+  version "5.4.5"
+  resolved "https://mirrors.cloud.tencent.com/npm/typescript/-/typescript-5.4.5.tgz#42ccef2c571fdbd0f6718b1d1f5e6e5ef006f611"
+  integrity sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==
 
 vue-cropper@^0.6.4:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/vue-cropper/-/vue-cropper-0.6.4.tgz#9ca841248e2f22aae0bc2533b13b4d8705152298"
-  integrity sha512-U3bm17Li/Xwfw2t3pr8/hFE/tYhvwIWqepHK9IFC1TnX1KFd64VyfCD9nMBhPY91RyvMC6jSQgT/DyDNKuTpIQ==
+  version "0.6.5"
+  resolved "https://mirrors.cloud.tencent.com/npm/vue-cropper/-/vue-cropper-0.6.5.tgz#c259d3cc57b84ad4be23a7dd63d91c1def90abde"
+  integrity sha512-lSvY6IpeA/Tv/iPZ/FOkMHVRBPSlm7t57nuHEZFBMRNOH8ElvfqVlnHGDOAMlvPhh9gHiddiQoASS+fY0MFX0g==
 
 vuedraggable@^4.1.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-4.1.0.tgz#edece68adb8a4d9e06accff9dfc9040e66852270"
+  resolved "https://mirrors.cloud.tencent.com/npm/vuedraggable/-/vuedraggable-4.1.0.tgz#edece68adb8a4d9e06accff9dfc9040e66852270"
   integrity sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww==
   dependencies:
     sortablejs "1.14.0"
 
 zrender@5.5.0:
   version "5.5.0"
-  resolved "https://registry.npmjs.org/zrender/-/zrender-5.5.0.tgz#54d0d6c4eda81a96d9f60a9cd74dc48ea026bc1e"
+  resolved "https://mirrors.cloud.tencent.com/npm/zrender/-/zrender-5.5.0.tgz#54d0d6c4eda81a96d9f60a9cd74dc48ea026bc1e"
   integrity sha512-O3MilSi/9mwoovx77m6ROZM7sXShR/O/JIanvzTwjN3FORfLSr81PsUGd7jlaYOeds9d8tw82oP44+3YucVo+w==
   dependencies:
     tslib "2.3.0"

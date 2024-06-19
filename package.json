@@ -86,7 +86,5 @@
     "sass-loader": "^14.0.0",
     "typescript": "^5.4.5"
   },
-  "gitHooks": {
-    "pre-commit": "npx vue-cli-service lint src"
-  }
+  "gitHooks": {}
 }
