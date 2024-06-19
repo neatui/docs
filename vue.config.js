@@ -1,7 +1,7 @@
 const path = require('path');
 const { defineConfig } = require('@vue/cli-service');
 // 图片无损压缩插件
-const TinypngWebpackPlugin = require('tinypng-webpack-plugin');
+const TinypngWebpackPlugin = require('@fekit/tinypng-webpack-plugin');
 
 // 图片无锅压缩KEY
 const tinypngKey = [
