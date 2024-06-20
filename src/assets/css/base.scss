@@ -39,3 +39,18 @@ body {
   // border-radius: 0.2rem;
   // overflow: hidden;
 }
+
+:root {
+  --swiper-theme-color: red;
+  @include theme {
+    --color: co(fore);
+    --line: co(line);
+    --back: co(back);
+    --weak: co(weak);
+    --deep: co(deep);
+    --none: co(none);
+    --w: co(w);
+    --b: co(b);
+    --swiper-theme-color: co(main);
+  }
+}

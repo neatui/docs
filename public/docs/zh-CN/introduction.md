@@ -23,7 +23,7 @@
 
 技术交流QQ群：137972383、153965675
 
-Email: xiaojunbo@126.com
+Email: xiaojunbo@qq.com
 
 ## 许可
 

@@ -22,7 +22,7 @@ If you encounter any issues during use, please feel free to contact me through t
 
 Technical Exchange QQ Group: 137972383, 153965675
 
-Email: xiaojunbo@126.com
+Email: xiaojunbo@qq.com
 
 ## License
 
