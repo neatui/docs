@@ -24,14 +24,11 @@
   &,
   &[ui-navs~='text'] {
     & > * {
-      @include theme {
-        color: co(text);
-      }
+      color: var(--co-text);
+
       &.active {
         & > *:first-child {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
     }
@@ -39,14 +36,11 @@
 
   &[ui-navs~='read'] {
     & > * {
-      @include theme {
-        color: co(read);
-      }
+      color: var(--co-read);
+
       &.active {
         & > *:first-child {
-          @include theme {
-            color: mix(co(main), co(read), 45%);
-          }
+          color: var(--co-main-text);
         }
       }
     }
@@ -54,15 +48,11 @@
 
   &[ui-navs~='note'] {
     & > * {
-      @include theme {
-        color: co(note);
-      }
+      color: var(--co-note);
+
       &.active {
         & > *:first-child {
-          @include theme {
-            // color: co(main);
-            color: mix(co(main), co(back), 45%);
-          }
+          color: var(--co-main-text);
         }
       }
     }
@@ -70,14 +60,11 @@
 
   &[ui-navs~='back'] {
     & > * {
-      @include theme {
-        color: rgba(co(back), 0.9);
-      }
+      color: var(--co-back--o-ll);
+
       &.active {
         & > *:first-child {
-          @include theme {
-            color: co(back);
-          }
+          color: var(--co-back);
         }
       }
     }

@@ -11,12 +11,11 @@
   & > * {
     position: relative;
     padding: 1.5em;
-    @include theme {
-      box-shadow:
-        inset -1px -1px 0 0 co(line),
-        -1px -1px 0 0 co(line);
-      background-color: co(fore);
-    }
+
+    box-shadow:
+      inset -1px -1px 0 0 var(--co-line),
+      -1px -1px 0 0 var(--co-line);
+    background-color: co(fore);
 
     &:hover {
       [ui-grid-select] {
@@ -38,9 +37,8 @@
       left: 0;
       top: 0;
       border-radius: 0.3em;
-      @include theme {
-        background-color: co(weak);
-      }
+
+      background-color: var(--co-weak);
     }
   }
 

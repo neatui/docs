@@ -24,9 +24,8 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     line-height: 1.5em;
     padding: 0.5em 0;
     transition: all 0.5s;
-    @include theme {
-      box-shadow: inset 0 -1px 0 0 co(case);
-    }
+
+    box-shadow: inset 0 -1px 0 0 var(--co-case);
 
     display: inline-flex;
     justify-content: space-between;
@@ -37,19 +36,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     }
 
     &:hover {
-      @include theme {
-        box-shadow: inset 0 -1px 0 0 rgba(co(main), 0.5);
-      }
+      box-shadow: inset 0 -1px 0 0 var(--co-main-o-mm);
     }
 
     &.form-focus,
     &:focus-within {
-      @include theme {
-        background-color: co(fore);
-        box-shadow:
-          inset 0 -1px 0 0 rgba(co(main), 0.5),
-          0 2px 0 0 rgba(co(main), 0.15);
-      }
+      background-color: co(fore);
+      box-shadow:
+        inset 0 -1px 0 0 var(--co-main-o-mm),
+        0 2px 0 0 var(--co-main-o-ss);
     }
 
     input {
@@ -78,17 +73,13 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       }
 
       &:-webkit-autofill {
-        @include theme {
-          box-shadow: 0 0 0 1000px co(fore) inset;
-          color: co(read);
-          -webkit-text-fill-color: co(read);
-        }
+        box-shadow: 0 0 0 1000px co(fore) inset;
+        color: co(read);
+        -webkit-text-fill-color: co(read);
       }
 
       &::-webkit-input-placeholder {
-        @include theme {
-          color: rgba(co(read), 0.5);
-        }
+        color: var(--co-read-o-mm);
       }
     }
 
@@ -113,36 +104,27 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     // 颜色
     @each $c in $co {
       &[ui-form~='co:#{$c}'] {
-        @include theme {
-          color: mix(co($c), co(text), 85%);
-          box-shadow:
-            inset 0 -1px 0 0 rgba(co($c), 0.6),
-            0 2px 0 0 rgba(co($c), 0.15) !important;
-          // background-color: rgba(co($c), 0.03);
-        }
+        color: var(--co-#{$c}-text);
+        box-shadow:
+          inset 0 -1px 0 0 var(--co-#{$c}-o-ml),
+          0 2px 0 0 var(--co-#{$c}-o-ss) !important;
       }
 
       &[ui-form~='co:hover:#{$c}'] {
         &:hover {
-          @include theme {
-            color: mix(co($c), co(text), 85%);
-            box-shadow:
-              inset 0 -1px 0 0 rgba(co($c), 0.6),
-              0 2px 0 0 rgba(co($c), 0.15) !important;
-            // background-color: rgba(co($c), 0.03);
-          }
+          color: var(--co-#{$c}-text);
+          box-shadow:
+            inset 0 -1px 0 0 var(--co-#{$c}-o-ml),
+            0 2px 0 0 var(--co-#{$c}-o-ss) !important;
         }
       }
 
       &[ui-form~='co:focus:#{$c}'] {
         &:focus-within {
-          @include theme {
-            color: mix(co($c), co(text), 85%);
-            box-shadow:
-              inset 0 -1px 0 0 rgba(co($c), 0.6),
-              0 2px 0 0 rgba(co($c), 0.15) !important;
-            // background-color: rgba(co($c), 0.03);
-          }
+          color: var(--co-#{$c}-text);
+          box-shadow:
+            inset 0 -1px 0 0 var(--co-#{$c}-o-ml),
+            0 2px 0 0 var(--co-#{$c}-o-ss) !important;
         }
       }
     }

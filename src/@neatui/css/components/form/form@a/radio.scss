@@ -73,9 +73,7 @@ $co: 'info', 'well', 'warn', 'risk';
         content: '';
         display: block;
         border-radius: 50%;
-        @include theme {
-          background: co(fore);
-        }
+        background: var(--co-fore);
       }
 
       &:checked {
@@ -85,9 +83,7 @@ $co: 'info', 'well', 'warn', 'risk';
         }
         &,
         & + * {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
 

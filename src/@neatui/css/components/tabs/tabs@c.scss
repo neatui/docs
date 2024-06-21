@@ -12,9 +12,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   padding: 2px;
   border-radius: 0.35em;
 
-  @include theme {
-    background: co(weak);
-  }
+  // @include theme {
+  background: var(--co-weak);
+  // }
 
   & > * {
     cursor: pointer;
@@ -25,10 +25,10 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     padding: 0.5em 1em;
     &.active {
       -webkit-font-smoothing: auto;
-      @include theme {
-        color: co(main);
-        background: co(fore);
-      }
+      // @include theme {
+      color: var(--co-main);
+      background: var(--co-fore);
+      // }
     }
   }
 

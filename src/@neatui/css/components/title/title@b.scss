@@ -1,7 +1,7 @@
 [ui-title~='@b'] {
   & {
-    @include theme {
-      box-shadow: inset 0 -1px 0 0 co(line);
-    }
+    // @include theme {
+    box-shadow: inset 0 -1px 0 0 var(--co-line);
+    // }
   }
 }

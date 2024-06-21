@@ -24,10 +24,10 @@
   }
 
   input:-webkit-autofill {
-    @include theme {
-      box-shadow: 0 0 0 1000px co(fore) inset;
-      color: co(read);
-      -webkit-text-fill-color: co(read);
-    }
+    // @include theme {
+    box-shadow: 0 0 0 1000px var(--co-fore) inset;
+    color: var(--co-read);
+    -webkit-text-fill-color: var(--co-read);
+    // }
   }
 }

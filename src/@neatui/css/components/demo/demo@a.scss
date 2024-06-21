@@ -2,7 +2,7 @@
   & {
     border-radius: 0.25em;
     @include theme {
-      border: 1px solid co(line);
+      border: 1px solidvar(--co-line)
     }
   }
 
@@ -17,8 +17,8 @@
     text-align: center;
     padding: 0.25em;
     @include theme {
-      border-top: 1px solid co(line);
-      border-bottom: 1px solid co(line);
+      border-top: 1px solidvar(--co-line)
+      border-bottom: 1px solidvar(--co-line)
       background-color: rgba(co(weak), 0.5);
     }
   }

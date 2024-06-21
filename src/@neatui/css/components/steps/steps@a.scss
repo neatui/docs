@@ -35,9 +35,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       border-radius: 2px;
       left: 0;
       top: 0.75em;
-      @include theme {
-        background: radial-gradient(circle at 50% 50%, transparent 2%, co(case) 2.1%) no-repeat center / 100em 100%;
-      }
+      background: radial-gradient(circle at 50% 50%, transparent 2%, var(--co-case) 2.1%) no-repeat center / 100em 100%;
     }
     &::after {
       position: absolute;
@@ -49,39 +47,29 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       margin-left: -0.75em;
       top: 0;
       border-radius: 50%;
-      @include theme {
-        border: 1px solid co(case);
-      }
+      border: 1px solid var(--co-case);
     }
 
     &.done {
-      @include theme {
-        color: co(well);
-      }
+      color: var(--co-well);
+
       &::before {
-        @include theme {
-          background: radial-gradient(circle at 50% 50%, transparent 2%, co(well) 2.1%) no-repeat center / 100em 100%;
-        }
+        background: radial-gradient(circle at 50% 50%, transparent 2%, var(--co-well) 2.1%) no-repeat center / 100em 100%;
       }
       &::after {
-        @include theme {
-          border: 1px solid co(well);
-        }
+        border: 1px solid var(--co-well);
         @extend %icon-hook;
       }
     }
 
     &.fail {
-      @include theme {
-        color: co(risk);
-      }
+      color: var(--co-risk);
+
       &::before {
-        @include theme {
-          background: radial-gradient(circle at 50% 50%, transparent 2%, co(risk) 2.1%) no-repeat center / 100em 100%;
-        }
+        background: radial-gradient(circle at 50% 50%, transparent 2%, var(--co-risk) 2.1%) no-repeat center / 100em 100%;
       }
       &::after {
-        border: 1px solid co(risk);
+        border: 1px solid var(--co-risk);
         @extend %icon-close;
       }
     }

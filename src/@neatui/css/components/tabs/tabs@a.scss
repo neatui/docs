@@ -10,9 +10,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   overflow-x: auto;
   overflow-y: hidden;
 
-  @include theme {
-    box-shadow: inset 0 -1px 0 co(line);
-  }
+  // @include theme {
+  box-shadow: inset 0 -1px 0 var(--co-line);
+  // }
 
   & > * {
     position: relative;
@@ -30,10 +30,10 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
 
     &.active {
       -webkit-font-smoothing: auto;
-      @include theme {
-        color: co(main);
-        box-shadow: inset 0 -2px 0 co(main);
-      }
+      // @include theme {
+      color: var(--co-main);
+      box-shadow: inset 0 -2px 0 var(--co-main);
+      // }
     }
   }
 

@@ -23,9 +23,10 @@
         height: 100%;
         right: -5px;
         top: 0;
-        @include theme {
-          box-shadow: inset 5px 0 5px -5px rgba(co(text), 0.15);
-        }
+        // @include theme {
+        //   box-shadow: inset 5px 0 5px -5px rgba(co(text), 0.15);
+        // }
+        box-shadow: inset 5px 0 5px -5px var(--co-text-o-ss);
       }
     }
     &[col-fixed-side='r'] {
@@ -38,9 +39,10 @@
         height: 100%;
         left: -5px;
         top: 0;
-        @include theme {
-          box-shadow: inset -5px 0 5px -5px rgba(co(text), 0.15);
-        }
+        // @include theme {
+        //   box-shadow: inset -5px 0 5px -5px rgba(co(text), 0.15);
+        // }
+        box-shadow: inset -5px 0 5px -5px var(--co-text-o-ss);
       }
     }
   }
@@ -100,13 +102,13 @@
 
   // 固定头部
   .table-head-fixed {
-    @include theme {
-      background: co(fore);
-      box-shadow:
-        0 1px 0 rgba(co(deep), 0.1),
-        0 2px 0 rgba(co(deep), 0.1),
-        0 3px 0 rgba(co(deep), 0.1);
-    }
+    // @include theme {
+    background: var(--co-fore);
+    box-shadow:
+      0 1px 0 var(--co-weak-o-sm),
+      0 2px 0 var(--co-weak-o-sm),
+      0 3px 0 var(--co-weak-o-sm);
+    // }
     position: sticky;
     top: 0;
     z-index: 3;

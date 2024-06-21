@@ -25,7 +25,7 @@
       border-style: solid;
       border-width: 1px;
       @include theme {
-        border-color: co(line);
+        border-color:var(--co-line)
         background-color: co(fore);
       }
     }
@@ -91,7 +91,7 @@
           width: 100%;
           height: 100%;
           @include theme {
-            background-color: rgba(co(fore), 0.85);
+            background-color: var(--co-fore-o-lm);
           }
           top: 0;
           right: 0;

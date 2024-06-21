@@ -24,10 +24,11 @@ $cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'w
   min-width: 2em;
   min-height: 1.9em;
 
-  @include theme {
-    background: mix(co(main), co(fore), 85%);
-    color: co(fore);
-  }
+  // @include theme {
+  //   background: mix(co(main), var(--co-fore), 85%);
+  // }
+  background: var(--co-main-fore-ls);
+  color: var(--co-fore);
 
   &::after {
     position: absolute;
@@ -42,9 +43,10 @@ $cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'w
     transition:
       transform 0s,
       opacity 0s;
-    @include theme {
-      border-top-color: mix(co(main), co(fore), 85%);
-    }
+    // @include theme {
+    //   border-top-color: mix(co(main), var(--co-fore), 85%);
+    // }
+    border-top-color: var(--co-main-fore-ls);
   }
 
   &[ui-form-tips~='rt'] {
@@ -76,13 +78,15 @@ $cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'w
 @each $co in $cos {
   [ui-form~='co:#{$co}'] {
     [ui-form-tips] {
-      @include theme {
-        background: mix(co($co), co(fore), 85%);
-      }
+      // @include theme {
+      //   background: mix(var(--co-#{$co}), var(--co-fore), 85%);
+      // }
+      background: var(--co-#{$co}-fore-ls);
       &::after {
-        @include theme {
-          border-top-color: mix(co($co), co(fore), 85%);
-        }
+        // @include theme {
+        //   border-top-color: mix(var(--co-#{$co}), var(--co-fore), 85%);
+        // }
+        border-top-color: var(--co-#{$co}-fore-ls);
       }
     }
   }
@@ -128,9 +132,9 @@ $cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'w
   }
 
   &[ui-form-verify~='ok'] {
-    @include theme {
-      color: co(well);
-    }
+    // @include theme {
+    color: var(--co-well);
+    // }
 
     @keyframes am-verify-ok-1 {
       0% {
@@ -175,9 +179,9 @@ $cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'w
     }
   }
   &[ui-form-verify~='no'] {
-    @include theme {
-      color: co(risk);
-    }
+    // @include theme {
+    color: var(--co-risk);
+    // }
 
     @keyframes am-no-1 {
       0% {
@@ -281,13 +285,13 @@ $cos: 'main', 'text', 'read', 'note', 'idle', 'case', 'line', 'info', 'well', 'w
   display: none;
   // opacity: 0.6;
   right: 100%;
-  @include theme {
-    background: co(fore);
-    box-shadow:
-      -0.2em 0 0px 0.15em co(fore),
-      0.2em 0 0px 0.15em co(fore),
-      0 0 0px 0.15em co(fore);
-  }
+  // @include theme {
+  background: var(--co-fore);
+  box-shadow:
+    -0.2em 0 0px 0.15em var(--co-fore),
+    0.2em 0 0px 0.15em var(--co-fore),
+    0 0 0px 0.15em var(--co-fore);
+  // }
 
   &::before {
     position: absolute;

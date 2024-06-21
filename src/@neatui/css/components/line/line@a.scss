@@ -16,9 +16,8 @@
     height: 1px;
     flex-grow: 1;
     flex-shrink: 1;
-    @include theme {
-      background: co(line);
-    }
+
+    background: var(--co-line);
   }
 
   & > * {
@@ -42,9 +41,7 @@
     &[ui-line~='co:#{$co}'] {
       &::before,
       &::after {
-        @include theme {
-          background: co($co);
-        }
+        background: var(--co-#{$co});
       }
     }
   }

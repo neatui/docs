@@ -1,9 +1,7 @@
 html {
-  @include theme {
-    color: co(read);
-    fill: co(read);
-    background-color: co(back);
-  }
+  color: var(--co-read);
+  fill: var(--co-read);
+  background-color: var(--co-back);
 }
 
 @mixin color($n, $v) {
@@ -209,9 +207,7 @@ html {
 
 // 随机背景色
 .bg-0 {
-  @include theme {
-    background-color: co(main);
-  }
+  background-color: var(--co-main);
 }
 
 .bg-1 {

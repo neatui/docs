@@ -25,26 +25,19 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     border-radius: 1em 0.2em 0.2em 1em;
   }
 
-  @each $key in $state {
-    @include theme {
-      $val: co($key);
-      $co: mix($val, co(text), 95%);
-      $bg: saturate(rgba($val, 0.06), 20%);
-      $bk: $val;
-
-      @if ($key== 'main') {
-        &,
-        &[ui-tag~='#{$key}'] {
-          color: $co;
-          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
-          background: $bg;
-        }
-      } @else {
-        &[ui-tag~='#{$key}'] {
-          color: $co;
-          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
-          background: $bg;
-        }
+  @each $co in $state {
+    @if ($co== 'main') {
+      &,
+      &[ui-tag~='#{$co}'] {
+        color: var(--co-#{$co}-text);
+        box-shadow: inset 0 0 0 1px var(--co-#{$co}-o-ss);
+        background: var(--bg-#{$co});
+      }
+    } @else {
+      &[ui-tag~='#{$co}'] {
+        color: var(--co-#{$co}-text);
+        box-shadow: inset 0 0 0 1px var(--co-#{$co}-o-ss);
+        background: var(--bg-#{$co});
       }
     }
   }
@@ -99,26 +92,19 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   }
 
   // 主题
-  @each $key in $state {
-    @include theme {
-      $val: co($key);
-      $co: mix($val, co(text), 85%);
-      $bg: saturate(rgba($val, 0.06), 20%);
-      $bk: $val;
-
-      @if ($key== 'main') {
-        & > *,
-        &[ui-tags~='#{$key}'] > * {
-          color: $co;
-          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
-          background: $bg;
-        }
-      } @else {
-        &[ui-tags~='#{$key}'] > * {
-          color: $co;
-          box-shadow: inset 0 0 0 1px rgba($bk, 0.15);
-          background: $bg;
-        }
+  @each $co in $state {
+    @if ($co== 'main') {
+      & > *,
+      &[ui-tags~='#{$co}'] > * {
+        color: var(--co-#{$co}-text);
+        box-shadow: inset 0 0 0 1px var(--co-#{$co}-o-ss);
+        background: var(--bg-#{$co});
+      }
+    } @else {
+      &[ui-tags~='#{$co}'] > * {
+        color: var(--co-#{$co}-text);
+        box-shadow: inset 0 0 0 1px var(--co-#{$co}-o-ss);
+        background: var(--bg-#{$co});
       }
     }
   }

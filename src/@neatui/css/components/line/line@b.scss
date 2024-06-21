@@ -19,14 +19,10 @@
   }
 
   &::before {
-    @include theme {
-      background: linear-gradient(90deg, transparent 0%, co(line) 10%);
-    }
+    background: linear-gradient(90deg, transparent 0%, var(--co-line) 10%);
   }
   &::after {
-    @include theme {
-      background: linear-gradient(270deg, transparent 0%, co(line) 10%);
-    }
+    background: linear-gradient(270deg, transparent 0%, var(--co-line) 10%);
   }
 
   & > * {
@@ -49,14 +45,10 @@
   @each $co in $cos {
     &[ui-line~='co:#{$co}'] {
       &::before {
-        @include theme {
-          background: linear-gradient(90deg, transparent 0%, co($co) 10%);
-        }
+        background: linear-gradient(90deg, transparent 0%, var(--co-#{$co}) 10%);
       }
       &::after {
-        @include theme {
-          background: linear-gradient(270deg, transparent 0%, co($co) 10%);
-        }
+        background: linear-gradient(270deg, transparent 0%, var(--co-#{$co}) 10%);
       }
     }
   }

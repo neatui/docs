@@ -52,9 +52,9 @@ $co: 'info', 'well', 'warn', 'risk';
       flex-shrink: 0;
       position: relative;
       top: 0.15em;
-      @include theme {
-        background-color: mix(co(weak), co(fore), 50%);
-      }
+
+      background-color: var(--co-weak-fore);
+
       background-image: radial-gradient(circle at 50% 50%, currentColor 28%, transparent 30%);
       background-position-x: -0.2em;
       transition:
@@ -62,16 +62,13 @@ $co: 'info', 'well', 'warn', 'risk';
         background-position-x ease-out 0.3s;
 
       &:checked {
-        @include theme {
-          background-color: co(main);
-          background-image: radial-gradient(circle at 50% 50%, co(fore) 28%, transparent 30%);
-        }
+        background-color: var(--co-main);
+        background-image: radial-gradient(circle at 50% 50%, var(--co-fore) 28%, transparent 30%);
+
         background-position-x: 0.2em;
         &,
         & + * {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
 

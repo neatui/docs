@@ -22,9 +22,8 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     padding-left: 2em;
     padding-bottom: 1.5em;
     flex-grow: 1;
-    @include theme {
-      color: co(note);
-    }
+
+    color: var(--co-note);
 
     &:last-child {
       padding-bottom: 0;
@@ -44,9 +43,8 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       left: 0.55em;
       top: 1.5em;
       bottom: 0.3em;
-      @include theme {
-        background: co(case);
-      }
+
+      background: var(--co-case);
     }
     &::after {
       position: absolute;
@@ -59,62 +57,52 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       left: 0%;
       top: 0;
       border-radius: 50%;
-      @include theme {
-        color: co(note);
-        border: 1px solid co(note);
-      }
+
+      color: var(--co-note);
+      border: 1px solid var(--co-note);
     }
 
     &.done {
-      @include theme {
-        color: co(main);
-      }
+      color: var(--co-main);
+
       &::before {
-        @include theme {
-          background: co(main);
-        }
+        background: var(--co-main);
       }
       &::after {
         content: '';
-        @include theme {
-          color: co(main);
-          border: 1px solid co(main);
-        }
+
+        color: var(--co-main);
+        border: 1px solid var(--co-main);
+
         @extend %icon-hook;
       }
     }
 
     &.fail {
-      @include theme {
-        color: co(risk);
-      }
+      color: var(--co-risk);
+
       &::before {
-        @include theme {
-          background: co(risk);
-        }
+        background: var(--co-risk);
       }
       &::after {
         content: '';
-        @include theme {
-          color: co(risk);
-          border: 1px solid co(risk);
-        }
+
+        color: var(--co-risk);
+        border: 1px solid var(--co-risk);
+
         @extend %icon-close;
       }
     }
 
     &.curr {
       &::before {
-        @include theme {
-          background: co(read);
-        }
+        background: var(--co-read);
       }
       &::after {
         content: '';
-        @include theme {
-          color: co(read);
-          border: 1px solid co(read);
-        }
+        color: var(--co-read);
+        border: 1px solid var(--co-read);
+
         @extend %icon-more;
       }
     }

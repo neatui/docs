@@ -10,15 +10,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     transition: box-shadow 0.3s;
 
     &.active {
-      @include theme {
-        border: 1px solid co(read);
-      }
+      // @include theme {
+      border: 1px solid var(--co-read);
+      // }
     }
 
     & > * {
-      @include theme {
-        background-color: co(fore);
-      }
+      // @include theme {
+      background-color: var(--co-fore);
+      // }
 
       &:first-child {
         border-top-left-radius: 0.4em;
@@ -70,9 +70,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
           all 0.2s,
           padding 0.35s,
           margin 0.35s;
-        @include theme {
-          background: rgba(co(fore), 0.8);
-        }
+        // @include theme {
+        background: var(--co-fore-o-lm);
+        // }
         padding: 1em 1.5em;
         margin-bottom: 1px;
       }
@@ -102,17 +102,17 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     // 头部
     [ui-card-head] {
       // margin-bottom: 2px;
-      @include theme {
-        border-bottom: 2px solid rgba(co(back), 0.7);
-      }
+      // @include theme {
+      border-bottom: 2px solid var(--co-back-o-ls);
+      // }
     }
 
     // 底部
     [ui-card-foot] {
       // margin-top: 1px;
-      @include theme {
-        border-top: 1px solid rgba(co(back), 0.7);
-      }
+      // @include theme {
+      border-top: 1px solid var(--co-back-o-ls);
+      // }
     }
   }
 
@@ -120,38 +120,38 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     // 背景
     &[#{$name}~='bg:#{$i}']#{$path} {
       & > * {
-        @include theme {
-          background-color: co($i);
-        }
+        // @include theme {
+        background-color: var(--co-#{$i});
+        // }
 
         &[ui-card-tool] {
-          @include theme {
-            background-color: rgba(co($i), 0.8);
-          }
+          // @include theme {
+          background-color: var(--co-#{$i}-lm);
+          // }
         }
       }
     }
 
     // 边框
     &[#{$name}~='bk:#{$i}']#{$path} {
-      @include theme {
-        border: 1px solid co($i);
-      }
+      // @include theme {
+        border: 1px solid var(--co-#{$i});
+      // }
     }
 
     // 颜色
     &[#{$name}~='co:#{$i}']#{$path} {
-      @include theme {
-        color: co($i);
-      }
+      // @include theme {
+        color: var(--co-#{$i});
+      // }
     }
   }
   // 交互
   &[#{$name}~='ux:hover']#{$path} {
     &:hover {
-      @include theme {
-        box-shadow: 0 1px 6px co(deep);
-      }
+      // @include theme {
+      box-shadow: 0 1px 6px var(--co-text-xs);
+      // }
     }
   }
 
@@ -193,9 +193,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     top: 0;
     z-index: 10;
     overflow: auto;
-    @include theme {
-      background-color: co(back);
-    }
+    // @include theme {
+    background-color: var(--co-back);
+    // }
 
     [ui-card-body] {
       overflow: auto;
@@ -224,9 +224,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     top: 0;
     z-index: 10;
     overflow: auto;
-    @include theme {
-      background-color: co(back);
-    }
+    // @include theme {
+      background-color: var(--co-back);
+    // }
 
     [ui-card-body] {
       overflow: auto;

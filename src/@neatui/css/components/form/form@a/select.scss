@@ -23,9 +23,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       width: 0.8em;
       height: 0.8em;
       display: inline-block;
-      @include theme {
-        color: co(note);
-      }
+
+      color: var(--co-note);
+
       background:
         linear-gradient(45deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 23.5% 65% / 35% 50%,
         linear-gradient(-45deg, transparent 51%, currentColor 52%, currentColor 67%, transparent 68%) no-repeat 76.5% 65% / 35% 50%;
@@ -35,9 +35,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     [ui-form-dropdown] {
       position: absolute;
       top: 100%;
-      @include theme {
-        background: co(fore);
-      }
+
+      background: var(--co-fore);
+
       min-width: 100%;
       max-height: 20rem;
       left: 0;
@@ -66,9 +66,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
         box-sizing: content-box;
         width: 0.5em;
         height: 0.5em;
-        @include theme {
-          background: co(fore);
-        }
+
+        background: var(--co-fore);
+
         top: -0.25em;
         left: 50%;
         margin-left: -0.25em;
@@ -88,9 +88,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
         transition: all 0.35s;
         border-radius: 0.2em;
         &:hover {
-          @include theme {
-            background: co(weak);
-          }
+          background: var(--co-weak);
         }
       }
     }

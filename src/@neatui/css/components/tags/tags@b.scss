@@ -35,24 +35,17 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   }
 
   // 颜色
-  @each $key in $state {
-    @include theme {
-      $val: co($key);
-      $co: mix($val, co(text), 70%);
-      $bg: saturate(rgba($val, 0.2), 10%);
-      $bk: $val;
-
-      @if ($key== 'main') {
-        &,
-        &[ui-tag~='#{$key}'] {
-          color: $co;
-          background: $bg;
-        }
-      } @else {
-        &[ui-tag~='#{$key}'] {
-          color: $co;
-          background: $bg;
-        }
+  @each $co in $state {
+    @if ($co== 'main') {
+      &,
+      &[ui-tag~='#{$co}'] {
+        color: var(--co-#{$co}-text);
+        background: var(--bg-#{$co});
+      }
+    } @else {
+      &[ui-tag~='#{$co}'] {
+        color: var(--co-#{$co}-text);
+        background: var(--bg-#{$co});
       }
     }
   }
@@ -107,24 +100,17 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
   }
 
   // 主题
-  @each $key in $state {
-    @include theme {
-      $val: co($key);
-      $co: mix($val, co(text), 85%);
-      $bg: saturate(rgba($val, 0.08), 20%);
-      $bk: $val;
-
-      @if ($key== 'main') {
-        & > *,
-        &[ui-tags~='#{$key}'] > * {
-          color: $co;
-          background: $bg;
-        }
-      } @else {
-        &[ui-tags~='#{$key}'] > * {
-          color: $co;
-          background: $bg;
-        }
+  @each $co in $state {
+    @if ($co== 'main') {
+      & > *,
+      &[ui-tags~='#{$co}'] > * {
+        color: var(--co-#{$co}-text);
+        background: var(--bg-#{$co});
+      }
+    } @else {
+      &[ui-tags~='#{$co}'] > * {
+        color: var(--co-#{$co}-text);
+        background: var(--bg-#{$co});
       }
     }
   }

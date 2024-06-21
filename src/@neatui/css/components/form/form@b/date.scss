@@ -65,9 +65,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
 [ui-form-dropdown='@b'] {
   position: absolute;
   top: 100%;
-  @include theme {
-    background: co(fore);
-  }
+
+  background: var(--co-fore);
+
   left: 0;
   margin-top: 0.5em;
   padding: 0.5em;
@@ -94,9 +94,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     box-sizing: content-box;
     width: 0.5em;
     height: 0.5em;
-    @include theme {
-      background: co(fore);
-    }
+
+    background: var(--co-fore);
+
     top: -0.25em;
     left: 50%;
     margin-left: -0.25em;

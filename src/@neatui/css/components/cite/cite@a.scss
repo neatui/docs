@@ -17,8 +17,7 @@ $state: 'main', 'read', 'well', 'warn', 'risk', 'info';
   @each $key in $state {
     @include theme {
       $co: co($key);
-      $bk: co(line);
-      @if ($key== 'main') {
+      $bk:var(--co-line) @if ($key== 'main') {
         &,
         &[ui-cite~='#{$key}'] {
           @include cite($co, $bk);

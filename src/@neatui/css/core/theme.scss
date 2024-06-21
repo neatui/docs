@@ -44,6 +44,9 @@ $default: (
   $n: nth($i, 1);
   $s: nth($i, 2);
   $m: (
+    none: transparent,
+    w: #ffffff,
+    b: #000000,
     read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
     desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
     note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
@@ -51,15 +54,12 @@ $default: (
     case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
     line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
     weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
-    deep:
-      rgb(
-        red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
-        green(map-get($s, 'back')) - (green(map-get($s, 'back')) * 0.05 + 5),
-        blue(map-get($s, 'back')) - (blue(map-get($s, 'back')) * 0.05 + 5)
-      ),
-    none: transparent,
-    w: #fff,
-    b: #000
+    // deep:
+    //   rgb(
+    //     red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
+    //     green(map-get($s, 'back')) - (green(map-get($s, 'back')) * 0.05 + 5),
+    //     blue(map-get($s, 'back')) - (blue(map-get($s, 'back')) * 0.05 + 5)
+    //   ),
   );
   // 将扩展颜色加入放题色卡中
   $theme: map-merge(
@@ -71,67 +71,67 @@ $default: (
 }
 
 // 主题
-@mixin theme($themeName: null) {
-  $hasTheme: map-get($theme, $themeName);
-  @if ($themeName != null) {
-    @if ($hasTheme != null) {
-      $t: $hasTheme;
-      $first: nth(nth($theme, 1), 1);
-      $n: $themeName;
-      $this: #{nth(&, 1)};
-      @if ($this == 'html' or $this == '' or $this == null) {
-        @if ($n == $first) {
-          @at-root html,
-            [theme],
-            [theme='#{$n}'] {
-            @content;
-          }
-        } @else {
-          @at-root [theme='#{$n}'] {
-            @content;
-          }
-        }
-      } @else {
-        @if ($n == $first) {
-          @content;
-        } @else {
-          [theme='#{$n}'] & {
-            @content;
-          }
-        }
-      }
-    } @else {
-      @debug '没有指定主题#{$hasTheme}';
-    }
-  } @else {
-    $first: nth(nth($theme, 1), 1);
-    @each $t in $theme {
-      $n: nth($t, 1);
-      $this: #{nth(&, 1)};
-      @if ($this == 'html' or $this == ':root' or $this == '' or $this == null) {
-        @if ($n == $first) {
-          @at-root html,
-            [theme],
-            [theme='#{$n}'] {
-            @content;
-          }
-        } @else {
-          @at-root [theme='#{$n}'] {
-            @content;
-          }
-        }
-      } @else {
-        @if ($n == $first) {
-          @content;
-        } @else {
-          [theme='#{$n}'] & {
-            @content;
-          }
-        }
-      }
-    }
-  }
-}
+// @mixin theme($themeName: null) {
+//   $hasTheme: map-get($theme, $themeName);
+//   @if ($themeName != null) {
+//     @if ($hasTheme != null) {
+//       $t: $hasTheme;
+//       $first: nth(nth($theme, 1), 1);
+//       $n: $themeName;
+//       $this: #{nth(&, 1)};
+//       @if ($this == 'html' or $this == '' or $this == null) {
+//         @if ($n == $first) {
+//           @at-root html,
+//             [theme],
+//             [theme='#{$n}'] {
+//             @content;
+//           }
+//         } @else {
+//           @at-root [theme='#{$n}'] {
+//             @content;
+//           }
+//         }
+//       } @else {
+//         @if ($n == $first) {
+//           @content;
+//         } @else {
+//           [theme='#{$n}'] & {
+//             @content;
+//           }
+//         }
+//       }
+//     } @else {
+//       @debug '没有指定主题#{$hasTheme}';
+//     }
+//   } @else {
+//     $first: nth(nth($theme, 1), 1);
+//     @each $t in $theme {
+//       $n: nth($t, 1);
+//       $this: #{nth(&, 1)};
+//       @if ($this == 'html' or $this == ':root' or $this == '' or $this == null) {
+//         @if ($n == $first) {
+//           @at-root html,
+//             [theme],
+//             [theme='#{$n}'] {
+//             @content;
+//           }
+//         } @else {
+//           @at-root [theme='#{$n}'] {
+//             @content;
+//           }
+//         }
+//       } @else {
+//         @if ($n == $first) {
+//           @content;
+//         } @else {
+//           [theme='#{$n}'] & {
+//             @content;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 // 颜色
 @function co($a: '') {
@@ -154,3 +154,81 @@ $default: (
     @return $a;
   }
 }
+
+// 变量
+@mixin vars() {
+  $levels: xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl;
+  $colors: main, text, read, line, weak, fore, back, well, warn, risk;
+
+  $f: nth(nth($theme, 1), 1);
+  @each $i in $theme {
+    $n: nth($i, 1);
+    $s: nth($i, 2);
+    @if ($n == $f) {
+      html {
+        @each $c in $s {
+          $k: nth($c, 1);
+          $v: nth($c, 2);
+          --co-#{$k}: #{$v};
+        }
+
+        // 文本颜色
+        --co-main-text: #{mix(map-get($s, 'main'), map-get($s, 'text'), 85%)};
+        --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
+        --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
+        --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
+        --co-line-fore: #{mix(map-get($s, 'line'), map-get($s, 'fore'), 50%)};
+        --co-weak-fore: #{mix(map-get($s, 'weak'), map-get($s, 'fore'), 50%)};
+
+        --bg-main: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
+        --bg-well: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
+        --bg-warn: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
+        --bg-risk: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
+        --bg-info: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
+
+        @each $k in $colors {
+          $v: map-get($s, $k);
+          $ls: 0.05;
+          @each $l in $levels {
+            // 透明度
+            --co-#{$k}-o-#{$l}: #{rgba($v, $ls)};
+            // --co-#{$k}-fore-#{$l}: #{mix($v, map-get($s, 'fore'), $ls * 100%)};
+            @if ($ls == 0.05 or $ls == 0.9) {
+              $ls: $ls + 0.05;
+            } @else {
+              $ls: $ls + 0.1;
+            }
+          }
+        }
+      }
+    } @else {
+      [theme~='#{$n}'] {
+        @each $c in $s {
+          $k: nth($c, 1);
+          $v: nth($c, 2);
+          --co-#{$k}: #{$v};
+
+          // --co-#{$k}\+co-text-lm: #{mix($v, map-get($s, 'text'), 80%)};
+          // --co-#{$k}\+co-fore-lm: #{mix($v, map-get($s, 'fore'), 80%)};
+        }
+
+        @each $k in $colors {
+          $v: map-get($s, $k);
+          $ls: 0.05;
+          @each $l in $levels {
+            // 透明度
+            --co-#{$k}-o-#{$l}: #{rgba($v, $ls)};
+            // --co-#{$k}-fore-#{$l}: #{mix($v, map-get($s, 'fore'), $ls * 100%)};
+            @if ($ls == 0.05 or $ls == 0.9) {
+              $ls: $ls + 0.05;
+            } @else {
+              $ls: $ls + 0.1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include vars();

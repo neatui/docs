@@ -25,9 +25,7 @@
 
 // 移入阴影
 .ux-shadow:hover {
-  @include theme {
-    box-shadow: 0 0.1em 0.5em co(deep);
-  }
+  box-shadow: 0 0.1em 0.5em var(--co-deep);
 }
 
 // 点击效果
@@ -96,9 +94,8 @@
 
   &:hover {
     transition: color 0.35s;
-    @include theme {
-      color: co(link);
-    }
+
+    color: var(--co-link);
   }
 }
 
@@ -123,9 +120,8 @@
 
   &:hover {
     transition: color 0.35s;
-    @include theme {
-      color: co(link);
-    }
+
+    color: var(--co-link);
 
     &::before {
       transform: scale(1);
@@ -249,10 +245,10 @@
   .downmenu {
     position: absolute;
     top: 130%;
-    @include theme {
-      background: co(fore);
-      box-shadow: 0 1px 0.3em 1px co(deep);
-    }
+
+    background: var(--co-fore);
+    box-shadow: 0 1px 0.3em 1px var(--co-deep);
+
     padding: 1.5rem;
     right: 0.15rem;
     min-width: 10.5rem;
@@ -293,9 +289,9 @@
       box-sizing: content-box;
       width: 0.5em;
       height: 0.5em;
-      @include theme {
-        background: co(fore);
-      }
+
+      background: var(--co-fore);
+
       top: -0.25em;
       left: 50%;
       margin-left: -0.25em;

@@ -6,9 +6,9 @@
   thead > tr,
   thead > tr th,
   .table-head-fixed {
-    @include theme {
-      background: co(fore);
-    }
+    // @include theme {
+    background: var(--co-fore);
+    // }
   }
   // 表格主体
   tbody {
@@ -17,18 +17,16 @@
         &,
         th,
         td {
-          @include theme {
-            background-color: co(fore);
-          }
+          // @include theme {
+          background-color: var(--co-fore);
+          // }
         }
       }
       &:nth-child(odd) {
         &,
         th,
         td {
-          @include theme {
-            background-color: mix(co(weak), co(fore), 75%);
-          }
+          background-color: var(--co-weak-fore);
         }
       }
     }
@@ -39,24 +37,24 @@
       tr {
         &:nth-child(even) {
           &:hover {
-            @include theme {
-              box-shadow:
-                0 0 0 2px co(fore),
-                0 0 0 3px co(line);
-              z-index: 1;
-              position: relative;
-            }
+            // @include theme {
+            box-shadow:
+              0 0 0 2px var(--co-fore),
+              0 0 0 3px var(--co-line);
+            z-index: 1;
+            position: relative;
+            // }
           }
         }
         &:nth-child(odd) {
           &:hover {
-            @include theme {
-              box-shadow:
-                0 0 0 2px co(weak),
-                0 0 0 3px co(line);
-              z-index: 1;
-              position: relative;
-            }
+            // @include theme {
+            box-shadow:
+              0 0 0 2px co(weak),
+              0 0 0 3px var(--co-line);
+            z-index: 1;
+            position: relative;
+            // }
           }
         }
       }
@@ -68,10 +66,10 @@
   //   th,
   //   td {
   //     &:first-child {
-  //       box-shadow: -3em 0 0 0 co(fore);
+  //       box-shadow: -3em 0 0 0 var(--co-fore);
   //     }
   //     &:last-child {
-  //       box-shadow: 3em 0 0 0 co(fore);
+  //       box-shadow: 3em 0 0 0 var(--co-fore);
   //     }
   //   }
   // }

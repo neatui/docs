@@ -48,7 +48,7 @@ $co: 'info', 'well', 'warn', 'risk';
 
       // &.part-selected {
       //   @include theme {
-      //     box-shadow: inset 0 0 0 1px co(main);
+      //     box-shadow: inset 0 0 0 1px var(--co-main);
       //   }
       //   &::before {
       //     width: 50%;
@@ -56,7 +56,7 @@ $co: 'info', 'well', 'warn', 'risk';
       //     left: 24%;
       //     border-radius: 1em;
       //     @include theme {
-      //       background: co(main) !important;
+      //       background: var(--co-main) !important;
       //     }
       //     bottom: 41%;
       //   }
@@ -67,16 +67,14 @@ $co: 'info', 'well', 'warn', 'risk';
         position: absolute;
         content: '';
         display: block;
-        @include theme {
-          background-color: co(fore);
-        }
+
+        background-color: var(--co-fore);
+
         border-radius: 10rem;
       }
 
       &:checked {
-        @include theme {
-          background-color: co(main);
-        }
+        background-color: var(--co-main);
 
         @keyframes am-checkbox-a-1 {
           0% {
@@ -104,9 +102,9 @@ $co: 'info', 'well', 'warn', 'risk';
           left: 20%;
           top: 36%;
           transform: rotate(43deg);
-          @include theme {
-            background-color: co(fore);
-          }
+
+          background-color: var(--co-fore);
+
           transform-origin: 0% 100%;
           animation: am-checkbox-a-1 ease-out 0.35s both;
         }
@@ -118,36 +116,32 @@ $co: 'info', 'well', 'warn', 'risk';
           bottom: 25%;
           transform-origin: 0% 100%;
           transform: rotate(-53deg);
-          @include theme {
-            background-color: co(fore);
-          }
+
+          background-color: var(--co-fore);
+
           animation: am-checkbox-a-2 ease-out 0.35s both;
         }
 
         &,
         & + * {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
 
       // 半选
       &.part-checked,
       &[part-checked] {
-        @include theme {
-          background-color: co(main);
-          box-shadow: inset 0 0 0 1px co(main);
-        }
+        background-color: var(--co-main);
+        box-shadow: inset 0 0 0 1px var(--co-main);
 
         &::before {
           width: 50%;
           height: 18%;
           left: 24%;
           border-radius: 1em;
-          @include theme {
-            background: co(fore) !important;
-          }
+
+          background: var(--co-fore) !important;
+
           bottom: 41%;
         }
 
@@ -158,7 +152,7 @@ $co: 'info', 'well', 'warn', 'risk';
         //   top: 36%;
         //   transform: rotate(43deg);
         //   @include theme {
-        //     background-color: co(fore);
+        //     background-color: var(--co-fore);
         //   }
         //   transform-origin: 0% 100%;
         //   animation: am-checkbox-a-1 ease-out 0.35s both;
@@ -172,7 +166,7 @@ $co: 'info', 'well', 'warn', 'risk';
         //   transform-origin: 0% 100%;
         //   transform: rotate(-53deg);
         //   @include theme {
-        //     background-color: co(fore);
+        //     background-color: var(--co-fore);
         //   }
         //   animation: am-checkbox-a-2 ease-out 0.35s both;
         // }
@@ -180,7 +174,7 @@ $co: 'info', 'well', 'warn', 'risk';
         // &,
         // & + * {
         //   @include theme {
-        //     color: co(main);
+        //     color: var(--co-main);
         //   }
         // }
       }

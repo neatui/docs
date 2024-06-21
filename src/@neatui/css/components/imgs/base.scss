@@ -1,8 +1,7 @@
 [ui-imgs~=':strand'] {
   & > * {
     margin-right: -0.5em;
-    @include theme {
-      background-color: co(fore);
-    }
+
+    background-color: var(--co-fore);
   }
 }

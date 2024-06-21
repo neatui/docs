@@ -8,9 +8,9 @@
   // 盒子
   [ui-tips-box] {
     position: absolute;
-    @include theme {
-      background: co(fore);
-    }
+    // @include theme {
+    background: var(--co-fore);
+    // }
     box-shadow: 0 0 0.2em 1px rgba(0, 0, 0, 0.08);
     // padding: 0.5em;
     border-radius: 0.25em;
@@ -39,9 +39,9 @@
       width: 0.5em;
       height: 0.5em;
       transform: rotate(45deg);
-      @include theme {
-        background: co(fore);
-      }
+      // @include theme {
+      background: var(--co-fore);
+      // }
     }
   }
 

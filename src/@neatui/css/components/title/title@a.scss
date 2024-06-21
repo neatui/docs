@@ -10,9 +10,9 @@
       height: 0.95em;
       border-radius: 0.1em;
       margin-right: 0.2em;
-      @include theme {
-        background-color: co(main);
-      }
+      // @include theme {
+        background-color: var(--co-main);
+      // }
     }
   }
 }

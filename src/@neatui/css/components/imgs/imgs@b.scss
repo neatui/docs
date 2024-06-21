@@ -126,7 +126,7 @@
       &[#{$n}~='#{$co}'] {
         &#{$sub} {
           @include theme {
-            box-shadow: inset 0 0 0 1px co($co);
+            box-shadow: inset 0 0 0 1px var(--co-#{$co});
           }
         }
       }

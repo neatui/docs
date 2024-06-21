@@ -38,10 +38,8 @@
       }
 
       &:hover {
-        @include theme {
-          // border: 1px solid co(text);
-          box-shadow: inset 0 0 0 1px co(text);
-        }
+        box-shadow: inset 0 0 0 1px var(--co-text);
+
         & > * {
           transform: scale3d(0.85, 0.85, 1);
         }
@@ -49,18 +47,14 @@
 
       // 激活
       &.active {
-        @include theme {
-          // border: 1px solid co(main) !important;
-          box-shadow: inset 0 0 0 1px co(main);
-        }
+        // border: 1px solid var(--co-main) !important;
+        box-shadow: inset 0 0 0 1px var(--co-main);
       }
       // 选中
       &.selected,
       &[selected~='1'] {
-        @include theme {
-          // border: 1px solid co(main) !important;
-          box-shadow: inset 0 0 0 1px co(main);
-        }
+        // border: 1px solid var(--co-main) !important;
+        box-shadow: inset 0 0 0 1px var(--co-main);
 
         &::after {
           position: absolute;
@@ -78,10 +72,10 @@
             radial-gradient(circle at 47% 70%, currentColor 9%, transparent 10%), radial-gradient(circle at 53% 62%, currentColor 9%, transparent 10%),
             radial-gradient(circle at 59% 54%, currentColor 9%, transparent 10%), radial-gradient(circle at 65% 46%, currentColor 9%, transparent 10%),
             radial-gradient(circle at 71% 38%, currentColor 8%, transparent 9%);
-          @include theme {
-            background-color: co(main);
-            color: co(back);
-          }
+
+          background-color: var(--co-main);
+          color: var(--co-back);
+
           animation: am-selected 0.2s 0.1s both;
         }
       }
@@ -123,9 +117,7 @@
     @each $co in $color {
       &[#{$n}~='#{$co}'] {
         &#{$sub} {
-          @include theme {
-            box-shadow: inset 0 0 0 1px co($co);
-          }
+          box-shadow: inset 0 0 0 1px var(--co-#{$co});
         }
       }
     }

@@ -22,7 +22,7 @@ $type: 'none', 'main', 'vice', 'text', 'read', 'weak', 'back', 'info', 'well', '
     @include theme {
       color: co(text);
       background: co(weak);
-      box-shadow: inset 0 0 0 1px co(line);
+      box-shadow: inset 0 0 0 1pxvar (--co-line);
     }
   }
 

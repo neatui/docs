@@ -3,9 +3,10 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-gutter: auto;
-    @include theme {
-      scrollbar-color: rgba(co(text), 0.15) transparent;
-    }
+    // @include theme {
+    //   scrollbar-color: rgba(co(text), 0.15) transparent;
+    // }
+    scrollbar-color: var(--co-text-o-ss) transparent;
 
     &::-webkit-scrollbar {
       position: absolute;
@@ -17,9 +18,10 @@
     &::-webkit-scrollbar-thumb {
       border: 1px solid transparent;
       border-radius: 10px;
-      @include theme {
-        background-color: rgba(co(text), 0.15) !important;
-      }
+      // @include theme {
+      //   background-color: rgba(co(text), 0.15) !important;
+      // }
+      background-color: var(--co-text-o-ss) !important;
       background-clip: content-box;
     }
 
@@ -99,9 +101,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @include theme {
-    background-color: rgba(co(text), 0.15) !important;
-  }
+  // @include theme {
+  //   background-color: rgba(co(text), 0.15) !important;
+  // }
+  background-color: var(--co-text-o-ss) !important;
 }
 
 @include med('>mob') {
@@ -110,9 +113,10 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
       scrollbar-gutter: auto;
-      @include theme {
-        scrollbar-color: rgba(co(text), 0.15) transparent;
-      }
+      // @include theme {
+      //   scrollbar-color: rgba(co(text), 0.15) transparent;
+      // }
+      scrollbar-color: var(--co-text-o-ss) transparent;
 
       &::-webkit-scrollbar {
         position: absolute;
@@ -124,9 +128,10 @@
       &::-webkit-scrollbar-thumb {
         border: 1px solid transparent;
         border-radius: 10px;
-        @include theme {
-          background-color: rgba(co(text), 0.15) !important;
-        }
+        // @include theme {
+        //   background-color: rgba(co(text), 0.15) !important;
+        // }
+        background-color: var(--co-text-o-ss) !important;
         background-clip: content-box;
       }
 

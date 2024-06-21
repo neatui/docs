@@ -15,9 +15,7 @@
     width: 1em;
     height: 1em;
     border-radius: 50%;
-    @include theme {
-      border: 1px solid currentColor;
-    }
+    border: 1px solid currentColor;
     border-right-color: transparent !important;
     animation: ui-load-e 1.5s linear infinite both;
   }

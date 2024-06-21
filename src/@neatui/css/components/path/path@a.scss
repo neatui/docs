@@ -9,17 +9,13 @@
       transition: all 0.3s;
       @include dpc {
         &:hover {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
 
       @include pad {
         &:active {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
 

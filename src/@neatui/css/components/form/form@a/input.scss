@@ -27,10 +27,10 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     transition:
       all 0.35s,
       background-color 0s;
-    @include theme {
-      border: 1px solid co(case);
-      background-color: co(fore);
-    }
+    // @include theme {
+    border: 1px solid var(--co-case);
+    background-color: var(--co-fore);
+    // }
 
     display: inline-flex;
     justify-content: space-between;
@@ -41,18 +41,19 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     }
 
     &:hover {
-      @include theme {
-        border: 1px solid rgba(co(main), 0.5);
-      }
+      // @include theme {
+      //   border: 1px solid rgba(var(--co-main), 0.5);
+      // }
+      border: 1px solid var(--co-main-o-mm);
     }
 
     &.form-focus,
     &:focus-within {
-      @include theme {
-        background-color: co(fore);
-        border: 1px solid rgba(co(main), 0.6);
-        box-shadow: 0 0 0 2px rgba(co(main), 0.15);
-      }
+      // @include theme {
+      background-color: var(--co-fore);
+      border: 1px solid var(--co-main-o-sl);
+      box-shadow: 0 0 0 2px var(--co-main-o-ss);
+      // }
     }
 
     input {
@@ -81,17 +82,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       }
 
       &:-webkit-autofill {
-        @include theme {
-          box-shadow: 0 0 0 1000px co(fore) inset;
-          color: co(read);
-          -webkit-text-fill-color: co(read);
-        }
+        // @include theme {
+        box-shadow: 0 0 0 1000px var(--co-fore) inset;
+        color: var(--co-read);
+        -webkit-text-fill-color: var(--co-read);
+        // }
       }
 
       &::placeholder {
-        @include theme {
-          color: rgba(co(read), 0.35);
-        }
+        color: var(--co-read-o-sl);
       }
     }
 
@@ -128,14 +127,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     @each $c in $cos {
       &[ui-form~='co:#{$c}'] {
         & {
-          @include theme {
-            color: mix(co($c), co(text), 85%);
-            border: 1px solid rgba(co($c), 0.6);
-          }
+          // @include theme {
+          //   color: var(--co-#{$c}-text);
+          // }
+          color: var(--co-#{$c}-text);
+          border: 1px solid var(--co-#{$c}-o-ml);
         }
 
         &:focus-within {
-          box-shadow: 0 0 0 2px rgba(co($c), 0.15) !important;
+          box-shadow: 0 0 0 2px var(--co-#{$c}-o-ss) !important;
         }
       }
     }

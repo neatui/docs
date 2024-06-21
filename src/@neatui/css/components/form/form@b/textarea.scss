@@ -24,59 +24,47 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     border-radius: 0.25em;
     transition: all 0.5s;
 
-    @include theme {
-      box-shadow: inset 0 0 0 1px co(case);
-      background-color: co(fore);
-    }
+    box-shadow: inset 0 0 0 1px var(--co-case);
+    background-color: var(--co-fore);
 
     &:hover {
-      @include theme {
-        box-shadow: inset 0 0 0 1px rgba(co(main), 0.5);
-      }
+      box-shadow: inset 0 0 0 1px var(--co-main-o-mm);
     }
 
     &.form-focus,
     &:focus {
-      @include theme {
-        box-shadow:
-          inset 0 0 0 1px rgba(co(main), 0.5),
-          0 0 0 2px rgba(co(main), 0.15);
-      }
+      box-shadow:
+        inset 0 0 0 1px var(--co-main-o-mm),
+        0 0 0 2px var(--co-main-o-ss);
     }
 
     // 颜色
     @each $c in $co {
       &[ui-form~='co:#{$c}'] {
-        @include theme {
-          color: mix(co($c), co(text), 85%);
-          box-shadow:
-            inset 0 0 0 1px rgba(co($c), 0.6),
-            0 0 0 2px rgba(co($c), 0.15) !important;
-          background-color: rgba(co($c), 0.035);
-        }
+        color: var(--co-#{$c}-text);
+        box-shadow:
+          inset 0 0 0 1px var(--co-#{$c}-o-ml),
+          0 0 0 2px var(--co-#{$c}-o-ss) !important;
+        background-color: var(--co-#{$c}-o-sl);
       }
 
       &[ui-form~='co:hover:#{$c}'] {
         &:hover {
-          @include theme {
-            color: mix(co($c), co(text), 85%);
-            box-shadow:
-              inset 0 0 0 1px rgba(co($c), 0.6),
-              0 0 0 2px rgba(co($c), 0.15) !important;
-            background-color: rgba(co($c), 0.035);
-          }
+          color: var(--co-#{$c}-text);
+          box-shadow:
+            inset 0 0 0 1px var(--co-#{$c}-o-ml),
+            0 0 0 2px var(--co-#{$c}-o-ss) !important;
+          background-color: var(--co-#{$c}-o-sl);
         }
       }
 
       &[ui-form~='co:focus:#{$c}'] {
         &:focus-within {
-          @include theme {
-            color: mix(co($c), co(text), 85%);
-            box-shadow:
-              inset 0 0 0 1px rgba(co($c), 0.6),
-              0 0 0 2px rgba(co($c), 0.15) !important;
-            background-color: rgba(co($c), 0.035);
-          }
+          color: var(--co-#{$c}-text);
+          box-shadow:
+            inset 0 0 0 1px var(--co-#{$c}-o-ml),
+            0 0 0 2px var(--co-#{$c}-o-ss) !important;
+          background-color: var(--co-#{$c}-o-sl);
         }
       }
     }
@@ -84,17 +72,13 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     &,
     textarea {
       &:-webkit-autofill {
-        @include theme {
-          box-shadow: 0 0 0 1000px co(fore) inset;
-          color: co(read);
-          -webkit-text-fill-color: co(read);
-        }
+        box-shadow: 0 0 0 1000px var(--co-fore) inset;
+        color: var(--co-read);
+        -webkit-text-fill-color: var(--co-read);
       }
 
       &::-webkit-input-placeholder {
-        @include theme {
-          color: rgba(co(read), 0.5);
-        }
+        color: var(--co-read-o-mm);
       }
     }
 

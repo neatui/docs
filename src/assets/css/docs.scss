@@ -1,21 +1,15 @@
 .file-loader {
   pre {
-    @include theme {
-      background: co(weak);
-    }
+    background: var(--co-weak);
     border-radius: 0.25em;
     padding: 0.5em 1em;
   }
   code {
-    @include theme {
-      color: co(code);
-    }
+    color: var(--co-code);
   }
 
   a {
-    @include theme {
-      color: co(link);
-    }
+    color: var(--co-link);
   }
 }
 

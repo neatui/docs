@@ -15,9 +15,8 @@ $cos: 'main', 'vice', 'read', 'info', 'well', 'warn', 'risk';
       height: 100%;
       top: 0;
       left: auto;
-      @include theme {
-        background: linear-gradient(0deg, rgba(co(line), 0) 0%, co(line) 3%);
-      }
+
+      background: linear-gradient(0deg, rgba(var(--co-line), 0) 0%, var(--co-line) 3%);
     }
   }
 
@@ -40,9 +39,8 @@ $cos: 'main', 'vice', 'read', 'info', 'well', 'warn', 'risk';
       left: 0;
       top: -0.2em;
       margin-left: -0.7em;
-      @include theme {
-        background-image: radial-gradient(at 50% 50%, co(fore) 37%, co(line) 39%, co(line) 47%, co(fore) 49%);
-      }
+
+      background-image: radial-gradient(at 50% 50%, var(--co-fore) 37%, var(--co-line) 39%, var(--co-line) 47%, var(--co-fore) 49%);
     }
 
     &::after {
@@ -64,15 +62,13 @@ $cos: 'main', 'vice', 'read', 'info', 'well', 'warn', 'risk';
     &.active,
     &:hover {
       &::before {
-        @include theme {
-          background-image: radial-gradient(at 50% 50%, co(main) 20%, transparent 23%), radial-gradient(at 50% 50%, co(fore) 37%, co(main) 39%, co(main) 47%, co(fore) 49%);
-        }
+        background-image: radial-gradient(at 50% 50%, var(--co-main) 20%, transparent 23%),
+          radial-gradient(at 50% 50%, var(--co-fore) 37%, var(--co-main) 39%, var(--co-main) 47%, var(--co-fore) 49%);
       }
       &::after {
         font-weight: bold;
-        @include theme {
-          color: co(main);
-        }
+
+        color: var(--co-main);
       }
     }
 

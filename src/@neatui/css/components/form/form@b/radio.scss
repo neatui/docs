@@ -76,9 +76,7 @@ $co: 'info', 'well', 'warn', 'risk';
         animation: am-b-radio 0.3s;
         &,
         & + * {
-          @include theme {
-            color: co(main);
-          }
+          color: var(--co-main);
         }
       }
 

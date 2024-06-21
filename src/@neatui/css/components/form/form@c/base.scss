@@ -25,20 +25,17 @@
   // 清理
   [ui-form-clean] {
     display: inline-block;
-    @include theme {
-      color: co(case);
-      background:
-        linear-gradient(45deg, transparent 40%, co(fore) 45%, co(fore) 55%, transparent 60%) no-repeat center / 38% 38%,
-        linear-gradient(-45deg, transparent 40%, co(fore) 45%, co(fore) 55%, transparent 60%) no-repeat center / 38% 38%,
-        radial-gradient(circle at 50% 50%, currentColor 53%, transparent 58%);
-    }
+
+    color: var(--co-case);
+    background:
+      linear-gradient(45deg, transparent 40%, var(--co-fore) 45%, var(--co-fore) 55%, transparent 60%) no-repeat center / 38% 38%,
+      linear-gradient(-45deg, transparent 40%, var(--co-fore) 45%, var(--co-fore) 55%, transparent 60%) no-repeat center / 38% 38%,
+      radial-gradient(circle at 50% 50%, currentColor 53%, transparent 58%);
   }
 
   input:-webkit-autofill {
-    @include theme {
-      box-shadow: 0 0 0 1000px mix(co(weak), co(fore), 50%) inset;
-      color: co(read);
-      -webkit-text-fill-color: co(read);
-    }
+    box-shadow: 0 0 0 1000px var(--co-weak-fore) inset;
+    color: var(--co-read);
+    -webkit-text-fill-color: var(--co-read);
   }
 }

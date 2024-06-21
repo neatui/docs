@@ -24,10 +24,9 @@
       transition: all 0.5s;
       border-style: solid;
       border-width: 1px;
-      @include theme {
-        border-color: co(line);
-        background-color: co(fore);
-      }
+
+      border-color: var(--co-line);
+      background-color: var(--co-fore);
     }
 
     @keyframes am-file-add {
@@ -71,9 +70,7 @@
           top: 0;
           left: 0;
 
-          @include theme {
-            background-color: co(fore);
-          }
+          background-color: var(--co-fore);
         }
 
         img,
@@ -90,9 +87,9 @@
           position: absolute;
           width: 100%;
           height: 100%;
-          @include theme {
-            background-color: rgba(co(fore), 0.85);
-          }
+
+          background-color: var(--co-fore-o-lm);
+
           top: 0;
           right: 0;
         }
@@ -138,9 +135,9 @@
     [ui-form-input] {
       @extend %item;
       border-style: dashed;
-      @include theme {
-        border-color: co(case);
-      }
+
+      border-color: var(--co-case);
+
       input {
         position: absolute;
         width: 100%;
@@ -150,9 +147,7 @@
         opacity: 0;
 
         &:-webkit-autofill {
-          @include theme {
-            box-shadow: 0 0 0 1000px co(fore) inset;
-          }
+          box-shadow: 0 0 0 1000px var(--co-fore) inset;
         }
       }
     }
