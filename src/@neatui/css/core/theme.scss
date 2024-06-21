@@ -71,67 +71,67 @@ $default: (
 }
 
 // 主题
-// @mixin theme($themeName: null) {
-//   $hasTheme: map-get($theme, $themeName);
-//   @if ($themeName != null) {
-//     @if ($hasTheme != null) {
-//       $t: $hasTheme;
-//       $first: nth(nth($theme, 1), 1);
-//       $n: $themeName;
-//       $this: #{nth(&, 1)};
-//       @if ($this == 'html' or $this == '' or $this == null) {
-//         @if ($n == $first) {
-//           @at-root html,
-//             [theme],
-//             [theme='#{$n}'] {
-//             @content;
-//           }
-//         } @else {
-//           @at-root [theme='#{$n}'] {
-//             @content;
-//           }
-//         }
-//       } @else {
-//         @if ($n == $first) {
-//           @content;
-//         } @else {
-//           [theme='#{$n}'] & {
-//             @content;
-//           }
-//         }
-//       }
-//     } @else {
-//       @debug '没有指定主题#{$hasTheme}';
-//     }
-//   } @else {
-//     $first: nth(nth($theme, 1), 1);
-//     @each $t in $theme {
-//       $n: nth($t, 1);
-//       $this: #{nth(&, 1)};
-//       @if ($this == 'html' or $this == ':root' or $this == '' or $this == null) {
-//         @if ($n == $first) {
-//           @at-root html,
-//             [theme],
-//             [theme='#{$n}'] {
-//             @content;
-//           }
-//         } @else {
-//           @at-root [theme='#{$n}'] {
-//             @content;
-//           }
-//         }
-//       } @else {
-//         @if ($n == $first) {
-//           @content;
-//         } @else {
-//           [theme='#{$n}'] & {
-//             @content;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+@mixin theme($themeName: null) {
+  $hasTheme: map-get($theme, $themeName);
+  @if ($themeName != null) {
+    @if ($hasTheme != null) {
+      $t: $hasTheme;
+      $first: nth(nth($theme, 1), 1);
+      $n: $themeName;
+      $this: #{nth(&, 1)};
+      @if ($this == 'html' or $this == '' or $this == null) {
+        @if ($n == $first) {
+          @at-root html,
+            [theme],
+            [theme='#{$n}'] {
+            @content;
+          }
+        } @else {
+          @at-root [theme='#{$n}'] {
+            @content;
+          }
+        }
+      } @else {
+        @if ($n == $first) {
+          @content;
+        } @else {
+          [theme='#{$n}'] & {
+            @content;
+          }
+        }
+      }
+    } @else {
+      @debug '没有指定主题#{$hasTheme}';
+    }
+  } @else {
+    $first: nth(nth($theme, 1), 1);
+    @each $t in $theme {
+      $n: nth($t, 1);
+      $this: #{nth(&, 1)};
+      @if ($this == 'html' or $this == ':root' or $this == '' or $this == null) {
+        @if ($n == $first) {
+          @at-root html,
+            [theme],
+            [theme='#{$n}'] {
+            @content;
+          }
+        } @else {
+          @at-root [theme='#{$n}'] {
+            @content;
+          }
+        }
+      } @else {
+        @if ($n == $first) {
+          @content;
+        } @else {
+          [theme='#{$n}'] & {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}
 
 // 颜色
 @function co($a: '') {
@@ -181,10 +181,10 @@ $default: (
         --co-weak-fore: #{mix(map-get($s, 'weak'), map-get($s, 'fore'), 50%)};
 
         --bg-main: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
-        --bg-well: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
-        --bg-warn: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
-        --bg-risk: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
-        --bg-info: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
+        --bg-well: #{saturate(rgba(map-get($s, 'well'), 0.06), 20%)};
+        --bg-warn: #{saturate(rgba(map-get($s, 'warn'), 0.06), 20%)};
+        --bg-risk: #{saturate(rgba(map-get($s, 'risk'), 0.06), 20%)};
+        --bg-info: #{saturate(rgba(map-get($s, 'info'), 0.06), 20%)};
 
         @each $k in $colors {
           $v: map-get($s, $k);
@@ -192,7 +192,6 @@ $default: (
           @each $l in $levels {
             // 透明度
             --co-#{$k}-o-#{$l}: #{rgba($v, $ls)};
-            // --co-#{$k}-fore-#{$l}: #{mix($v, map-get($s, 'fore'), $ls * 100%)};
             @if ($ls == 0.05 or $ls == 0.9) {
               $ls: $ls + 0.05;
             } @else {
@@ -207,9 +206,6 @@ $default: (
           $k: nth($c, 1);
           $v: nth($c, 2);
           --co-#{$k}: #{$v};
-
-          // --co-#{$k}\+co-text-lm: #{mix($v, map-get($s, 'text'), 80%)};
-          // --co-#{$k}\+co-fore-lm: #{mix($v, map-get($s, 'fore'), 80%)};
         }
 
         @each $k in $colors {
@@ -218,7 +214,6 @@ $default: (
           @each $l in $levels {
             // 透明度
             --co-#{$k}-o-#{$l}: #{rgba($v, $ls)};
-            // --co-#{$k}-fore-#{$l}: #{mix($v, map-get($s, 'fore'), $ls * 100%)};
             @if ($ls == 0.05 or $ls == 0.9) {
               $ls: $ls + 0.05;
             } @else {

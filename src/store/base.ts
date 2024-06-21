@@ -47,16 +47,16 @@ export const useBaseStore = defineStore('base', {
                 { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
               ]
             },
-            // {
-            //   word: words['components.general'] || 'General',
-            //   name: 'General',
-            //   chlid: [
-            //     { path: '/components/button', word: words['components.button'] || 'Button' },
-            //     { path: '/components/floatButton', word: words['components.floatButton'] || 'floatButton' },
-            //     { path: '/components/icon', word: words['components.icon'] || 'Icon' },
-            //     { path: '/components/typography', word: words['components.typography'] || 'Typography' }
-            //   ]
-            // },
+            {
+              word: words['components.general'] || 'General',
+              name: 'General',
+              chlid: [
+                { path: '/components/button', word: words['components.button'] || 'Button' }
+                // { path: '/components/floatButton', word: words['components.floatButton'] || 'floatButton' },
+                // { path: '/components/icon', word: words['components.icon'] || 'Icon' },
+                // { path: '/components/typography', word: words['components.typography'] || 'Typography' }
+              ]
+            },
             // {
             //   word: words['components.layout'] || 'Layout',
             //   name: 'Layout',
