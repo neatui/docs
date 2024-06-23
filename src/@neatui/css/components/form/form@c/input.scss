@@ -27,7 +27,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     transition: all 0.5s;
 
     box-shadow: inset 0 0 0 1px var(--co-case);
-    background-color: var(--co-weak-fore);
+    background-color: var(--bg-weak);
 
     display: inline-flex;
     justify-content: space-between;
@@ -38,15 +38,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     }
 
     &:hover {
-      box-shadow: inset 0 0 0 1px var(--co-main-o-mm);
+      box-shadow: inset 0 0 0 1px var(--co-main-mm);
     }
 
     &.form-focus,
     &:focus-within {
-      background-color: var(--co-weak-fore);
+      background-color: var(--bg-weak);
       box-shadow:
-        inset 0 0 0 1px var(--co-main-o-mm),
-        0 0 0 2px var(--co-main-o-ss);
+        inset 0 0 0 1px var(--co-main-mm),
+        0 0 0 2px var(--co-main-ss);
     }
 
     input {
@@ -72,13 +72,13 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       }
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0 1000px var(--co-weak-fore) inset;
+        box-shadow: 0 0 0 1000px var(--bg-weak) inset;
         color: co(read);
         -webkit-text-fill-color: co(read);
       }
 
       &::-webkit-input-placeholder {
-        color: var(--co-read-o-mm);
+        color: var(--co-read-mm);
       }
     }
 
@@ -105,18 +105,18 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       &[ui-form~='co:#{$c}'] {
         color: var(--co-#{$c}-text);
         box-shadow:
-          inset 0 0 0 1px var(--co-#{$c}-o-ml),
-          0 0 0 2px var(--co-#{$c}-o-ss) !important;
-        background-color: var(--co-#{$c}-o-xs);
+          inset 0 0 0 1px var(--co-#{$c}-ml),
+          0 0 0 2px var(--co-#{$c}-ss) !important;
+        background-color: var(--co-#{$c}-xs);
       }
 
       &[ui-form~='co:hover:#{$c}'] {
         &:hover {
           color: var(--co-#{$c}-text);
           box-shadow:
-            inset 0 0 0 1px var(--co-#{$c}-o-ml),
-            0 0 0 2px var(--co-#{$c}-o-ss) !important;
-          background-color: var(--co-#{$c}-o-xs);
+            inset 0 0 0 1px var(--co-#{$c}-ml),
+            0 0 0 2px var(--co-#{$c}-ss) !important;
+          background-color: var(--co-#{$c}-xs);
         }
       }
 
@@ -124,9 +124,9 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
         &:focus-within {
           color: var(--co-#{$c}-text);
           box-shadow:
-            inset 0 0 0 1px var(--co-#{$c}-o-ml),
-            0 0 0 2px var(--co-#{$c}-o-ss) !important;
-          background-color: var(--co-#{$c}-o-xs);
+            inset 0 0 0 1px var(--co-#{$c}-ml),
+            0 0 0 2px var(--co-#{$c}-ss) !important;
+          background-color: var(--co-#{$c}-xs);
         }
       }
     }

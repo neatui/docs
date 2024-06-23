@@ -1,89 +1,96 @@
-$default: (
-  '_sys': (
-    main: #d52932,
-    vice: #67337d,
-    text: #111,
-    fore: #fff,
-    back: #f7f7f7,
-    land: #ff9900,
-    link: #0d66d0,
-    code: #e23861,
-    well: #4bbc73,
-    warn: #fb9a2a,
-    risk: #f95850,
-    info: #0889e4
+// 兜底
+$theme: if(
+  global-variable-exists(theme),
+  $theme,
+  (
+    _sys: (
+      main: #0889e4,
+      text: #000000,
+      fore: #ffffff,
+      back: #f5f5f5,
+      link: #d07950,
+      code: #e23861,
+      well: #4bbc73,
+      warn: #fb9a2a,
+      risk: #f95850
+    )
   )
 );
 
 // 检测
 @if (global-variable-exists(theme)) {
-  // 检测关键的基础颜色是否完整
+  $fa: map-keys($theme);
+  $fk: nth($fa, 1);
+  @if (length($fa) == 1 and $fk == _sys) {
+    @warn '检测到您未定义主题色卡，请遵循 neatui 设计规范建立主题色卡；https://neatui.fekit.cn/#/docs/config';
+    @debug '尝试修复错误...';
+    @debug '创建系统默认色卡[theme=_sys]';
+  } @else {
+    @debug '检测到主题色卡[theme=#{$fk}]';
+  }
+
   @each $var in $theme {
     $n: nth($var, 1);
     $s: nth($var, 2);
-    @debug '检测到主题色卡[theme=#{$n}]';
-
-    // @debug '检查主题关键颜色是否完整!';
-    $baseColor: 'main', 'text', 'fore', 'back', 'link', 'code', 'well', 'warn', 'risk', 'info';
-    @each $baseColorItem in $baseColor {
-      @if (map-has-key($s, $baseColorItem)) {
-      } @else {
-        @error '[theme=#{$n}]主题缺少一个关键的基础颜色#{$baseColorItem}';
+    @if ($s and type-of($s) == 'map') {
+      $baseColor: 'main', 'text', 'fore', 'back', 'link', 'code', 'well', 'warn', 'risk';
+      @each $baseColorItem in $baseColor {
+        @if (map-has-key($s, $baseColorItem)) {
+        } @else {
+          @warn '[theme=#{$n}]主题缺少一个关键的基础颜色#{$baseColorItem}';
+        }
       }
+    } @else {
+      @debug '[theme=#{$n}]主题色卡配置错误';
     }
   }
-} @else {
-  @debug '未定义基础色卡，请遵循MCUI设计规范建立主题色卡；https://mcui.asnowsoft.com/#/start/design';
-  @debug '尝试修复错误...';
-  @debug '创建系统默认色卡[theme=_sys]';
-  $theme: $default !global;
 }
 
 // 扩展颜色
 @each $i in $theme {
   $n: nth($i, 1);
   $s: nth($i, 2);
-  $m: (
-    none: transparent,
-    w: #ffffff,
-    b: #000000,
-    read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
-    desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
-    note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
-    idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
-    case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
-    line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
-    weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
-    // deep:
-    //   rgb(
-    //     red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
-    //     green(map-get($s, 'back')) - (green(map-get($s, 'back')) * 0.05 + 5),
-    //     blue(map-get($s, 'back')) - (blue(map-get($s, 'back')) * 0.05 + 5)
-    //   ),
-  );
-  // 将扩展颜色加入放题色卡中
-  $theme: map-merge(
-    $theme,
-    (
-      $n: map-merge($m, $s)
-    )
-  ) !global;
+  @if ($s and type-of($s) == 'map') {
+    $m: (
+      none: transparent,
+      w: #ffffff,
+      b: #000000,
+      read: mix(map-get($s, 'text'), map-get($s, 'fore'), 75%),
+      desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
+      note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
+      idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
+      case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
+      line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
+      weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
+      // deep:
+      //   rgb(
+      //     red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
+      //     green(map-get($s, 'back')) - (green(map-get($s, 'back')) * 0.05 + 5),
+      //     blue(map-get($s, 'back')) - (blue(map-get($s, 'back')) * 0.05 + 5)
+      //   ),
+    );
+    // 将扩展颜色加入放题色卡中
+    $theme: map-merge(
+      $theme,
+      (
+        $n: map-merge($m, $s)
+      )
+    );
+  }
 }
 
 // 主题
-@mixin theme($themeName: null) {
-  $hasTheme: map-get($theme, $themeName);
-  @if ($themeName != null) {
+@mixin theme($n: null) {
+  $hasTheme: map-get($theme, $n);
+  @if ($n != null) {
     @if ($hasTheme != null) {
       $t: $hasTheme;
       $first: nth(nth($theme, 1), 1);
-      $n: $themeName;
-      $this: #{nth(&, 1)};
-      @if ($this == 'html' or $this == '' or $this == null) {
+      $n: $n;
+      $s: #{nth(&, 1)};
+      @if ($s == 'html' or $s == '' or $s == null) {
         @if ($n == $first) {
-          @at-root html,
-            [theme],
-            [theme='#{$n}'] {
+          @at-root html {
             @content;
           }
         } @else {
@@ -101,18 +108,17 @@ $default: (
         }
       }
     } @else {
-      @debug '没有指定主题#{$hasTheme}';
+      @warn '没有指定主题#{$hasTheme}';
     }
   } @else {
     $first: nth(nth($theme, 1), 1);
     @each $t in $theme {
       $n: nth($t, 1);
-      $this: #{nth(&, 1)};
-      @if ($this == 'html' or $this == ':root' or $this == '' or $this == null) {
+      $s: #{nth(&, 1)};
+
+      @if ($s == 'html' or $s == ':root' or $s == '' or $s == null) {
         @if ($n == $first) {
-          @at-root html,
-            [theme],
-            [theme='#{$n}'] {
+          @at-root html {
             @content;
           }
         } @else {
@@ -143,7 +149,6 @@ $default: (
       $n: nth(nth($theme, 1), 1);
       $s: nth(nth($theme, 1), 2);
     }
-
     @if ($s != null) {
       @if (map-has-key($s, $a)) {
         $a: map-get($s, $a);
@@ -152,13 +157,15 @@ $default: (
       }
     }
     @return $a;
+  } @else {
+    @return transparent;
   }
 }
 
 // 变量
 @mixin vars() {
-  $levels: xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl;
-  $colors: main, text, read, line, weak, fore, back, well, warn, risk;
+  $levels: xxs, xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl, xxl;
+  $colors: main, text, well, warn, risk;
 
   $f: nth(nth($theme, 1), 1);
   @each $i in $theme {
@@ -170,6 +177,17 @@ $default: (
           $k: nth($c, 1);
           $v: nth($c, 2);
           --co-#{$k}: #{$v};
+
+          $ls: 0.05;
+          @each $l in $levels {
+            // 透明度
+            --co-#{$k}-#{$l}: #{rgba($v, $ls)};
+            @if ($ls <= 0.15 or $ls >= 0.8) {
+              $ls: $ls + 0.05;
+            } @else {
+              $ls: $ls + 0.1;
+            }
+          }
         }
 
         // 文本颜色
@@ -177,28 +195,33 @@ $default: (
         --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
         --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
         --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
-        --co-line-fore: #{mix(map-get($s, 'line'), map-get($s, 'fore'), 50%)};
-        --co-weak-fore: #{mix(map-get($s, 'weak'), map-get($s, 'fore'), 50%)};
 
-        --bg-main: #{saturate(rgba(map-get($s, 'main'), 0.06), 20%)};
-        --bg-well: #{saturate(rgba(map-get($s, 'well'), 0.06), 20%)};
-        --bg-warn: #{saturate(rgba(map-get($s, 'warn'), 0.06), 20%)};
-        --bg-risk: #{saturate(rgba(map-get($s, 'risk'), 0.06), 20%)};
-        --bg-info: #{saturate(rgba(map-get($s, 'info'), 0.06), 20%)};
+        // --co-line-fore: #{mix(map-get($s, 'line'), map-get($s, 'fore'), 70%)};
+        // --bg-main: #{saturate(rgba(map-get($s, 'main'), 0.05), 20%)};
+        // --bg-weak: #{mix(map-get($s, 'weak'), map-get($s, 'fore'), 75%)};
+        // --bg-well: #{saturate(rgba(map-get($s, 'well'), 0.05), 20%)};
+        // --bg-warn: #{saturate(rgba(map-get($s, 'warn'), 0.05), 20%)};
+        // --bg-risk: #{saturate(rgba(map-get($s, 'risk'), 0.05), 20%)};
+        // --bg-info: #{saturate(rgba(map-get($s, 'info'), 0.05), 20%)};
+        // --bg-well: #{rgba(map-get($s, 'well'), 0.08)};
+        // --bg-warn: #{rgba(map-get($s, 'warn'), 0.08)};
+        // --bg-risk: #{rgba(map-get($s, 'risk'), 0.08)};
 
-        @each $k in $colors {
-          $v: map-get($s, $k);
-          $ls: 0.05;
-          @each $l in $levels {
-            // 透明度
-            --co-#{$k}-o-#{$l}: #{rgba($v, $ls)};
-            @if ($ls == 0.05 or $ls == 0.9) {
-              $ls: $ls + 0.05;
-            } @else {
-              $ls: $ls + 0.1;
-            }
-          }
-        }
+        // @each $k in $colors {
+        //   $v: map-get($s, $k);
+        //   $ls: 0.05;
+        //   @each $l in $levels {
+        //     // 透明度
+        //     --co-#{$k}-#{$l}: #{rgba($v, $ls)};
+        //     // 增亮度
+        //     --bg-#{$k}-#{$l}: #{saturate(rgba($v, $ls), 20%)};
+        //     @if ($ls == 0.05 or $ls == 0.9) {
+        //       $ls: $ls + 0.05;
+        //     } @else {
+        //       $ls: $ls + 0.1;
+        //     }
+        //   }
+        // }
       }
     } @else {
       [theme~='#{$n}'] {
@@ -206,21 +229,40 @@ $default: (
           $k: nth($c, 1);
           $v: nth($c, 2);
           --co-#{$k}: #{$v};
-        }
 
-        @each $k in $colors {
-          $v: map-get($s, $k);
           $ls: 0.05;
           @each $l in $levels {
             // 透明度
-            --co-#{$k}-o-#{$l}: #{rgba($v, $ls)};
-            @if ($ls == 0.05 or $ls == 0.9) {
+            --co-#{$k}-#{$l}: #{rgba($v, $ls)};
+            @if ($ls <= 0.15 or $ls >= 0.8) {
               $ls: $ls + 0.05;
             } @else {
               $ls: $ls + 0.1;
             }
           }
         }
+
+        // 文本颜色
+        --co-main-text: #{mix(map-get($s, 'main'), map-get($s, 'text'), 85%)};
+        --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
+        --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
+        --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
+
+        // @each $k in $colors {
+        //   $v: map-get($s, $k);
+        //   $ls: 0.05;
+        //   @each $l in $levels {
+        //     // 透明度
+        //     --co-#{$k}-#{$l}: #{rgba($v, $ls)};
+        //     // 增亮度
+        //     --bg-#{$k}-#{$l}: #{saturate(rgba($v, $ls), 20%)};
+        //     @if ($ls == 0.05 or $ls == 0.9) {
+        //       $ls: $ls + 0.05;
+        //     } @else {
+        //       $ls: $ls + 0.1;
+        //     }
+        //   }
+        // }
       }
     }
   }

@@ -7,8 +7,8 @@ html {
 @mixin color($n, $v) {
   .co-#{$n},
   .hover\:co-#{$n}:hover {
-    color: #{$v} !important;
-    fill: #{$v} !important;
+    color: var(--co-#{$n}, #{$v}) !important;
+    fill: var(--co-#{$n}, #{$v}) !important;
   }
   // 透明度
   .co-#{$n}\+o-xs,

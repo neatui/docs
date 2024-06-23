@@ -1,6 +1,6 @@
 @use 'sass:math';
 $size: xs, s, m, l, xl;
-$type: none, main, vice, text, link, read, note, case, line, var(--co-weak), back, info, well, warn, risk, w, b;
+$type: none, main, text, link, read, note, case, line, weak, back, info, well, warn, risk, w, b;
 
 // 基础
 %btnBase {
@@ -23,9 +23,7 @@ $type: none, main, vice, text, link, read, note, case, line, var(--co-weak), bac
     white-space: nowrap;
     color: inherit;
     box-shadow: inset 0 0 0 1px currentColor;
-    // @include theme {
     background: co(var(--co-weak));
-    // }
   }
 
   & > * {
@@ -43,12 +41,6 @@ body [ui-btn~='@a'] {
   // 基础样式
   @extend %btnBase;
 
-  // &[ui-btn~=':flex'] {
-  //   display: inline-flex;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
-
   // 绝对尺寸
   &[ui-btn~=':abs'] {
     height: 2.5rem;
@@ -63,11 +55,9 @@ body [ui-btn~='@a'] {
 
   // 移入状态
   &:hover {
-    // @include theme {
     box-shadow:
       inset 0 0 0 1px var(--co-line),
-      inset 0 0 0 100em var(--co-text-o-xs);
-    // }
+      inset 0 0 0 100em var(--co-text-xs);
   }
 
   // 按下状态
@@ -184,43 +174,31 @@ body [ui-btn~='@a'] {
       box-shadow: inset 0 0 0 1px transparent;
 
       &:hover {
-        // @include theme {
         box-shadow:
           inset 0 0 0 1px transparent,
-          inset 0 0 0 100em var(--co-text-o-xs);
-        // }
+          inset 0 0 0 100em var(--co-text-xs);
       }
 
       // 边框式
       &[ui-btn~=':border'] {
         background: transparent;
         @if ($name == 'line' or $name == 'case') {
-          // @include theme {
           color: var(--co-read);
-          // }
         } @else {
-          // @include theme {
           color: var(--co-#{$name});
-          // }
         }
-        // @include theme {
         box-shadow: inset 0 0 0 1px var(--co-#{$name});
-        // }
 
         &:hover {
-          // @include theme {
           box-shadow:
             inset 0 0 0 1px var(--co-#{$name}),
-            inset 0 0 0 100em var(--co-#{$name}-o-xs);
-          // }
+            inset 0 0 0 100em var(--co-#{$name}-xs);
         }
       }
 
       // 下划线
       &[ui-btn~=':underline'] {
-        // @include theme {
         color: var(--co-#{$name});
-        // }
         background: transparent;
         box-shadow: inset 0 0 0 1px transparent;
 
@@ -293,7 +271,7 @@ body [ui-btn~='@a'] {
   & > *:hover {
     box-shadow:
       inset 0 0 0 1px var(--co-line),
-      inset 0 0 0 100em var(--co-text-o-xs);
+      inset 0 0 0 100em var(--co-text-xs);
   }
 
   // 按下状态
@@ -334,7 +312,6 @@ body [ui-btn~='@a'] {
     &[ui-btns~='#{$i}'] {
       & > * {
         height: #{$base}em;
-        // line-height: #{$base}em;
         padding: 0 #{calc(($base - 0.5) / 2)}em;
       }
 
@@ -346,7 +323,6 @@ body [ui-btn~='@a'] {
 
       &[ui-btns~=':abs'] > * {
         height: #{$base}rem;
-        // line-height: #{$base}rem;
         padding: 0 #{calc(($base - 0.5) / 2)}rem;
       }
     }
@@ -355,7 +331,6 @@ body [ui-btn~='@a'] {
       &[ui-btns~='mob-#{$i}'] {
         & > * {
           height: #{$base}em;
-          // line-height: #{$base}em;
           padding: 0 #{calc(($base - 0.5) / 2)}em;
         }
 
@@ -367,7 +342,6 @@ body [ui-btn~='@a'] {
 
         &[ui-btns~=':abs'] > * {
           height: #{$base}rem;
-          // line-height: #{$base}rem;
           padding: 0 #{calc(($base - 0.5) / 2)}rem;
         }
       }
@@ -376,7 +350,6 @@ body [ui-btn~='@a'] {
       &[ui-btns~='pad-#{$i}'] {
         & > * {
           height: #{$base}em;
-          // line-height: #{$base}em;
           padding: 0 #{calc(($base - 0.5) / 2)}em;
         }
 
@@ -388,7 +361,6 @@ body [ui-btn~='@a'] {
 
         &[ui-btns~=':abs'] > * {
           height: #{$base}rem;
-          // line-height: #{$base}rem;
           padding: 0 #{calc(($base - 0.5) / 2)}rem;
         }
       }
@@ -401,27 +373,21 @@ body [ui-btn~='@a'] {
   @each $name in $type {
     &[ui-btns~='#{$name}'] {
       & > * {
-        @if ($name == 'none' or $name == 'var(--co-weak)' or $name == 'back') {
-          // @include theme {
+        @if ($name == 'none' or $name == 'weak' or $name == 'back') {
           background: var(--co-#{$name});
-          // }
           color: inherit;
         } @else {
-          // @include theme {
           // 背景色
           background: var(--co-#{$name});
           color: var(--co-fore);
-          // }
         }
 
         box-shadow: inset 0 0 0 1px transparent;
 
         &:hover {
-          // @include theme {
           box-shadow:
             inset 0 0 0 1px transparent,
-            inset 0 0 0 100em var(--co-text-o-xs);
-          // }
+            inset 0 0 0 100em var(--co-text-xs);
         }
       }
 
@@ -429,32 +395,22 @@ body [ui-btn~='@a'] {
       &[ui-btns~=':border'] > * {
         background: transparent;
         @if ($name == 'line') {
-          // @include theme {
           color: var(--co-read);
-          // }
         } @else {
-          // @include theme {
           color: var(--co-#{$name});
-          // }
         }
-        // @include theme {
         box-shadow: inset 0 0 0 1px var(--co-#{$name});
-        // }
 
         &:hover {
-          // @include theme {
           box-shadow:
             inset 0 0 0 1px var(--co-#{$name}),
-            inset 0 0 0 100em var(--co-#{$name}-o-xs);
-          // }
+            inset 0 0 0 100em var(--co-#{$name}-xs);
         }
       }
 
       // 下划线
       &[ui-btns~=':underline'] > * {
-        // @include theme {
         color: var(--co-#{$name});
-        // }
         background: transparent;
         box-shadow: inset 0 0 0 1px transparent;
 

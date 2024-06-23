@@ -60,7 +60,7 @@
 
   &[ui-navs~='back'] {
     & > * {
-      color: var(--co-back--o-ll);
+      color: var(--co-back--ll);
 
       &.active {
         & > *:first-child {

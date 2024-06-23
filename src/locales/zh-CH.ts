@@ -37,6 +37,7 @@ export default {
   'docs.style': '样式',
   'docs.version': '版本',
   'docs.change-log': '更新日志',
+  'docs.example': '示例',
 
   'components.calendar': 'Calendar 日历',
   'components.cascader': 'Cascader 级联选择',

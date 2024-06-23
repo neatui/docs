@@ -68,7 +68,7 @@
 
   &[ui-navs~='back'] {
     & > * {
-      color: var(--co-back-o-ls);
+      color: var(--co-back-ls);
 
       &.active {
         & > *:first-child {

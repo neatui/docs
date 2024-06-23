@@ -1,6 +1,6 @@
 @use 'sass:math';
 $size: 'xs', 's', 'm', 'l', 'xl';
-$type: 'none', 'main', 'vice', 'text', 'read', 'weak', 'back', 'info', 'well', 'warn', 'risk';
+$type: 'none', 'main', 'text', 'read', 'weak', 'back', 'info', 'well', 'warn', 'risk';
 
 // 按钮
 [ui-btn~='@c'] {

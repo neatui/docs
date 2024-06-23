@@ -1,6 +1,11 @@
 <template>
   <div class="b-solid b-line b-xs r-sm">
-    <div class="codeview-view n-ms r-sm" v-bind="{ ...(scroll ? { 'ui-scroll': ':x :y' } : {}) }"><slot></slot></div>
+    <div class="n-ms r-sm" v-bind="{ ...(scroll ? { 'ui-scroll': ':x :y' } : {}) }">
+      <h5 class="mb-sm">{{ title }}</h5>
+      <div class="codeview-view">
+        <slot></slot>
+      </div>
+    </div>
     <div class="codeview-tool fs-ss b-solid b-back bt-xs ny-xs" ui-flex="row cm">
       <div ui-btn="@a s none :square" @click="state.view = !state.view"><i class="icon icon-code"></i></div>
     </div>
@@ -16,6 +21,10 @@
 
   const props: any = defineProps({
     file: {
+      type: String,
+      default: ''
+    },
+    title: {
       type: String,
       default: ''
     },
@@ -51,8 +60,9 @@
 
   onMounted(() => {
     if (props.file) {
+      const file = `/docs/en-US${props.file}`;
       axios
-        .get(props.file)
+        .get(file)
         .then((response) => {
           code.value = md.render(response.data);
         })
@@ -64,3 +74,9 @@
     }
   });
 </script>
+<style lang="scss">
+  .codeview-view {
+    background-image: linear-gradient(-45deg, var(--co-line) 12.5%, var(--co-fore) 0, var(--co-fore) 50%, var(--co-line) 0, var(--co-line) 62.5%, var(--co-fore) 0, var(--co-fore));
+    background-size: 3px 3px;
+  }
+</style>

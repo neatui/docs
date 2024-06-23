@@ -61,7 +61,7 @@ $co: 'info', 'well', 'warn', 'risk';
       border-radius: 50%;
       flex-shrink: 0;
 
-      background-color: var(--co-weak-fore);
+      background-color: var(--bg-weak);
 
       &:checked {
         background-image: radial-gradient(circle at 50% 50%, currentColor 38%, transparent 40%);

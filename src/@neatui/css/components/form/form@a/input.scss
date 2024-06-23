@@ -44,15 +44,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       // @include theme {
       //   border: 1px solid rgba(var(--co-main), 0.5);
       // }
-      border: 1px solid var(--co-main-o-mm);
+      border: 1px solid var(--co-main-mm);
     }
 
     &.form-focus,
     &:focus-within {
       // @include theme {
       background-color: var(--co-fore);
-      border: 1px solid var(--co-main-o-sl);
-      box-shadow: 0 0 0 2px var(--co-main-o-ss);
+      border: 1px solid var(--co-main-sl);
+      box-shadow: 0 0 0 2px var(--co-main-ss);
       // }
     }
 
@@ -90,7 +90,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       }
 
       &::placeholder {
-        color: var(--co-read-o-sl);
+        color: var(--co-read-sl);
       }
     }
 
@@ -131,11 +131,11 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
           //   color: var(--co-#{$c}-text);
           // }
           color: var(--co-#{$c}-text);
-          border: 1px solid var(--co-#{$c}-o-ml);
+          border: 1px solid var(--co-#{$c}-ml);
         }
 
         &:focus-within {
-          box-shadow: 0 0 0 2px var(--co-#{$c}-o-ss) !important;
+          box-shadow: 0 0 0 2px var(--co-#{$c}-ss) !important;
         }
       }
     }

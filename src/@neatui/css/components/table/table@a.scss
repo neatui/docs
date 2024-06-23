@@ -38,7 +38,7 @@
     th,
     td {
       // @include theme {
-        border-bottom: 1px solid var(--co-line);
+      border-bottom: 1px solid var(--co-line);
       // }
       padding: 0.75em 1em;
 
@@ -210,7 +210,7 @@
         // @include theme {
         //   background-color: rgba(co(weak), 0.5);
         // }
-        background-color: var(-co-weak-o-mm);
+        background-color: var(-co-weak-mm);
       }
     }
   }

@@ -36,15 +36,15 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     }
 
     &:hover {
-      box-shadow: inset 0 -1px 0 0 var(--co-main-o-mm);
+      box-shadow: inset 0 -1px 0 0 var(--co-main-mm);
     }
 
     &.form-focus,
     &:focus-within {
       background-color: co(fore);
       box-shadow:
-        inset 0 -1px 0 0 var(--co-main-o-mm),
-        0 2px 0 0 var(--co-main-o-ss);
+        inset 0 -1px 0 0 var(--co-main-mm),
+        0 2px 0 0 var(--co-main-ss);
     }
 
     input {
@@ -79,7 +79,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       }
 
       &::-webkit-input-placeholder {
-        color: var(--co-read-o-mm);
+        color: var(--co-read-mm);
       }
     }
 
@@ -106,16 +106,16 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
       &[ui-form~='co:#{$c}'] {
         color: var(--co-#{$c}-text);
         box-shadow:
-          inset 0 -1px 0 0 var(--co-#{$c}-o-ml),
-          0 2px 0 0 var(--co-#{$c}-o-ss) !important;
+          inset 0 -1px 0 0 var(--co-#{$c}-ml),
+          0 2px 0 0 var(--co-#{$c}-ss) !important;
       }
 
       &[ui-form~='co:hover:#{$c}'] {
         &:hover {
           color: var(--co-#{$c}-text);
           box-shadow:
-            inset 0 -1px 0 0 var(--co-#{$c}-o-ml),
-            0 2px 0 0 var(--co-#{$c}-o-ss) !important;
+            inset 0 -1px 0 0 var(--co-#{$c}-ml),
+            0 2px 0 0 var(--co-#{$c}-ss) !important;
         }
       }
 
@@ -123,8 +123,8 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
         &:focus-within {
           color: var(--co-#{$c}-text);
           box-shadow:
-            inset 0 -1px 0 0 var(--co-#{$c}-o-ml),
-            0 2px 0 0 var(--co-#{$c}-o-ss) !important;
+            inset 0 -1px 0 0 var(--co-#{$c}-ml),
+            0 2px 0 0 var(--co-#{$c}-ss) !important;
         }
       }
     }

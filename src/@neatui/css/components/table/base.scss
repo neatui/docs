@@ -26,7 +26,7 @@
         // @include theme {
         //   box-shadow: inset 5px 0 5px -5px rgba(co(text), 0.15);
         // }
-        box-shadow: inset 5px 0 5px -5px var(--co-text-o-ss);
+        box-shadow: inset 5px 0 5px -5px var(--co-text-ss);
       }
     }
     &[col-fixed-side='r'] {
@@ -42,7 +42,7 @@
         // @include theme {
         //   box-shadow: inset -5px 0 5px -5px rgba(co(text), 0.15);
         // }
-        box-shadow: inset -5px 0 5px -5px var(--co-text-o-ss);
+        box-shadow: inset -5px 0 5px -5px var(--co-text-ss);
       }
     }
   }
@@ -105,9 +105,9 @@
     // @include theme {
     background: var(--co-fore);
     box-shadow:
-      0 1px 0 var(--co-weak-o-sm),
-      0 2px 0 var(--co-weak-o-sm),
-      0 3px 0 var(--co-weak-o-sm);
+      0 1px 0 var(--co-line-sm),
+      0 2px 0 var(--co-line-sm),
+      0 3px 0 var(--co-line-sm);
     // }
     position: sticky;
     top: 0;

@@ -5,18 +5,17 @@ $cos: 'main', 'well', 'warn', 'risk', 'info';
     width: 100%;
     padding: 0.5em 1em;
     border-radius: 0.25rem;
-
     color: var(--co-read);
-    box-shadow: inset 0 0 0 1px var(--co-line);
-    background: var(--co-weak);
+    box-shadow: inset 0 0 0 1px var(--co-read-sl);
+    background: var(--co-read-xs);
   }
 
   // 颜色
   @each $co in $cos {
     &[ui-note~='#{$co}'] {
-      color: var(--co-#{$co}-text);
-      box-shadow: inset 0 0 0 1px var(--co-#{$co}-o-sl);
-      background: var(--bg-#{$co});
+      color: var(--co-#{$co});
+      box-shadow: inset 0 0 0 1px var(--co-#{$co}-sl);
+      background: var(--co-#{$co}-xs);
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div :am-view="view" :am-mode="mode" class="iroute-view pr full bg-back" :view-full="full ? 1 : 0" @animationend="anim">
+  <div :am-view="view" :am-mode="mode" class="iroute-view pr full" :view-full="full ? 1 : 0" @animationend="anim">
     <div :class="listClass" :style="listStyle" am-view-item="list">
       <slot name="list" :mode="mode"></slot>
     </div>

@@ -8,9 +8,8 @@
       <h2>代码演示</h2>
       <ul ui-row="space mob-24">
         <li>
-          <CodeView file="/components/Input/Input.md">
-            <h5>基础用法</h5>
-            <div class="bg-weak nx-ms nt-ms">
+          <CodeView title="基础用法" file="/components/Input/Input.md">
+            <div class="nx-ms nt-ms">
               <div class="bg-fore r-sm n-ms" ui-flex="row lm">
                 <span class="mr-sm">模式：</span>
                 <form name="form1" class="mr-sl-sub">

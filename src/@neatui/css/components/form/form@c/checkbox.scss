@@ -61,7 +61,7 @@ $co: 'info', 'well', 'warn', 'risk';
       transform: scale3d(0.9, 0.9, 1);
       flex-shrink: 0;
 
-      background-color: var(--co-weak-fore);
+      background-color: var(--bg-weak);
 
       &:checked {
         background:

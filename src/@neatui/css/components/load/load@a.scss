@@ -28,14 +28,14 @@
       border-radius: 1em;
       color: var(--co-text);
       box-shadow:
-        -1em 0 var(--co-text-o-ls),
-        1em 0 var(--co-text-o-sl),
-        0 1em var(--co-text-o-mm),
-        0 -1em var(--co-text-o-ll),
-        -0.7em 0.7em var(--co-text-o-ml),
+        -1em 0 var(--co-text-ls),
+        1em 0 var(--co-text-sl),
+        0 1em var(--co-text-mm),
+        0 -1em var(--co-text-ll),
+        -0.7em 0.7em var(--co-text-ml),
         0.7em -0.7em var(--co-text),
-        -0.7em -0.7em var(--co-text-o-lm),
-        0.7em 0.7em var(--co-text-o-ms);
+        -0.7em -0.7em var(--co-text-lm),
+        0.7em 0.7em var(--co-text-ms);
 
       transform: rotate3d(0, 0, 1, 6deg) scale(0.45);
     }

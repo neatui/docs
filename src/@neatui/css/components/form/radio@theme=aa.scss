@@ -49,12 +49,8 @@
 .ui-radio > input + * {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
+  -transition: all 0.3s;
   transition: all 0.3s;
-}
-.ui-radio[data-co='vice'] > input:checked + * {
-  background: #ffba46;
-  border: 1px solid #ffa81b;
 }
 .ui-radio[data-co='success'] > input:checked + * {
   background: #7cd22b;

@@ -9,7 +9,7 @@
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/installation">{{ words['docs.installation'] || 'Installation' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/design">{{ words['docs.design'] || 'Design' }}</RouterLink>
         <span class="o-mm fs-xs bold mt-sl">{{ words['docs.style'] || 'Style' }}</span>
-        <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/basics">{{ words['docs.basics'] || 'Basics' }}</RouterLink>
+        <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/basics">{{ words['docs.basic'] || 'Basic' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/color">{{ words['docs.color'] || 'Color' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/fontsize">{{ words['docs.fontsize'] || 'Font size' }}</RouterLink>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/layout">{{ words['docs.layout'] || 'Layout' }}</RouterLink>

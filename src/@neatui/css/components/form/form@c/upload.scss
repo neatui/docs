@@ -26,7 +26,7 @@
       border-width: 1px;
 
       border-color: var(--co-line);
-      background-color: var(--co-weak-fore);
+      background-color: var(--bg-weak);
     }
 
     @keyframes am-file-add {
@@ -70,7 +70,7 @@
           top: 0;
           left: 0;
 
-          background-color: var(--co-weak-fore);
+          background-color: var(--bg-weak);
         }
 
         img,
@@ -88,7 +88,7 @@
           width: 100%;
           height: 100%;
 
-          background-color: var(--co-fore-o-lm);
+          background-color: var(--co-fore-lm);
 
           top: 0;
           right: 0;
@@ -146,7 +146,7 @@
         opacity: 0;
 
         &:-webkit-autofill {
-          box-shadow: 0 0 0 1000px var(--co-weak-fore) inset;
+          box-shadow: 0 0 0 1000px var(--bg-weak) inset;
         }
       }
     }

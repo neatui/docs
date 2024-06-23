@@ -1,6 +1,6 @@
 @use 'sass:math';
 $size: 'xs', 's', 'm', 'l', 'xl';
-$type: 'none', 'main', 'vice', 'text', 'read', 'weak', 'back', 'info', 'well', 'warn', 'risk';
+$type: 'none', 'main', 'text', 'read', 'weak', 'back', 'info', 'well', 'warn', 'risk';
 
 // 按钮
 [ui-btn~='@b'] {
@@ -54,7 +54,7 @@ $type: 'none', 'main', 'vice', 'text', 'read', 'weak', 'back', 'info', 'well', '
     // @include theme {
     box-shadow:
       inset 0 0 0 1px var(--co-line),
-      inset 0 0 0 100em var(--co-text-o-xs);
+      inset 0 0 0 100em var(--co-text-xs);
     // }
   }
 

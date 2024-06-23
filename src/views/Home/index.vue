@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home full bg-home">
     <div class="home-anim pa z-xs">
       <div class="am-decoration"></div>
     </div>

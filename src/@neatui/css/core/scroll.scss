@@ -6,7 +6,7 @@
     // @include theme {
     //   scrollbar-color: rgba(co(text), 0.15) transparent;
     // }
-    scrollbar-color: var(--co-text-o-ss) transparent;
+    scrollbar-color: var(--co-text-ss) transparent;
 
     &::-webkit-scrollbar {
       position: absolute;
@@ -21,7 +21,7 @@
       // @include theme {
       //   background-color: rgba(co(text), 0.15) !important;
       // }
-      background-color: var(--co-text-o-ss) !important;
+      background-color: var(--co-text-ss) !important;
       background-clip: content-box;
     }
 
@@ -104,7 +104,7 @@
   // @include theme {
   //   background-color: rgba(co(text), 0.15) !important;
   // }
-  background-color: var(--co-text-o-ss) !important;
+  background-color: var(--co-text-ss) !important;
 }
 
 @include med('>mob') {
@@ -116,7 +116,7 @@
       // @include theme {
       //   scrollbar-color: rgba(co(text), 0.15) transparent;
       // }
-      scrollbar-color: var(--co-text-o-ss) transparent;
+      scrollbar-color: var(--co-text-ss) transparent;
 
       &::-webkit-scrollbar {
         position: absolute;
@@ -131,7 +131,7 @@
         // @include theme {
         //   background-color: rgba(co(text), 0.15) !important;
         // }
-        background-color: var(--co-text-o-ss) !important;
+        background-color: var(--co-text-ss) !important;
         background-clip: content-box;
       }
 

@@ -1,4 +1,4 @@
-$co: 'none', 'main', 'vice', 'text', 'read', 'note', 'line', 'case', 'weak', 'fore', 'back', 'info', 'well', 'warn', 'risk';
+$co: 'none', 'main', 'text', 'read', 'note', 'line', 'case', 'weak', 'fore', 'back', 'info', 'well', 'warn', 'risk';
 $sz: 'xs', 's', 'm', 'l', 'xl';
 
 @mixin card_a($name: 'ui-card', $group: 0, $path: '') {
@@ -71,7 +71,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
           padding 0.35s,
           margin 0.35s;
         // @include theme {
-        background: var(--co-fore-o-lm);
+        background: var(--co-fore-lm);
         // }
         padding: 1em 1.5em;
         margin-bottom: 1px;
@@ -103,7 +103,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     [ui-card-head] {
       // margin-bottom: 2px;
       // @include theme {
-      border-bottom: 2px solid var(--co-back-o-ls);
+      border-bottom: 2px solid var(--co-back-ls);
       // }
     }
 
@@ -111,7 +111,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     [ui-card-foot] {
       // margin-top: 1px;
       // @include theme {
-      border-top: 1px solid var(--co-back-o-ls);
+      border-top: 1px solid var(--co-back-ls);
       // }
     }
   }
@@ -135,14 +135,14 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     // 边框
     &[#{$name}~='bk:#{$i}']#{$path} {
       // @include theme {
-        border: 1px solid var(--co-#{$i});
+      border: 1px solid var(--co-#{$i});
       // }
     }
 
     // 颜色
     &[#{$name}~='co:#{$i}']#{$path} {
       // @include theme {
-        color: var(--co-#{$i});
+      color: var(--co-#{$i});
       // }
     }
   }
@@ -225,7 +225,7 @@ $sz: 'xs', 's', 'm', 'l', 'xl';
     z-index: 10;
     overflow: auto;
     // @include theme {
-      background-color: var(--co-back);
+    background-color: var(--co-back);
     // }
 
     [ui-card-body] {
