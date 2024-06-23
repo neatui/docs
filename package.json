@@ -51,6 +51,7 @@
     "core-js": "^3.35.0",
     "crypto-js": "^4.2.0",
     "echarts": "^5.5.0",
+    "markdown-it": "^14.1.0",
     "mockjs": "^1.1.0",
     "pinia": "^2.1.7",
     "regenerator-runtime": "^0.14.0",
