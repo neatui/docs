@@ -21,6 +21,7 @@
   import hljs from 'highlight.js';
   import 'highlight.js/styles/github.css';
   import { useBaseStore } from '@/store';
+  import * as monaco from 'monaco-editor';
 
   const base: any = useBaseStore();
 
