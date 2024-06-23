@@ -27,7 +27,7 @@
           </IFollowView> -->
           <RouterLink ui-btn="@a none s" active-class="co-main" to="/plugins">{{ words['menu.plugins'] || '插件' }}</RouterLink>
           <RouterLink ui-btn="@a none s" active-class="co-main" to="/templates">{{ words['menu.templates'] || '模板' }}</RouterLink>
-          <RouterLink ui-btn="@a none s" active-class="co-main" to="/blog">{{ words['menu.blog'] || '博客' }}</RouterLink>
+          <!-- <RouterLink ui-btn="@a none s" active-class="co-main" to="/tutorials">{{ words['menu.tutorials'] || '教程' }}</RouterLink> -->
           <!-- <a href="https://www.npmjs.com/search?q=%40mcui" target="_blank" ui-btn="@a none s"><span class="ux-link">NPM</span></a> -->
           <MoreLangs />
         </div>

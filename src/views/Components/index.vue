@@ -29,7 +29,7 @@
   import PageView from '@/views/modules/PageView.vue';
   import BodyView from '@/views/modules/BodyView.vue';
   import HeadView from '@/views/modules/HeadView.vue';
-  import FootView from '@/views/modules/FootView.vue';
+  // import FootView from '@/views/modules/FootView.vue';
   import { useBaseStore } from '@/store';
   const base: any = useBaseStore();
   const menus = base.menus.find((item: any) => item.name === 'Components')?.chlid || [];

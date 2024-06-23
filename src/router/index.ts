@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Home from '@/views/Home/index.vue';
 import Demo from '@/views/Demo/index.vue';
 import Cover from '@/views/Cover/index.vue';
-import Blog from '@/views/Blog/index.vue';
+import Tutorials from '@/views/Tutorials/index.vue';
 
 import Development from '@/views/Development/index.vue';
 
@@ -573,9 +573,9 @@ const routes: Array<RouteRecordRaw> = [
     children: []
   },
   {
-    path: '/blog',
-    name: 'blog',
-    component: Blog
+    path: '/tutorials',
+    name: 'Tutorials',
+    component: Tutorials
   },
   {
     path: '/demo',

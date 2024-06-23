@@ -21,6 +21,7 @@ export default {
   'menu.solutions': '方案',
   'menu.case': '案例',
   'menu.blog': '博客',
+  'menu.tutorials': '教程',
 
   'docs.introduction': '介绍',
   'docs.guides': '指南',

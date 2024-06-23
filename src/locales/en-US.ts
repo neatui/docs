@@ -21,6 +21,7 @@ export default {
   'menu.case': 'Cases',
   'menu.templates': 'Templates',
   'menu.blog': 'Blog',
+  'menu.tutorials': 'Tutorials',
 
   'docs.introduction': 'Introduction',
   'docs.guides': 'Guides',
