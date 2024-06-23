@@ -37,7 +37,7 @@ export default {
   'docs.style': 'Style',
   'docs.version': 'Version',
   'docs.change-log': 'Change log',
-  'docs.example': 'Example',
+  'docs.examples': 'Examples',
 
   'components.calendar': 'Calendar',
   'components.cascader': 'Cascader',
@@ -57,6 +57,7 @@ export default {
   'components.dataShow': 'Data',
   'components.fromComp': 'From',
   'components.button': 'Button',
+  'components.button.desc': 'Button is used to trigger some actions.',
   'components.floatButton': 'FloatButton',
   'components.icon': 'Icon',
   'components.typography': 'Typography',

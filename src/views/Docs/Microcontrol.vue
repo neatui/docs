@@ -1,5 +1,5 @@
 <template>
-  <DocFileLoader :file="`/docs/${base.lang}/Microcontrol.md`" />
+  <DocFileLoader :file="`/docs/Microcontrol.md`" />
 </template>
 <script setup lang="ts">
   import { DocFileLoader } from '@/components';

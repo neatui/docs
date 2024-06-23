@@ -11,7 +11,7 @@ import DocsIntroduction from '@/views/Docs/Introduction.vue';
 import DocsInstallation from '@/views/Docs/Installation.vue';
 
 import DocsDesign from '@/views/Docs/Design.vue';
-import DocsBasics from '@/views/Docs/Basics.vue';
+import DocsBasic from '@/views/Docs/Basic.vue';
 import DocsColor from '@/views/Docs/Color.vue';
 import DocsFontsize from '@/views/Docs/Fontsize.vue';
 import DocsLayout from '@/views/Docs/Layout.vue';
@@ -143,7 +143,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: 'introduction', name: 'DocsIntroduction', component: DocsIntroduction },
       { path: 'installation', name: 'DocsInstallation', component: DocsInstallation },
       { path: 'design', name: 'DocsDesign', component: DocsDesign },
-      { path: 'basics', name: 'DocsBasics', component: DocsBasics },
+      { path: 'basic', name: 'DocsBasic', component: DocsBasic },
       { path: 'color', name: 'DocsColor', component: DocsColor },
       { path: 'fontsize', name: 'DocsFontsize', component: DocsFontsize },
       { path: 'layout', name: 'DocsLayout', component: DocsLayout },

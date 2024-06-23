@@ -5,11 +5,10 @@
       <p>通过鼠标或键盘输入字符</p>
     </div>
     <div>
-      <h2>代码演示</h2>
+      <h2>{{ words['docs.examples'] || 'Examples' }}</h2>
       <ul ui-row="space mob-24 dpc-12">
         <li>
-          <CodeView file="/components/Input/Input.md">
-            <h5>基础用法</h5>
+          <CodeView title="" file="/components/Input/Basic.md">
             <div class="max-w-ls">
               <Input v-model="value1"> </Input>
             </div>

@@ -2,13 +2,13 @@
   <DocView>
     <div>
       <h1>{{ words['components.IRouterView'] || 'IRouterView' }}</h1>
-      <p>路由组件</p>
+      <DocFileLoader file="/components/IRouterView/index.md"></DocFileLoader>
     </div>
     <div>
       <h2>代码演示</h2>
       <ul ui-row="space mob-24">
         <li>
-          <CodeView title="基础用法" file="/components/Input/Input.md">
+          <CodeView file="/components/IRouterView/Basic.md">
             <div class="nx-ms nt-ms">
               <div class="bg-fore r-sm n-ms" ui-flex="row lm">
                 <span class="mr-sm">模式：</span>
@@ -72,7 +72,7 @@
 <script setup lang="ts">
   import { reactive } from 'vue';
   import { IRouterView } from '@neatui/vue';
-  import { DocView, CodeView } from '@/components';
+  import { DocView, DocFileLoader, CodeView } from '@/components';
   import { storeToRefs, useBaseStore } from '@/store';
   import ListView from './ListView.vue';
   import ItemView from './ItemView.vue';

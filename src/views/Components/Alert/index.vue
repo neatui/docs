@@ -5,7 +5,7 @@
       <p>Displays important alert messages.</p>
     </div>
     <div>
-      <h2>{{ words['docs.example'] || 'Example' }}</h2>
+      <h2>{{ words['docs.examples'] || 'Examples' }}</h2>
       <ul ui-row="space mob-24 dpc-12">
         <li>
           <CodeView :title="words['docs.basic'] || 'Basic'" file="/components/Alert/Basic.md">

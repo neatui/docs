@@ -1,5 +1,5 @@
 <template>
-  <DocFileLoader :file="`/docs/${base.lang}/Grid.md`" />
+  <DocFileLoader :file="`/docs/Grid.md`" />
 </template>
 <script setup lang="ts">
   import { DocFileLoader } from '@/components';

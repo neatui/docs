@@ -57,11 +57,12 @@
   });
 
   watch(
-    () => props.file,
+    [() => props.file, () => base.lang],
     () => {
       if (props.file) {
+        const file = `/docs/${base.lang}${props.file}`;
         axios
-          .get(props.file)
+          .get(file)
           .then((response) => {
             state.code = md.render(response.data);
 

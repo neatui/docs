@@ -1,5 +1,5 @@
 <template>
-  <DocFileLoader :file="`/docs/${base.lang}/Installation.md`" />
+  <DocFileLoader :file="`/docs/Installation.md`" />
 </template>
 <script setup lang="ts">
   import { DocFileLoader } from '@/components';

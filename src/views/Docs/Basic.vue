@@ -1,5 +1,5 @@
 <template>
-  <DocFileLoader :file="`/docs/${base.lang}/Basics.md`" />
+  <DocFileLoader :file="`/docs/Basic.md`" />
   <ul class="viewbar fs-ss flex-fixed n-ss-sub" ui-flex="row lm :wrap">
     <li :class="state.flex === 'row' ? 'co-main' : ''" ui-btn="@a none :square" @click="state.flex = 'row'"><code>row</code></li>
     <li :class="state.flex === 'col' ? 'co-main' : ''" ui-btn="@a none :square" @click="state.flex = 'col'"><code>col</code></li>

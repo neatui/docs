@@ -26,7 +26,7 @@ export default {
   'docs.guides': '指南',
   'docs.installation': '安装',
   'docs.design': '设计',
-  'docs.basics': '基础',
+  'docs.basic': '基础',
   'docs.color': '颜色',
   'docs.fontsize': '字号',
   'docs.interaction': '交互',
@@ -37,7 +37,7 @@ export default {
   'docs.style': '样式',
   'docs.version': '版本',
   'docs.change-log': '更新日志',
-  'docs.example': '示例',
+  'docs.examples': '示例',
 
   'components.calendar': 'Calendar 日历',
   'components.cascader': 'Cascader 级联选择',
@@ -58,6 +58,7 @@ export default {
   'components.fromComp': 'From 表单组件',
 
   'components.button': 'Button 按钮',
+  'components.button.desc': '按钮用来触发一些操作。',
   'components.floatButton': 'FloatButton 悬浮按钮',
   'components.icon': 'Icon 图标',
   'components.typography': 'Typography 排版',

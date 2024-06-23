@@ -2,18 +2,13 @@
   <DocView>
     <div>
       <h1>{{ words['components.button'] || 'Button' }}</h1>
-      <p>
-        一款扁平化风格的按钮组件。我们建议使用 <code class="co-code">button</code> 做为按钮标签，但是也可以向任意HTML元素设定
-        <code class="co-code">ui-btn="@a"</code> 来定义一个基础按钮。通过追加各种声明
-        <code class="co-code">ui-btn="@a s main :round"</code> 来定义按钮的大小，形态与主题颜色。这些声明可以进行任意组合，从而形成更多种按钮风格。
-      </p>
+      <p>{{ words['components.button.desc'] || 'Button is used to trigger some actions.' }}</p>
     </div>
     <div>
-      <h2>代码演示</h2>
+      <h2>{{ words['docs.examples'] || 'Examples' }}</h2>
       <ul ui-row="space mob-24">
         <li>
-          <CodeView file="/components/Input/Input.md">
-            <h5>基础用法</h5>
+          <CodeView :title="words['docs.basic'] || 'Basic'" file="/components/Input/Input.md">
             <div class="doc nb-mm-sub">
               <div>
                 <h3>默认按钮</h3>

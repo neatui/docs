@@ -1,7 +1,7 @@
 # Naive UI
 
-<p><code>Naive UI</code> consists of an atomic style library <code>@naiveui/css</code> and a component library <code>@naiveui/vue</code>. It aims to provide developers with a UI frontend architecture based on the quasi-standard design specification, featuring multi-theme switching, multi-level font size switching, and responsive multi-platform support. It boasts more precise dimension responsiveness and finer layout control capabilities than other frameworks. We are committed to building an ultimate front-end UI framework for an exceptional user experience.</p>
-<p><code>@naiveui/css</code> is a pure style library that can be used independently, but <code>@naiveui/vue</code> must be used based on <code>@naiveui/css</code>.</p>
+`Naive UI` consists of an atomic style library `@naiveui/css` and a component library `@naiveui/vue`. It aims to provide developers with a UI frontend architecture based on the quasi-standard design specification, featuring multi-theme switching, multi-level font size switching, and responsive multi-platform support. It boasts more precise dimension responsiveness and finer layout control capabilities than other frameworks. We are committed to building an ultimate front-end UI framework for an exceptional user experience.
+`@naiveui/css` is a pure style library that can be used independently, but `@naiveui/vue` must be used based on `@naiveui/css`.
 
 ## Features
 
@@ -9,8 +9,6 @@
 - Supports global multi-font size switching
 - More precise responsive control system
 - Finer layout fine-tuning system
-
-<br/>
 
 ## Example
 
