@@ -21,7 +21,7 @@
 
 技术交流QQ群：137972383、153965675
 
-Email: xiaojunbo@qq.com
+Email: [xiaojunbo@qq.com](xiaojunbo@qq.com)
 
 ## 许可
 
@@ -29,4 +29,4 @@ NeatUI基于[MIT license](https://opensource.org/license/MIT)开源协议！你�
 
 ## 贡献
 
-@Junbo
+[@Junbo](https://github.com/junboxiao)

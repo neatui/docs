@@ -26,6 +26,7 @@ export default {
   'docs.introduction': 'Introduction',
   'docs.guides': 'Guides',
   'docs.installation': 'Installation',
+  'docs.use': 'Use',
   'docs.design': 'Design',
   'docs.basic': 'Basic',
   'docs.color': 'Color',

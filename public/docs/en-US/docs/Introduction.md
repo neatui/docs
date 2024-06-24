@@ -20,7 +20,7 @@ If you encounter any issues during use, please feel free to contact me through t
 
 Technical Exchange QQ Group: 137972383, 153965675
 
-Email: xiaojunbo@qq.com
+Email: [xiaojunbo@qq.com](xiaojunbo@qq.com)
 
 ## License
 
@@ -28,4 +28,4 @@ NeatUI is based on the [MIT license](https://opensource.org/license/MIT) open so
 
 ## Contribution
 
-@Junbo
+[@Junbo](https://github.com/junboxiao)

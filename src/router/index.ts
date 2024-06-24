@@ -9,6 +9,7 @@ import Development from '@/views/Development/index.vue';
 import Docs from '@/views/Docs/index.vue';
 import DocsIntroduction from '@/views/Docs/Introduction.vue';
 import DocsInstallation from '@/views/Docs/Installation.vue';
+import DocUse from '@/views/Docs/Use.vue';
 
 import DocsDesign from '@/views/Docs/Design.vue';
 import DocsBasic from '@/views/Docs/Basic.vue';
@@ -142,6 +143,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: '', name: 'Docs', redirect: '/docs/introduction' },
       { path: 'introduction', name: 'DocsIntroduction', component: DocsIntroduction },
       { path: 'installation', name: 'DocsInstallation', component: DocsInstallation },
+      { path: 'use', name: 'DocsUse', component: DocUse },
       { path: 'design', name: 'DocsDesign', component: DocsDesign },
       { path: 'basic', name: 'DocsBasic', component: DocsBasic },
       { path: 'color', name: 'DocsColor', component: DocsColor },

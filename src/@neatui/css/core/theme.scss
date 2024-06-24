@@ -55,7 +55,7 @@ $theme: if(
       none: transparent,
       w: #ffffff,
       b: #000000,
-      read: mix(map-get($s, 'text'), map-get($s, 'fore'), 75%),
+      read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
       desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
       note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
       idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
@@ -176,6 +176,7 @@ $theme: if(
         @each $c in $s {
           $k: nth($c, 1);
           $v: nth($c, 2);
+          --#{$k}: #{red($v), green($v), blue($v)};
           --co-#{$k}: #{$v};
 
           $ls: 0.05;

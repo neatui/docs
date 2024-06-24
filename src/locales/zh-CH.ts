@@ -26,6 +26,7 @@ export default {
   'docs.introduction': '介绍',
   'docs.guides': '指南',
   'docs.installation': '安装',
+  'docs.use': '使用',
   'docs.design': '设计',
   'docs.basic': '基础',
   'docs.color': '颜色',

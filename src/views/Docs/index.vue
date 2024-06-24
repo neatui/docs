@@ -7,6 +7,7 @@
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/introduction">NeatUI</RouterLink>
         <span class="o-mm fs-xs bold mt-sl">{{ words['docs.guides'] || 'Guides' }}</span>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/installation">{{ words['docs.installation'] || 'Installation' }}</RouterLink>
+        <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/use">{{ words['docs.use'] || 'Use' }}</RouterLink>
         <!-- <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/design">{{ words['docs.design'] || 'Design' }}</RouterLink> -->
         <span class="o-mm fs-xs bold mt-sl">{{ words['docs.style'] || 'Style' }}</span>
         <RouterLink active-class="co-main" class="ux-hover r-sm" to="/docs/basic">{{ words['docs.basic'] || 'Basic' }}</RouterLink>

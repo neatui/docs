@@ -2,7 +2,6 @@ const path = require('path');
 const { defineConfig } = require('@vue/cli-service');
 // 图片无损压缩插件
 const TinypngWebpackPlugin = require('@fekit/tinypng-webpack-plugin');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 // 图片无锅压缩KEY
 const tinypngKey = [
@@ -72,12 +71,7 @@ module.exports = defineConfig({
     }
 
     return {
-      plugins: [
-        ...plugins,
-        new MonacoWebpackPlugin({
-          languages: ['javascript', 'css', 'html', 'typescript', 'vue', 'scss']
-        })
-      ]
+      plugins: [...plugins]
     };
   },
   chainWebpack: (config) => {
