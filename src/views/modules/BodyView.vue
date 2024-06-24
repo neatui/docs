@@ -1,6 +1,5 @@
 <template>
   <IPullScrollView class="n-ms mob:n-sl" :pull="false" :load="false">
-    <div ui-hide=">mob" class="h-ss+ mob:h-ss"></div>
     <slot></slot>
   </IPullScrollView>
 </template>

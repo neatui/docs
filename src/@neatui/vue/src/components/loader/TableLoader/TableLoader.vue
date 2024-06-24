@@ -1,17 +1,54 @@
 <template>
-  <!-- 桌面端 -->
-  <table ui-hide="<pad" ui-table="@b sz:l" ref="tableRef">
-    <thead class="table-head-fixed">
-      <tr>
-        <th v-if="showSelectAll" col-fixed="1" min-width>
-          <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" :checked="state.isAllSelect" @change="fSelectAll" /><span></span></label>
-        </th>
-        <template v-for="(col, idx) in state.table" :key="idx">
-          <th v-if="!col._close" class="fs-xs nowrap" :min-width="col.fixed" :col-fixed="col.fixed" :col-fixed-side="col.fixed || 'l'" :data-field="col.field">
-            <div :ui-flex="`row ${!slots.operate && idx === state._last ? 'rm' : 'lm'}`">
-              <span class="nl-xs" v-if="col.sort" :ui-sort="0" @click="emits('onsort', col)">{{ col.label }}</span>
-              <span class="nl-xs" v-else>{{ col.label }}</span>
-              <IFollowView v-if="!slots.operate && idx === state._last" tipBoxClass="n-no">
+  <div class="full" ui-scroll=":x :y">
+    <!-- 桌面端 -->
+    <table ui-hide="<pad" ui-table="@b sz:l" ref="tableRef">
+      <thead class="table-head-fixed">
+        <tr>
+          <th v-if="showSelectAll" col-fixed="1" min-width>
+            <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" :checked="state.isAllSelect" @change="fSelectAll" /><span></span></label>
+          </th>
+          <template v-for="(col, idx) in state.table" :key="idx">
+            <th v-if="!col._close" class="fs-xs nowrap" :min-width="col.fixed" :col-fixed="col.fixed" :col-fixed-side="col.fixed || 'l'" :data-field="col.field">
+              <div :ui-flex="`row ${!slots.operate && idx === state._last ? 'rm' : 'lm'}`">
+                <span class="nl-xs" v-if="col.sort" :ui-sort="0" @click="emits('onsort', col)">{{ col.label }}</span>
+                <span class="nl-xs" v-else>{{ col.label }}</span>
+                <IFollowView v-if="!slots.operate && idx === state._last" tipBoxClass="n-no">
+                  <button :ui-btn="`@a none s :square`">
+                    <Icon name="tableloader-setting" class="co-read"></Icon>
+                  </button>
+                  <template #tips>
+                    <div class="w-mm h-ls n-sl" ui-scroll="x:hidden :y">
+                      <draggable
+                        v-model="state.table"
+                        :force-fallback="false"
+                        item-key="name"
+                        chosen-class="chosen"
+                        animation="200"
+                        filter=".forbid"
+                        :move="(e: any) => !e.relatedContext.element.fixed"
+                      >
+                        <template #item="{ element, index }">
+                          <div :class="`item ux-hover nowrap r-ss ${element.fixed ? 'forbid' : 'element'}`" :key="index">
+                            <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
+                              <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
+                              <span>
+                                {{ element.label }}
+                                <i v-if="element.fixed" class="icon icon-fixed fs-xs"></i>
+                              </span>
+                            </label>
+                          </div>
+                        </template>
+                      </draggable>
+                    </div>
+                  </template>
+                </IFollowView>
+              </div>
+            </th>
+          </template>
+          <th v-if="slots.operate" col-fixed="r" class="fs-xs nowrap ar">
+            <div ui-flex="row rm">
+              <span class="mr-sm">{{ words['operate'] || '操作' }}</span>
+              <IFollowView tipBoxClass="n-no">
                 <button :ui-btn="`@a none s :square`">
                   <Icon name="tableloader-setting" class="co-read"></Icon>
                 </button>
@@ -43,120 +80,85 @@
               </IFollowView>
             </div>
           </th>
-        </template>
-        <th v-if="slots.operate" col-fixed="r" class="fs-xs nowrap ar">
-          <div ui-flex="row rm">
-            <span class="mr-sm">{{ words['operate'] || '操作' }}</span>
-            <IFollowView tipBoxClass="n-no">
-              <button :ui-btn="`@a none s :square`">
-                <Icon name="tableloader-setting" class="co-read"></Icon>
-              </button>
-              <template #tips>
-                <div class="w-mm h-ls n-sl" ui-scroll="x:hidden :y">
-                  <draggable
-                    v-model="state.table"
-                    :force-fallback="false"
-                    item-key="name"
-                    chosen-class="chosen"
-                    animation="200"
-                    filter=".forbid"
-                    :move="(e: any) => !e.relatedContext.element.fixed"
-                  >
-                    <template #item="{ element, index }">
-                      <div :class="`item ux-hover nowrap r-ss ${element.fixed ? 'forbid' : 'element'}`" :key="index">
-                        <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
-                          <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
-                          <span>
-                            {{ element.label }}
-                            <i v-if="element.fixed" class="icon icon-fixed fs-xs"></i>
-                          </span>
-                        </label>
-                      </div>
-                    </template>
-                  </draggable>
-                </div>
-              </template>
-            </IFollowView>
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody :ui-tbody-load="state.load">
-      <template v-if="lists.length">
-        <tr v-for="(item, idx) in lists" :key="idx" v-bind="rows.attrs" v-on="event(rows.event, item, 'td')">
-          <td v-if="showSelectAll" col-fixed="1" min-width>
-            <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" v-model="item.__selected" /><span></span></label>
-          </td>
-          <template v-for="(col, idx) in state.table" :key="idx">
-            <td
-              v-if="!col._close"
-              :class="`${!slots.operate && idx === state._last ? 'ar' : ''}`"
-              :min-width="col.fixed"
-              :col-fixed="col.fixed"
-              :col-fixed-side="col.fixed || 'l'"
-              :data-field="col.field"
-            >
-              <slot v-if="slots[col.field]" :name="col.field"></slot>
-              <TableColView v-else :col="col" :data="item" />
-            </td>
-          </template>
-          <td v-if="slots.operate" col-fixed="r" class="ar"><slot name="operate" :item="item" :idx="idx"></slot></td>
-        </tr>
-      </template>
-    </tbody>
-  </table>
-  <!-- 移动端 -->
-  <div ui-hide=">mob">
-    <table class="n-sl" ui-table="@a">
-      <thead class="table-head-fixed">
-        <tr>
-          <th class="fs-xs ar ps nr-no">
-            <div ui-flex="row xm">
-              <span class="fs-xs bold">信息</span>
-              <IFollowView>
-                <button :ui-btn="`@a none s :square`"><Icon name="tableloader-setting" class="co-read"></Icon></button>
-                <template #tips>
-                  <draggable :list="state.table" :force-fallback="false" item-key="name" chosen-class="chosen" animation="200">
-                    <template #item="{ element, index }">
-                      <div class="item ux-hover nowrap r-ss" :key="index">
-                        <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
-                          <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
-                          <span>{{ element.label }}</span>
-                        </label>
-                      </div>
-                    </template>
-                  </draggable>
-                </template>
-              </IFollowView>
-            </div>
-          </th>
         </tr>
       </thead>
       <tbody :ui-tbody-load="state.load">
         <template v-if="lists.length">
-          <tr v-for="(item, idx) in lists" :key="idx" v-bind="rows.attrs" v-on="event(rows.event, item)">
-            <td ui-card="@a bk:line" class="mb-sl">
-              <div ui-card-body="" class="n-ss">
-                <ul>
-                  <template v-for="(col, idx) in state.table" :key="idx">
-                    <li v-if="!col._close" :class="`${col.fixed ? 'ps z-sm' : ''}`" ui-flex="row lm">
-                      <div class="w-sl">{{ col.label }}:</div>
-                      <TableColView :col="col" :data="item" />
-                    </li>
-                  </template>
-                  <li v-if="slots.operate"><slot name="operate" :item="item" :idx="idx"></slot></li>
-                </ul>
-              </div>
+          <tr v-for="(item, idx) in lists" :key="idx" v-bind="rows.attrs" v-on="event(rows.event, item, 'td')">
+            <td v-if="showSelectAll" col-fixed="1" min-width>
+              <label class="mb-ss" ui-form="@a type:checkbox"><input type="checkbox" v-model="item.__selected" /><span></span></label>
             </td>
+            <template v-for="(col, idx) in state.table" :key="idx">
+              <td
+                v-if="!col._close"
+                :class="`${!slots.operate && idx === state._last ? 'ar' : ''}`"
+                :min-width="col.fixed"
+                :col-fixed="col.fixed"
+                :col-fixed-side="col.fixed || 'l'"
+                :data-field="col.field"
+              >
+                <slot v-if="slots[col.field]" :name="col.field"></slot>
+                <TableColView v-else :col="col" :data="item" />
+              </td>
+            </template>
+            <td v-if="slots.operate" col-fixed="r" class="ar"><slot name="operate" :item="item" :idx="idx"></slot></td>
           </tr>
         </template>
       </tbody>
     </table>
-  </div>
-  <div v-if="!lists.length" class="ny-ls o-mm" ui-flex="col cm">
-    <div class="ac">
-      <p><i class="icon icon-nodata fs-lm lh-ss"></i></p>
-      <p>{{ words['common.nodata'] || '暂无记录' }}</p>
+    <!-- 移动端 -->
+    <div ui-hide=">mob">
+      <table class="n-sl" ui-table="@a">
+        <thead class="table-head-fixed">
+          <tr>
+            <th class="fs-xs ar ps nr-no">
+              <div ui-flex="row xm">
+                <span class="fs-xs bold">信息</span>
+                <IFollowView>
+                  <button :ui-btn="`@a none s :square`"><Icon name="tableloader-setting" class="co-read"></Icon></button>
+                  <template #tips>
+                    <draggable :list="state.table" :force-fallback="false" item-key="name" chosen-class="chosen" animation="200">
+                      <template #item="{ element, index }">
+                        <div class="item ux-hover nowrap r-ss" :key="index">
+                          <label ui-form="@a type:checkbox" class="ny-xs nx-sl">
+                            <input type="checkbox" :checked="!element._close" @change="element._close = element._close ? 0 : 1" />
+                            <span>{{ element.label }}</span>
+                          </label>
+                        </div>
+                      </template>
+                    </draggable>
+                  </template>
+                </IFollowView>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody :ui-tbody-load="state.load">
+          <template v-if="lists.length">
+            <tr v-for="(item, idx) in lists" :key="idx" v-bind="rows.attrs" v-on="event(rows.event, item)">
+              <td ui-card="@a bk:line" class="mb-sl">
+                <div ui-card-body="" class="n-ss">
+                  <ul>
+                    <template v-for="(col, idx) in state.table" :key="idx">
+                      <li v-if="!col._close" :class="`${col.fixed ? 'ps z-sm' : ''}`" ui-flex="row lm">
+                        <div class="w-sl">{{ col.label }}:</div>
+                        <TableColView :col="col" :data="item" />
+                      </li>
+                    </template>
+                    <li v-if="slots.operate"><slot name="operate" :item="item" :idx="idx"></slot></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+    <div v-if="!lists.length" class="ny-ls o-mm" ui-flex="col cm">
+      <div class="ac">
+        <p><i class="icon icon-nodata fs-lm lh-ss"></i></p>
+        <p>{{ words['common.nodata'] || '暂无记录' }}</p>
+      </div>
     </div>
   </div>
 </template>

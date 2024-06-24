@@ -101,6 +101,8 @@ export default {
   'components.segmented': 'Segmented 分段控制器',
   'components.statistic': 'Statistic 统计数值',
   'components.table': 'Table 表格',
+  'components.tableloader': 'TableLoader',
+  'components.tableloader.desc': '基于JSON配置和数据驱动的列表组件。',
   'components.tabs': 'Tabs 标签页',
   'components.tag': 'Tag 标签',
   'components.timeline': 'Timeline 时间轴',

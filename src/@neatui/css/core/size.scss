@@ -24,7 +24,7 @@
 
 // 分级字号
 @mixin randSize($d: '') {
-  $rank: 'xs', 'ss', 'sm', 'sl', 'ms', 'mm', 'ml', 'ls', 'lm', 'll', 'xl';
+  $rank: 'xxs', 'xs', 'ss', 'sm', 'sl', 'ms', 'mm', 'ml', 'ls', 'lm', 'll', 'xl', 'xxl';
   // 分级字号
   .#{$d}fs-no {
     font-size: 0rem;
@@ -33,7 +33,7 @@
     line-height: 0;
   }
 
-  $sz: 0.7;
+  $sz: 0.6;
   @each $k in $rank {
     @if ($sz<1.2) {
       $sz: $sz + 0.1;

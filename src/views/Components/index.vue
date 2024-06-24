@@ -9,14 +9,14 @@
               <span class="o-mm fs-xs bold mt-sl">{{ menu.word || menu.name }}</span>
             </dt>
             <dd v-for="(sub, i) in menu.chlid" :key="i" class="pr">
-              <RouterLink active-class="co-main" class="full-x ux-hover nx-sm ny-ss r-sm" :to="sub.path">
+              <RouterLink active-class="co-main" class="full-x ux-hover nx-sm ny-ss r-sm fw-auto" :to="sub.path">
                 {{ sub.word || sub.name }}
               </RouterLink>
             </dd>
           </dl>
         </Sidebar>
       </div>
-      <div class="flex-block">
+      <div class="flex-block bg-fore">
         <BodyView>
           <RouterView />
         </BodyView>

@@ -188,6 +188,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .#{$d}fw-none {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   .#{$d}fw-auto {
     font-weight: normal;
     -webkit-font-smoothing: auto;
@@ -347,6 +351,13 @@
   }
   .#{$d}o-ll\+mm {
     opacity: 0.95;
+  }
+
+  .#{$d}upper {
+    text-transform: uppercase;
+  }
+  .#{$d}lower {
+    text-transform: lowercase;
   }
 }
 

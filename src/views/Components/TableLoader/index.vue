@@ -2,30 +2,39 @@
   <DocView>
     <div>
       <h1>TableLoader</h1>
-      <p>通过鼠标或键盘输入字符</p>
+      <p>{{ words['components.tableloader.desc'] }}</p>
     </div>
     <div>
-      <h2>代码演示</h2>
+      <h2>{{ words['docs.examples'] }}</h2>
       <ul ui-row="space mob-24">
         <li>
-          <CodeView file="/components/Input/Input.md">
-            <h5>基础用法</h5>
-            <div class="b-solid b-line b-xs ny-sm">
-              <TableLoader
-                :table="state.table"
-                :lists="state.data"
-                :rows="{
-                  event: {
-                    dblclick: fRowClick
-                  }
-                }"
-              >
-                <template #roleIdList><span>Slot 优先</span></template>
+          <CodeView file="/components/TableLoader/Basic.md">
+            <div class="n-ms">
+              <TableLoader :table="state.table" :lists="state.data">
                 <template #operate>
+                  <!-- <IFollowView>
+                    <button ui-btn="@a s none :square"><i class="icon icon-more co-read"></i></button>
+                    <template #tips>
+                      <ul class="w-sm nowrap nx-ss ny-sl">
+                        <li class="ux-hover nx-sm ny-xs" ui-flex="row lm">
+                          <i class="icon icon-view co-link"></i>
+                          <span class="ml-ss">查看</span>
+                        </li>
+                        <li class="ux-hover nx-sm ny-xs" ui-flex="row lm">
+                          <i class="icon icon-revise co-main"></i>
+                          <span class="ml-ss">编辑</span>
+                        </li>
+                        <li class="ux-hover nx-sm ny-xs" ui-flex="row lm">
+                          <i class="icon icon-delete co-risk"></i>
+                          <span class="ml-ss">删除</span>
+                        </li>
+                      </ul>
+                    </template>
+                  </IFollowView> -->
                   <div class="ar mob:ac ml-sm-sub nowrap">
-                    <button ui-btn="@a s none :square"><i class="icon icon-view co-link"></i></button>
-                    <button ui-btn="@a s none :square"><i class="icon icon-revise co-info"></i></button>
-                    <button ui-btn="@a s none :square"><i class="icon icon-delete co-risk"></i></button>
+                    <button ui-btn="@a s none :square"><i class="icon icon-view co-link"></i></button
+                    ><button ui-btn="@a s none :square"><i class="icon icon-revise co-info"></i></button
+                    ><button ui-btn="@a s none :square"><i class="icon icon-delete co-risk"></i></button>
                   </div>
                 </template>
               </TableLoader>
@@ -63,10 +72,12 @@
   </DocView>
 </template>
 <script setup lang="ts">
-  import { TableLoader } from '@neatui/vue';
+  import { TableLoader, IFollowView } from '@neatui/vue';
   import { DocView, CodeView } from '@/components';
-  import { dataToEnum } from '@fekit/utils/dist/common';
+  import { useBaseStore, storeToRefs } from '@/store';
 
+  const base: any = useBaseStore();
+  const { words = {} }: any = storeToRefs(base);
   const state: any = {
     table: [
       {
@@ -74,53 +85,53 @@
         label: '姓名',
         field: 'name',
         logic: true,
-        attrs: (data: any) => ({ class: 'ux-copy', 'data-copy': data.realName }),
+        // attrs: (data: any) => ({ class: 'ux-copy', 'data-copy': data.realName }),
         view: 1,
-        event: {
-          click(event, item) {
-            alert(2);
-          }
-        },
-        value(data: any) {
-          return data.name + data.id;
-        },
+        // event: {
+        //   click(event, item) {
+        //     alert(2);
+        //   }
+        // },
+        // value(data: any) {
+        //   return data.name + data.id;
+        // },
         sort: true
       },
       {
         label: '手机号',
         field: 'phone',
-        attrs: (data: any) => ({ class: 'ux-copy', 'data-copy': data.phone }),
-        logic: true,
-        view: 1
+        attrs: (data: any) => ({ class: 'ux-copy', 'data-copy': data.phone })
+        // logic: true,
+        // view: 1
       },
       {
         label: '状态',
-        field: 'status',
-        logic: true,
-        view: 1,
-        sort: true
+        field: 'status'
+        // logic: true,
+        // view: 1
+        // sort: true
       },
       {
         label: '用户组',
         field: 'groupIdList',
         logic: true,
-        enums: [],
-        popup() {
-          // alert(101);
-          console.log(102);
-          return {
-            value: '111111',
-            child: [{ value: '1' }, { value: 2322 }]
-          };
-        },
-        view: 1
+        enums: []
+        // popup() {
+        //   // alert(101);
+        //   console.log(102);
+        //   return {
+        //     value: '111111',
+        //     child: [{ value: '1' }, { value: 2322 }]
+        //   };
+        // },
+        // view: 1
       },
       {
         label: '角色',
-        field: 'roleIdList',
-        enums: [],
-        logic: true,
-        view: 1
+        field: 'roleIdList'
+        // enums: [],
+        // logic: true,
+        // view: 1
       }
       // {
       //   label: '操作',
@@ -161,18 +172,6 @@
       // }
     ],
     data: [
-      {
-        name: 'aaa',
-        phone: 13888776666,
-        status: 1,
-        groupIdList: 1
-      },
-      {
-        name: 'aaa',
-        phone: 13888776666,
-        status: 1,
-        groupIdList: 1
-      },
       {
         name: 'aaa',
         phone: 13888776666,

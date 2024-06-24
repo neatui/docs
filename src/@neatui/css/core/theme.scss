@@ -12,7 +12,8 @@ $theme: if(
       code: #e23861,
       well: #4bbc73,
       warn: #fb9a2a,
-      risk: #f95850
+      risk: #f95850,
+      info: #0889e4
     )
   )
 );
@@ -56,10 +57,11 @@ $theme: if(
       w: #ffffff,
       b: #000000,
       read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
-      // desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
+      desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
       note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
       // idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
-      case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
+      case:
+        mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
       line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
       weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
       // deep:
