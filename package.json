@@ -41,7 +41,7 @@
     "@fekit/scrollto": "^3.0.2",
     "@fekit/toast": "^2.2.3",
     "@fekit/url": "^2.0.1",
-    "@fekit/utils": "^2.10.5",
+    "@fekit/utils": "^2.10.21",
     "@popperjs/core": "^2.11.8",
     "@vueuse/components": "^10.7.0",
     "@vueuse/core": "^10.7.2",

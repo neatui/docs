@@ -136,7 +136,8 @@
 </template>
 <script setup lang="ts">
   import { computed, ref, reactive, watch, onMounted } from 'vue';
-  import { idate, isDateString, isObject, isString } from '@fekit/utils';
+  import { isDateString, isObject, isString } from '@fekit/utils';
+  import { idate } from '@fekit/utils';
   import { Icon } from '../basic';
 
   // 创建日期
@@ -232,6 +233,7 @@
     // 当前时间计算
     curr: computed(() => {
       const date = idate(state.panel);
+      console.log(235, date);
       const days = date.calendar({ group: true, value: [state.panel] });
       return { days, ...date.attr };
     }),

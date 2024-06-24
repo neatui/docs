@@ -56,9 +56,9 @@ $theme: if(
       w: #ffffff,
       b: #000000,
       read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
-      desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
+      // desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
       note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
-      idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
+      // idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
       case: mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
       line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
       weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
@@ -182,7 +182,17 @@ $theme: if(
           $ls: 0.05;
           @each $l in $levels {
             // 透明度
-            --co-#{$k}-#{$l}: #{rgba($v, $ls)};
+            @if ($k != 'none') {
+              --co-#{$k}-#{$l}: #{rgba($v, $ls)};
+
+              @if ($k != 'w' and $k != 'b') {
+                --co-#{$k}-fore-#{$l}: #{mix($v, map-get($s, 'fore'), $ls * 100%)};
+              }
+
+              @if ($k == 'main' or $k == 'well' or $k == 'warn' or $k == 'risk') {
+                --co-#{$k}-text-#{$l}: #{mix($v, map-get($s, 'text'), $ls * 100%)};
+              }
+            }
             @if ($ls <= 0.15 or $ls >= 0.8) {
               $ls: $ls + 0.05;
             } @else {
@@ -192,10 +202,10 @@ $theme: if(
         }
 
         // 文本颜色
-        --co-main-text: #{mix(map-get($s, 'main'), map-get($s, 'text'), 85%)};
-        --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
-        --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
-        --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
+        // --co-main-text: #{mix(map-get($s, 'main'), map-get($s, 'text'), 85%)};
+        // --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
+        // --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
+        // --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
 
         // --co-line-fore: #{mix(map-get($s, 'line'), map-get($s, 'fore'), 70%)};
         // --bg-main: #{saturate(rgba(map-get($s, 'main'), 0.05), 20%)};
@@ -229,7 +239,9 @@ $theme: if(
         @each $c in $s {
           $k: nth($c, 1);
           $v: nth($c, 2);
-          --co-#{$k}: #{$v};
+          @if ($k != 'none') {
+            --co-#{$k}: #{$v};
+          }
 
           $ls: 0.05;
           @each $l in $levels {
@@ -244,10 +256,10 @@ $theme: if(
         }
 
         // 文本颜色
-        --co-main-text: #{mix(map-get($s, 'main'), map-get($s, 'text'), 85%)};
-        --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
-        --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
-        --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
+        // --co-main-text: #{mix(map-get($s, 'main'), map-get($s, 'text'), 85%)};
+        // --co-well-text: #{mix(map-get($s, 'well'), map-get($s, 'text'), 85%)};
+        // --co-warn-text: #{mix(map-get($s, 'warn'), map-get($s, 'text'), 85%)};
+        // --co-risk-text: #{mix(map-get($s, 'risk'), map-get($s, 'text'), 85%)};
 
         // @each $k in $colors {
         //   $v: map-get($s, $k);

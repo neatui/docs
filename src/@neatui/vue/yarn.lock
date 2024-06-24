@@ -44,10 +44,10 @@
   dependencies:
     resize-observer-polyfill "^1.5.1"
 
-"@fekit/itable@^1.1.5":
-  version "1.1.5"
-  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/itable/-/itable-1.1.5.tgz"
-  integrity sha512-0Sd5PWgdhm41uQlV4y8DypYpwcFygZQXx5eGBBcvARMMuxPCRTq8r3XAM/NkIsAYfeTfMEz1tkHe51gqUQqG1Q==
+"@fekit/itable@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.npmjs.org/@fekit/itable/-/itable-1.1.6.tgz#eba022a66d421a177889d4cc6771b7573edbfb15"
+  integrity sha512-aiDkx79N7pDg9ahyIvDF1qj6FiDNbVigvjoRrtm6eiWu6OtkGe+e6ybBgO53lLzqpzFSNxhecjR29aMdH91J5A==
   dependencies:
     resize-observer-polyfill "^1.5.1"
 
@@ -97,10 +97,10 @@
   resolved "https://mirrors.cloud.tencent.com/npm/@fekit/utils/-/utils-0.3.0.tgz"
   integrity sha512-4e861DaAFBei6IK9kpHki1lAowjehGhXUyW/IZdyIy72v4cM9ta/g4rNeIUX/vIrKsAQbykMydx36HXJLvkrrw==
 
-"@fekit/utils@^2.10.7":
-  version "2.10.17"
-  resolved "https://mirrors.cloud.tencent.com/npm/@fekit/utils/-/utils-2.10.17.tgz"
-  integrity sha512-8TyFs2TnCLDAFTMgH4btFc+uQHJnzbnDN0WHoiE91dJ90e378+/LsZ/0/WMj6aKLt+SnzqW/j1unX38QcXsvKw==
+"@fekit/utils@^2.10.21":
+  version "2.10.21"
+  resolved "https://registry.npmjs.org/@fekit/utils/-/utils-2.10.21.tgz#684326003ab747bb8a18d83a63bbb488b8a55a6f"
+  integrity sha512-ekY+b8j309bd+05KWfbPeeMSBFfvAHu5NddYzB7RYKq2EJoeMQ5k+xcKKnY25ongG3D/XAVxEzcnAvmq8SdJBw==
   dependencies:
     mockjs "^1.1.0"
 

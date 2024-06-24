@@ -4,7 +4,7 @@
       <div class="h-xs mb-sm" ui-flex="row xm">
         <h4>{{ title || state.title }}</h4>
       </div>
-      <div class="codeview-view n-ms">
+      <div class="codeview-view">
         <slot></slot>
       </div>
     </div>
@@ -15,13 +15,12 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { ref, reactive, watch, onMounted } from 'vue';
+  import { ref, reactive, watch } from 'vue';
   import axios from 'axios';
   import { Remarkable } from 'remarkable';
   import hljs from 'highlight.js';
   import 'highlight.js/styles/github.css';
   import { useBaseStore } from '@/store';
-  import * as monaco from 'monaco-editor';
 
   const base: any = useBaseStore();
 
