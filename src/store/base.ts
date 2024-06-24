@@ -44,7 +44,8 @@ export const useBaseStore = defineStore('base', {
                 { path: '/components/IRouterView', name: 'IRouterView', word: 'IRouterView' },
                 { path: '/components/IFollowView', name: 'IFollowView', word: 'IFollowView', image: '/upload/components/comboboxes.png' },
                 { path: '/components/IPickerView', name: 'IPickerView', word: 'IPickerView' },
-                { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' }
+                { path: '/components/IScrollView', name: 'IScrollView', word: 'IScrollView' },
+                { path: '/components/LazyView', name: 'LazyView', word: 'LazyView' }
               ]
             },
             {

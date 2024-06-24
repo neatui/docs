@@ -56,7 +56,7 @@ $theme: if(
       none: transparent,
       w: #ffffff,
       b: #000000,
-      read: mix(map-get($s, 'text'), map-get($s, 'fore'), 80%),
+      read: mix(map-get($s, 'text'), map-get($s, 'fore'), 85%),
       desc: mix(map-get($s, 'text'), map-get($s, 'fore'), 55%),
       note: mix(map-get($s, 'text'), map-get($s, 'fore'), 35%),
       // idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),

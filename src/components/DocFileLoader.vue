@@ -73,7 +73,11 @@
             // 获取所有的<h2>标签
             const navs = html.querySelectorAll('h2');
             // 提取<h2>标签的内容
-            state.navs = Array.from(navs).map((tag) => tag.textContent);
+            state.navs = Array.from(navs).map((tag: any) => {
+              console.dir(tag);
+              tag.class = 'mt-mm';
+              return tag.textContent;
+            });
           })
           .catch(() => {
             state.code = base.words['base.file.error'];

@@ -16,7 +16,7 @@
           </dl>
         </Sidebar>
       </div>
-      <div class="flex-block bg-fore">
+      <div class="flex-block">
         <BodyView>
           <RouterView />
         </BodyView>
