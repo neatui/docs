@@ -62,8 +62,8 @@ $theme: if(
       // idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
       case:
         mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
-      line: mix(map-get($s, 'text'), map-get($s, 'fore'), 10%),
-      weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 4%),
+      line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
+      weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
       // deep:
       //   rgb(
       //     red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
@@ -166,7 +166,7 @@ $theme: if(
 
 // 变量
 @mixin vars() {
-  $levels: xxs, xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl, xxl;
+  $levels: xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl;
   $colors: main, text, well, warn, risk;
 
   $f: nth(nth($theme, 1), 1);
@@ -195,7 +195,7 @@ $theme: if(
                 --co-#{$k}-text-#{$l}: #{mix($v, map-get($s, 'text'), $ls * 100%)};
               }
             }
-            @if ($ls <= 0.15 or $ls >= 0.8) {
+            @if ($ls <= 0.1 or $ls >= 0.8) {
               $ls: $ls + 0.05;
             } @else {
               $ls: $ls + 0.1;
@@ -249,7 +249,7 @@ $theme: if(
           @each $l in $levels {
             // 透明度
             --co-#{$k}-#{$l}: #{rgba($v, $ls)};
-            @if ($ls <= 0.15 or $ls >= 0.8) {
+            @if ($ls <= 0.1 or $ls >= 0.8) {
               $ls: $ls + 0.05;
             } @else {
               $ls: $ls + 0.1;

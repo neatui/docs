@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="header full-x h-ss+ mob:h-ss flex-fixed mob:nx-sl mob:nb-ss pr mob:pf mob:ot-sm z-ls b-solid b-back mob:bb-no" :class="`${page === 'home' ? '' : 'bb-xs'}`"> -->
-  <div class="header fw-auto co-text full-x h-ss mob:h-ss flex-fixed pr z-ls b-solid b-line co-text" :class="`${page === 'home' ? '' : 'bb-xs'}`">
+  <div class="header fw-auto co-text full-x h-ss+ mob:h-ss flex-fixed pr z-ls b-solid b-line co-text" :class="`${page === 'home' ? '' : 'bb-xs'}`">
     <div class="full n-sl mob:r-sl" ui-flex="row xm" :class="`${page === 'home' ? 'co-w' : 'bg-fore+o-xl'}`">
       <slot>
         <div class="al mr-ss-sub">
