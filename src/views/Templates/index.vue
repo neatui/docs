@@ -7,7 +7,7 @@
         <List v-else />
       </BodyView>
     </div>
-    <FootView />
+    <!-- <FootView /> -->
   </PageView>
 </template>
 <script setup lang="ts">

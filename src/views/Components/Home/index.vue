@@ -4,7 +4,7 @@
       <h3 class="bold">{{ menu.word || menu.name }}</h3>
     </dt>
     <dd class="pr mb-sl">
-      <ul ui-cards="@a bg:fore" ui-row="mob-24 pad-12 pad-l-8 dpc-m-6" class="n-sl-sub">
+      <ul ui-cards="@a bk:line" ui-row="mob-24 pad-12 pad-l-8 dpc-m-6" class="n-sl-sub">
         <li v-for="(sub, i) in menu.chlid" :key="i">
           <div class="am-view">
             <div ui-card-body="">

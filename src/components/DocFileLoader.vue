@@ -1,7 +1,7 @@
 <template>
   <div class="bg-fore r-ms nx-lm ny-mm" ui-flex="row xy">
     <div class="flex-block nr-ls">
-      <div v-if="file" class="file-loader doc fs-sl" ui-scroll=":x :y" v-html="state.code"></div>
+      <div v-if="file" class="file-loader doc" ui-scroll=":x :y" v-html="state.code"></div>
     </div>
     <div class="flex-fixed w-lm nl-ls" ui-hide="<dpc">
       <ul class="n-ss-sub">
@@ -91,3 +91,12 @@
     { deep: true, immediate: true }
   );
 </script>
+<style lang="scss">
+  .file-loader {
+    h2,
+    h3,
+    h4 {
+      margin-top: 1.5em;
+    }
+  }
+</style>

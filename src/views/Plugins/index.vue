@@ -26,7 +26,7 @@
               </div>
             </div>
             <div class="box">
-              <ul ui-cards="@a bg:fore" ui-row="space mob-24 pad-12 dpc-8">
+              <ul ui-cards="@a bg:weak" ui-row="space mob-24 pad-12 dpc-8">
                 <li class="am-view" data-theme="aa" data-inview="view">
                   <div>
                     <div ui-card-body="">
@@ -329,7 +329,7 @@
         </div>
       </BodyView>
     </div>
-    <FootView />
+    <!-- <FootView /> -->
   </PageView>
 </template>
 <script setup lang="ts">

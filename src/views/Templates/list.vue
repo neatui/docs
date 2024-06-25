@@ -7,7 +7,7 @@
   </div>
   <div>
     <div class="box">
-      <ul ui-cards="@a bg:fore" ui-row="space mob-24 pad-12 dpc-8">
+      <ul ui-cards="@a bk:line" ui-row="space mob-24 pad-12 dpc-8">
         <li class="am-view" data-theme="aa" data-inview="view">
           <div>
             <div ui-card-body="">

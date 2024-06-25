@@ -62,8 +62,8 @@ $theme: if(
       // idle: mix(map-get($s, 'text'), map-get($s, 'fore'), 25%),
       case:
         mix(map-get($s, 'text'), map-get($s, 'fore'), 20%),
-      line: mix(map-get($s, 'text'), map-get($s, 'fore'), 8%),
-      weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 3%),
+      line: mix(map-get($s, 'text'), map-get($s, 'fore'), 10%),
+      weak: mix(map-get($s, 'text'), map-get($s, 'fore'), 4%),
       // deep:
       //   rgb(
       //     red(map-get($s, 'back')) - (red(map-get($s, 'back')) * 0.05 + 5),
