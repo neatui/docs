@@ -57,7 +57,7 @@ body [ui-btn~='@a'] {
   &:hover {
     box-shadow:
       inset 0 0 0 1px var(--co-line),
-      inset 0 0 0 100em var(--co-text-xxs);
+      inset 0 0 0 100em var(--co-text-xs);
   }
 
   // 按下状态
@@ -176,7 +176,7 @@ body [ui-btn~='@a'] {
       &:hover {
         box-shadow:
           inset 0 0 0 1px transparent,
-          inset 0 0 0 100em var(--co-text-xxs);
+          inset 0 0 0 100em var(--co-text-xs);
       }
 
       // 边框式
@@ -271,7 +271,7 @@ body [ui-btn~='@a'] {
   & > *:hover {
     box-shadow:
       inset 0 0 0 1px var(--co-line),
-      inset 0 0 0 100em var(--co-text-xxs);
+      inset 0 0 0 100em var(--co-text-xs);
   }
 
   // 按下状态
@@ -387,7 +387,7 @@ body [ui-btn~='@a'] {
         &:hover {
           box-shadow:
             inset 0 0 0 1px transparent,
-            inset 0 0 0 100em var(--co-text-xxs);
+            inset 0 0 0 100em var(--co-text-xs);
         }
       }
 
