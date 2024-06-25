@@ -8,7 +8,6 @@
         <span class="o-mm fs-xs mt-ms nb-no bold">{{ words['docs.guides'] || 'Guides' }}</span>
         <RouterLink active-class="co-main bg-main-xs" class="ux-hover r-sm" to="/docs/installation">{{ words['docs.installation'] || 'Installation' }}</RouterLink>
         <RouterLink active-class="co-main bg-main-xs" class="ux-hover r-sm" to="/docs/use">{{ words['docs.use'] || 'Use' }}</RouterLink>
-        <!-- <RouterLink active-class="co-main bg-main-xs" class="ux-hover r-sm" to="/docs/design">{{ words['docs.design'] || 'Design' }}</RouterLink> -->
         <span class="o-mm fs-xs mt-ms nb-no bold">{{ words['docs.style'] || 'Style' }}</span>
         <RouterLink active-class="co-main bg-main-xs" class="ux-hover r-sm" to="/docs/basic">{{ words['docs.basic'] || 'Basic' }}</RouterLink>
         <RouterLink active-class="co-main bg-main-xs" class="ux-hover r-sm" to="/docs/color">{{ words['docs.color'] || 'Color' }}</RouterLink>
