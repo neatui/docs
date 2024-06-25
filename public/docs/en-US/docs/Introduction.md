@@ -6,10 +6,11 @@
 
 ## Features
 
-- Supports customizable multi-theming, automatically generating dynamically calculated colors compliant with design principles and color recognition standards
-- Supports global multi-font size switching
-- More precise responsive control system
-- Finer layout fine-tuning system
+- • Automatically generate multi-theme color palettes that comply with design principles
+- • Support for global multi-level font size management
+- • More precise responsive control system
+- • Very fine-tuned typography adjustment system
+- • Less than 10% of styles are handwritten based on atomic style library
 
 ## Example
 

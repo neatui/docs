@@ -6,14 +6,15 @@
 
 ## 特性
 
-- 支持定制多主题，自动化生成符合设计原则与颜色识别标准的动态颜色计算
-- 支持全局多字号切换
-- 更加精密的响应控制系统
-- 更加细腻的排版微调系统
+- • 自动生成符合设计原则多主题色卡
+- • 支持全局多级字号管理
+- • 更加精密的响应控制系统
+- • 非常细腻的排版微调系统
+- • 基于原子样式库手写样式低于10%
 
 ## 示例
 
-[QACMS](https://qacms.fekit.cn/) | [ADMIN](https://case.fekit.cn/aa/)
+[<span class="ux-click">QACMS</span>](https://qacms.fekit.cn/) ❘ [<span class="ux-click">ADMIN</span>](https://case.fekit.cn/aa/)
 
 ## 社区
 
@@ -21,12 +22,12 @@
 
 技术交流QQ群：137972383、153965675
 
-Email: [xiaojunbo@qq.com](xiaojunbo@qq.com)
+Email: [<span class="ux-click">xiaojunbo@qq.com</span>](xiaojunbo@qq.com)
 
 ## 许可
 
-NeatUI基于[MIT license](https://opensource.org/license/MIT)开源协议！你可以自由使用，复制，修改，可以用于自己的项目，可以免费分发或用来盈利；唯一的限制是必须包含许可声明。
+NeatUI基于[<span class="ux-click">MIT license</span>](https://opensource.org/license/MIT)开源协议！你可以自由使用，复制，修改，可以用于自己的项目，可以免费分发或用来盈利；唯一的限制是必须包含许可声明。
 
 ## 贡献
 
-[@Junbo](https://github.com/junboxiao)
+[<span class="ux-click">@Junbo</span>](https://github.com/junboxiao) ❘ [<span class="ux-click">@Liguo</span>](https://github.com/LLGLSS)
