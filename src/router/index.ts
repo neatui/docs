@@ -22,9 +22,6 @@ import DocsGrid from '@/views/Docs/Grid.vue';
 import DocsMicrocontrol from '@/views/Docs/Microcontrol.vue';
 import DocsVersion from '@/views/Docs/Version.vue';
 
-// import Design from '@/views/Design/index.vue';
-// import Resources from '@/views/Design/Resources/index.vue';
-// import Specification from '@/views/Design/Specification/index.vue';
 import Case from '@/views/Case/index.vue';
 import Templates from '@/views/Templates/index.vue';
 
@@ -40,14 +37,8 @@ import IPickerView from '@/views/Components/IPickerView/index.vue';
 import IScrollView from '@/views/Components/IScrollView/index.vue';
 // 表单
 import Input from '@/views/Components/Input/index.vue';
-import InputDemo from '@/views/Components/Input/demo.vue';
-
 import TextArea from '@/views/Components/TextArea/index.vue';
-import TextAreaDemo from '@/views/Components/TextArea/demo.vue';
-
 import Select from '@/views/Components/Select/index.vue';
-import SelectDemo from '@/views/Components/Select/indexDemo.vue';
-
 import Calendar from '@/views/Components/Calendar/index.vue';
 import Cascader from '@/views/Components/Cascader/index.vue';
 import DatePicker from '@/views/Components/DatePicker/index.vue';
@@ -119,10 +110,8 @@ import FormLoader from '@/views/Components/FormLoader/index.vue';
 import FormLoaderDemo from '@/views/Components/FormLoader/demo.vue';
 // 筛选
 import LimitLoader from '@/views/Components/LimitLoader/index.vue';
-import LimitLoaderDemo from '@/views/Components/LimitLoader/demo.vue';
 // 列表
 import TableLoader from '@/views/Components/TableLoader/index.vue';
-import TableLoaderDemo from '@/views/Components/TableLoader/demo.vue';
 // 插件
 import Plugins from '@/views/Plugins/index.vue';
 
