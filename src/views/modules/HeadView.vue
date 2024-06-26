@@ -2,11 +2,20 @@
   <div class="header fs-ss fw-auto co-text full-x h-ss+ mob:h-ss flex-fixed pr z-ls b-solid b-line co-text" :class="`${page === 'home' ? '' : 'bb-xs'}`">
     <div class="full fs-sm n-sl mob:r-sl" ui-flex="row xm" :class="`${page === 'home' ? 'co-w' : 'bg-fore+o-xl'}`">
       <slot>
-        <div class="al mr-ss-sub">
+        <div ui-flex="row lm">
           <a href="#/" ui-flex="row lm">
             <i class="icon icon-logo fs-ls pr mb-ss" :class="`${page === 'home' ? 'co-w' : 'co-main'}`"></i>
             <b class="nl-ss fs-ms fw7">{{ words['base.title'] || 'NeatUI' }}</b>
           </a>
+          <IFollowView pos="br">
+            <button ui-btn="@a none" class="ml-ms fs-ss o-ls"><code>V2.0.0</code><span class="icon icon-dropdown"></span></button>
+            <template #tips>
+              <ul class="bg-fore r-sm nx-ss ny-sl fs-ss">
+                <li ui-flex="row lm" class="ux-hover nx-sm ny-ss"><code>V1</code> <code class="o-mm">(1.2.22)</code></li>
+                <li ui-flex="row lm" class="ux-hover nx-sm ny-ss"><code>V2</code> <code class="o-mm">(2.0.0)</code></li>
+              </ul>
+            </template>
+          </IFollowView>
         </div>
         <div ui-hide="<dpc" class="ml-sl-sub" ui-flex="row rm">
           <RouterLink ui-btn="@a none s" active-class="co-main" to="/docs">{{ words['menu.docs'] || '文档' }}</RouterLink>
