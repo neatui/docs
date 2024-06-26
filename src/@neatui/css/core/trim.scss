@@ -322,6 +322,24 @@
     }
     $w_base: $w_base + 2;
   }
+  .#{$media}-w-auto {
+    width: auto;
+  }
+  .#{$media}min-w-auto {
+    min-width: auto;
+  }
+  .#{$media}max-w-auto {
+    max-width: auto;
+  }
+  .#{$media}-w-full {
+    width: 100%;
+  }
+  .#{$media}min-w-full {
+    min-width: 100%;
+  }
+  .#{$media}max-w-full {
+    max-width: 100%;
+  }
 
   // 高度
   $h_base: 0;
