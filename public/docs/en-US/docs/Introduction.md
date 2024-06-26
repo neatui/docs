@@ -1,8 +1,8 @@
-# Neat UI
+# NeatUI
 
-`Neat UI` consists of an atomic style library `@naiveui/css` and a component library `@naiveui/vue`. It aims to provide developers with a UI frontend architecture based on the quasi-standard design specification, featuring multi-theme switching, multi-level font size switching, and responsive multi-platform support. It boasts more precise dimension responsiveness and finer layout control capabilities than other frameworks. We are committed to building an ultimate front-end UI framework for an exceptional user experience.
+`NeatUI` consists of an atomic style library `@neatui/css` and a component library `@neatui/vue`. It aims to provide developers with a UI frontend architecture based on the quasi-standard design specification, featuring multi-theme switching, multi-level font size switching, and responsive multi-platform support. It boasts more precise dimension responsiveness and finer layout control capabilities than other frameworks. We are committed to building an ultimate front-end UI framework for an exceptional user experience.
 
-`@naiveui/css` is a pure style library that can be used independently, but `@naiveui/vue` must be used based on `@naiveui/css`.
+`@neatui/css` is a pure style library that can be used independently, but `@neatui/vue` must be used based on `@neatui/css`.
 
 ## Features
 

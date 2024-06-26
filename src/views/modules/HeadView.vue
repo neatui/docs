@@ -8,11 +8,15 @@
             <b class="nl-ss fs-ms fw7">{{ words['base.title'] || 'NeatUI' }}</b>
           </a>
           <IFollowView pos="br">
-            <button ui-btn="@a none" class="ml-ms fs-ss o-ls"><code>V2.0.0</code><span class="icon icon-dropdown"></span></button>
+            <button ui-btn="@a none" class="ml-ms fs-ss o-ls"><code>V2</code><span class="icon icon-dropdown"></span></button>
             <template #tips>
               <ul class="bg-fore r-sm nx-ss ny-sl fs-ss">
-                <li ui-flex="row lm" class="ux-hover nx-sm ny-ss"><code>V1</code> <code class="o-mm">(1.2.22)</code></li>
-                <li ui-flex="row lm" class="ux-hover nx-sm ny-ss"><code>V2</code> <code class="o-mm">(2.0.0)</code></li>
+                <li ui-flex="row lm" class="ux-hover nx-sm ny-ss pr">
+                  <a class="full" href="/v1"><code>V1</code></a>
+                </li>
+                <li ui-flex="row lm" class="ux-hover nx-sm ny-ss pr">
+                  <a class="full" href="/"><code>V2</code></a>
+                </li>
               </ul>
             </template>
           </IFollowView>
@@ -55,6 +59,7 @@
   import { storeToRefs, useBaseStore } from '@/store';
   import IFollowView from '@/components/IFollowView.vue';
   import MoreLangs from '@/views/modules/MoreLangs.vue';
+  import { RouterLink } from 'vue-router';
   const base: any = useBaseStore();
   const { words = {} }: any = storeToRefs(base);
   const props: any = defineProps({

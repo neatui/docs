@@ -121,8 +121,8 @@
         </div>
         <div v-else-if="state.shortcuts?.length" ui-flex="row lm">
           <div class="mr-sm-sub nx-sl-sub ny-ss-sub lh-ss nowrap fs-ss dib-sub" ui-scroll=":x y:hidden">
-            <p v-for="(item, idx) in state.shortcuts" :key="idx" class="bg-main+o-xs co-main r-xl" ui-btn="@a xs none :round" @click="item?.func">{{ item?.text }}</p>
-            <p class="bg-main+o-xs co-main r-xl" ui-btn="@a xs none :round"><Icon class="co-main" name="more" /></p>
+            <p v-for="(item, idx) in state.shortcuts" :key="idx" class="bg-main+o-ss co-main r-xl" ui-btn="@a xs none :round" @click="item?.func">{{ item?.text }}</p>
+            <p class="bg-main+o-ss co-main r-xl" ui-btn="@a xs none :round"><Icon class="co-main" name="more" /></p>
           </div>
         </div>
         <div>&nbsp;</div>
