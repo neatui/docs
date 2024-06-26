@@ -1,5 +1,5 @@
 <template>
-  <IPullScrollView class="file-loader doc n-ms mob:n-sl" :pull="false" :load="false">
+  <IPullScrollView class="n-ms mob:n-sl" :pull="false" :load="false">
     <slot></slot>
   </IPullScrollView>
 </template>
