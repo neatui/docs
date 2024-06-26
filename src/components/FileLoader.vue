@@ -7,7 +7,7 @@
   import { useRoute } from 'vue-router';
   import axios from 'axios';
   import { Remarkable } from 'remarkable';
-  import VueHtmlParser from 'vue-html-parser';
+  // import VueHtmlParser from 'vue-html-parser';
   import hljs from 'highlight.js';
   import 'highlight.js/styles/github.css';
 

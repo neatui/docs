@@ -1,21 +1,33 @@
 <template>
   <Swiper
     class="full"
-    :effect="'fade'"
+    :effect="'creative'"
+    :loop="true"
     :autoplay="{
       delay: 3500,
-      disableOnInteraction: false,
-      reverseDirection: true
+      disableOnInteraction: false
     }"
-    :modules="[Autoplay, EffectFade]"
+    :creativeEffect="{
+      prev: {
+        shadow: true,
+        translate: [0, 0, -800],
+        rotate: [180, 0, 0]
+      },
+      next: {
+        shadow: true,
+        translate: [0, 0, -800],
+        rotate: [-180, 0, 0]
+      }
+    }"
+    :modules="[Autoplay, EffectCreative]"
   >
     <SwiperSlide>
-      <div class="full bg-fore" ui-flex="col cm">
+      <div class="full bg-fore r-ms" ui-flex="col cm">
         <DateView class="bg-fore co-read r-sm w-mm b-xs b-solid b-line"></DateView>
       </div>
     </SwiperSlide>
     <SwiperSlide>
-      <div class="full bg-fore" ui-flex="col cm">
+      <div class="full bg-fore r-ms" ui-flex="col cm">
         <Select v-model="value1" :options="enums" :search="true"></Select>
       </div>
     </SwiperSlide>
@@ -31,8 +43,9 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { Swiper, SwiperSlide } from 'swiper/vue';
-  import { Autoplay, EffectFade } from 'swiper/modules';
-  import 'swiper/css/effect-fade';
+  import { Autoplay, EffectCreative } from 'swiper/modules';
+  // import 'swiper/css/effect-fade';
+  import 'swiper/css/effect-creative';
 
   import { DateView, Select } from '@neatui/vue';
 

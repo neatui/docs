@@ -20,7 +20,7 @@
                 </RouterLink>
               </div>
             </div>
-            <div ui-hide="=mob" class="full-x max-w-ll* h-ml* r-ms mt-ls bg-fore n-ms">
+            <div ui-hide="=mob" class="full-x max-w-ll* h-ml* r-ms mt-ls n-ms">
               <HomeDemo></HomeDemo>
             </div>
           </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-fore" ui-flex="row xy">
-    <div class="flex-block nl-mm">
+    <div class="flex-block" ui-flex="col cy">
       <div v-if="file" class="file-loader doc" ui-scroll=":x :y" v-html="state.code"></div>
     </div>
     <div class="flex-fixed w-lm nl-ls" ui-hide="<dpc">
