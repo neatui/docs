@@ -31,3 +31,51 @@ NeatUI is based on the [MIT license](https://opensource.org/license/MIT) open so
 ## Contribution
 
 [<span class="ux-click">@Junbo</span>](https://github.com/junboxiao) ❘ [<span class="ux-click">@Liguo</span>](https://github.com/LLGLSS)
+
+## Getting Started
+
+Start using NeatUI right away with the following useful resources:
+
+<ul ui-row="space mob-24 pad-12 dpc-8">
+  <li>
+    <div class="full r-sl b-solid b-line b-xs n-ms">
+      <h5>Installation</h5>
+      <p class="o-ls fs-ss">Add NeatUI UI to your project with some commands.</p>
+    </div>
+  </li>
+  <li>
+    <div class="full r-sl b-solid b-line b-xs n-ms">
+      <h5>Usage</h5>
+      <p class="o-ls fs-ss">Learn the basics about NeatUI UI components.</p>
+    </div>
+  </li>
+  <li>
+    <div class="full r-sl b-solid b-line b-xs n-ms">
+      <h5>Sample Projects</h5>
+      <p class="o-ls fs-ss">A set of boilerplates to help you kickstart your next project quickly.</p>
+    </div>
+  </li>
+  <li>
+    <div class="full r-sl b-solid b-line b-xs n-ms">
+      <h5>Customizing Components</h5>
+      <p class="o-ls fs-ss">Learn about the available customization methods.</p>
+    </div>
+  </li>
+  <li>
+    <div class="full r-sl b-solid b-line b-xs n-ms">
+      <h5>Templates</h5>
+      <p class="o-ls fs-ss">Start with selecting free templates.</p>
+    </div>
+  </li>
+  <li>
+    <div class="full r-sl b-solid b-line b-xs n-ms">
+      <h5>Design Resources</h5>
+      <p class="o-ls fs-ss">NeatUI UI components in your favorite design tools.</p>
+    </div>
+  </li>
+</ul>
+
+<div class="mt-ls" ui-flex="row xm">
+  <div></div>
+  <div>Was this page helpful?</div>
+</div>
