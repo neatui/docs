@@ -1,11 +1,11 @@
 <template>
   <div>
-    <DocLoader :file="file" />
+    <DocFileLoader :file="`/docs/Grid.md`" />
   </div>
 </template>
 <script setup lang="ts">
   import { computed } from 'vue';
-  import DocLoader from '@/components/DocLoader.vue';
+  import DocFileLoader from '@/components/DocFileLoader.vue';
   import { useBaseStore } from '@/store';
   import { useRoute } from 'vue-router';
 

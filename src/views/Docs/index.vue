@@ -20,11 +20,9 @@
         <span class="o-mm fs-xs mt-ms nb-no bold">{{ words['docs.version'] || 'Version' }}</span>
         <RouterLink active-class="co-main bg-main-xs" class="ux-hover r-sm" to="/docs/version">{{ words['docs.change-log'] || 'Change log' }}</RouterLink>
       </Sidebar>
-      <div class="flex-block">
-        <BodyView>
-          <RouterView />
-        </BodyView>
-      </div>
+      <BodyView class="flex-block">
+        <RouterView />
+      </BodyView>
     </div>
   </PageView>
 </template>
@@ -33,7 +31,6 @@
   import PageView from '@/views/modules/PageView.vue';
   import BodyView from '@/views/modules/BodyView.vue';
   import HeadView from '@/views/modules/HeadView.vue';
-  // import FootView from '@/views/modules/FootView.vue';
   import { storeToRefs, useBaseStore } from '@/store';
   const base: any = useBaseStore();
   const { words = {} }: any = storeToRefs(base);

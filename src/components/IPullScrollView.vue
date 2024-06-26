@@ -1,31 +1,27 @@
 <template>
-  <div class="full fekit-ipull-scroll" ui-scroll=":y" ref="root">
-    <div>
-      <div class="fs-xs co-text o-mm" fekit-pullload-head="" v-if="pull">
-        <div v-show="demo.store.pull < 2" ui-flex="row cm">
-          <i class="pulldown icon icon-pulldown" :class="`${demo.store.pull === 1 ? 'toup' : ''}`"></i>
-          <span v-show="demo.store.pull === 0">下拉刷新</span>
-          <span v-show="demo.store.pull === 1">松开加载</span>
-        </div>
-        <div v-show="demo.store.pull === 2" ui-flex="row cm">
+  <div class="fekit-ipull-scroll" ui-scroll=":y" ref="root">
+    <div class="fs-xs co-text o-mm" fekit-pullload-head="" v-if="pull">
+      <div v-show="demo.store.pull < 2" ui-flex="row cm">
+        <i class="pulldown icon icon-pulldown" :class="`${demo.store.pull === 1 ? 'toup' : ''}`"></i>
+        <span v-show="demo.store.pull === 0">下拉刷新</span>
+        <span v-show="demo.store.pull === 1">松开加载</span>
+      </div>
+      <div v-show="demo.store.pull === 2" ui-flex="row cm">
+        <span ui-load="@d"></span>
+      </div>
+      <div v-show="demo.store.pull === 3" ui-flex="row cm">
+        <span>刷新完成</span>
+      </div>
+    </div>
+    <slot></slot>
+    <div class="fs-xs co-text o-mm mb-sm" fekit-pullload-foot="" v-if="load">
+      <transition name="fekit-pullload-fade" mode="out-in">
+        <div v-if="demo.store.load === 2" ui-flex="row cm">
           <span ui-load="@d"></span>
-          <!-- <span>正在刷新</span> -->
         </div>
-        <div v-show="demo.store.pull === 3" ui-flex="row cm">
-          <span>刷新完成</span>
-        </div>
-      </div>
-      <slot></slot>
-      <div class="fs-xs co-text o-mm mb-sm" fekit-pullload-foot="" v-if="load">
-        <transition name="fekit-pullload-fade" mode="out-in">
-          <div v-if="demo.store.load === 2" ui-flex="row cm">
-            <span ui-load="@d"></span>
-            <!-- <span>正在加载</span> -->
-          </div>
-          <div v-else-if="demo.store.load === 3">没有更多了</div>
-          <div v-else>&nbsp;</div>
-        </transition>
-      </div>
+        <div v-else-if="demo.store.load === 3">没有更多了</div>
+        <div v-else>&nbsp;</div>
+      </transition>
     </div>
   </div>
 </template>
