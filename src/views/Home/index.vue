@@ -8,7 +8,7 @@
       <div class="flex-block">
         <IPullScrollView class="full" ui-flex="col cm" :pull="false" :load="false">
           <!-- <div></div> -->
-          <div class="box co-w nb-xl ac nx-ms" ui-flex="col cb">
+          <div class="box co-w nb-xl ac nx-ms" ui-flex="col cm">
             <div>
               <h1 class="fs-xl mob:fs-ls">
                 <b class="nl-ss fs-ls* mob:fs-ms*">{{ words['base.title'] }}</b>

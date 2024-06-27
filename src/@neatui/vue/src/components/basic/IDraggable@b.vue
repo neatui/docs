@@ -4,7 +4,7 @@
       v-for="(item, idx) in list || []"
       :key="idx"
       style="user-select: none"
-      class="drag-move-item b-solid b-line b-xs n-sm"
+      class="drag-move-item b-solid bk-line b-xs n-sm"
       :data-move-ing="state.__moveing"
       @mousedown="fMoveSta($event, list, idx)"
       @mousemove="fMoveIng($event, list, idx)"

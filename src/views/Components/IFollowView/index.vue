@@ -29,7 +29,7 @@
       <h2>API</h2>
       <div>
         <h3>IFollowView</h3>
-        <table ui-table="@b" class="b-solid b-line b-xs r-sm">
+        <table ui-table="@b" class="b-solid bk-line b-xs r-sm">
           <thead>
             <tr>
               <td>参数</td>

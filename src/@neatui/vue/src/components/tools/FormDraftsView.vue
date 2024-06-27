@@ -16,7 +16,7 @@
       </p>
       <ul v-if="state.detail" class="mb-sl fs-ss" ui-scroll=":y" style="max-height: 20rem">
         <template v-for="(item, idx) in state.diffs" :key="idx">
-          <li v-if="item.label" ui-flex="row lm" class="bb-xs b-line b-solid ny-ss">
+          <li v-if="item.label" ui-flex="row lm" class="bb-xs bk-line b-solid ny-ss">
             <span class="nx-ss r-sm mr-sm ux-hover nowrap" @click="fScrollToField(item.domId)">[{{ item.label }}]</span>
             <span v-if="item.lhsLabel" class="nx-ss r-sm ux-hover" ui-flex="row lm" @click="fDiscardDrafts(item)">
               <i class="icon icon-cloud co-well o-mm mr-xs"></i>

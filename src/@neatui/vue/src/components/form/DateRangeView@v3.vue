@@ -1,8 +1,8 @@
 <template>
-  <div :class="`${frame ? 'b-solid b-line b-xs r-sm' : ''}`" ui-flex="col xy" style="width: 41em">
+  <div :class="`${frame ? 'b-solid bk-line b-xs r-sm' : ''}`" ui-flex="col xy" style="width: 41em">
     <div class="flex-block" ui-flex="row xy">
       <div class="w-ll flex-fixed" ui-flex="col xy">
-        <div ui-date-head="" class="nx-sl mt-ss ny-sm b-solid b-back" ui-flex="row xm">
+        <div ui-date-head="" class="nx-sl mt-ss ny-sm b-solid bk-back" ui-flex="row xm">
           <div ui-flex="row lm" class="o-lm">
             <div ui-btn="@a s none :square" @click="prev(1, { y: -1 })">
               <Icon name="double-arrow-left" />
@@ -52,7 +52,7 @@
                     v-if="item.day"
                     :ui-date-day="item.day"
                     class="flex-block"
-                    :class="`${item.range ? 'bg-main+o-xs' : ''} ${item.sta ? 'r-lt-sl r-lb-sl' : ''} ${item.end ? 'r-rt-sl r-rb-sl' : ''}`"
+                    :class="`${item.range ? 'bg-main-xs' : ''} ${item.sta ? 'r-lt-sl r-lb-sl' : ''} ${item.end ? 'r-rt-sl r-rb-sl' : ''}`"
                     ui-flex="col cm"
                     @click="change(1, item)"
                   >
@@ -61,7 +61,7 @@
                       class="r-sm b-solid bk-none b-xs my-ss ux-scale"
                       style="width: 1.8em; height: 1.8em"
                       :class="`${item.isLastMonth || item.isNextMonth ? 'co-case' : item.holiday ? 'co-risk' : ''} ${
-                        item.selected ? 'active bg-main+o-lm co-fore' : 'hover-bg-weak'
+                        item.selected ? 'active bg-main-lm co-fore' : 'hover-bg-weak'
                       }`"
                     >
                       <span>{{ item.day }}</span>
@@ -76,7 +76,7 @@
       </div>
       <div class="flex-block"></div>
       <div class="w-ll flex-fixed" ui-flex="col xy">
-        <div ui-date-head="" class="nx-sl mt-ss ny-sm b-solid b-back" ui-flex="row xm">
+        <div ui-date-head="" class="nx-sl mt-ss ny-sm b-solid bk-back" ui-flex="row xm">
           <div ui-flex="row lm">
             <div v-if="idate(sta.panel).time < idate(end.panel).update({ y: -1 }).time" ui-btn="@a s none :square" @click="prev(2, { y: -1 })">
               <Icon name="double-arrow-left" />
@@ -126,7 +126,7 @@
                     v-if="item.day"
                     :ui-date-day="item.day"
                     class="flex-block"
-                    :class="`${item.range ? 'bg-main+o-xs' : ''} ${item.sta ? 'r-lt-sl r-lb-sl' : ''} ${item.end ? 'r-rt-sl r-rb-sl' : ''}`"
+                    :class="`${item.range ? 'bg-main-xs' : ''} ${item.sta ? 'r-lt-sl r-lb-sl' : ''} ${item.end ? 'r-rt-sl r-rb-sl' : ''}`"
                     ui-flex="col cm"
                     @click="change(2, item)"
                   >
@@ -135,7 +135,7 @@
                       class="r-sm b-solid bk-none b-xs my-ss ux-scale"
                       style="width: 1.8em; height: 1.8em"
                       :class="`${item.isLastMonth || item.isNextMonth ? 'co-case' : item.holiday ? 'co-risk' : ''} ${
-                        item.selected ? 'active bg-main+o-lm co-fore' : 'hover-bg-weak'
+                        item.selected ? 'active bg-main-lm co-fore' : 'hover-bg-weak'
                       }`"
                     >
                       <span>{{ item.day }}</span>
@@ -149,7 +149,7 @@
         </div>
       </div>
     </div>
-    <div v-if="tools" ui-date-foot="" ui-flex="row xm" class="nx-sl ny-sl b-solid bk-line+o-ls bt-xs">
+    <div v-if="tools" ui-date-foot="" ui-flex="row xm" class="nx-sl ny-sl b-solid bk-line-ls bt-xs">
       <div ui-flex="row lm" class="nl-ss">
         <p v-if="sta.value || end.value">
           <span class="nowrap">已选：</span>
@@ -158,8 +158,8 @@
         <div v-else-if="com.shortcuts?.length" ui-flex="row lm">
           <span class="nowrap">推荐：</span>
           <div class="mr-sm-sub nx-sl-sub ny-ss-sub lh-ss nowrap fs-ss dib-sub" ui-scroll=":x y:hidden">
-            <p v-for="(item, idx) in com.shortcuts" :key="idx" class="bg-main+o-xs co-main r-xl" ui-btn="@a xs none :round" @click="item?.func">{{ item?.text }}</p>
-            <p class="bg-main+o-xs co-main r-xl" ui-btn="@a xs none :round"><Icon class="co-main" name="more" /></p>
+            <p v-for="(item, idx) in com.shortcuts" :key="idx" class="bg-main-xs co-main r-xl" ui-btn="@a xs none :round" @click="item?.func">{{ item?.text }}</p>
+            <p class="bg-main-xs co-main r-xl" ui-btn="@a xs none :round"><Icon class="co-main" name="more" /></p>
           </div>
         </div>
         <div v-else>&nbsp;</div>

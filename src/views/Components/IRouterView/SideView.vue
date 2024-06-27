@@ -1,6 +1,6 @@
 <template>
   <div class="w-xl+ bg-fore r-sm">
-    <div class="nx-ss ny-sm b-solid b-line bb-xs">
+    <div class="nx-ss ny-sm b-solid bk-line bb-xs">
       <div ui-btn="@a s none" @click="onBack"><i class="icon icon-back"></i>返回</div>
     </div>
     <div class="n-ms">

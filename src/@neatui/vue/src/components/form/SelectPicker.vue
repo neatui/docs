@@ -6,14 +6,14 @@
       </Input>
       <template #options>
         <div class="full n-xs" ui-flex="col xy">
-          <div class="flex-fixed n-ms b-solid b-line bb-xs" ui-flex="row xm">
+          <div class="flex-fixed n-ms b-solid bk-line bb-xs" ui-flex="row xm">
             <div><button class="co-note" @click="cancel">取消</button></div>
             <div><button class="co-main" @click="select">确定</button></div>
           </div>
           <div class="flex-block">
             <IScrollView class="full n-ms" :pull="false" :load="false">
               <ul v-if="props.options?.length" class="my-sm-sub">
-                <li class="ux-hover n-sm r-ss b-solid b-case b-xs" v-for="(item, idx) of props.options" :key="idx" @click="mv = item.value">
+                <li class="ux-hover n-sm r-ss b-solid bk-case b-xs" v-for="(item, idx) of props.options" :key="idx" @click="mv = item.value">
                   <label ui-form="@a type:radio">
                     <input type="radio" :name="item.field" :checked="item.value === mv" /><span>{{ item.label || item }}</span>
                   </label>

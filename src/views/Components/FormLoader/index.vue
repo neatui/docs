@@ -12,7 +12,7 @@
             <h5>基础用法</h5>
             <FormLoader :form="ex1.form" :data="ex1.data" :idx="ex1.id">
               <template #diy="{ col = {} }: any = {}">
-                <div class="lh-ml r-ss nx-sm ny-xs b-solid b-case b-xs" ui-flex="row lm">
+                <div class="lh-ml r-ss nx-sm ny-xs b-solid bk-case b-xs" ui-flex="row lm">
                   <span>这是一个自定义模型</span>
                   <div ui-tips="@a ux:hover">
                     <i class="icon icon-theme ml-sm"></i>

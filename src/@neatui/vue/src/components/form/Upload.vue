@@ -1,6 +1,6 @@
 <template>
   <ul ui-flex="row lm :wrap" class="mb-ss-sub mr-ss-sub" v-bind="{ ...attrs }">
-    <li v-for="(file, idx) in state.files" :key="idx" ui-flex="col cm" class="flex-fixed bg-fore n-sl w-ms h-ms b-solid b-line b-xs">
+    <li v-for="(file, idx) in state.files" :key="idx" ui-flex="col cm" class="flex-fixed bg-fore n-sl w-ms h-ms b-solid bk-line b-xs">
       <img v-if="file.type === 'image'" :src="file.path" alt="" />
       <template v-else-if="file.type === 'pdf'">
         <svg t="1705645350800" class="w-ss h-ss" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1913">
@@ -139,7 +139,7 @@
     </li>
     <li v-if="(!multiple && state.files && state.files.length === 0) || (multiple && (!limit || (limit && state.files && state.files.length < limit)))">
       <slot>
-        <label ui-flex="row cm" ui-form="@a type:upload tips:hover" :class="`upload w-ms h-ms n-sl bg-fore b-solid b-line b-xs ${uploadClass}`" :style="uploadStyle">
+        <label ui-flex="row cm" ui-form="@a type:upload tips:hover" :class="`upload w-ms h-ms n-sl bg-fore b-solid bk-line b-xs ${uploadClass}`" :style="uploadStyle">
           <div v-if="tips" ui-form-tips>
             {{ tips }}
           </div>

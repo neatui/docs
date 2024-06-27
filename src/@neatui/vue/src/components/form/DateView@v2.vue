@@ -1,6 +1,6 @@
 <template>
-  <div ui-date="@a" class="fekit-date-view pr" :class="`${frame ? 'b-solid b-line b-xs r-sm' : ''}`" ui-flex="col xy" style="width: 22em">
-    <div ui-date-head="" class="flex-fixed nx-sl mt-ss ny-sm b-solid b-back" ui-flex="row xm">
+  <div ui-date="@a" class="fekit-date-view pr" :class="`${frame ? 'b-solid bk-line b-xs r-sm' : ''}`" ui-flex="col xy" style="width: 22em">
+    <div ui-date-head="" class="flex-fixed nx-sl mt-ss ny-sm b-solid bk-back" ui-flex="row xm">
       <div ui-flex="row lm" class="o-lm">
         <div ui-btn="@a s none :square" @click="prev('y')">
           <Icon name="double-arrow-left" />
@@ -45,7 +45,7 @@
                 v-if="item.day"
                 :ui-date-day="item.day"
                 class="flex-block"
-                :class="`${item.range ? 'bg-main+o-xs' : ''} ${item.sta ? 'r-lt-sl r-lb-sl' : ''} ${item.end ? 'r-rt-sl r-rb-sl' : ''}`"
+                :class="`${item.range ? 'bg-main-xs' : ''} ${item.sta ? 'r-lt-sl r-lb-sl' : ''} ${item.end ? 'r-rt-sl r-rb-sl' : ''}`"
                 ui-flex="col cm"
                 @click="change(item)"
                 @mouseenter="setRangeValue(item)"
@@ -54,9 +54,7 @@
                   ui-flex="col cm"
                   class="r-sm b-solid bk-none b-xs my-ss ux-scale"
                   style="width: 1.8em; height: 1.8em"
-                  :class="`${item.isLastMonth || item.isNextMonth ? 'co-idle' : item.isHoliday ? 'co-risk' : ''} ${
-                    item.selected ? 'active bg-main+o-lm co-fore' : 'hover-bg-weak'
-                  }`"
+                  :class="`${item.isLastMonth || item.isNextMonth ? 'co-idle' : item.isHoliday ? 'co-risk' : ''} ${item.selected ? 'active bg-main-lm co-fore' : 'hover-bg-weak'}`"
                 >
                   <span>{{ item.day }}</span>
                 </div>
@@ -68,7 +66,7 @@
       </div>
     </div>
     <div v-if="!state.isNoTime" class="ny-sm nx-ms">
-      <div class="full ac b-solid b-back b-xs r-sm" ui-row="mob-8" style="width: 100%; height: 3em; padding: 0.5em">
+      <div class="full ac b-solid bk-back b-xs r-sm" ui-row="mob-8" style="width: 100%; height: 3em; padding: 0.5em">
         <ul
           :style="`${state.panel ? '' : 'pointer-events: none; opacity:.35'}`"
           class="fekit-date-view-time-scroll"
@@ -111,7 +109,7 @@
       </div>
     </div>
 
-    <div v-if="tools" ui-date-foot="" ui-flex="row xm" class="flex-fixed nx-sl ny-sl b-solid bk-line+o-mm bt-xs">
+    <div v-if="tools" ui-date-foot="" ui-flex="row xm" class="flex-fixed nx-sl ny-sl b-solid bk-line-mm bt-xs">
       <div ui-flex="row lm" class="nl-ss">
         <div v-if="state.panel" ui-flex="row lm">
           <span :anim-editing="state.type === 'date'" ui-btn="@a xs none" class="nx-ss" @click="setPanelType('date')">{{ idate(state.panel).format('YYYY-MM-DD') }}</span>
@@ -121,8 +119,8 @@
         </div>
         <div v-else-if="state.shortcuts?.length" ui-flex="row lm">
           <div class="mr-sm-sub nx-sl-sub ny-ss-sub lh-ss nowrap fs-ss dib-sub" ui-scroll=":x y:hidden">
-            <p v-for="(item, idx) in state.shortcuts" :key="idx" class="bg-main+o-ss co-main r-xl" ui-btn="@a xs none :round" @click="item?.func">{{ item?.text }}</p>
-            <p class="bg-main+o-ss co-main r-xl" ui-btn="@a xs none :round"><Icon class="co-main" name="more" /></p>
+            <p v-for="(item, idx) in state.shortcuts" :key="idx" class="bg-main-ss co-main r-xl" ui-btn="@a xs none :round" @click="item?.func">{{ item?.text }}</p>
+            <p class="bg-main-ss co-main r-xl" ui-btn="@a xs none :round"><Icon class="co-main" name="more" /></p>
           </div>
         </div>
         <div>&nbsp;</div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="b-solid b-line b-xs r-sm">
+  <div class="b-solid bk-line b-xs r-sm">
     <div class="n-sl r-sm" v-bind="{ ...(scroll ? { 'ui-scroll': ':x :y' } : {}) }">
       <div class="h-xs mb-sm" ui-flex="row xm">
         <h4>{{ title || state.title }}</h4>
@@ -8,10 +8,10 @@
         <slot></slot>
       </div>
     </div>
-    <div class="codeview-tool fs-ss ny-xs b-solid b-back bt-xs" ui-flex="row cm">
+    <div class="codeview-tool fs-ss ny-xs b-solid bk-back bt-xs" ui-flex="row cm">
       <div ui-btn="@a s none :square" @click="state.view = !state.view"><i class="icon icon-code"></i></div>
     </div>
-    <div v-if="file" v-show="state.view" class="codeview-code fs-ss n-ms b-solid b-back bt-xs" ui-scroll=":x :y" v-html="code"></div>
+    <div v-if="file" v-show="state.view" class="codeview-code fs-ss n-ms b-solid bk-back bt-xs" ui-scroll=":x :y" v-html="code"></div>
   </div>
 </template>
 <script setup lang="ts">

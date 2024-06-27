@@ -2,7 +2,7 @@
   <div v-if="props.options?.length" class="mr-sm-sub mb-sm-sub">
     <span
       class="lh-ss ny-sm nx-ms r-xl dib"
-      :class="`${mv == item.value ? 'bg-main+o-sm co-main' : 'bg-weak'}`"
+      :class="`${mv == item.value ? 'bg-main-sm co-main' : 'bg-weak'}`"
       v-for="(item, idx) of props.options"
       :key="idx"
       @click="mv = item.value === mv ? '' : item.value"

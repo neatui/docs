@@ -23,7 +23,7 @@
   >
     <SwiperSlide>
       <div class="full bg-fore r-ms" ui-flex="col cm">
-        <DateView class="bg-fore co-read r-sm w-mm b-xs b-solid b-line"></DateView>
+        <DateView class="bg-fore co-read r-sm w-mm b-xs b-solid bk-line"></DateView>
       </div>
     </SwiperSlide>
     <SwiperSlide>

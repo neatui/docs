@@ -10,7 +10,7 @@
         <li>
           <CodeView file="/components/LimitLoader/ex1.md">
             <h5>基础用法</h5>
-            <div class="n-ms r-sm b-solid b-line b-xs">
+            <div class="n-ms r-sm b-solid bk-line b-xs">
               <LimitLoader :limit="limit" :param="param" />
             </div>
           </CodeView>
@@ -22,7 +22,7 @@
       <ul class="mb-mm-sub">
         <li>
           <h3>组件入参</h3>
-          <table ui-table="@b" class="b-solid b-line b-xs r-sm">
+          <table ui-table="@b" class="b-solid bk-line b-xs r-sm">
             <thead>
               <tr>
                 <td>参数</td>
@@ -67,7 +67,7 @@
         </li>
         <li>
           <h3>limit</h3>
-          <table ui-table="@b" class="b-solid b-line b-xs r-sm">
+          <table ui-table="@b" class="b-solid bk-line b-xs r-sm">
             <thead>
               <tr>
                 <td>参数</td>

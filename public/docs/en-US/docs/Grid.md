@@ -4,7 +4,7 @@ MCUI栅格系统采用独家设计的属性多重条件声明式语法响应式�
 
 ## 等分栅格
 
-<div class="full-w n-ls b-solid b-line b-xs r-sm">
+<div class="full-w n-ls b-solid bk-line b-xs r-sm">
   <ul ui-row="space mob-24 pad-12 dpc-8">
     <li>
       <div class="bg-weak h-sm r-sm" ui-flex="row cm">1</div>
@@ -29,7 +29,7 @@ MCUI栅格系统采用独家设计的属性多重条件声明式语法响应式�
 
 <br/>
 ## 自由栅格
-<div class="full-w n-ls b-solid b-line b-xs r-sm">
+<div class="full-w n-ls b-solid bk-line b-xs r-sm">
   <ul class="ac" ui-row="space">
     <li ui-col="mob-12 pad-6">
       <div class="bg-weak h-sm r-sm" ui-flex="row cm">mob-12 pad-6</div>

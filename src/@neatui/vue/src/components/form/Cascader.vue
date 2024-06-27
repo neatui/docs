@@ -12,7 +12,7 @@
       <template #tips v-if="!readonly && !disabled">
         <div v-if="state.flatOpts?.length && state.flatOpts[0]?.length > 0" ui-flex="row">
           <template v-for="(opt, optIndex) in state.flatOpts" :key="optIndex">
-            <ul v-if="opt?.length" class="min-h-ms max-h-ls" :class="`nx-sm lh-ml ${optIndex === 0 ? '' : 'bl-xs b-back b-solid'}`" ui-scroll=":y s">
+            <ul v-if="opt?.length" class="min-h-ms max-h-ls" :class="`nx-sm lh-ml ${optIndex === 0 ? '' : 'bl-xs bk-back b-solid'}`" ui-scroll=":y s">
               <!-- 多选 -->
               <template v-if="multiple">
                 <li v-for="(item, idx) of opt" :key="idx" class="ux-hover nx-sm r-ss nowrap" @click="multiSelect(item, optIndex)">

@@ -6,14 +6,14 @@
       </Input>
       <template #options>
         <div class="full n-xs" ui-flex="col xy">
-          <div class="flex-fixed n-ms b-solid b-line bb-xs" ui-flex="row xm">
+          <div class="flex-fixed n-ms b-solid bk-line bb-xs" ui-flex="row xm">
             <div><button class="co-note" @click="cancel">取消</button></div>
             <div><button class="co-main" @click="confirm">确定</button></div>
           </div>
           <div class="flex-block">
             <IScrollView class="full n-ms" :pull="false" :load="false">
               <ul v-if="props.options?.length" class="my-sm-sub">
-                <li class="ux-hover n-sm r-ss nowrap b-solid b-case b-xs" v-for="(item, idx) of props.options" :key="idx" @click.stop="select(item.value)">
+                <li class="ux-hover n-sm r-ss nowrap b-solid bk-case b-xs" v-for="(item, idx) of props.options" :key="idx" @click.stop="select(item.value)">
                   <label style="pointer-events: none" ui-form="@a type:checkbox :block">
                     <input type="checkbox" :name="field" :checked="mv?.some((i: any) => `${i}` === `${item.value}`)" />
                     <span class="ml-sm">{{ item.label || item }}</span>

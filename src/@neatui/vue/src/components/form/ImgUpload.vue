@@ -11,7 +11,7 @@
     </template>
     <template v-if="(!multiple && files && files.length === 0) || (multiple && (!limit || (limit && files && files.length < limit)))">
       <slot>
-        <div ui-flex="row cm" ui-form="@a type:upload tips:hover" :class="`upload bg-fore b-solid b-case b-xs mb-sl ${uploadClass}`" :style="uploadStyle">
+        <div ui-flex="row cm" ui-form="@a type:upload tips:hover" :class="`upload bg-fore b-solid bk-case b-xs mb-sl ${uploadClass}`" :style="uploadStyle">
           <div v-if="tips" ui-form-tips>
             {{ tips }}
           </div>

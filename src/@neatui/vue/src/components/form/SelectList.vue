@@ -1,8 +1,8 @@
 <template>
   <ul v-if="props.options?.length" class="my-sm-sub lh-ss">
     <li
-      class="hover:bg-main+o-ss n-sl r-ss b-solid b-xs"
-      :class="`${item.value === mv ? 'bk-main+o-ml bg-main+o-ss' : 'b-case'}`"
+      class="hover:bg-main-ss n-sl r-ss b-solid b-xs"
+      :class="`${item.value === mv ? 'bk-main-ml bg-main-ss' : 'bk-case'}`"
       v-for="(item, idx) of props.options"
       :key="idx"
       @click="mv = item.value === mv ? '' : item.value"

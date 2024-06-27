@@ -5,7 +5,7 @@
       <li
         v-for="(item, idx) of props.options"
         :key="idx"
-        :class="`${mv?.some((i: any) => `${i}` === `${item.value}`) ? 'bg-main+o-ss bk-main+o-ml' : 'b-case'}`"
+        :class="`${mv?.some((i: any) => `${i}` === `${item.value}`) ? 'bg-main-ss bk-main-ml' : 'bk-case'}`"
         class="nx-ms ny-ss r-sm b-solid b-xs pr"
         @click.stop="select(item.value)"
       >

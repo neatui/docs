@@ -1,5 +1,5 @@
 <template>
-  <div class="fekit-ipull-scroll" ui-scroll=":y" ref="root">
+  <div class="full fekit-ipull-scroll" ui-scroll=":y" ref="root">
     <div class="fs-xs co-text o-mm" fekit-pullload-head="" v-if="pull">
       <div v-show="demo.store.pull < 2" ui-flex="row cm">
         <i class="pulldown icon icon-pulldown" :class="`${demo.store.pull === 1 ? 'toup' : ''}`"></i>

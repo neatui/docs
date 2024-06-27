@@ -5,168 +5,42 @@ html {
 }
 
 @mixin color($n, $v) {
+  $levels: xs, ss, sm, sl, ms, mm, ml, ls, lm, ll, xl;
+
   .co-#{$n},
-  .hover\:co-#{$n}:hover {
-    color: var(--co-#{$n}, #{$v}) !important;
-    fill: var(--co-#{$n}, #{$v}) !important;
+  .co-#{$n}\:hover:hover,
+  .co-#{$n}\:active:active {
+    color: var(--co-#{$n}) !important;
+    fill: var(--co-#{$n}) !important;
   }
-  // 透明度
-  .co-#{$n}\+o-xs,
-  .hover\:co-#{$n}\+o-xs:hover {
-    color: rgba($v, 0.05) !important;
-    fill: rgba($v, 0.05) !important;
-  }
-  .co-#{$n}\+o-ss,
-  .hover\:co-#{$n}\+o-ss:hover {
-    color: rgba($v, 0.1) !important;
-    fill: rgba($v, 0.1) !important;
-  }
-  .co-#{$n}\+o-sm,
-  .hover\:co-#{$n}\+o-sm:hover {
-    color: rgba($v, 0.2) !important;
-    fill: rgba($v, 0.2) !important;
-  }
-  .co-#{$n}\+o-sl,
-  .hover\:co-#{$n}\+o-sl:hover {
-    color: rgba($v, 0.3) !important;
-    fill: rgba($v, 0.3) !important;
-  }
-  .co-#{$n}\+o-ms,
-  .hover\:co-#{$n}\+o-ms:hover {
-    color: rgba($v, 0.4) !important;
-    fill: rgba($v, 0.4) !important;
-  }
-  .co-#{$n}\+o-mm,
-  .hover\:co-#{$n}\+o-mm:hover {
-    color: rgba($v, 0.5) !important;
-    fill: rgba($v, 0.5) !important;
-  }
-  .co-#{$n}\+o-ml,
-  .hover\:co-#{$n}\+o-ml:hover {
-    color: rgba($v, 0.6) !important;
-    fill: rgba($v, 0.6) !important;
-  }
-  .co-#{$n}\+o-ls,
-  .hover\:co-#{$n}\+o-ls:hover {
-    color: rgba($v, 0.7) !important;
-    fill: rgba($v, 0.7) !important;
-  }
-  .co-#{$n}\+o-lm,
-  .hover\:co-#{$n}\+o-lm:hover {
-    color: rgba($v, 0.8) !important;
-    fill: rgba($v, 0.8) !important;
-  }
-  .co-#{$n}\+o-ll,
-  .hover\:co-#{$n}\+o-ll:hover {
-    color: rgba($v, 0.9) !important;
-    fill: rgba($v, 0.9) !important;
-  }
-  .co-#{$n}\+o-xl,
-  .hover\:co-#{$n}\+o-xl:hover {
-    color: rgba($v, 0.95) !important;
-    fill: rgba($v, 0.95) !important;
-  }
-
   .bg-#{$n},
-  .hover\:bg-#{$n}:hover {
-    background-color: #{$v} !important;
+  .bg-#{$n}\:hover:hover,
+  .bg-#{$n}\:active:active {
+    background-color: var(--co-#{$n}) !important;
   }
-  // 透明度
-  .bg-#{$n}\+o-xs,
-  .hover\:bg-#{$n}\+o-xs:hover {
-    background-color: rgba($v, 0.05) !important;
-  }
-  .bg-#{$n}\+o-ss,
-  .hover\:bg-#{$n}\+o-ss:hover {
-    background-color: rgba($v, 0.1) !important;
-  }
-  .bg-#{$n}\+o-sm,
-  .hover\:bg-#{$n}\+o-sm:hover {
-    background-color: rgba($v, 0.2) !important;
-  }
-  .bg-#{$n}\+o-sl,
-  .hover\:bg-#{$n}\+o-sl:hover {
-    background-color: rgba($v, 0.3) !important;
-  }
-  .bg-#{$n}\+o-ms,
-  .hover\:bg-#{$n}\+o-ms:hover {
-    background-color: rgba($v, 0.4) !important;
-  }
-  .bg-#{$n}\+o-mm,
-  .hover\:bg-#{$n}\+o-mm:hover {
-    background-color: rgba($v, 0.5) !important;
-  }
-  .bg-#{$n}\+o-ml,
-  .hover\:bg-#{$n}\+o-ml:hover {
-    background-color: rgba($v, 0.6) !important;
-  }
-  .bg-#{$n}\+o-ls,
-  .hover\:bg-#{$n}\+o-ls:hover {
-    background-color: rgba($v, 0.7) !important;
-  }
-  .bg-#{$n}\+o-lm,
-  .hover\:bg-#{$n}\+o-lm:hover {
-    background-color: rgba($v, 0.8) !important;
-  }
-  .bg-#{$n}\+o-ll,
-  .hover\:bg-#{$n}\+o-ll:hover {
-    background-color: rgba($v, 0.9) !important;
-  }
-  .bg-#{$n}\+o-xl,
-  .hover\:bg-#{$n}\+o-xl:hover {
-    background-color: rgba($v, 0.95) !important;
+  .bk-#{$n},
+  .bk-#{$n}\:hover:hover,
+  .bk-#{$n}\:active:active {
+    border-color: var(--co-#{$n}) !important;
   }
 
-  .b-#{$n},
-  .bk-#{$n},
-  .hover\:b-#{$n}:hover,
-  .hover\:bk-#{$n}:hover {
-    border-color: #{$v} !important;
-  }
-  // 透明度
-  .bk-#{$n}\+o-xs,
-  .hover\:bk-#{$n}\+o-xs:hover {
-    border-color: rgba($v, 0.05) !important;
-  }
-  .bk-#{$n}\+o-ss,
-  .hover\:bk-#{$n}\+o-ss:hover {
-    border-color: rgba($v, 0.1) !important;
-  }
-  .bk-#{$n}\+o-sm,
-  .hover\:bk-#{$n}\+o-sm:hover {
-    border-color: rgba($v, 0.2) !important;
-  }
-  .bk-#{$n}\+o-sl,
-  .hover\:bk-#{$n}\+o-sl:hover {
-    border-color: rgba($v, 0.3) !important;
-  }
-  .bk-#{$n}\+o-ms,
-  .hover\:bk-#{$n}\+o-ms:hover {
-    border-color: rgba($v, 0.4) !important;
-  }
-  .bk-#{$n}\+o-mm,
-  .hover\:bk-#{$n}\+o-mm:hover {
-    border-color: rgba($v, 0.5) !important;
-  }
-  .bk-#{$n}\+o-ml,
-  .hover\:bk-#{$n}\+o-ml:hover {
-    border-color: rgba($v, 0.6) !important;
-  }
-  .bk-#{$n}\+o-ls,
-  .hover\:bk-#{$n}\+o-ls:hover {
-    border-color: rgba($v, 0.7) !important;
-  }
-  .bk-#{$n}\+o-lm,
-  .hover\:bk-#{$n}\+o-lm:hover {
-    border-color: rgba($v, 0.8) !important;
-  }
-  .bk-#{$n}\+o-ll,
-  .hover\:bk-#{$n}\+o-ll:hover {
-    border-color: rgba($v, 0.9) !important;
-  }
-  .bk-#{$n}\+o-xl,
-  .hover\:bk-#{$n}\+o-xl:hover {
-    border-color: rgba($v, 0.95) !important;
+  @each $i in $levels {
+    .co-#{$n}-#{$i},
+    .co-#{$n}-#{$i}\:hover:hover,
+    .co-#{$n}-#{$i}\:active:active {
+      color: var(--co-#{$n}-#{$i}) !important;
+      fill: var(--co-#{$n}-#{$i}) !important;
+    }
+    .bg-#{$n}-#{$i},
+    .bg-#{$n}-#{$i}\:hover:hover,
+    .bg-#{$n}-#{$i}\:active:active {
+      background-color: var(--co-#{$n}-#{$i}) !important;
+    }
+    .bk-#{$n}-#{$i},
+    .bk-#{$n}-#{$i}\:hover:hover,
+    .bk-#{$n}-#{$i}\:active:active {
+      border-color: var(--co-#{$n}-#{$i}) !important;
+    }
   }
 }
 
@@ -176,8 +50,7 @@ html {
     $n: nth($i, 1);
     $s: nth($i, 2);
     @if ($n == $f) {
-      html,
-      [theme] {
+      html {
         @each $c in $s {
           @include color(nth($c, 1), nth($c, 2));
         }
@@ -187,19 +60,6 @@ html {
         @each $c in $s {
           @include color(nth($c, 1), nth($c, 2));
         }
-      }
-    }
-    @each $c in $s {
-      $cn: nth($c, 1);
-      $cv: nth($c, 2);
-      .#{$n}-co-#{$cn} {
-        color: $cv !important;
-      }
-      .#{$n}-bg-#{$cn} {
-        background-color: $cv !important;
-      }
-      .#{$n}-bk-#{$cn} {
-        border-color: $cv !important;
       }
     }
   }

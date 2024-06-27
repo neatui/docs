@@ -1,6 +1,6 @@
 <template>
-  <div :class="`${frame ? 'b-solid b-line b-xs r-sm' : ''}`" ui-flex="col xy">
-    <div ui-calendar-head="" class="nx-sl ny-sm b-solid b-line bb-xs">
+  <div :class="`${frame ? 'b-solid bk-line b-xs r-sm' : ''}`" ui-flex="col xy">
+    <div ui-calendar-head="" class="nx-sl ny-sm b-solid bk-line bb-xs">
       <div ui-flex="row lm"></div>
       <div ui-flex="row cm" class="nx-ss-sub">
         <p class="mx-ss-sub">
@@ -19,8 +19,8 @@
             <div
               ui-flex="col cm"
               class="r-sm b-solid bk-none b-xs"
-              :class="`${item.isToday ? 'bk-main+o-ls' : item.isLastMonth || item.isNextMonth ? 'co-note' : item.isHoliday ? 'co-risk' : ''} ${
-                state.selected && state.selected === item.date ? 'active bg-main+o-ls co-fore' : 'hover-bg-weak'
+              :class="`${item.isToday ? 'bk-main-ls' : item.isLastMonth || item.isNextMonth ? 'co-note' : item.isHoliday ? 'co-risk' : ''} ${
+                state.selected && state.selected === item.date ? 'active bg-main-ls co-fore' : 'hover-bg-weak'
               }`"
             >
               <span>{{ item.day }}</span>

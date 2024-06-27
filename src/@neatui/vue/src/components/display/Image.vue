@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="`mc-img b-solid b-case b-xs ${imgClass}`" :style="imgStyle">
+    <div :class="`mc-img b-solid bk-case b-xs ${imgClass}`" :style="imgStyle">
       <img :src="src[srcName]" :style="`object-fit: ${fit}`" @click.stop="showPreview" />
       <div v-if="tools" class="mc-img-tools">
         <slot name="tools">
