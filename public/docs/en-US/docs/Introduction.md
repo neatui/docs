@@ -16,7 +16,7 @@
 
 Let's look at some of the work developed using @neatui.
 
-[QACMS](https://qacms.fekit.cn/) | [ADMIN](https://case.fekit.cn/aa/)
+[<span class="ux-click">QACMS</span>](https://qacms.fekit.cn/) ❘ [<span class="ux-click">ADMIN</span>](https://case.fekit.cn/aa/)
 
 ## Community
 
@@ -24,7 +24,7 @@ If you encounter any issues during use, please feel free to contact me through t
 
 Technical Exchange QQ Group: 137972383, 153965675
 
-Email: [xiaojunbo@qq.com](xiaojunbo@qq.com)
+Email: [<span class="ux-click">xiaojunbo@qq.com</span>](xiaojunbo@qq.com)
 
 ## License
 

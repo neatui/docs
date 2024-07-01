@@ -40,37 +40,37 @@ NeatUI基于[<span class="ux-click">MIT license</span>](https://opensource.org/l
 
 <ul ui-row="space mob-24 pad-12 dpc-8">
   <li>
-    <div class="full r-sl b-solid bk-line b-xs n-ms">
+    <div class="full r-sl b-solid bk-line bk-main-mm:hover bg-weak-mm bg-main-xs:hover b-xs n-ms">
       <h5>安装</h5>
       <p class="o-ls fs-ss">使用一些命令将 NeatUI UI 添加到您的项目中。</p>
     </div>
   </li>
   <li>
-    <div class="full r-sl b-solid bk-line b-xs n-ms">
+    <div class="full r-sl b-solid bk-line bk-main-mm:hover bg-weak-mm bg-main-xs:hover b-xs n-ms">
       <h5>用法</h5>
       <p class="o-ls fs-ss">了解有关 NeatUI UI 组件的基础知识。</p>
     </div>
   </li>
   <li>
-    <div class="full r-sl b-solid bk-line b-xs n-ms">
+    <div class="full r-sl b-solid bk-line bk-main-mm:hover bg-weak-mm bg-main-xs:hover b-xs n-ms">
       <h5>示例项目</h5>
       <p class="o-ls fs-ss">一组样板可以帮助您快速启动下一个项目。</p>
     </div>
   </li>
   <li>
-    <div class="full r-sl b-solid bk-line b-xs n-ms">
+    <div class="full r-sl b-solid bk-line bk-main-mm:hover bg-weak-mm bg-main-xs:hover b-xs n-ms">
       <h5>自定义组件</h5>
       <p class="o-ls fs-ss">了解可用的自定义方法。</p>
     </div>
   </li>
   <li>
-    <div class="full r-sl b-solid bk-line b-xs n-ms">
+    <div class="full r-sl b-solid bk-line bk-main-mm:hover bg-weak-mm bg-main-xs:hover b-xs n-ms">
       <h5>模板</h5>
       <p class="o-ls fs-ss">从选择免费模板开始。</p>
     </div>
   </li>
   <li>
-    <div class="full r-sl b-solid bk-line b-xs n-ms">
+    <div class="full r-sl b-solid bk-line bk-main-mm:hover bg-weak-mm bg-main-xs:hover b-xs n-ms">
       <h5>设计资源</h5>
       <p class="o-ls fs-ss">您最喜欢的设计工具中的 NeatUI UI 组件。</p>
     </div>
@@ -78,6 +78,15 @@ NeatUI基于[<span class="ux-click">MIT license</span>](https://opensource.org/l
 </ul>
 
 <div class="mt-ls" ui-flex="row xm">
-  <div></div>
-  <div>此页面是否有帮助？</div>
+  <div ui-flex="row lm">
+    <button ui-btn="@a none s">
+      <i class="icon icon-github fs-ms"></i>
+      <span>编辑这个页面</span>
+    </button>
+  </div>
+  <div ui-flex="row rm" class="ml-sm-sub">
+    <span>此页面是否有帮助？</span>
+    <button ui-btn="@a none s :square"><i class="icon icon-like"></i></button>
+    <button ui-btn="@a none s :square"><i class="icon icon-nolike"></i></button>
+  </div>
 </div>
