@@ -14,6 +14,8 @@
 
 ## 示例
 
+让我们看看使用 @neatui 开发的一些作品。
+
 [<span class="ux-click">QACMS</span>](https://qacms.fekit.cn/) ❘ [<span class="ux-click">ADMIN</span>](https://case.fekit.cn/aa/)
 
 ## 社区

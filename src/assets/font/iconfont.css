@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icon'; /* Project id 4222099 */
   src:
-    url('iconfont.woff2?t=1719360252613') format('woff2'),
-    url('iconfont.woff?t=1719360252613') format('woff'),
-    url('iconfont.ttf?t=1719360252613') format('truetype');
+    url('iconfont.woff2?t=1719472993140') format('woff2'),
+    url('iconfont.woff?t=1719472993140') format('woff'),
+    url('iconfont.ttf?t=1719472993140') format('truetype');
 }
 
 .icon {
@@ -12,6 +12,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-nolike:before {
+  content: '\eb18';
+}
+
+.icon-like:before {
+  content: '\e62d';
 }
 
 .icon-github:before {
