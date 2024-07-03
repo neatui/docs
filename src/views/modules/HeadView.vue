@@ -8,14 +8,14 @@
             <b class="nl-ss fs-ms fw7">{{ words['base.title'] || 'NeatUI' }}</b>
           </a>
           <IFollowView pos="br">
-            <button ui-btn="@a none" class="ml-ms fs-ss o-ls"><code>V2</code><span class="icon icon-dropdown"></span></button>
+            <button ui-btn="@a none" class="ml-ms fs-ss o-ls"><code>V2 Beta</code><span class="icon icon-dropdown"></span></button>
             <template #tips>
               <ul class="min-w-sm bg-fore r-sm nx-ss ny-sl fs-ss">
                 <li ui-flex="row lm" class="ux-hover nx-sm ny-ss pr">
                   <a class="full" href="/v1"><code>V1</code></a>
                 </li>
                 <li ui-flex="row lm" class="ux-hover nx-sm ny-ss pr">
-                  <a class="full" href="/"><code>V2</code></a>
+                  <a class="full" href="/"><code>V2 Beta</code></a>
                 </li>
               </ul>
             </template>
